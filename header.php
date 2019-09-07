@@ -9,6 +9,7 @@
 <!-- Bootstrap -->
 <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <!-- <link href="<?php bloginfo('template_url'); ?>/css/bootstrap.min.css" rel="stylesheet"> -->
+<link href="<?php bloginfo('template_url'); ?>/style.css" rel="stylesheet">
 
 <!--[if lt IE 9]>
   <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>

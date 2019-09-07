@@ -53,4 +53,87 @@ Tags:
  * character instead.
  */
 
-body { padding-top: 70px; }
+a{text-decoration:none !important;}
+a:hover{text-decoration:none !important;color:#6f5499}
+a:hover,
+a:focus,
+.home .list .item .thumbnail img:hover,
+.home .list .item .thumbnail img:focus,
+.home .list .item .thumbnail img,
+.blog .list .item .thumbnail img:hover,
+.blog .list .item .thumbnail img:focus,
+.blog .list .item .thumbnail img{
+	transition:all 0.6s !important;
+}
+body {padding-top: 70px;}
+.home .list,
+.blog .list{
+	background-color:#f0f0f0;
+	padding-top: 1em;
+	margin-top: 1em;
+}
+.home .list .item,
+.blog .list .item{
+	border-radius:6px;
+}
+.home .list .item .thumbnail,
+.blog .list .item .thumbnail{
+	padding:0;
+	border:none;
+}
+.home .list .item .thumbnail img,
+.blog .list .item .thumbnail img{
+	border-radius:6px 6px 0 0;
+	width:100%;
+	height:auto;
+}
+.home .list .item .thumbnail img:hover,
+.blog .list .item .thumbnail img:hover{
+	opacity:0.6;
+	filter:alpha(opacity=60);
+}
+.home .list .item .thumbnail .caption h3,
+.blog .list .item .thumbnail .caption h3{
+	margin-top:4px;
+	font-size: 16px;
+	line-height:1.4em;
+}
+.home .list .item .thumbnail .caption .title,
+.blog .list .item .thumbnail .caption .title{
+	color:#333;
+	text-decoration:none;
+}
+.home .list .item .thumbnail .caption .title:hover,
+.blog .list .item .thumbnail .caption .title:hover,
+.home .list .item .thumbnail .caption .tags a:hover,
+.blog .list .item .thumbnail .caption .tags a:hover{
+	color:#6f5499;
+}
+.home .list .item .thumbnail .caption .title:visited,
+.blog .list .item .thumbnail .caption .title:visited{
+	color:#666;
+}
+.home .list .item .thumbnail .caption .description,
+.blog .list .item .thumbnail .caption .description{
+	padding-left:12px;
+	padding-bottom:12px;
+	color:#bbb;
+	border-bottom: 1px dashed #bbb;
+}
+.home .list .item .thumbnail .caption .tags,
+.blog .list .item .thumbnail .caption .tags{
+	color:#bbb;
+	font-size:11px;
+	padding-left:12px;
+	line-height:1.6em;
+}
+.home .list .item .thumbnail .caption .tags a,
+.blog .list .item .thumbnail .caption .tags a{
+	color:#bbb;
+	text-decoration:none;
+}
+.home .list .item .thumbnail .caption .tags .glyphicon,
+.blog .list .item .thumbnail .caption .tags .glyphicon{
+	margin-right:4px;
+}
+
