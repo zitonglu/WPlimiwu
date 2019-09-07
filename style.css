@@ -52,3 +52,5 @@ Tags:
  * a custom font that includes just a Hoefler Text space replacement for that
  * character instead.
  */
+
+body { padding-top: 70px; }

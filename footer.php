@@ -39,3 +39,5 @@
 <?php wp_footer(); ?>
 </body>
 </html>
+<!-- 网页打开时间：<?php timer_stop(1); ?>秒 -->
+<!-- 显示次数：<?php echo get_num_queries(); ?>次 -->
