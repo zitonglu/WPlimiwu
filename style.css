@@ -65,7 +65,7 @@ a:focus,
 .blog .list .item .thumbnail img{
 	transition:all 0.6s !important;
 }
-body {padding-top: 65px;}
+body{padding-top: 65px;}
 .home .list,
 .blog .list{
 	background-color:#f4f4f4;
@@ -88,7 +88,8 @@ body {padding-top: 65px;}
 	.col-lg-wu1{
 		width:20%;
 	}
-	.container{
+	.home .container,
+	.blog .container{
 		width:84%;
 		margin-left:8%;
 		margin-right:8%;
@@ -161,4 +162,12 @@ body {padding-top: 65px;}
 .blog .list .item .thumbnail .caption .tags .glyphicon{
 	margin-right:4px;
 }
-
+/*==========single==========*/
+.single{padding-top: 50px;}
+.single .jumbotron h2{
+	font-size: 40px;
+	line-height: 58px;
+	text-align: justify;
+	font-weight: 700;
+	font-family: "Microsoft Yahei", "微软雅黑", "宋体";
+}

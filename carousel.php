@@ -9,7 +9,7 @@
 	<!-- 轮播（Carousel）项目 -->
 	<div class="carousel-inner">
 		<div class="item active">
-			<img src="https://www.runoob.com/wp-content/uploads/2014/07/slide3.png" alt="First slide">
+			<img src="https://img.zcool.cn/community/018c195d71cc7ca8012176d7715d9e.jpg" alt="First slide">
 		</div>
 		<div class="item">
 			<img src="https://www.runoob.com/wp-content/uploads/2014/07/slide2.png" alt="Second slide">
