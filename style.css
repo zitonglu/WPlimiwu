@@ -65,7 +65,7 @@ a:focus,
 .blog .list .item .thumbnail img{
 	transition:all 0.6s !important;
 }
-body {padding-top: 70px;}
+body {padding-top: 65px;}
 .home .list,
 .blog .list{
 	background-color:#f4f4f4;
