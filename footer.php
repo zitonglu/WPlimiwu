@@ -3,6 +3,20 @@
 <script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!-- <script src="<?php bloginfo('template_url'); ?>/js/jquery.min.js"></script>
 <script src="<?php bloginfo('template_url'); ?>/js/bootstrap.min.js"></script> -->
+<!-- 瀑布流 JS -->
+<script src="<?php bloginfo('template_url'); ?>/js/masonry.min.js"></script>
+<!-- 加载图片 JS -->
+<script src="<?php bloginfo('template_url'); ?>/js/imagesloaded.min.js"></script>
+<script>
+    $(function() {
+        var masonryNode = $('#masonry');
+        masonryNode.imagesLoaded(function(){
+            masonryNode.masonry({
+                itemSelector: '.item'
+            });
+        });   
+    });
+</script>
 
 <?php wp_footer(); ?>
 </body>
