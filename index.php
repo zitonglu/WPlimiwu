@@ -1,8 +1,8 @@
 <?php get_header();?>
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-8 col-xs-12">幻灯片位置</div>
-			<div class="col-sm-4 col-xs-12">相关信息</div>
+			<div class="col-sm-9 col-xs-12"><?php get_template_part('carousel'); ?></div>
+			<div class="col-sm-3 col-xs-12">相关信息</div>
 		</div>
 	</div>
 	<div class="list">
