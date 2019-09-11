@@ -9,18 +9,22 @@
  */
 
 // 获取文章第一张缩略图 
-function limiwu_first_img() {
+function limiwu_post_first_img() {
 	global $post;
-	$first_img = '';
-	ob_start();
-	ob_end_clean();
-	$output = preg_match_all('/<img*.+src=[\'"]([^\'"]+)[\'"].*>/iU', wp_unslash($post->post_content), $matches);
-	if(empty($output)){ 
-		$first_img = get_template_directory_uri().'/image/coffee.jpg';
-	}else {
-		$first_img = $matches [1][0];
+	if (has_post_thumbnail()) {
+			return the_post_thumbnail();
+		}else{// 获取缩略图
+		$first_img = '';
+		ob_start();
+		ob_end_clean();
+		$output = preg_match_all('/<img*.+src=[\'"]([^\'"]+)[\'"].*>/iU', wp_unslash($post->post_content), $matches);
+		if(empty($output)){ 
+			$first_img = get_template_directory_uri().'/image/coffee.jpg';
+		}else {
+			$first_img = $matches [1][0];
+		}
+		echo '<img src="'.$first_img.'" alt="'.get_the_title().'" />';
 	}
-	return $first_img;
 }
 
 // 开启缩略图功能

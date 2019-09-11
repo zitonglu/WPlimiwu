@@ -1,12 +1,7 @@
 <div id="post-<?php the_ID(); ?>" class="col-lg-wu1 col-md-3 col-sm-4 col-xs-6 item">
 	<div class="thumbnail">
 		<a href="<?php the_permalink(); ?>" target="_blank" title="<?php echo get_the_title(); ?>">
-			<?php 
-			if ( has_post_thumbnail() ) {
-				the_post_thumbnail();
-			}else {
-				echo '<img src="'.get_template_directory_uri().'/image/coffee.jpg" />';
-			} ?>
+			<?php limiwu_post_first_img();?><!-- 获取缩略图 -->
 		</a>
 		<div class="caption">
 			<a href="<?php the_permalink(); ?>" target="_blank" class="title" title="<?php echo get_the_title(); ?>"><h3><?php echo get_the_title(); ?></h3></a>
