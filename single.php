@@ -34,15 +34,26 @@
 	</div>
 	<div class="container">
 		<div class="cow">
-			<div class="col-sm-8">
+			<div class="col-sm-8 text">
 				<?php 
 				while ( have_posts() ) {
 					the_post();
 					the_content();
 				}
+				
+				$tags = wp_get_post_tags($post->ID);
+				if (!empty($tags)) {
 				?>
+					<h3>更多内容</h3><hr>
+				<?php
+					echo '<p>';
+					foreach ($tags as $tag ) {
+						echo '<a href="'.get_tag_link($tag->term_id).'" class="btn btn-default btn-lg" target="_blank" role="button" title="'.$tag->name.'">'.$tag->name.'</a> ';
+					}
+					echo '</p>';
+				}?>
 			</div>
-			<div class="col-sm-4">
+			<div class="col-sm-4 side">
 				<?php get_sidebar(); ?>
 			</div>
 		</div>

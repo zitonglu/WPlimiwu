@@ -150,7 +150,7 @@ body{padding-top: 65px;}
 	font-size: 12px;
 	color: #999;
 }
-/*@media (min-width: 768px){
+@media (max-width: 768px){
 	.single .jumbotron h2::before{
 		content: '';
 		margin-right: 8px;
@@ -161,9 +161,12 @@ body{padding-top: 65px;}
 		border-radius: 50% 50% 0;
 		border: 2px solid #6f5499;
 	}
-}*/
+}
 @media (min-width: 1200px){
 	body.single .container{
 		width:970px;
 	}
+}
+.single .text{
+	border-right: 1px solid #eee;
 }
