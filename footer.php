@@ -22,11 +22,6 @@
         });
     });
     $('#masonry').infinitescroll({
-            loading     : {
-                msgText        : "<p>您好，已经到了最后页面。</p>",
-                img: "<?php bloginfo('template_url'); ?>/image/loading.jpg",
-                finishedMsg : "<p>文章加载中...</p>"
-            },
             navSelector : "#nav-below",
             nextSelector: "#nav-below #older_posts a",
             itemSelector: "#masonry div.item",

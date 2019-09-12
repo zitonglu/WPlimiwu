@@ -11,48 +11,7 @@ License URI:
 Text Domain: 
 Tags: 
 
-
-*/
-/*--------------------------------------------------------------
->>> TABLE OF CONTENTS:
-----------------------------------------------------------------
-# Variables
-# Normalize
-# Typography
-	## Headings
-	## Copy
-# Elements
-	## Lists
-	## Tables
-# Forms
-	## Buttons
-	## Fields
-# Navigation
-	## Links
-	## Menus
-	## Next & Previous
-# Accessibility
-# Alignments
-# Clearings
-# Layout
-# Widgets
-# Content
-	## Archives
-	## Posts and pages
-	## Comments
-# Blocks
-# Media
-	## Captions
-	## Galleries
---------------------------------------------------------------*/
-/*
- * Chrome renders extra-wide &nbsp; characters for the Hoefler Text font.
- * This results in a jumping cursor when typing in both the Classic and block
- * editors. The following font-face override fixes the issue by manually inserting
- * a custom font that includes just a Hoefler Text space replacement for that
- * character instead.
- */
-
+-------------*/
 a{text-decoration:none !important;}
 a:hover{text-decoration:none !important;color:#6f5499}
 a:hover,
@@ -65,6 +24,7 @@ a:focus,
 .blog .list .item .thumbnail img{
 	transition:all 0.6s !important;
 }
+#infscr-loading{display:none !important;}
 body{padding-top: 65px;}
 .home .list,
 .blog .list{
@@ -170,4 +130,21 @@ body{padding-top: 65px;}
 	text-align: justify;
 	font-weight: 700;
 	font-family: "Microsoft Yahei", "微软雅黑", "宋体";
+}
+@media (min-width: 768px){
+	.single .jumbotron h2::before{
+		content: '';
+		margin-right: 8px;
+		margin-bottom: .45em;
+		width: 15px;
+		height: 15px;
+		display: inline-block;
+		border-radius: 50% 50% 0;
+		border: 2px solid #6f5499;
+	}
+}
+@media (min-width: 1200px){
+	body.single .container{
+		width:970px;
+	}
 }
