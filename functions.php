@@ -70,12 +70,14 @@ function limiwu_add_source($post,$boxargs){
     // 获取之前存储的值
     $limiwu_source_value = get_post_meta( $post->ID, '_limiwu_source', true );
     $limiwu_source_remarks_value = get_post_meta( $post->ID, '_limiwu_source_remarks', true );
+    $limiwu_source_author_value = get_post_meta( $post->ID, '_limiwu_source_author', true );
 ?>
     <label for="limiwu_source">来源网址：</label>
     <input style="width: 100%" type="url" id="limiwu_source" name="limiwu_source" value="<?php echo esc_attr( $limiwu_source_value ); ?>" placeholder="输入文章来源地址">
-    <br>
-    <label for="limiwu_source_remarks">说明：</label>
+    <label for="limiwu_source_remarks">来源网站名称：</label>
     <input style="width: 100%" type="text" id="limiwu_source_remarks" name="limiwu_source_remarks" value="<?php echo esc_attr( $limiwu_source_remarks_value ); ?>" placeholder="备注说明">
+    <label for="limiwu_source_author">作者/发布者：</label>
+    <input style="width: 100%" type="text" id="limiwu_source_author" name="limiwu_source_author" value="<?php echo esc_attr( $limiwu_source_author_value ); ?>" placeholder="发布者或单位名称">
 <?php
 }
 
@@ -105,4 +107,6 @@ function limiwu_add_source_save_meta_box($post_id){
     update_post_meta( $post_id, '_limiwu_source', $limiwu_source );
     $limiwu_source_remarks = sanitize_text_field( $_POST['limiwu_source_remarks'] );
     update_post_meta( $post_id, '_limiwu_source_remarks', $limiwu_source_remarks );
+    $limiwu_source_author = sanitize_text_field( $_POST['limiwu_source_author'] );
+    update_post_meta( $post_id, '_limiwu_source_author', $limiwu_source_author );
 }

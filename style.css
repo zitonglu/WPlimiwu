@@ -124,6 +124,10 @@ body{padding-top: 65px;}
 }
 /*==========single==========*/
 .single{padding-top: 50px;}
+.single .jumbotron{
+	background-color: #f8f8f9;
+	border-bottom: 1px solid #eee;
+}
 .single .jumbotron h2{
 	margin-bottom: 0.6em;
 	font-size: 40px;
