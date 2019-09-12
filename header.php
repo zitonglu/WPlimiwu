@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <?php wp_head(); ?>
-
+<link rel="shortcut icon" href="<?php bloginfo('template_url'); ?>/image/favicon.ico" type="image/x-icon" />
 <!-- Bootstrap -->
 <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <!-- <link href="<?php bloginfo('template_url'); ?>/css/bootstrap.min.css" rel="stylesheet"> -->

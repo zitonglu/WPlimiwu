@@ -4,13 +4,21 @@
 			<h2><?php single_post_title(); ?></h2>
 			<div class="media">
 				<div class="media-left">
-					<a href="#">
-						<img class="media-object" src="<?php echo get_avatar( get_the_author_email(), '60' );?>" alt="...">
-					</a>
+					<?php if(get_post_meta( $post->ID, '_limiwu_source', true )):?>
+					<img class="media-object post-ico" src="https://api.byi.pw/favicon/?url=<?php echo get_post_meta( $post->ID, '_limiwu_source', true )?>" alt="<?php echo get_post_meta( $post->ID, '_limiwu_source_remarks', true )?>">
+					<?php else: ?>
+					<img class="media-object post-ico" src="<?php bloginfo('template_url'); ?>/image/favicon.ico?>" alt="<?php bloginfo('name'); ?>">
+					<?php endif ?>
 				</div>
 				<div class="media-body">
-					<h4 class="media-heading"><?php echo the_slug();?></h4>
-					<p></p>
+					<?php if(get_post_meta( $post->ID, '_limiwu_source_remarks', true )):?>
+					<h4 class="media-heading"><?php echo get_post_meta( $post->ID, '_limiwu_source_remarks', true )?></h4>
+					<?php else: ?>
+					<h4 class="media-heading"><?php bloginfo('name'); ?></h4>
+					<?php endif ?>
+					<p>
+						发布时间： <?php echo get_the_time('m-d h:s');?>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo get_the_author_meta( 'display_name', $post->post_author );?> <?php edit_post_link('[编辑]'); ?>
+					</p>
 				</div>
 			</div>
 			
