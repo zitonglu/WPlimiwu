@@ -52,7 +52,7 @@
 					echo '</div>';
 				}?>
 			</div>
-			<div class="col-sm-4 side">
+			<div class="col-sm-4 sider">
 				<?php get_sidebar(); ?>
 			</div>
 		</div>
