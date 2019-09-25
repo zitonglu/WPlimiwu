@@ -207,3 +207,16 @@ body{padding-top: 65px;}
 .single .article h2::before{
 	margin-right: -6px;
 }
+/*====.footer 页面底部 ====*/
+.footer{
+	margin-top: 2em;
+	padding: 8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+	text-align: center;
+	background: #212121;
+	color: #bdbdbd;
+	border-top: 1px solid #757575;
+}
+.footer a{color:#777}
+.footer a:hover{color: #bdbdbd}

@@ -1,9 +1,15 @@
-<footer class="container">
-    <p>这里放一些友情链接之类的东西，需要把整个界面撑起来，起码50px。</p>
+<footer class="footer">
+    <p>
+        Copyright © 2019-2020 <a href="<?php bloginfo('url'); ?>/wp-admin" target="_blank"><?php bloginfo('name'); ?></a> <span class="glyphicon glyphicon-pencil"></span> 
+        <a href="//beian.miit.gov.cn/" rel="nofollow" target="_blank">
+<?php echo get_option( 'limiwu_get_ICP' );?></a> <!--网站备案号-->
+        <span class="glyphicon glyphicon-tree-deciduous"></span> <a href="<?php bloginfo('rdf_url'); ?>" target="_blank">RSS</a> 
+        Powered By <a href="//cn.wordpress.org" rel="nofollow" target="_blank">WordPress</a>. Theme by <a href="//limiwu.com" target="_blank">limiwu.com</a>
+    </p>
 </footer>
 <!-- JQ and Bootstrap JS -->
-<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-<script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="//cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!-- <script src="<?php bloginfo('template_url'); ?>/js/jquery.min.js"></script>
 <script src="<?php bloginfo('template_url'); ?>/js/bootstrap.min.js"></script> -->
 <?php if( is_single() || is_page()):?>

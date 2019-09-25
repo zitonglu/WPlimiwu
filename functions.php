@@ -8,6 +8,15 @@
  * @author annanzi/910109610@qq.com
  */
 
+// 开启主题的小工具
+if( function_exists('register_sidebar') ) {
+    register_sidebar(array(
+        'before_widget' => '<li>', // widget 的开始标签
+        'after_widget' => '</li>', // widget 的结束标签
+        'before_title' => '<h3>', // 标题的开始标签
+        'after_title' => '</h3>' // 标题的结束标签
+    ));
+}
 // 开启缩略图功能
 add_theme_support( 'post-thumbnails' );
 /**
@@ -109,4 +118,22 @@ function limiwu_add_source_save_meta_box($post_id){
     update_post_meta( $post_id, '_limiwu_source_remarks', $limiwu_source_remarks );
     $limiwu_source_author = sanitize_text_field( $_POST['limiwu_source_author'] );
     update_post_meta( $post_id, '_limiwu_source_author', $limiwu_source_author );
+}
+/**
+ * WordPress 添加额外选项字段到常规设置页面
+ * www.wpdaxue.com/add-field-to-general-settings-page.html
+ */
+$new_general_setting = new new_general_setting();
+class new_general_setting {
+    function new_general_setting( ) {
+        add_filter( 'admin_init' , array( &$this , 'register_fields' ) );
+    }
+    function register_fields() {
+        register_setting( 'general', 'limiwu_get_ICP', 'esc_attr' );
+        add_settings_field('fav_color', '<label for="limiwu_get_ICP">'.__('备案号' ).'</label>' , array(&$this, 'fields_html') , 'general' );
+    }
+    function fields_html() {
+        $value = get_option( 'limiwu_get_ICP', '' );
+        echo '<input type="text" id="limiwu_get_ICP" name="limiwu_get_ICP" value="'.$value.'" />';
+    }
 }
