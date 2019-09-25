@@ -5,7 +5,7 @@
 			<div class="media">
 				<div class="media-left">
 					<?php if(get_post_meta( $post->ID, '_limiwu_source', true )):?>
-						<img class="media-object post-ico" src="https://api.byi.pw/favicon/?url=<?php echo get_post_meta( $post->ID, '_limiwu_source', true )?>" alt="<?php echo get_post_meta( $post->ID, '_limiwu_source_remarks', true )?>">
+						<img class="media-object post-ico" src="//<?php echo get_post_meta( $post->ID, '_limiwu_source', true )?>/favicon.ico" alt="<?php echo get_post_meta( $post->ID, '_limiwu_source_remarks', true )?>">
 						<?php else: ?>
 						<img class="media-object post-ico" src="<?php bloginfo('template_url'); ?>/image/favicon.ico?>" alt="<?php bloginfo('name'); ?>">
 					<?php endif ?>
@@ -34,7 +34,7 @@
 	</div>
 	<div class="container">
 		<div class="cow">
-			<div class="col-sm-8 text">
+			<div class="col-sm-8 article">
 				<?php 
 				while ( have_posts() ) {
 					the_post();
@@ -44,13 +44,13 @@
 				$tags = wp_get_post_tags($post->ID);
 				if (!empty($tags)) {
 				?>
-					<h3>更多内容</h3><hr>
+					<h3>更多内容</h3>
 				<?php
-					echo '<p>';
+					echo '<div>';
 					foreach ($tags as $tag ) {
 						echo '<a href="'.get_tag_link($tag->term_id).'" class="btn btn-default btn-lg" target="_blank" role="button" title="'.$tag->name.'">'.$tag->name.'</a> ';
 					}
-					echo '</p>';
+					echo '</div>';
 				}?>
 			</div>
 			<div class="col-sm-4 side">

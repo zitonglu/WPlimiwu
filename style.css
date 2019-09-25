@@ -125,8 +125,8 @@ body{padding-top: 65px;}
 /*==========single==========*/
 .single{padding-top: 50px;}
 .single .jumbotron{
-	background-color: #f8f8f9;
-	border-bottom: 1px solid #eee;
+	background-color: #f0f0f0;
+	border-bottom: 1px solid #ececec;
 }
 .single .jumbotron h2{
 	margin-bottom: 0.6em;
@@ -137,7 +137,7 @@ body{padding-top: 65px;}
 	font-family: "Microsoft Yahei", "微软雅黑", "宋体";
 }
 .single .jumbotron .media .media-left .post-ico{
-	width:48px;
+	width:32px;
 	height: auto;
 	border-radius:50%;
 }
@@ -167,6 +167,44 @@ body{padding-top: 65px;}
 		width:970px;
 	}
 }
-.single .text{
+/*====.single .article 文章正文格式====*/
+.single .article{
 	border-right: 1px solid #eee;
+}
+.single .article p{
+	font-size:16px;
+	text-indent: 2em;
+	line-height: 24px;
+	color: #333;
+	text-align: justify;
+}
+.single .article h1,
+.single .article h2,
+.single .article h3,
+.single .article h4,
+.single .article h5,
+.single .article h6{
+	line-height: 1.8em;
+	font-weight: 800;
+	border-bottom: 1px solid #dedede;
+}
+.single .article h1::before,
+.single .article h2::before,
+.single .article h3::before,
+.single .article h4::before,
+.single .article h5::before,
+.single .article h6::before{
+	position: relative;
+	margin-bottom: 0.4em;
+	margin-right: 6px;
+	content: '';
+	display: inline-block;
+	width: 0.4em;
+	height: 0.4em;
+	border-radius: 1.2em 1em 0;
+	border: 2px solid #333;
+}
+.single .article h1::before,
+.single .article h2::before{
+	margin-right: -6px;
 }
