@@ -12,8 +12,8 @@ Text Domain:
 Tags: 
 
 -------------*/
-a{text-decoration:none !important;}
-a:hover{text-decoration:none !important;color:#6f5499}
+a{text-decoration:none !important;color:#ffb262}
+a:hover{text-decoration:none !important;color:#333;}
 a:hover,
 a:focus,
 .home .list .item .thumbnail img:hover,
@@ -89,15 +89,17 @@ body{padding-top: 65px;}
 	color:#111;
 	text-decoration:none;
 }
-.home .list .item .thumbnail .caption .title:hover,
-.blog .list .item .thumbnail .caption .title:hover,
+.home .list .item .thumbnail .caption .title h3:hover,
+.blog .list .item .thumbnail .caption .title h3:hover,
 .home .list .item .thumbnail .caption .tags a:hover,
 .blog .list .item .thumbnail .caption .tags a:hover{
-	color:#6f5499;
+	color:#ffb262;
+	transition:all 0.6s !important;
 }
 .home .list .item .thumbnail .caption .title:visited,
 .blog .list .item .thumbnail .caption .title:visited{
-	color:#666;
+	color:#555;
+	color:#333;
 }
 .home .list .item .thumbnail .caption .description,
 .blog .list .item .thumbnail .caption .description{
@@ -177,6 +179,11 @@ body{padding-top: 65px;}
 	color: #333;
 	text-align: justify;
 }
+.single .article a{
+	padding:2px 3px;
+	border-bottom:1px solid #ffb262;
+	font-weight:700
+}
 .single .article h1,
 .single .article h2,
 .single .article h3,
@@ -193,8 +200,7 @@ body{padding-top: 65px;}
 .single .article h3::before,
 .single .article h4::before,
 .single .article h5::before,
-.single .article h6::before,
-.single .sider h3::before{
+.single .article h6::before{
 	position: relative;
 	margin-bottom: 0.4em;
 	margin-right: 6px;
@@ -215,6 +221,10 @@ body{padding-top: 65px;}
 .single .sider h3{
 	font-size:18px;
 }
+.single .sider h3::before{
+	content: '\263A';
+	font-size: 140%;
+}
 .single .sider .calendar_wrap:before{
 	content: '';
 	position: absolute;
@@ -233,6 +243,7 @@ body{padding-top: 65px;}
 	background: #eee;
 	background: linear-gradient(-150deg,transparent 1.5em,#eee 0);
 	text-align: center;
+	box-shadow: 0px 3px 6px -3px #666;
 }
 .single .sider .calendar_wrap table{
 	width:100%;
@@ -240,6 +251,31 @@ body{padding-top: 65px;}
 .single .sider .calendar_wrap table caption,
 .single .sider .calendar_wrap table th{
 	text-align: center;
+}
+.single .sider .calendar_wrap a{
+	background-color:#f4f4f4;
+	font-weight:700
+}
+.single .sider .tagcloud a{
+	margin: 0 3px 5px 0px;
+	padding: 1px 9px 3px;
+	display: inline-block;
+	border-radius: 8px 0;
+	color: #666;
+	background: #ededed;
+	border: 1px solid #cccccc;
+	font-size: 14px !important;
+	font-weight:100;
+}
+.single .sider .tagcloud a .tag-link-count{
+	font-size: 75%;
+	margin-left: 2px;
+}
+.single .sider .tagcloud a:hover{
+	color: #fff;
+	background: #ffb262;
+	border: 1px solid #ffb262;
+	font-weight:700;
 }
 /*====.footer 页面底部 ====*/
 .footer{
