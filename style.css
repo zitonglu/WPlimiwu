@@ -22,8 +22,8 @@ a:focus,
 .blog .list .item .thumbnail img:hover,
 .blog .list .item .thumbnail img:focus,
 .blog .list .item .thumbnail img,
-.single .sider img:hover,
-.single .sider img{
+.single .sidebar img:hover,
+.single .sidebar img{
 	transition:all 0.6s !important;
 }
 #infscr-loading{display:none !important;}
@@ -192,7 +192,7 @@ body{padding-top: 65px;}
 .single .article h4,
 .single .article h5,
 .single .article h6,
-.single .sider h3{
+.single .sidebar h3{
 	line-height: 1.8em;
 	font-weight: 800;
 	border-bottom: 1px solid #dedede;
@@ -213,20 +213,29 @@ body{padding-top: 65px;}
 	border-radius: 1.2em 1em 0;
 	border: 2px solid #333;
 }
-/*====.single .sider 侧栏格式====*/
-#sidebar ul:first-child{
-	margin-top:-20px;
-	list-style-type: none;
-	padding:0 1em;
+/*====.single .sidebar 侧栏格式====*/
+@media (min-width: 990px){
+	.sidebar .widget{
+		padding-left: 18px;
+	}
 }
-.single .sider h3{
+.single .sidebar .widget a{
+	color:#333;
+}
+.single .sidebar .widget a:hover{
+	color:#888;
+}
+.single .sidebar .widget:first-child{
+	margin-top:-20px;
+}
+.single .sidebar h3{
 	font-size:18px;
 }
-.single .sider h3::before{
+.single .sidebar h3::before{
 	content: '\263A';
 	font-size: 140%;
 }
-.single .sider .calendar_wrap:before{
+.single .sidebar .calendar_wrap:before{
 	content: '';
 	position: absolute;
 	top: 0;
@@ -239,25 +248,25 @@ body{padding-top: 65px;}
 	border-bottom-left-radius: inherit;
 	box-shadow: -.2em .2em .3em -.1em rgba(0,0,0,.15);
 }
-.single .sider .calendar_wrap{
+.single .sidebar .calendar_wrap{
 	position: relative;
 	background: #eee;
 	background: linear-gradient(-150deg,transparent 1.5em,#eee 0);
 	text-align: center;
 	box-shadow: 0px 3px 6px -3px #666;
 }
-.single .sider .calendar_wrap table{
+.single .sidebar .calendar_wrap table{
 	width:100%;
 }
-.single .sider .calendar_wrap table caption,
-.single .sider .calendar_wrap table th{
+.single .sidebar .calendar_wrap table caption,
+.single .sidebar .calendar_wrap table th{
 	text-align: center;
 }
-.single .sider .calendar_wrap a{
+.single .sidebar .calendar_wrap a{
 	background-color:#f4f4f4;
 	font-weight:700
 }
-.single .sider .tagcloud a{
+.single .sidebar .tagcloud a{
 	margin: 0 3px 5px 0px;
 	padding: 1px 9px 3px;
 	display: inline-block;
@@ -268,26 +277,20 @@ body{padding-top: 65px;}
 	font-size: 14px !important;
 	font-weight:100;
 }
-.single .sider .tagcloud a .tag-link-count{
+.single .sidebar .tagcloud a .tag-link-count{
 	font-size: 75%;
 	margin-left: 2px;
 }
-.single .sider .tagcloud a:hover{
+.single .sidebar .tagcloud a:hover{
 	color: #fff;
 	background: #ffb262;
 	border: 1px solid #ffb262;
 	font-weight:700;
 }
-.single .sider ul li ul a{
-	color:#333;
-}
-.single .sider ul li ul a:hover{
-	color:#888;
-}
-.single .sider .screen-reader-text{
+.single .sidebar .screen-reader-text{
 	margin-left:5px;
 }
-.single .sider #archives-dropdown-2{
+.single .sidebar #archives-dropdown-2{
 	margin-left:0.5em;
 	padding: 6px 12px;
 	height: 34px;
@@ -299,33 +302,39 @@ body{padding-top: 65px;}
 	border: 1px solid #ccc;
 	border-radius: 4px;
 }
-.single .sider h3 .rsswidget{
+.single .sidebar h3 .rsswidget{
 	color: #333;
 	margin-left:-2px;
 }
-.single .sider h3 .rsswidget img{
+.single .sidebar h3 .rsswidget img{
 	display:none;
 }
-.single .sider .rss-date{
+.single .sidebar .rss-date,
+.single .sidebar .post-date{
 	padding:2px 4px;
 	font-size:85%;
 	color:#888;
 	background-color:#eee;
 	border-radius: 4px;
 }
-.single .sider .rssSummary{
+.single .sidebar .rssSummary{
 	color:#888;
 	margin:0.5em 0;
 	padding-bottom: 0.5em;
 	border-bottom: 1px dashed #cccccc;
 }
-.single .sider .textwidget img{
-	max-width:100%;
+.single .sidebar .textwidget img,
+.single .sidebar .widget_theme_news img{
+	width:100%;
 	height: auto;
 	border-radius:10% 0;
 }
-.single .sider .textwidget img:hover{
+.single .sidebar .textwidget img:hover,
+.single .sidebar .widget_theme_news img:hover{
 	border-radius:0;
+}
+.single .sidebar .widget_theme_news p{
+	font-size:18px;
 }
 /*====.footer 页面底部 ====*/
 .footer{

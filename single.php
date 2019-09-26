@@ -52,9 +52,8 @@
 					echo '</div>';
 				}?>
 			</div>
-			<div class="col-sm-4 sider">
-				<?php get_sidebar(); ?>
-			</div>
+			<!-- 获取侧栏 -->			
+			<?php get_sidebar(); ?>
 		</div>
 	</div>
 <?php get_footer();?>

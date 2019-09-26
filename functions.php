@@ -8,15 +8,25 @@
  * @author annanzi/910109610@qq.com
  */
 
+// 加载语言包-这个记得最后弄
+// add_action('after_setup_theme', 'limiwu_language_setup');
+// function limiwu_language_setupp(){
+//     load_theme_textdomain('limiwu', get_template_directory() . '/languages');
+// }
+
 // 开启主题的小工具
 if( function_exists('register_sidebar') ) {
     register_sidebar(array(
-        'before_widget' => '<li>', // widget 的开始标签
-        'after_widget' => '</li>', // widget 的结束标签
-        'before_title' => '<h3>', // 标题的开始标签
-        'after_title' => '</h3>' // 标题的结束标签
+        'name' => __('RightSidebar','limiwu'),
+        'before_widget' => '<section class="widget %2$s">',
+        'after_widget' => '</section>',
+        'before_title' => '<h3>',
+        'after_title' => '</h3>'
     ));
 }
+
+require_once( dirname(__FILE__) . '/widgets/test.php' );//测试小侧栏
+
 // 开启缩略图功能
 add_theme_support( 'post-thumbnails' );
 /**
@@ -137,5 +147,3 @@ class new_general_setting {
         echo '<input type="text" id="limiwu_get_ICP" name="limiwu_get_ICP" value="'.$value.'" />';
     }
 }
-
-require_once( dirname(__FILE__) . '/widgets/test.php' );//测试小侧栏
