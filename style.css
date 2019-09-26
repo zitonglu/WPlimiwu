@@ -347,6 +347,59 @@ body{padding-top: 65px;}
 .single .sidebar .widget_theme_news .news-thumbnail:last-child{
 	border-bottom:none;
 }
+.single .sidebar .widget_recent_entries ul{
+	padding-left:8px;
+	list-style-type:none;
+}
+.single .sidebar .widget_recent_entries a{
+	display: block;
+	margin-left: 2px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	color: #555;
+	line-height: 1.6;
+}
+.single .sidebar .widget_recent_entries a:before{
+	position: relative;
+	margin-bottom: 2px;
+	margin-right: 8px;
+	content: '';
+	width: 8px;
+	height: 8px;
+	display: inline-block;
+	border-radius: 50% 50% 0;
+	box-shadow: 0 1px 2px #757575;
+	text-decoration: none;
+}
+.single .sidebar .widget_recent_entries li:nth-child(n) a::before{
+	border:1px solid #fd5f00;
+}
+.single .sidebar .widget_recent_entries li:nth-child(n) a:hover{
+	color:#fd5f00;
+}
+.single .sidebar .widget_recent_entries li:nth-child(2n) a::before{
+	border:1px solid #00a635;
+}
+.single .sidebar .widget_recent_entries li:nth-child(2n) a:hover{
+	color:#00a635;
+}
+.single .sidebar .widget_recent_entries li:nth-child(3n) a::before{
+	border:1px solid #b92400;
+}
+.single .sidebar .widget_recent_entries li:nth-child(3n) a:hover{
+	color:#b92400;
+}
+.single .sidebar .widget_recent_entries li:nth-child(4n) a::before{
+	border:1px solid #00a9da;
+}
+.single .sidebar .widget_recent_entries li:nth-child(4n) a:hover{
+	color:#00a9da;
+}
+.single .sidebar .widget_recent_entries .post-date{
+	float: right;
+	margin-top: -1.764em;
+}
 /*====.footer 页面底部 ====*/
 .footer{
 	margin-top: 5em;
