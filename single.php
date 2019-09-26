@@ -24,7 +24,7 @@
 							}else{
 								echo get_the_author_meta( 'display_name', $post->post_author );
 							}
-							edit_post_link(' [编辑]');
+							edit_post_link(' [edit]');
 						?>
 					</p>
 				</div>
@@ -43,7 +43,7 @@
 				$tags = wp_get_post_tags($post->ID);
 				if (!empty($tags)) {
 				?>
-					<h3>更多内容</h3>
+					<h3><?php _e('MoreTags','limiwu');?></h3>
 				<?php
 					echo '<div>';
 					foreach ($tags as $tag ) {

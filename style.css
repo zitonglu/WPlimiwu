@@ -310,6 +310,7 @@ body{padding-top: 65px;}
 	display:none;
 }
 .single .sidebar .rss-date,
+.single .sidebar .news-date,
 .single .sidebar .post-date{
 	padding:2px 4px;
 	font-size:85%;
@@ -335,6 +336,16 @@ body{padding-top: 65px;}
 }
 .single .sidebar .widget_theme_news p{
 	font-size:18px;
+}
+.single .sidebar .widget_theme_news p span{
+	margin-left:0.4em;
+}
+.single .sidebar .widget_theme_news .news-thumbnail{
+	padding-bottom: 1em;
+	border-bottom: 1px dashed #cccccc;
+}
+.single .sidebar .widget_theme_news .news-thumbnail:last-child{
+	border-bottom:none;
 }
 /*====.footer 页面底部 ====*/
 .footer{

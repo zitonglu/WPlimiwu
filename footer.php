@@ -13,37 +13,47 @@
 <!-- <script src="<?php bloginfo('template_url'); ?>/js/jquery.min.js"></script>
 <script src="<?php bloginfo('template_url'); ?>/js/bootstrap.min.js"></script> -->
 <?php if( is_single() || is_page()):?>
-<?php else:?>
-<!-- 瀑布流 JS -->
-<script src="<?php bloginfo('template_url'); ?>/js/masonry.min.js"></script>
-<!-- 无限下拉 JS -->
-<script src="<?php bloginfo('template_url'); ?>/js/infinitescroll.min.js"></script>
-<!-- 加载图片 JS -->
-<script src="<?php bloginfo('template_url'); ?>/js/imagesloaded.min.js"></script>
-<script type="text/javascript">
-    var $container = $('#masonry');
-    $('#masonry').imagesLoaded(function(){
-        $('#masonry').masonry({
-            itemSelector: '.item',
+    <!-- 侧栏滚动 -->
+    <script src="<?php bloginfo('template_url'); ?>/js/theia-sticky-sidebar.js"></script>
+    <script type="text/javascript">
+      jQuery(document).ready(function() {
+        jQuery('.sidebar').theiaStickySidebar({
+          // Settings
+          additionalMarginTop: 30
         });
-    });
-    $('#masonry').infinitescroll({
-            navSelector : "#nav-below",
-            nextSelector: "#nav-below #older_posts a",
-            itemSelector: "#masonry div.item",
-            extraScrollPx: 10, //滚动条距离底部多少像素的时候开始加载，默认150
-            bufferPx     : 40,//载入信息的显示时间，时间越大，载入信息显示时间越短
-            animate      : true, //当有新数据加载进来的时候，页面是否有动画效果，默认没有
-        },function(newElements) {
-    　　　　　//先隐藏
-            var $newElems = $( newElements ).css({ opacity: 0 });
-            $newElems.imagesLoaded(function(){
-    　　　　　　//图片显示后再进行masonry渲染
-              $newElems.animate({ opacity: 1 });
-              $container.masonry( 'appended', $newElems, true );
+      });
+    </script>
+<?php else:?>
+    <!-- 瀑布流 JS -->
+    <script src="<?php bloginfo('template_url'); ?>/js/masonry.min.js"></script>
+    <!-- 无限下拉 JS -->
+    <script src="<?php bloginfo('template_url'); ?>/js/infinitescroll.min.js"></script>
+    <!-- 加载图片 JS -->
+    <script src="<?php bloginfo('template_url'); ?>/js/imagesloaded.min.js"></script>
+    <script type="text/javascript">
+        var $container = $('#masonry');
+        $('#masonry').imagesLoaded(function(){
+            $('#masonry').masonry({
+                itemSelector: '.item',
             });
         });
-</script>
+        $('#masonry').infinitescroll({
+                navSelector : "#nav-below",
+                nextSelector: "#nav-below #older_posts a",
+                itemSelector: "#masonry div.item",
+                extraScrollPx: 10, //滚动条距离底部多少像素的时候开始加载，默认150
+                bufferPx     : 40,//载入信息的显示时间，时间越大，载入信息显示时间越短
+                animate      : true, //当有新数据加载进来的时候，页面是否有动画效果，默认没有
+            },function(newElements) {
+        　　　　　//先隐藏
+                var $newElems = $( newElements ).css({ opacity: 0 });
+                $newElems.imagesLoaded(function(){
+        　　　　　　//图片显示后再进行masonry渲染
+                  $newElems.animate({ opacity: 1 });
+                  $container.masonry( 'appended', $newElems, true );
+                });
+            });
+    </script>
 <?php endif ?>
 <?php wp_footer(); ?>
 </body>
