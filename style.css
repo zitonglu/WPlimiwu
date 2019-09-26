@@ -21,7 +21,9 @@ a:focus,
 .home .list .item .thumbnail img,
 .blog .list .item .thumbnail img:hover,
 .blog .list .item .thumbnail img:focus,
-.blog .list .item .thumbnail img{
+.blog .list .item .thumbnail img,
+.single .sider img:hover,
+.single .sider img{
 	transition:all 0.6s !important;
 }
 #infscr-loading{display:none !important;}
@@ -105,19 +107,19 @@ body{padding-top: 65px;}
 .blog .list .item .thumbnail .caption .description{
 	padding-left:12px;
 	padding-bottom:12px;
-	color:#999;
-	border-bottom: 1px dashed #999;
+	color:#888;
+	border-bottom: 1px dashed #888;
 }
 .home .list .item .thumbnail .caption .tags,
 .blog .list .item .thumbnail .caption .tags{
-	color:#999;
+	color:#888;
 	font-size:11px;
 	/*padding-left:12px;*/
 	line-height:1.6em;
 }
 .home .list .item .thumbnail .caption .tags a,
 .blog .list .item .thumbnail .caption .tags a{
-	color:#999;
+	color:#888;
 	text-decoration:none;
 }
 .home .list .item .thumbnail .caption .tags .glyphicon,
@@ -149,7 +151,7 @@ body{padding-top: 65px;}
 }
 .single .jumbotron .media .media-body p{
 	font-size: 12px;
-	color: #999;
+	color: #888;
 }
 @media (max-width: 768px){
 	.single .jumbotron h2::before{
@@ -212,11 +214,10 @@ body{padding-top: 65px;}
 	border: 2px solid #333;
 }
 /*====.single .sider 侧栏格式====*/
-.single .sider ul{
+#sidebar ul:first-child{
 	margin-top:-20px;
-	margin-left:0;
-	padding:0 1em;
 	list-style-type: none;
+	padding:0 1em;
 }
 .single .sider h3{
 	font-size:18px;
@@ -276,6 +277,55 @@ body{padding-top: 65px;}
 	background: #ffb262;
 	border: 1px solid #ffb262;
 	font-weight:700;
+}
+.single .sider ul li ul a{
+	color:#333;
+}
+.single .sider ul li ul a:hover{
+	color:#888;
+}
+.single .sider .screen-reader-text{
+	margin-left:5px;
+}
+.single .sider #archives-dropdown-2{
+	margin-left:0.5em;
+	padding: 6px 12px;
+	height: 34px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+.single .sider h3 .rsswidget{
+	color: #333;
+	margin-left:-2px;
+}
+.single .sider h3 .rsswidget img{
+	display:none;
+}
+.single .sider .rss-date{
+	padding:2px 4px;
+	font-size:85%;
+	color:#888;
+	background-color:#eee;
+	border-radius: 4px;
+}
+.single .sider .rssSummary{
+	color:#888;
+	margin:0.5em 0;
+	padding-bottom: 0.5em;
+	border-bottom: 1px dashed #cccccc;
+}
+.single .sider .textwidget img{
+	max-width:100%;
+	height: auto;
+	border-radius:10% 0;
+}
+.single .sider .textwidget img:hover{
+	border-radius:0;
 }
 /*====.footer 页面底部 ====*/
 .footer{

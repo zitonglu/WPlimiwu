@@ -42,7 +42,7 @@
               $newElems.animate({ opacity: 1 });
               $container.masonry( 'appended', $newElems, true );
             });
-        });  
+        });
 </script>
 <?php endif ?>
 <?php wp_footer(); ?>

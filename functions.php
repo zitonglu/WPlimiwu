@@ -63,7 +63,7 @@ function limiwu_the_slug() {
  * 如果设置了缩略图，则显示，没有找文章的第一张图片，还没有的话就用默认图片
  *
  * @package limiwuCom
- * @author https://www.boke8.net/wordpress-post-type-meta-box.html
+ * @author //www.boke8.net/wordpress-post-type-meta-box.html
  * @since 2019-9-12
  */
 //添加设置区域的函数
@@ -137,3 +137,5 @@ class new_general_setting {
         echo '<input type="text" id="limiwu_get_ICP" name="limiwu_get_ICP" value="'.$value.'" />';
     }
 }
+
+require_once( dirname(__FILE__) . '/widgets/test.php' );//测试小侧栏
