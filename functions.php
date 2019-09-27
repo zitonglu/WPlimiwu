@@ -18,14 +18,28 @@
 if( function_exists('register_sidebar') ) {
     register_sidebar(array(
         'name' => __('RightSidebar','limiwu'),
+        'description'   => __('The article sidebar displays the content','limiwu'),
         'before_widget' => '<section class="widget %2$s">',
         'after_widget' => '</section>',
         'before_title' => '<h3>',
         'after_title' => '</h3>'
     ));
+    register_sidebar(array(
+        'name' => __('IndexAD','limiwu'),
+        'description'   => __('Homepage ads','limiwu'),
+        'before_widget' => '<div id="indexAD" class="col-lg-wu1 col-md-3 col-sm-4 col-xs-6 item">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3>',
+        'after_title' => '</h3>'
+    ));
+    register_nav_menus( array(
+    'primary' => __('Primary Menu', 'limiwu'),
+    'link' => __('Link', 'limiwu')
+    ));
 }
 
 require_once( dirname(__FILE__) . '/widgets/test.php' );//测试小侧栏
+require_once( dirname(__FILE__) . '/option-walker.php' );//重新生产bootstrap顶部导航
 
 // 开启缩略图功能
 add_theme_support( 'post-thumbnails' );
