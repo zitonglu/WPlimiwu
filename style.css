@@ -16,12 +16,10 @@ a{text-decoration:none !important;color:#ffb262}
 a:hover{text-decoration:none !important;color:#333;}
 a:hover,
 a:focus,
-.home .list .item .thumbnail img:hover,
-.home .list .item .thumbnail img:focus,
-.home .list .item .thumbnail img,
-.blog .list .item .thumbnail img:hover,
-.blog .list .item .thumbnail img:focus,
-.blog .list .item .thumbnail img,
+
+.list .item .thumbnail img:hover,
+.list .item .thumbnail img:focus,
+.list .item .thumbnail img,
 .single .sidebar img:hover,
 .single .sidebar img{
 	transition:all 0.6s !important;
@@ -29,17 +27,17 @@ a:focus,
 #infscr-loading{display:none !important;}
 
 .home,
-.blog{
+.blog,
+.category,
+.archive{
 	background-color:#f4f4f4;
 }
 @media (max-width: 550px) {
-	.home .list .row,
-	.blog .list .row{
+	.list .row{
 		margin-left:-11px;
 		margin-right:-11px;
 	}
-	.home .list .item,
-	.blog .list .item{
+	.list .item{
 		padding-left:2px;
 		padding-right:2px;
 	}
@@ -48,6 +46,8 @@ a:focus,
 	.col-lg-wu1{
 		width:20%;
 	}
+	.category .container,
+	.archive .container,
 	.home .container,
 	.blog .container{
 		width:84%;
@@ -55,73 +55,60 @@ a:focus,
 		margin-right:8%;
 	}
 }
-.home .list .item,
-.blog .list .item{
+.list .item{
 	border-radius:6px;
 	padding-left:8px;
 	padding-right:8px;
 }
-.home .list .item .thumbnail,
-.blog .list .item .thumbnail{
+.list .item .thumbnail{
 	padding:0;
 	border:none;
 	margin-bottom:14px;
 }
-.home .list .item .thumbnail img,
-.blog .list .item .thumbnail img{
+.list .item .thumbnail img{
 	border-radius:6px 6px 0 0;
 	width:100%;
 	height:auto;
 }
-.home .list .item .thumbnail img:hover,
-.blog .list .item .thumbnail img:hover{
+.list .item .thumbnail img:hover{
 	opacity:0.6;
 	filter:alpha(opacity=60);
 }
-.home .list .item .thumbnail .caption h3,
-.blog .list .item .thumbnail .caption h3{
+.list .item .thumbnail .caption h3{
 	margin-top:4px;
 	font-size: 16px;
 	line-height:1.4em;
 }
-.home .list .item .thumbnail .caption .title,
-.blog .list .item .thumbnail .caption .title{
+.list .item .thumbnail .caption .title{
 	color:#111;
 	text-decoration:none;
 }
-.home .list .item .thumbnail .caption .title h3:hover,
-.blog .list .item .thumbnail .caption .title h3:hover,
-.home .list .item .thumbnail .caption .tags a:hover,
-.blog .list .item .thumbnail .caption .tags a:hover{
+.list .item .thumbnail .caption .title h3:hover,
+.list .item .thumbnail .caption .tags a:hover{
 	color:#ffb262;
 	transition:all 0.6s !important;
 }
-.home .list .item .thumbnail .caption .title:visited,
-.blog .list .item .thumbnail .caption .title:visited{
+.list .item .thumbnail .caption .title:visited{
 	color:#555;
 	color:#333;
 }
-.home .list .item .thumbnail .caption .description,
-.blog .list .item .thumbnail .caption .description{
+.list .item .thumbnail .caption .description{
 	padding-left:12px;
 	padding-bottom:12px;
 	color:#888;
 	border-bottom: 1px dashed #888;
 }
-.home .list .item .thumbnail .caption .tags,
-.blog .list .item .thumbnail .caption .tags{
+.list .item .thumbnail .caption .tags{
 	color:#888;
 	font-size:11px;
 	/*padding-left:12px;*/
 	line-height:1.6em;
 }
-.home .list .item .thumbnail .caption .tags a,
-.blog .list .item .thumbnail .caption .tags a{
+.list .item .thumbnail .caption .tags a{
 	color:#888;
 	text-decoration:none;
 }
-.home .list .item .thumbnail .caption .tags .glyphicon,
-.blog .list .item .thumbnail .caption .tags .glyphicon{
+.list .item .thumbnail .caption .tags .glyphicon{
 	margin-right:4px;
 }
 @media (min-width: 990px){
