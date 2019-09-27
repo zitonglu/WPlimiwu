@@ -26,8 +26,8 @@ a:focus,
 }
 #infscr-loading{display:none !important;}
 /*logo*/
-.logoImg{padding-right:2px}
-.logoImg img{width:20px}
+.logoImg{padding-right:4px}
+.logoImg img{width:16px}
 .logoText{margin-left:-15px}
 
 .home,
