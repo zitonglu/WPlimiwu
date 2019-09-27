@@ -25,6 +25,10 @@ a:focus,
 	transition:all 0.6s !important;
 }
 #infscr-loading{display:none !important;}
+/*logo*/
+.logoImg{padding-right:2px}
+.logoImg img{width:20px}
+.logoText{margin-left:-15px}
 
 .home,
 .blog,
