@@ -14,6 +14,8 @@
 //     load_theme_textdomain('limiwu', get_template_directory() . '/languages');
 // }
 
+// 主题相关设置参数
+require_once(TEMPLATEPATH . '/option-setting.php');
 // 开启主题的小工具
 if( function_exists('register_sidebar') ) {
     register_sidebar(array(

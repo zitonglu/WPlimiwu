@@ -9,8 +9,8 @@
 $description = '';
 $keywords = '';
 if (is_home() || is_page()) {
-    $description = get_option('paipk1_homeDescription');
-    $keywords = get_option('paipk1_homeKeyword');
+    $description = get_option('limiwu_homeDescription');
+    $keywords = get_option('limiwu_homeKeyword');
 }
 elseif (is_single()) {
    $description1 = get_post_meta($post->ID, "description", true);
