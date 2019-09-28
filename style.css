@@ -399,6 +399,28 @@ a:focus,
 	float: right;
 	margin-top: -1.764em;
 }
+/*==== page 单独页面 ====*/
+@media (min-width: 990px){
+	.page .content h1:first-child{
+		margin-bottom:0.5em;
+		padding-top:0.5em;
+		padding-bottom:0.5em;
+		border-bottom:2px solid #b92400;
+		text-align: center;
+		line-height: 1.2;
+	}
+}
+.page .content h1,
+.page .content h2,
+.page .content h3,
+.page .content h4,
+.page .content h5,
+.page .content h6{
+	font-weight: bold;
+}
+.page .content p{
+	text-indent:2em;
+}
 /*====.footer 页面底部 ====*/
 .footer{
 	margin-top: 5em;
