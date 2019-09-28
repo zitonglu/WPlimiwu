@@ -19,24 +19,24 @@ require_once(TEMPLATEPATH . '/option-setting.php');
 // 开启主题的小工具
 if( function_exists('register_sidebar') ) {
     register_sidebar(array(
-        'name' => __('RightSidebar','limiwu'),
-        'description'   => __('The article sidebar displays the content','limiwu'),
+        'name' => __('文章右侧栏','limiwu'),
+        'description'   => __('放置在文章页面右侧，随滚动','limiwu'),
         'before_widget' => '<section class="widget %2$s">',
         'after_widget' => '</section>',
         'before_title' => '<h3>',
         'after_title' => '</h3>'
     ));
     register_sidebar(array(
-        'name' => __('IndexAD','limiwu'),
-        'description'   => __('Homepage ads','limiwu'),
+        'name' => __('首页AD广告位','limiwu'),
+        'description'   => __('临时决定，暂留位','limiwu'),
         'before_widget' => '<div id="indexAD" class="col-lg-wu1 col-md-3 col-sm-4 col-xs-6 item">',
         'after_widget' => '</div>',
         'before_title' => '<h3>',
         'after_title' => '</h3>'
     ));
     register_nav_menus( array(
-    'primary' => __('Primary Menu', 'limiwu'),
-    'link' => __('Link', 'limiwu')
+    'primary' => __('顶部导航', 'limiwu'),
+    'link' => __('友情链接', 'limiwu')
     ));
 }
 
@@ -94,7 +94,7 @@ function limiwu_the_slug() {
  */
 //添加设置区域的函数
 function limiwu_add_source_box (){
-	add_meta_box('source', '文章来源', 'limiwu_add_source','post','side');
+	add_meta_box('source', __('文章来源','limiwu'), 'limiwu_add_source','post','side');
 };
 
 add_action('add_meta_boxes','limiwu_add_source_box');//挂上
@@ -107,12 +107,12 @@ function limiwu_add_source($post,$boxargs){
     $limiwu_source_remarks_value = get_post_meta( $post->ID, '_limiwu_source_remarks', true );
     $limiwu_source_author_value = get_post_meta( $post->ID, '_limiwu_source_author', true );
 ?>
-    <label for="limiwu_source">来源网址：</label>
-    <input style="width: 100%" type="url" id="limiwu_source" name="limiwu_source" value="<?php echo esc_attr( $limiwu_source_value ); ?>" placeholder="输入文章来源地址">
-    <label for="limiwu_source_remarks">来源网站名称：</label>
-    <input style="width: 100%" type="text" id="limiwu_source_remarks" name="limiwu_source_remarks" value="<?php echo esc_attr( $limiwu_source_remarks_value ); ?>" placeholder="备注说明">
-    <label for="limiwu_source_author">作者/发布者：</label>
-    <input style="width: 100%" type="text" id="limiwu_source_author" name="limiwu_source_author" value="<?php echo esc_attr( $limiwu_source_author_value ); ?>" placeholder="发布者或单位名称">
+    <label for="limiwu_source"><?php _e('来源网址','limiwu');?>:</label>
+    <input style="width: 100%" type="url" id="limiwu_source" name="limiwu_source" value="<?php echo esc_attr( $limiwu_source_value ); ?>" placeholder="<?php _e('输入网址，不含http','limiwu');?>">
+    <label for="limiwu_source_remarks"><?php _e('来源网站名称','limiwu');?>:</label>
+    <input style="width: 100%" type="text" id="limiwu_source_remarks" name="limiwu_source_remarks" value="<?php echo esc_attr( $limiwu_source_remarks_value ); ?>" placeholder="<?php _e('来源网站名称','limiwu');?>">
+    <label for="limiwu_source_author"><?php _e('作者/发布者','limiwu');?>:</label>
+    <input style="width: 100%" type="text" id="limiwu_source_author" name="limiwu_source_author" value="<?php echo esc_attr( $limiwu_source_author_value ); ?>" placeholder="<?php _e('发布者或单位名称','limiwu');?>">
 <?php
 }
 
@@ -121,22 +121,13 @@ add_action( 'save_post', 'limiwu_add_source_save_meta_box' );//验证保存内�
 function limiwu_add_source_save_meta_box($post_id){
     // 安全检查
     // 检查是否发送了一次性隐藏表单内容（判断是否为第三者模拟提交）
-    if ( ! isset( $_POST['limiwu_add_source_nonce'] ) ) {
-        return;
-    }
+    if (!isset($_POST['limiwu_add_source_nonce'])){return;}
     // 判断隐藏表单的值与之前是否相同
-    if ( ! wp_verify_nonce( $_POST['limiwu_add_source_nonce'], 'limiwu_add_source' ) ) {
-        return;
-    }
+    if (!wp_verify_nonce($_POST['limiwu_add_source_nonce'],'limiwu_add_source')){return;}
     // 判断该用户是否有权限
-    if ( ! current_user_can( 'edit_post', $post_id ) ) {
-        return;
-    }
- 
+    if (!current_user_can('edit_post', $post_id)){return;}
     // 判断 Meta Box 是否为空
-    if ( ! isset( $_POST['limiwu_source'] ) ) {
-        return;
-    }
+    if (!isset( $_POST['limiwu_source'])){return;}
  
     $limiwu_source = sanitize_text_field( $_POST['limiwu_source'] );
     update_post_meta( $post_id, '_limiwu_source', $limiwu_source );
@@ -156,10 +147,10 @@ class new_general_setting {
     }
     function register_fields() {
         register_setting( 'general', 'limiwu_get_ICP', 'esc_attr' );
-        add_settings_field('fav_color', '<label for="limiwu_get_ICP">'.__('备案号' ).'</label>' , array(&$this, 'fields_html') , 'general' );
+        add_settings_field('fav_color', '<label for="limiwu_get_ICP">'.__('备案号','limiwu').'</label>' , array(&$this, 'fields_html') , 'general' );
     }
     function fields_html() {
-        $value = get_option( 'limiwu_get_ICP', '' );
+        $value = get_option('limiwu_get_ICP','');
         echo '<input type="text" id="limiwu_get_ICP" name="limiwu_get_ICP" value="'.$value.'" />';
     }
 }

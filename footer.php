@@ -7,11 +7,11 @@
         Powered By <a href="//cn.wordpress.org" rel="nofollow" target="_blank">WordPress</a>. Theme by <a href="//limiwu.com" target="_blank">limiwu.com</a>
     </p>
 </footer>
+
 <!-- JQ and Bootstrap JS -->
 <script src="//cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<!-- <script src="<?php bloginfo('template_url'); ?>/js/jquery.min.js"></script>
-<script src="<?php bloginfo('template_url'); ?>/js/bootstrap.min.js"></script> -->
+
 <?php if( is_single() || is_page()):?>
     <!-- 侧栏滚动 -->
     <script src="<?php bloginfo('template_url'); ?>/js/theia-sticky-sidebar.js"></script>

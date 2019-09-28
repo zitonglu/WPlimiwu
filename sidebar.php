@@ -1,7 +1,7 @@
 <div class="col-sm-4 sidebar">
 	<aside class="theiaStickySidebar"><!-- 侧栏滚动 -->
 	<section class="widget widget_theme_news">
-		<h3><?php _e('AboutPosts','limiwu') ?></h3>
+		<h3><?php _e('相关文章','limiwu') ?></h3>
 		
 		<?php
 		/*
@@ -41,13 +41,12 @@
 					limiwu_post_first_img();
 					echo '</a></p>';
 				}
-				// $post = $posts[0];
 				?>
 			<?php }; wp_reset_query(); 
 		} 
 		?>
 	</section>
 
-	<?php dynamic_sidebar('RightSidebar');?>
+	<?php dynamic_sidebar(__('文章右侧栏','limiwu'));?>
 	</aside>
 </div><!-- #sider end -->

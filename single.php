@@ -43,7 +43,7 @@
 				$tags = wp_get_post_tags($post->ID);
 				if (!empty($tags)) {
 				?>
-					<h3><?php _e('MoreTags','limiwu');?></h3>
+					<h3><?php _e('更多相关内容','limiwu');?></h3>
 				<?php
 					echo '<div>';
 					foreach ($tags as $tag ) {

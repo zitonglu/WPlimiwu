@@ -38,4 +38,9 @@ $keywords = trim(strip_tags($keywords));
 ?>
 <meta name="description" content="<?php echo $description; ?>" />
 <meta name="keywords" content="<?php echo $keywords; ?>" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" /> <!-- 启用 WebApp 全屏模式 -->
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" /><!-- 隐藏状态栏/设置状态栏颜色 -->
+<meta content="telephone=no" name="format-detection" /><!-- 忽略数字自动识别为电话号码 -->
+<meta content="email=no" name="format-detection" /><!-- 忽略识别邮箱 -->
 <!-- seo end -->

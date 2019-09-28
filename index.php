@@ -7,8 +7,6 @@
 							the_post();
 							get_template_part( 'content', get_post_format() ); 
 						};
-					}else{
-						get_template_part('404'); 
 					}
 				?>
 			</div><!-- row end -->
@@ -17,8 +15,8 @@
 
 	<nav id="nav-below">
 	  <ul class="pager">
-	    <li><?php previous_posts_link(__('Newer posts')) ?></li>
-	    <li id="older_posts"><?php next_posts_link(__('Older posts')) ?></li>
+	    <li><?php previous_posts_link(__('上一页','limiwu')) ?></li>
+	    <li id="older_posts"><?php next_posts_link(__('下一页','limiwu')) ?></li>
 	  </ul>
 	</nav><!-- nav-below end -->
 
