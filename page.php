@@ -1,6 +1,6 @@
 <?php get_header();?>
-	<div class="container">
-		<div class="cow content">
+	<div class="container content">
+		<div class="cow">
 			<?php 
 				while(have_posts()){
 					the_post();

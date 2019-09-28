@@ -400,23 +400,37 @@ a:focus,
 	margin-top: -1.764em;
 }
 /*==== page 单独页面 ====*/
-@media (min-width: 990px){
-	.page .content h1:first-child{
-		margin-bottom:0.5em;
-		padding-top:0.5em;
-		padding-bottom:0.5em;
-		border-bottom:2px solid #b92400;
-		text-align: center;
-		line-height: 1.2;
-	}
-}
+.page .content{max-width:720px}
 .page .content h1,
 .page .content h2,
 .page .content h3,
-.page .content h4,
-.page .content h5,
-.page .content h6{
+.page .content h4{
 	font-weight: bold;
+	font-size: 18px
+}
+.page .content h5{font-size: 18px}
+.page .content p{text-align: justify;}
+.page .content p.text-right{text-align:right}
+.page .content h1:first-child{
+	margin-bottom:0.5em;
+	padding-top:0.5em;
+	padding-bottom:0.5em;
+	border-bottom:2px solid #b92400;
+	text-align: center;
+	line-height: 1.2;
+}
+@media (min-width: 720px){
+	.page .content h1:first-child{
+		font-size: 36px
+	}
+	.page .content h1 span{
+		font-size:18px;
+		font-weight:100;
+	}
+	.page .content p{
+		font-size:16px;
+		line-height:28.8px;
+	}
 }
 .page .content p{
 	text-indent:2em;
