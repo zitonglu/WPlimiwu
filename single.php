@@ -5,7 +5,7 @@
 			<div class="media">
 				<div class="media-left">
 					<?php if(get_post_meta( $post->ID, '_limiwu_source', true )):?>
-						<img class="media-object post-ico" src="//<?php echo get_post_meta( $post->ID, '_limiwu_source', true )?>/favicon.ico" alt="<?php echo get_post_meta( $post->ID, '_limiwu_source_remarks', true )?>">
+						<img class="media-object post-ico" src="//<?php echo get_post_meta( $post->ID, '_limiwu_source', true )?>/favicon.ico">
 						<?php else: ?>
 						<img class="media-object post-ico" src="<?php bloginfo('template_url'); ?>/image/favicon.ico?>" alt="<?php bloginfo('name'); ?>">
 					<?php endif ?>

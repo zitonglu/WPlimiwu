@@ -410,7 +410,6 @@ a:focus,
 }
 .page .content h5{font-size: 18px}
 .page .content p{text-align: justify;}
-.page .content p.text-right{text-align:right}
 .page .content h1:first-child{
 	margin-bottom:0.5em;
 	padding-top:0.5em;
@@ -448,3 +447,6 @@ a:focus,
 }
 .footer a{color:#777}
 .footer a:hover{color: #bdbdbd}
+
+.text-right{text-align:right !important}
+.text-center{text-align:center !important}

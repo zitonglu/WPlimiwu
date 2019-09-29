@@ -108,7 +108,7 @@ function limiwu_add_source($post,$boxargs){
     $limiwu_source_author_value = get_post_meta( $post->ID, '_limiwu_source_author', true );
 ?>
     <label for="limiwu_source"><?php _e('来源网址','limiwu');?>:</label>
-    <input style="width: 100%" type="url" id="limiwu_source" name="limiwu_source" value="<?php echo esc_attr( $limiwu_source_value ); ?>" placeholder="<?php _e('输入网址，不含http','limiwu');?>">
+    <input style="width: 100%" type="text" id="limiwu_source" name="limiwu_source" value="<?php echo esc_attr( $limiwu_source_value ); ?>" placeholder="<?php _e('输入网址，不含http','limiwu');?>">
     <label for="limiwu_source_remarks"><?php _e('来源网站名称','limiwu');?>:</label>
     <input style="width: 100%" type="text" id="limiwu_source_remarks" name="limiwu_source_remarks" value="<?php echo esc_attr( $limiwu_source_remarks_value ); ?>" placeholder="<?php _e('来源网站名称','limiwu');?>">
     <label for="limiwu_source_author"><?php _e('作者/发布者','limiwu');?>:</label>
