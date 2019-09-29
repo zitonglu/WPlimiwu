@@ -1,38 +1,50 @@
 <?php
-/**
- * The template for displaying Comments
- *
- * The area of the page that contains comments and the comment form.
- *
- * @package  paipk1
- * @since paipk1 1.0
- */
-
-/*
- * If the current post is protected by a password and the visitor has not yet
- * entered the password we will return early without loading the comments.
- */
 if ( post_password_required() )
 	return;
 ?>
 
-<div class="comment-post" id="SOHUCS">
+<br><h3 id="comment" class="comment-title"><?php _e('评论内容','limiwu')?>:</h3>
+<?php if(have_comments()): ?>
+<!-- 评论内容 -->
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+<?php function limiwu_comment($comment, $args, $depth){ $GLOBALS['comment'] = $comment; ?>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="heading<?php comment_ID(); ?>">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php comment_ID(); ?>" aria-expanded="false" aria-controls="collapse<?php comment_ID(); ?>">
+          <?php comment_text();?>
+        </a>
+      </h4>
+    </div>
+    <div id="collapse<?php comment_ID(); ?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<?php comment_ID(); ?>">
+      <div class="panel-body">
+        <?php echo get_comment_author_link()?>&nbsp;
+		<?php echo get_comment_time('Y-m-d'); ?> <span class="glyphicon glyphicon-time"></span>&nbsp;<?php echo get_comment_time('H:i'); ?>&nbsp;
+		<span class="glyphicon glyphicon-heart-empty"></span>&nbsp;<?php comment_reply_link(array_merge( $args, array('reply_text' => __('回复','limiwu'),'depth' => $depth, 'max_depth' => $args['max_depth']))) ?>&nbsp;<?php edit_comment_link(__('编辑','limiwu')); ?>
+      </div>
+    </div>
+  </div>
+<?php } wp_list_comments('type=comment&callback=limiwu_comment');//输出评论列表?>
+</div>
+<?php endif; // have_comments() ?>
+<!-- 下面是之前的文章 -->
+<div class="comment-post">
 
-<h4><span class="glyphicon glyphicon-share-alt"></span>&nbsp;<?php _e('Comment','paipk1') ?></h4>
+<h4><span class="glyphicon glyphicon-share-alt"></span>&nbsp;<?php _e('Comment','limiwu') ?></h4>
 
 <?php if ( !comments_open() ) :
 // If registration required and not logged in.
 	elseif ( get_option('comment_registration') && !is_user_logged_in() ) :
 ?>
-<p><a href="<?php echo wp_login_url( get_permalink() ); ?>"><?php _e('Sign in','paipk1') ?></a><?php _e('Comment','paipk1') ?></p>
+<p><a href="<?php echo wp_login_url( get_permalink() ); ?>"><?php _e('Sign in','limiwu') ?></a><?php _e('Comment','limiwu') ?></p>
 <?php else: ?>
 <!-- Comment Form -->
 <form id="commentform" name="commentform" action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" class="form-horizontal" role="form">
 <?php if ( !is_user_logged_in() ) : ?>
 	<div class="form-group">
-		<label for="author" class="col-sm-2 control-label"><?php _e('Observer','paipk1') ?>(*)</label>
+		<label for="author" class="col-sm-2 control-label"><?php _e('Observer','limiwu') ?>(*)</label>
 		<div class="col-sm-10">
-			<input type="text" name="author" id="author" placeholder="<?php _e('Your name','paipk1') ?>" value="<?php echo $comment_author; ?>" tabindex="1" class="form-control">
+			<input type="text" name="author" id="author" placeholder="<?php _e('Your name','limiwu') ?>" value="<?php echo $comment_author; ?>" tabindex="1" class="form-control">
 		</div>
 	</div>
 	<div class="form-group">
@@ -42,13 +54,13 @@ if ( post_password_required() )
 		</div>
 	</div>
 	<div class="form-group">
-		<label for="url" class="col-sm-2 control-label"><?php _e('Website','paipk1') ?></label>
+		<label for="url" class="col-sm-2 control-label"><?php _e('Website','limiwu') ?></label>
 		<div class="col-sm-10">
 			<input type="text" name="url" id="url" placeholder="http://" value="<?php echo $comment_author_url; ?>" tabindex="3" class="form-control">
 		</div>
 	</div>
 	<div class="form-group">
-		<label for="comment" class="col-sm-2 control-label"><?php _e('Comment','paipk1') ?>(*)</label>
+		<label for="comment" class="col-sm-2 control-label"><?php _e('Comment','limiwu') ?>(*)</label>
 		<div class="col-sm-10">
 			<textarea name="comment" id="message comment" rows="3" tabindex="5" class="form-control"></textarea>
 		</div>
@@ -64,9 +76,9 @@ if ( post_password_required() )
 <?php endif; ?>
 	<div class="form-group">
 		<div class="col-sm-offset-2 col-sm-10">
-			<button type="submit" class="btn btn-default" name="sumbit" tabindex="7" onclick="Javascript:document.forms['commentform'].submit()"><?php _e('Submit Comments','paipk1') ?></button>
+			<button type="submit" class="btn btn-default" name="sumbit" tabindex="7" onclick="Javascript:document.forms['commentform'].submit()"><?php _e('Submit Comments','limiwu') ?></button>
 			<?php if ( is_user_logged_in() ) : ?>
-			<a href="<?php echo wp_logout_url(get_permalink()); ?>" title="<?php _e('Sign out','paipk1') ?>" class="btn btn-default"><?php _e('Sign out','paipk1') ?></a>
+			<a href="<?php echo wp_logout_url(get_permalink()); ?>" title="<?php _e('Sign out','limiwu') ?>" class="btn btn-default"><?php _e('Sign out','limiwu') ?></a>
 			<?php endif; ?>
 		</div>
 	</div>
@@ -77,7 +89,7 @@ if ( post_password_required() )
 
 <?php if(have_comments()): ?>
 <div class="comment-box" id="comment">
-<h4><span class="glyphicon glyphicon-comment"></span>&nbsp;<?php _e('Comment','paipk1') ?><?php _e('List','paipk1') ?></h4>
+<h4><span class="glyphicon glyphicon-comment"></span>&nbsp;<?php _e('Comment','limiwu') ?><?php _e('List','limiwu') ?></h4>
 
 <?php function qiuye_comment($comment, $args, $depth){ $GLOBALS['comment'] = $comment; ?>
 <div class="media" id="comment-<?php comment_ID(); ?>">
@@ -91,12 +103,12 @@ if ( post_password_required() )
 		<h4 class="media-heading">
 		<?php echo get_comment_author_link()?>&nbsp;
 		<b><?php echo get_comment_time('Y-m-d'); ?> <span class="glyphicon glyphicon-time"></span>&nbsp;<?php echo get_comment_time('H:i'); ?>&nbsp;
-		<span class="glyphicon glyphicon-heart-empty"></span>&nbsp;<?php comment_reply_link(array_merge( $args, array('reply_text' => __('Reply','paipk1'),'depth' => $depth, 'max_depth' => $args['max_depth']))) ?>&nbsp;<?php edit_comment_link(__('Edit','paipk1')); ?>
+		<span class="glyphicon glyphicon-heart-empty"></span>&nbsp;<?php comment_reply_link(array_merge( $args, array('reply_text' => __('Reply','limiwu'),'depth' => $depth, 'max_depth' => $args['max_depth']))) ?>&nbsp;<?php edit_comment_link(__('Edit','limiwu')); ?>
 		</b>
 		</h4>
 		<?php comment_text(); ?>
 		<p><?php if ($comment->comment_approved == '0'): ?>
-			<?php _e('Your comments are being reviewed and will be shown later','paipk1')?><?php endif?>
+			<?php _e('Your comments are being reviewed and will be shown later','limiwu')?><?php endif?>
 		</p>	
 	</div>
 </div>

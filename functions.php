@@ -43,6 +43,8 @@ if( function_exists('register_sidebar') ) {
 require_once( dirname(__FILE__) . '/widgets/test.php' );//测试小侧栏
 require_once( dirname(__FILE__) . '/option-walker.php' );//重新生产bootstrap顶部导航
 
+//移除评论文本自动P标签
+remove_filter( 'comment_text', 'wpautop',  30 );
 // 开启缩略图功能
 add_theme_support( 'post-thumbnails' );
 /**

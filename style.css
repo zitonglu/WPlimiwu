@@ -196,6 +196,7 @@ a:focus,
 	font-weight: 800;
 	border-bottom: 1px solid #dedede;
 }
+.comment-title::before,
 .single .article h1::before,
 .single .article h2::before,
 .single .article h3::before,
