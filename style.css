@@ -12,7 +12,7 @@ Text Domain:
 Tags: 
 
 -------------*/
-a{text-decoration:none !important;color:#ffb262}
+a{text-decoration:none !important;color:#ec6615}
 a:hover{text-decoration:none !important;color:#333;}
 a:hover,
 a:focus,
@@ -20,8 +20,8 @@ a:focus,
 .list .item .thumbnail img:hover,
 .list .item .thumbnail img:focus,
 .list .item .thumbnail img,
-.single .sidebar img:hover,
-.single .sidebar img{
+.sidebar img:hover,
+.sidebar img{
 	transition:all 0.6s !important;
 }
 #infscr-loading{display:none !important;}
@@ -120,6 +120,34 @@ a:focus,
 		font-size:16px;
 	}
 }
+/*======text-list 纯文字列表style========*/
+.text-list article{
+	margin-bottom:2em;
+	font-size:16px
+}
+.text-list article p{
+	font-size:14px;
+	margin: 0 0 2px;
+}
+.text-list .description{margin-top:0.8em}
+.text-list article a.title{
+	padding-bottom:1px;
+	border-bottom: 1px solid #ffb262;
+	font-weight: 700;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.text-list article .post-ico{
+	height:16px;
+	width:auto;
+}
+.text-list article .more{color:#428bca;}
+.text-list article .more span{
+	font-size:85%;
+	color:#a8a8a8;
+}
+.text-list .sidebar{border-left: 1px solid #dedede;}
 /*==========single==========*/
 .single .jumbotron{
 	background-color: #f8f8f9;
@@ -191,7 +219,7 @@ a:focus,
 .single .article h4,
 .single .article h5,
 .single .article h6,
-.single .sidebar h3{
+.sidebar h3{
 	line-height: 1.8em;
 	font-weight: 800;
 	border-bottom: 1px solid #dedede;
@@ -212,29 +240,29 @@ a:focus,
 	border-radius: 1.2em 1em 0;
 	border: 2px solid #333;
 }
-/*====.single .sidebar 侧栏格式====*/
+/*====.sidebar 侧栏格式====*/
 @media (min-width: 990px){
 	.sidebar .widget{
 		padding-left: 18px;
 	}
 }
-.single .sidebar .widget a{
+.sidebar .widget a{
 	color:#333;
 }
-.single .sidebar .widget a:hover{
+.sidebar .widget a:hover{
 	color:#888;
 }
-.single .sidebar .widget:first-child{
+.sidebar .widget:first-child{
 	margin-top:-20px;
 }
-.single .sidebar h3{
+.sidebar h3{
 	font-size:18px;
 }
-.single .sidebar h3::before{
+.sidebar h3::before{
 	content: '\263A';
 	font-size: 140%;
 }
-.single .sidebar .calendar_wrap:before{
+.sidebar .calendar_wrap:before{
 	content: '';
 	position: absolute;
 	top: 0;
@@ -247,25 +275,25 @@ a:focus,
 	border-bottom-left-radius: inherit;
 	box-shadow: -.2em .2em .3em -.1em rgba(0,0,0,.15);
 }
-.single .sidebar .calendar_wrap{
+.sidebar .calendar_wrap{
 	position: relative;
 	background: #eee;
 	background: linear-gradient(-150deg,transparent 1.5em,#eee 0);
 	text-align: center;
 	box-shadow: 0px 3px 6px -3px #666;
 }
-.single .sidebar .calendar_wrap table{
+.sidebar .calendar_wrap table{
 	width:100%;
 }
-.single .sidebar .calendar_wrap table caption,
-.single .sidebar .calendar_wrap table th{
+.sidebar .calendar_wrap table caption,
+.sidebar .calendar_wrap table th{
 	text-align: center;
 }
-.single .sidebar .calendar_wrap a{
+.sidebar .calendar_wrap a{
 	background-color:#f4f4f4;
 	font-weight:700
 }
-.single .sidebar .tagcloud a{
+.sidebar .tagcloud a{
 	margin: 0 3px 5px 0px;
 	padding: 1px 9px 3px;
 	display: inline-block;
@@ -276,20 +304,20 @@ a:focus,
 	font-size: 14px !important;
 	font-weight:100;
 }
-.single .sidebar .tagcloud a .tag-link-count{
+.sidebar .tagcloud a .tag-link-count{
 	font-size: 75%;
 	margin-left: 2px;
 }
-.single .sidebar .tagcloud a:hover{
+.sidebar .tagcloud a:hover{
 	color: #fff;
 	background: #ffb262;
 	border: 1px solid #ffb262;
 	font-weight:700;
 }
-.single .sidebar .screen-reader-text{
+.sidebar .screen-reader-text{
 	margin-left:5px;
 }
-.single .sidebar #archives-dropdown-2{
+.sidebar #archives-dropdown-2{
 	margin-left:0.5em;
 	padding: 6px 12px;
 	height: 34px;
@@ -301,56 +329,56 @@ a:focus,
 	border: 1px solid #ccc;
 	border-radius: 4px;
 }
-.single .sidebar h3 .rsswidget{
+.sidebar h3 .rsswidget{
 	color: #333;
 	margin-left:-2px;
 }
-.single .sidebar h3 .rsswidget img{
+.sidebar h3 .rsswidget img{
 	display:none;
 }
-.single .sidebar .rss-date,
-.single .sidebar .news-date,
-.single .sidebar .post-date{
+.sidebar .rss-date,
+.sidebar .news-date,
+.sidebar .post-date{
 	padding:2px 4px;
 	font-size:85%;
 	color:#888;
 	background-color:#eee;
 	border-radius: 4px;
 }
-.single .sidebar .rssSummary{
+.sidebar .rssSummary{
 	color:#888;
 	margin:0.5em 0;
 	padding-bottom: 0.5em;
 	border-bottom: 1px dashed #cccccc;
 }
-.single .sidebar .textwidget img,
-.single .sidebar .widget_theme_news img{
+.sidebar .textwidget img,
+.sidebar .widget_theme_news img{
 	width:100%;
 	height: auto;
 	border-radius:10% 0;
 }
-.single .sidebar .textwidget img:hover,
-.single .sidebar .widget_theme_news img:hover{
+.sidebar .textwidget img:hover,
+.sidebar .widget_theme_news img:hover{
 	border-radius:0;
 }
-.single .sidebar .widget_theme_news p{
+.sidebar .widget_theme_news p{
 	font-size:18px;
 }
-.single .sidebar .widget_theme_news p span{
+.sidebar .widget_theme_news p span{
 	margin-left:0.4em;
 }
-.single .sidebar .widget_theme_news .news-thumbnail{
+.sidebar .widget_theme_news .news-thumbnail{
 	padding-bottom: 1em;
 	border-bottom: 1px dashed #cccccc;
 }
-.single .sidebar .widget_theme_news .news-thumbnail:last-child{
+.sidebar .widget_theme_news .news-thumbnail:last-child{
 	border-bottom:none;
 }
-.single .sidebar .widget_recent_entries ul{
+.sidebar .widget_recent_entries ul{
 	padding-left:8px;
 	list-style-type:none;
 }
-.single .sidebar .widget_recent_entries a{
+.sidebar .widget_recent_entries a{
 	display: block;
 	margin-left: 2px;
 	overflow: hidden;
@@ -359,7 +387,7 @@ a:focus,
 	color: #555;
 	line-height: 1.6;
 }
-.single .sidebar .widget_recent_entries a:before{
+.sidebar .widget_recent_entries a:before{
 	position: relative;
 	margin-bottom: 2px;
 	margin-right: 8px;
@@ -371,31 +399,31 @@ a:focus,
 	box-shadow: 0 1px 2px #757575;
 	text-decoration: none;
 }
-.single .sidebar .widget_recent_entries li:nth-child(n) a::before{
+.sidebar .widget_recent_entries li:nth-child(n) a::before{
 	border:1px solid #fd5f00;
 }
-.single .sidebar .widget_recent_entries li:nth-child(n) a:hover{
+.sidebar .widget_recent_entries li:nth-child(n) a:hover{
 	color:#fd5f00;
 }
-.single .sidebar .widget_recent_entries li:nth-child(2n) a::before{
+.sidebar .widget_recent_entries li:nth-child(2n) a::before{
 	border:1px solid #00a635;
 }
-.single .sidebar .widget_recent_entries li:nth-child(2n) a:hover{
+.sidebar .widget_recent_entries li:nth-child(2n) a:hover{
 	color:#00a635;
 }
-.single .sidebar .widget_recent_entries li:nth-child(3n) a::before{
+.sidebar .widget_recent_entries li:nth-child(3n) a::before{
 	border:1px solid #b92400;
 }
-.single .sidebar .widget_recent_entries li:nth-child(3n) a:hover{
+.sidebar .widget_recent_entries li:nth-child(3n) a:hover{
 	color:#b92400;
 }
-.single .sidebar .widget_recent_entries li:nth-child(4n) a::before{
+.sidebar .widget_recent_entries li:nth-child(4n) a::before{
 	border:1px solid #00a9da;
 }
-.single .sidebar .widget_recent_entries li:nth-child(4n) a:hover{
+.sidebar .widget_recent_entries li:nth-child(4n) a:hover{
 	color:#00a9da;
 }
-.single .sidebar .widget_recent_entries .post-date{
+.sidebar .widget_recent_entries .post-date{
 	float: right;
 	margin-top: -1.764em;
 }

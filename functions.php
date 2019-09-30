@@ -27,6 +27,14 @@ if( function_exists('register_sidebar') ) {
         'after_title' => '</h3>'
     ));
     register_sidebar(array(
+        'name' => __('普通列表右侧栏','limiwu'),
+        'description'   => __('放置在列表右侧','limiwu'),
+        'before_widget' => '<section class="widget %2$s">',
+        'after_widget' => '</section>',
+        'before_title' => '<h3>',
+        'after_title' => '</h3>'
+    ));
+    register_sidebar(array(
         'name' => __('首页AD广告位','limiwu'),
         'description'   => __('临时决定，暂留位','limiwu'),
         'before_widget' => '<div id="indexAD" class="col-lg-wu1 col-md-3 col-sm-4 col-xs-6 item">',
@@ -158,3 +166,9 @@ class new_general_setting {
         echo '<input type="text" id="limiwu_get_ICP" name="limiwu_get_ICP" value="'.$value.'" />';
     }
 }
+
+//修改默认摘要文字长度
+function custom_excerpt_length($length){
+    return 140;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length');

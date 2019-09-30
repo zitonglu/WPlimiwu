@@ -39,8 +39,6 @@
 					the_post();
 					the_content();
 				}
-				
-				comments_template('/comments-single.php');
 
 				$tags = wp_get_post_tags($post->ID);
 				if (!empty($tags)) {
@@ -52,6 +50,7 @@
 						echo '<a href="'.get_tag_link($tag->term_id).'" class="btn btn-default btn-lg" target="_blank" role="button" title="'.$tag->name.'">'.$tag->name.'</a> ';
 					}
 					echo '</div>';
+					comments_template('/comments-single.php');
 				}?>
 			</div>
 			<!-- 获取侧栏 -->			

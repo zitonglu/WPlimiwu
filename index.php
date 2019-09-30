@@ -1,9 +1,7 @@
 <?php 
 	$list_array = explode(',',get_option('limiwu_index_list'));
-	if (in_category($list_array)) {
-		require(TEMPLATEPATH . '/index-list.php');
-	}else{
-	get_header();?>
+	if (is_home() || (is_category() && !in_category($list_array))) {
+		get_header();?>
 	<div class="list">
 		<div class="container">
 			<div class="row" id="masonry">
@@ -24,6 +22,7 @@
 	    <li id="older_posts"><?php next_posts_link(__('下一页','limiwu')) ?></li>
 	  </ul>
 	</nav><!-- nav-below end -->
-
 	<?php get_footer();
+	}else{
+		require(TEMPLATEPATH . '/index-list.php');
 }?>
