@@ -50,7 +50,17 @@
 						echo '<a href="'.get_tag_link($tag->term_id).'" class="btn btn-default btn-lg" target="_blank" role="button" title="'.$tag->name.'">'.$tag->name.'</a> ';
 					}
 					echo '</div>';
+
 					comments_template('/comments-single.php');
+
+					$prev_post = get_previous_post();
+					$next_post = get_next_post();
+					if (!empty( $prev_post ) || !empty( $next_post )) {
+						echo '<hr><nav><ul class="pager">';
+						echo ' <li class="previous"><a class="btn btn-default" role="button" href="'. get_permalink($prev_post).'" title="'.get_the_title($prev_post).'"><i class="glyphicon glyphicon-hand-left"></i> '.__('前一篇','limiwu').'</a></li>';
+						echo ' <li class="next"><a class="btn btn-default" role="button" href="'. get_permalink($next_post).'" title="'.get_the_title($ext_post).'">'.__('下一篇','limiwu').' <i class="glyphicon glyphicon-hand-right"></i></a></li>';
+						echo '</ul></nav>';
+					}
 				}?>
 			</div>
 			<!-- 获取侧栏 -->			

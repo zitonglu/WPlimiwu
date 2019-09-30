@@ -208,7 +208,7 @@ a:focus,
 	color: #333;
 	text-align: justify;
 }
-.single .article a{
+.single .article p a{
 	padding:2px 3px;
 	border-bottom:1px solid #ffb262;
 	font-weight:700
@@ -491,5 +491,6 @@ a:focus,
 .footer a{color:#777}
 .footer a:hover{color: #bdbdbd}
 
+.pager a{font-size:16px}
 .text-right{text-align:right !important}
 .text-center{text-align:center !important}
