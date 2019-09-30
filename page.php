@@ -7,6 +7,6 @@
 					the_content();
 			}?>
 		</div>
-	<?php comments_template();//打开评论 ?>
+	<?php comments_template();?>
 	</div>
 <?php get_footer();?>

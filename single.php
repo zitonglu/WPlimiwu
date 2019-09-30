@@ -40,6 +40,8 @@
 					the_content();
 				}
 				
+				comments_template('/comments-single.php');
+
 				$tags = wp_get_post_tags($post->ID);
 				if (!empty($tags)) {
 				?>

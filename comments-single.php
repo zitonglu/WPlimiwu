@@ -1,9 +1,13 @@
 <?php
+/*
+* 单篇文章的评论模版
+*
+*/
 if ( post_password_required() )
 	return;
 ?>
 <?php if(have_comments()): ?>
-<br><h3 id="comment"><span class="glyphicon glyphicon-comment"></span>&nbsp;<?php _e('评论内容','limiwu')?></h3><hr>
+<br><h4 id="comment"><?php _e('评论内容','limiwu')?></h4>
 <!-- 评论内容 -->
 <div class="panel-group comment-texts" id="accordion" role="tablist" aria-multiselectable="true">
 <?php function limiwu_comment($comment, $args, $depth){ $GLOBALS['comment'] = $comment; ?>
@@ -44,7 +48,7 @@ if ( post_password_required() )
 <p><a href="<?php echo wp_login_url( get_permalink() ); ?>"><?php _e('Sign in','limiwu') ?></a><?php _e('Comment','limiwu') ?></p>
 <?php else: ?>
 <!-- Comment Form -->
-<br><h4><span class="glyphicon glyphicon-pawn"></span>&nbsp;<?php _e('评论栏','limiwu') ?></h4><hr>
+<br><h4><?php _e('评论栏','limiwu') ?></h4>
 <form id="commentform" name="commentform" action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" class="form-horizontal" role="form">
 <?php if ( !is_user_logged_in() ) : ?>
 	<div class="form-group">
