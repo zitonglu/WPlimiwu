@@ -47,7 +47,7 @@
 				<?php
 					echo '<div>';
 					foreach ($tags as $tag ) {
-						echo '<a href="'.get_tag_link($tag->term_id).'" class="btn btn-default btn-lg" target="_blank" role="button" title="'.$tag->name.'">'.$tag->name.'</a> ';
+						echo '<a href="'.get_tag_link($tag->term_id).'" class="btn btn-default" target="_blank" role="button" title="'.$tag->name.'">'.$tag->name.'</a> ';
 					}
 					echo '</div>';
 
@@ -62,6 +62,7 @@
 						echo '</ul></nav>';
 					}
 				}?>
+				<hr>
 			</div>
 			<!-- 获取侧栏 -->			
 			<?php get_sidebar(); ?>
