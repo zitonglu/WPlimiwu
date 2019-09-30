@@ -50,7 +50,7 @@
 						echo '<a href="'.get_tag_link($tag->term_id).'" class="btn btn-default" target="_blank" role="button" title="'.$tag->name.'">'.$tag->name.'</a> ';
 					}
 					echo '</div>';
-
+				}
 					comments_template('/comments-single.php');
 
 					$prev_post = get_previous_post();
@@ -61,7 +61,7 @@
 						echo ' <li class="next"><a class="btn btn-default" role="button" href="'. get_permalink($next_post).'" title="'.get_the_title($ext_post).'">'.__('下一篇','limiwu').' <i class="glyphicon glyphicon-hand-right"></i></a></li>';
 						echo '</ul></nav>';
 					}
-				}?>
+				?>
 				<hr>
 			</div>
 			<!-- 获取侧栏 -->			
