@@ -1,3 +1,8 @@
+<?php
+/*
+Template Name: 单页面模版
+*/
+?>
 <?php get_header();?>
 	<div class="container content">
 		<div class="cow">

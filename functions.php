@@ -47,6 +47,8 @@ require_once( dirname(__FILE__) . '/option-walker.php' );//重新生产bootstrap
 remove_filter( 'comment_text', 'wpautop',  30 );
 // 开启缩略图功能
 add_theme_support( 'post-thumbnails' );
+// 开启文章相关形式
+add_theme_support('post-formats', array('aside', 'image', 'video', 'audio', 'quote', 'link', 'gallery') );
 /**
  * 获取文章的缩略图
  * 如果设置了缩略图，则显示，没有找文章的第一张图片，还没有的话就用默认图片

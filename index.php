@@ -1,4 +1,9 @@
-<?php get_header();?>
+<?php 
+	$list_array = explode(',',get_option('limiwu_index_list'));
+	if (in_category($list_array)) {
+		require(TEMPLATEPATH . '/index-list.php');
+	}else{
+	get_header();?>
 	<div class="list">
 		<div class="container">
 			<div class="row" id="masonry">
@@ -20,4 +25,5 @@
 	  </ul>
 	</nav><!-- nav-below end -->
 
-<?php get_footer();?>
+	<?php get_footer();
+}?>
