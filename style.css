@@ -474,9 +474,12 @@ a:focus,
 	font-weight:700;
 }
 .comment-texts code span{font-size:85%}
-.single .comment-texts a{
+.comment-texts p.panel-title a{
 	border-bottom:none;
+	font-weight:100;
+	padding:0;
 }
+.comment-texts .panel-body img{border-radius: 50%}
 /*====.footer 页面底部 ====*/
 .footer{
 	margin-top: 5em;
