@@ -240,6 +240,11 @@ a:focus,
 	border-radius: 1.2em 1em 0;
 	border: 2px solid #333;
 }
+.single .article p img{
+	display: block;
+	margin:0 auto;
+	max-width:100%;
+}
 /*====.sidebar 侧栏格式====*/
 @media (min-width: 990px){
 	.sidebar .widget{

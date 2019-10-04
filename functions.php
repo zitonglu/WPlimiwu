@@ -169,6 +169,6 @@ class new_general_setting {
 
 //修改默认摘要文字长度
 function custom_excerpt_length($length){
-    return 140;
+    return 80;
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length');
