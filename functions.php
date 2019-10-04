@@ -166,9 +166,3 @@ class new_general_setting {
         echo '<input type="text" id="limiwu_get_ICP" name="limiwu_get_ICP" value="'.$value.'" />';
     }
 }
-
-//修改默认摘要文字长度
-function custom_excerpt_length($length){
-    return 80;
-}
-add_filter( 'excerpt_length', 'custom_excerpt_length');
