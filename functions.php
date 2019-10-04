@@ -166,3 +166,8 @@ class new_general_setting {
         echo '<input type="text" id="limiwu_get_ICP" name="limiwu_get_ICP" value="'.$value.'" />';
     }
 }
+//WordPress 5.0+移除 block-library CSS
+function fanly_remove_block_library_css() {
+    wp_dequeue_style( 'wp-block-library' );
+}
+add_action( 'wp_enqueue_scripts', 'fanly_remove_block_library_css', 100 );
