@@ -16,6 +16,7 @@ a{text-decoration:none !important;color:#ec6615}
 a:hover{text-decoration:none !important;color:#333;}
 a:hover,
 a:focus,
+figure img{max-width:100%}
 
 .list .item .thumbnail img:hover,
 .list .item .thumbnail img:focus,

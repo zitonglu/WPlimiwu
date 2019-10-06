@@ -37,9 +37,11 @@
 				<?php 
 				while ( have_posts() ) {
 					the_post();
+					echo '<article id="viewer">';//图片JQ
 					the_content();
+					echo '</article>';
 				}
-
+				//文章标签
 				$tags = wp_get_post_tags($post->ID);
 				if (!empty($tags)) {
 				?>
