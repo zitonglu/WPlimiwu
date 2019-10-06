@@ -79,7 +79,7 @@ function limiwu_post_first_img() {
 		}else {
 			$first_img = $matches [1][0];
 		}
-		echo '<img src="'.$first_img.'" alt="'.get_the_title().'" />';
+        echo '<img src="'.$first_img.'" alt="'.get_the_title().'" />';
 	}
 }
 /**
@@ -174,15 +174,15 @@ add_action( 'wp_enqueue_scripts', 'fanly_remove_block_library_css', 100 );
 
 /**
  * 七牛图片自动添加瘦身命令
- * WordPress版本 //www.aeink.com/454.html
- * 这个命令中的网址是写死的，其他主题需要自行修改
+ * WordPress版本 www.aeink.com/454.html
+ * 网址是写死的,必须放在fun最后
 **/
 function QiNiuShouShen(){
     function Rewrite_URI($htmlSS){
         /* 七牛图片瘦身目前仅支持jpg|png|jpeg,前面是引用七牛图片的自定义地址，如abc.qiniudn.com */
-        $patternSS ='/\/\/img\.limiwu\.com\/([^"\']*?)\.(jpg|png|jpeg)/i';
+        $patternSS ='/src=\"https?:\/\/img\.limiwu\.com\/([^"\']*?)\.(jpg|png|jpeg)/i';
         /* 自动添加七牛图片瘦身命令?imageslim */
-        $replacementSS = '//img.limiwu.com/$1.$2?imageslim';
+        $replacementSS = 'src="http://img.limiwu.com/$1.$2?imageslim';
     $htmlSS = preg_replace($patternSS, $replacementSS,$htmlSS);
     return $htmlSS;
     }
@@ -191,3 +191,4 @@ function QiNiuShouShen(){
     }
 }
 add_action('init', 'QiNiuShouShen');
+?>
