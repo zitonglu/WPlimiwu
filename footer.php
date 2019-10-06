@@ -24,6 +24,13 @@
         });
       });
     </script>
+    <!-- 图片大图JS -->
+    <script src="<?php bloginfo('template_url'); ?>/js/viewer-jquery.min.js"></script>
+    <script>
+        $(function() {
+            $('#viewer').viewer();
+        });
+    </script>
 <?php elseif(is_home() || is_category()):?>
     <!-- 瀑布流 JS -->
     <script src="<?php bloginfo('template_url'); ?>/js/masonry.min.js"></script>

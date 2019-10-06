@@ -7,7 +7,9 @@
 <!-- Bootstrap -->
 <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/style.css">
-
+<?php if(is_single()  || is_page()):?>
+    <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/viewer.min.css">
+<?php endif ?>
 <!--[if lt IE 9]>
   <script src="//apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
   <script src="//apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js"></script>
