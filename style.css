@@ -162,6 +162,7 @@ figure img{max-width:100%}
 	font-weight: 700;
 	font-family: "Microsoft Yahei", "微软雅黑", "宋体";
 }
+.single .navbar{margin-bottom:0}
 @media (max-width: 768px){
 	.single .jumbotron{
 		padding-top:0;
