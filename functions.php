@@ -67,10 +67,10 @@ add_theme_support('post-formats', array('aside', 'image', 'video', 'audio', 'quo
  */
 function limiwu_post_first_img() {
 	global $post;
-	if (has_post_thumbnail()) {
-			return the_post_thumbnail();
-		}else{// 获取缩略图
-		$first_img = '';
+	if(get_post_meta($post->ID, 'tu', true)){
+        echo '<img src="'.get_post_meta($post->ID, 'tu', true).'" alt="'.get_the_title().'" />';
+    }else{// 获取缩略图
+        $first_img = '';
 		ob_start();
 		ob_end_clean();
 		$output = preg_match_all('/<img*.+src=[\'"]([^\'"]+)[\'"].*>/iU', wp_unslash($post->post_content), $matches);
@@ -171,6 +171,22 @@ function fanly_remove_block_library_css() {
     wp_dequeue_style( 'wp-block-library' );
 }
 add_action( 'wp_enqueue_scripts', 'fanly_remove_block_library_css', 100 );
+
+// webp格式
+function my_upload_mimes($mimes = array()) {
+    $mimes['svg'] = 'image/svg+xml';
+    $mimes['webp'] = 'image/webp';
+    return $mimes;
+}
+add_filter('upload_mimes', 'my_upload_mimes');
+function bzg_file_is_displayable_image($result, $path) {
+    $info = @getimagesize( $path );
+    if($info['mime'] == 'image/webp') {
+        $result = true;
+    }
+    return $result;
+}
+add_filter( 'file_is_displayable_image', 'bzg_file_is_displayable_image', 10, 2 );
 
 /**
  * 七牛图片自动添加瘦身命令
