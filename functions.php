@@ -171,23 +171,6 @@ function fanly_remove_block_library_css() {
     wp_dequeue_style( 'wp-block-library' );
 }
 add_action( 'wp_enqueue_scripts', 'fanly_remove_block_library_css', 100 );
-
-// webp格式
-function my_upload_mimes($mimes = array()) {
-    $mimes['svg'] = 'image/svg+xml';
-    $mimes['webp'] = 'image/webp';
-    return $mimes;
-}
-add_filter('upload_mimes', 'my_upload_mimes');
-function bzg_file_is_displayable_image($result, $path) {
-    $info = @getimagesize( $path );
-    if($info['mime'] == 'image/webp') {
-        $result = true;
-    }
-    return $result;
-}
-add_filter( 'file_is_displayable_image', 'bzg_file_is_displayable_image', 10, 2 );
-
 /**
  * 七牛图片自动添加瘦身命令
  * WordPress版本 www.aeink.com/454.html
