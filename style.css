@@ -37,16 +37,6 @@ figure img{max-width:100%}
 .archive{
 	background-color:#f4f4f4;
 }
-@media (max-width: 550px) {
-	.list .row{
-		margin-left:-11px;
-		margin-right:-11px;
-	}
-	.list .item{
-		padding-left:2px;
-		padding-right:2px;
-	}
-}
 @media (min-width: 1200px){
 	.col-lg-wu1{
 		width:20%;
@@ -60,20 +50,32 @@ figure img{max-width:100%}
 		margin-right:8%;
 	}
 }
-.list .item{
-	border-radius:6px;
-	padding-left:8px;
-	padding-right:8px;
-}
 .list .item .thumbnail{
 	padding:0;
 	border:none;
 	margin-bottom:14px;
 }
 .list .item .thumbnail img{
-	border-radius:6px 6px 0 0;
 	width:100%;
 	height:auto;
+	border-radius:6px 6px 0 0;
+}
+.list .item{
+	border-radius:6px;
+	padding-left:8px;
+	padding-right:8px;
+}
+@media (max-width: 768px){
+	.list .item{
+		padding:0 2px 0 4px;
+	}
+	.list .item:nth-child(2n){
+		padding:0 4px 0 2px;
+	}
+	.list .item .thumbnail{
+		margin-bottom:6px
+	}
+	.list .item .thumbnail img{border-radius:0}
 }
 .list .item .thumbnail img:hover{
 	opacity:0.6;
@@ -200,9 +202,6 @@ figure img{max-width:100%}
 	}
 }
 /*====.single .article 文章正文格式====*/
-.single .article{
-	border-right: 1px solid #eee;
-}
 .single .article p{
 	font-size:16px;
 	text-indent: 2em;
@@ -248,9 +247,12 @@ figure img{max-width:100%}
 	max-width:100%;
 }
 /*====.sidebar 侧栏格式====*/
-@media (min-width: 990px){
+@media (min-width:768px){
 	.sidebar .widget{
-		padding-left: 18px;
+		padding-left: 0px;
+	}
+	.sidebar{
+		border-left: 1px solid #eee;
 	}
 }
 .sidebar .widget a{

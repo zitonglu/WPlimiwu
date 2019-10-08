@@ -32,7 +32,7 @@
 		</div>
 	</div>
 	<div class="container">
-		<div class="cow">
+		<div class="row">
 			<div class="col-sm-8 article">
 				<?php 
 				while ( have_posts() ) {
