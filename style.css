@@ -269,7 +269,7 @@ figure img{max-width:100%}
 }
 .sidebar h3::before{
 	content: '\263A';
-	font-size: 140%;
+	font-size: 125%;
 }
 .sidebar .calendar_wrap:before{
 	content: '';
