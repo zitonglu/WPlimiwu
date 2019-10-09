@@ -171,6 +171,46 @@ function fanly_remove_block_library_css() {
     wp_dequeue_style( 'wp-block-library' );
 }
 add_action( 'wp_enqueue_scripts', 'fanly_remove_block_library_css', 100 );
+
+/**
+ * WordPress 修改时间的显示格式为几天前
+ * form www.wpdaxue.com/time-ago.html
+ */
+function Bing_filter_time(){
+    global $post ;
+    $to = time();
+    $from = get_the_time('U') ;
+    $diff = (int) abs($to - $from);
+    if ($diff <= 3600) {
+        $mins = round($diff / 60);
+        if ($mins <= 1) {
+            $mins = 1;
+        }
+        $time = sprintf(_n('%s 分钟', '%s 分钟', $mins), $mins) . __( '前' , 'Bing' );
+    }
+    else if (($diff <= 86400) && ($diff > 3600)) {
+        $hours = round($diff / 3600);
+        if ($hours <= 1) {
+            $hours = 1;
+        }
+        $time = sprintf(_n('%s 小时', '%s 小时', $hours), $hours) . __( '前' , 'Bing' );
+    }
+    elseif ($diff >= 86400) {
+        $days = round($diff / 86400);
+        if ($days <= 1) {
+            $days = 1;
+            $time = sprintf(_n('%s 天', '%s 天', $days), $days) . __( '前' , 'Bing' );
+        }
+        elseif( $days > 29){
+            $time = get_the_time(get_option('date_format'));
+        }
+        else{
+            $time = sprintf(_n('%s 天', '%s 天', $days), $days) . __( '前' , 'Bing' );
+        }
+    }
+    return $time;
+}
+add_filter('the_time','Bing_filter_time');
 /**
  * 七牛图片自动添加瘦身命令
  * WordPress版本 www.aeink.com/454.html
