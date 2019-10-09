@@ -91,31 +91,47 @@ figure img{max-width:100%}
 	text-decoration:none;
 }
 .list .item .thumbnail .caption .title h3:hover,
-.list .item .thumbnail .caption .tags a:hover{
+.list .item .thumbnail .caption a:hover{
 	color:#ffb262;
 	transition:all 0.6s !important;
 }
 .list .item .thumbnail .caption .title:visited{
-	color:#555;
 	color:#333;
 }
 .list .item .thumbnail .caption .description{
-	padding-left:12px;
-	padding-bottom:12px;
-	color:#888;
-	border-bottom: 1px dashed #888;
+	padding-bottom:8px;
+}
+.list .item .thumbnail .caption i{
+	margin:0 1px 2px 0;
+	font-size:90%;
+	/*color: #ddd;*/
 }
 .list .item .thumbnail .caption .tags{
+	padding-bottom:8px;
 	color:#888;
-	font-size:11px;
-	/*padding-left:12px;*/
-	line-height:1.6em;
 }
-.list .item .thumbnail .caption .tags a{
-	color:#888;
+.list .item .thumbnail .caption .aside{text-indent:2em}
+.list .item .thumbnail .caption .edit img{
+	display: inline-block;
+	height: 12px;
+	width: auto;
+	margin-bottom: 4px;
+}
+.list .item .thumbnail .caption .edit{
+	font-size:12px;
+	line-height:1.6em;
+	padding-top: 4px;
+	border-top: 1px dashed #ccc;
+}
+.list .item .thumbnail .caption .description,
+.list .item .thumbnail .caption .description a{
+	color:#c6c5c5;
 	text-decoration:none;
 }
-.list .item .thumbnail .caption .tags .glyphicon{
+.list .item .thumbnail .caption .edit,
+.list .item .thumbnail .caption .edit a{color:#959493}
+.list .item .thumbnail .caption .edit a:hover{color:#ec6615}
+.list .item .thumbnail .caption .edit .glyphicon{
 	margin-right:4px;
 }
 @media (min-width: 990px){
@@ -507,3 +523,4 @@ figure img{max-width:100%}
 .pager a{font-size:16px}
 .text-right{text-align:right !important}
 .text-center{text-align:center !important}
+.float-right{float:right}

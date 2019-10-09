@@ -3,7 +3,7 @@
 	<p class="description"><?php echo get_the_excerpt();?></p>
 	<p class="more">
 		<?php if(get_post_meta( $post->ID, '_limiwu_source', true )):?>
-			<img class="post-ico" src="//<?php echo get_post_meta( $post->ID, '_limiwu_source', true )?>/favicon.ico">
+			<img class="post-ico" src="//<?php echo get_post_meta( $post->ID, '_limiwu_source', true )?>/favicon.ico" onerror="javascript:this.src='<?php bloginfo('template_url'); ?>/image/favicon.ico';">
 			<?php if(get_post_meta( $post->ID, '_limiwu_source_remarks', true )):?>
 				<?php echo get_post_meta( $post->ID, '_limiwu_source_remarks', true )?>
 			<?php endif ?>
