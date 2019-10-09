@@ -51,6 +51,7 @@ figure img{max-width:100%}
 		margin-right:8%;
 	}
 }
+.list{min-height:1050px;}
 .list .item{margin-bottom:14px}
 .list .item .thumbnail{
 	padding:0;
