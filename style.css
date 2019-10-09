@@ -209,6 +209,7 @@ figure img{max-width:100%}
 	color: #333;
 	text-align: justify;
 }
+@media (min-width:768px){.single .article p{margin-bottom:1em;}}
 .single .article p a{
 	padding:2px 3px;
 	border-bottom:1px solid #ffb262;

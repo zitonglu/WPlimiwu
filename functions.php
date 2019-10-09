@@ -68,7 +68,7 @@ add_theme_support('post-formats', array('aside', 'image', 'video', 'audio', 'quo
 function limiwu_post_first_img() {
 	global $post;
 	if(get_post_meta($post->ID, 'tu', true)){
-        echo '<img src="'.get_post_meta($post->ID, 'tu', true).'" alt="'.get_the_title().'" />';
+        echo '<img src="'.get_post_meta($post->ID, 'tu', true).'" alt="'.get_the_title().'" onerror="javascript:this.src=\''.get_template_directory_uri().'/image/sandwich.jpg\';"/>';
     }else{// 获取缩略图
         $first_img = '';
 		ob_start();
@@ -79,7 +79,7 @@ function limiwu_post_first_img() {
 		}else {
 			$first_img = $matches [1][0];
 		}
-        echo '<img src="'.$first_img.'" alt="'.get_the_title().'" />';
+        echo '<img src="'.$first_img.'" alt="'.get_the_title().'" onerror="javascript:this.src=\''.get_template_directory_uri().'/image/espresso.jpg\';"/>';
 	}
 }
 /**
