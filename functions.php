@@ -56,7 +56,7 @@ remove_filter( 'comment_text', 'wpautop',  30 );
 // 开启缩略图功能
 add_theme_support( 'post-thumbnails' );
 // 开启文章相关形式
-add_theme_support('post-formats', array('aside', 'image', 'video', 'audio', 'quote', 'link', 'gallery') );
+add_theme_support('post-formats', array('chat','aside','image', 'video', 'audio', 'link', 'gallery') );
 /**
  * 获取文章的缩略图
  * 如果设置了缩略图，则显示，没有找文章的第一张图片，还没有的话就用默认图片
@@ -211,6 +211,13 @@ function Bing_filter_time(){
     return $time;
 }
 add_filter('the_time','Bing_filter_time');
+
+//修改文章形成的名字
+function rename_post_formats($safe_text){
+    if($safe_text == '聊天' ) return '问答';
+        return $safe_text;
+    } 
+add_filter('esc_html','rename_post_formats');
 /**
  * 七牛图片自动添加瘦身命令
  * WordPress版本 www.aeink.com/454.html
