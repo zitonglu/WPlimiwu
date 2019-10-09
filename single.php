@@ -17,7 +17,7 @@
 						<h4 class="media-heading"><?php bloginfo('name'); ?></h4>
 					<?php endif ?>
 					<p>
-						<?php echo get_the_time('m/d h:s');?>&nbsp;&nbsp;&nbsp;&nbsp;
+						<?php echo get_the_time('Y/m/d H:s');?>&nbsp;&nbsp;&nbsp;&nbsp;
 						<?php 
 							if(get_post_meta( $post->ID, '_limiwu_source_author', true )){
 								echo get_post_meta( $post->ID, '_limiwu_source_author', true );

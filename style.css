@@ -51,10 +51,11 @@ figure img{max-width:100%}
 		margin-right:8%;
 	}
 }
+.list .item{margin-bottom:14px}
 .list .item .thumbnail{
 	padding:0;
 	border:none;
-	margin-bottom:14px;
+	margin-bottom:0;
 }
 .list .item .thumbnail img{
 	width:100%;
@@ -285,7 +286,7 @@ figure img{max-width:100%}
 	margin-top:-20px;
 }
 .sidebar h3{
-	font-size:18px;
+	font-size:16px;
 }
 .sidebar h3::before{
 	content: '\263A';
