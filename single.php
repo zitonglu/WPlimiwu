@@ -40,12 +40,21 @@
 					echo '<article id="viewer">';//图片JQ
 					the_content();
 					echo '</article>';
+					//版权声明
+					if(!get_post_meta( $post->ID, '_limiwu_source_remarks', true )){
+						echo '<h4 class="Copyright">'.__('版权声明','limiwu').'</h4>';
+						echo '<p class="Copyright">'.__('本文来源','limiwu').get_bloginfo('name').__('，经','limiwu').get_bloginfo('name').__('授权发布，版权归作者','limiwu');
+						the_author_posts_link();
+						_e('所有。转载或内容合作请查阅转载说明，违规转载法律必究。','limiwu');
+						echo '</p>';
+					}
 				}
+				
 				//文章标签
 				$tags = wp_get_post_tags($post->ID);
 				if (!empty($tags)) {
 				?>
-					<h4><?php _e('更多相关内容','limiwu');?></h4>
+					<h4 class="more-text"><?php _e('更多相关内容','limiwu');?></h4>
 				<?php
 					echo '<div>';
 					foreach ($tags as $tag ) {
