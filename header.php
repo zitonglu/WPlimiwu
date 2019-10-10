@@ -24,7 +24,7 @@
     } elseif (is_search() ) {
         echo "search result:"; echo "|"; bloginfo('name');
     } elseif (is_404() ) {
-        echo '404';
+        echo '404 | '.__('您所浏览的页面错误','limiwu');
     } else {
 		wp_title( '|', true, 'right' ); 
 }?></title>
