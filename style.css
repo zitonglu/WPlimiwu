@@ -23,7 +23,9 @@ figure img{max-width:100%}
 .list .item .thumbnail img,
 .sidebar img:hover,
 .sidebar img,
-.list .item .thumbnail .caption .description:hover{
+.list .item .thumbnail .caption .description:hover,
+.ppt a:hover,
+.ppt a:focus{
 	transition:all 0.6s !important;
 }
 #infscr-loading{display:none !important;}
@@ -116,7 +118,8 @@ figure img{max-width:100%}
 	color:#888;
 }
 .list .item .thumbnail .caption .aside{text-indent:2em}
-.list .item .thumbnail .caption .edit img{
+.list .item .thumbnail .caption .edit img,
+.ppt .edit img{
 	display: inline-block;
 	height: 12px;
 	width: auto;
@@ -529,6 +532,43 @@ figure img{max-width:100%}
 }
 .footer a{color:#777}
 .footer a:hover{color: #bdbdbd}
+/*====.ppt 页面底部 ====*/
+.ppt{
+	margin-top:-20px;
+	padding:0;
+	border-bottom: 1px solid #f77727;
+	background-color:#fd8e27;
+}
+.ppt .media{margin-top:20px}
+.ppt .media-left{padding-right:20px}
+.ppt .media-left img{
+	margin-bottom:20px;
+	height:170px;
+	border-radius:6px;
+	border:2px solid #fff;
+	-moz-box-shadow:4px 6px 6px #333333;
+	-webkit-box-shadow:4px 6px 6px #333333;
+	box-shadow:4px 6px 6px #333333;
+}
+.ppt .media-heading{line-height:1.4em}
+.ppt .carousel-indicators li,
+.ppt .carousel-indicators .active{width:30px}
+.ppt .carousel{min-height:240px;width: 70%;margin: 0 auto;}
+.ppt .carousel-indicators{bottom: 4px}
+.ppt .carousel-control.left,
+.ppt .carousel-control.right{background-image:none}
+@media (min-width: 720px){
+	.ppt .carousel-control.left{left: -80px}
+	.ppt .carousel-control.right{right:-80px}
+}
+.ppt .media-body h4 a{color:#333}
+.ppt .media-body p a{color:#fff}
+.ppt .media-body p{
+	font-size:14px;
+	color:#fff;
+	text-indent:2em;	
+}
+
 
 .pager a{font-size:16px}
 .text-right{text-align:right !important}
