@@ -1,7 +1,9 @@
 <?php 
 	$list_array = explode(',',get_option('limiwu_index_list'));
 	if (is_home() || (is_category() && !in_category($list_array))) {
-		get_header();?>
+		get_header();
+		get_template_part( 'content', 'top'); //获取置顶文章
+?>
 	<div class="list">
 		<div class="container">
 			<div class="row" id="masonry">

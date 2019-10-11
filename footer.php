@@ -61,6 +61,7 @@
             $('#masonry').masonry();
         });
     </script>
+    <script type="text/javascript">$('.carousel').carousel()</script>
 <?php endif ?>
 <?php wp_footer(); ?>
 </body>
