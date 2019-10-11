@@ -22,11 +22,7 @@
 				?>
 			</p>
 			<p class="edit hidden-xs">
-				<?php if(get_post_meta( $post->ID, '_limiwu_source', true ))://作者头像?>
-					<img class="media-object post-ico" src="//<?php echo get_post_meta( $post->ID, '_limiwu_source', true )?>/favicon.ico" onerror="javascript:this.src='<?php bloginfo('template_url'); ?>/image/favicon.ico';">
-					<?php else: ?>
-					<img class="media-object post-ico" src="<?php bloginfo('template_url'); ?>/image/favicon.ico" alt="<?php bloginfo('name'); ?>">
-				<?php endif ?>
+				<img class="media-object post-ico" src="<?php echo limiwu_ico_url();?>" onerror="javascript:this.src='<?php bloginfo('template_url'); ?>/image/favicon.ico';">
 				<?php //文章作者名字
 				if(get_post_meta( $post->ID, '_limiwu_source_remarks', true )){
 					echo '<a href="'.get_the_permalink().'" target="_blank" title="'.get_the_title().'">';

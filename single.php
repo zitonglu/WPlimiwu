@@ -4,11 +4,7 @@
 			<h2><?php single_post_title(); ?></h2>
 			<div class="media">
 				<div class="media-left">
-					<?php if(get_post_meta( $post->ID, '_limiwu_source', true )):?>
-						<img class="media-object post-ico" src="//<?php echo get_post_meta( $post->ID, '_limiwu_source', true )?>/favicon.ico" onerror="javascript:this.src='<?php bloginfo('template_url'); ?>/image/favicon.ico';">
-						<?php else: ?>
-						<img class="media-object post-ico" src="<?php bloginfo('template_url'); ?>/image/favicon.ico" alt="<?php bloginfo('name'); ?>">
-					<?php endif ?>
+					<img class="media-object post-ico" src="<?php echo limiwu_ico_url();?>" onerror="javascript:this.src='<?php bloginfo('template_url'); ?>/image/favicon.ico';">
 				</div>
 				<div class="media-body">
 					<?php if(get_post_meta( $post->ID, '_limiwu_source_remarks', true )):?>

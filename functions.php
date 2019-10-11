@@ -83,6 +83,30 @@ function limiwu_post_first_img() {
 	}
 }
 /**
+ * ICO图标加速
+ * 如果设置了ICO图标加速，则ICO用加速上的，没有就用别人网站上的，别人网站也没有就用自己网站上的
+ *
+ * @package limiwuCom
+ * @author annanzi/910109610@qq.com
+ * @since 2019-10-11
+ */
+function limiwu_ico_url(){
+    global $post;
+    if(get_post_meta( $post->ID, '_limiwu_source', true )){
+        $ICO_url = get_post_meta( $post->ID, '_limiwu_source', true );
+        $ICO_url = $ICO_url.'/favicon.ico';
+        if(get_option('limiwu_favicon_ico')){
+            $ICO = 'http://'.get_option('limiwu_favicon_ico').'/'.$ICO_url;
+            if (@fopen($ICO,'r')) {
+                $ICO_url = get_option('limiwu_favicon_ico').'/'.$ICO_url;
+            }
+        }
+    }else{
+        $ICO_url = bloginfo('template_url').'/image/favicon.ico';
+    }
+    return '//'.$ICO_url;
+}
+/**
  * 获取文章别名函数
  * 直接调取文章的别名功能
  *
