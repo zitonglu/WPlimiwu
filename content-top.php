@@ -17,7 +17,13 @@ if (get_option('limiwu_top_posts')) {
 			$n ++;
 ?>
 	<div class="item media<?php echo $active;?>" id="post-<?php the_ID(); ?>">
-		<div class="title-img"><a href="<?php the_permalink(); ?>" target="_blank" title="<?php the_title_attribute(); ?>"><?php limiwu_post_first_img();?></a></div>
+		<div class="title-img"><a href="<?php the_permalink(); ?>" target="_blank" title="<?php the_title_attribute(); ?>">
+	<?php if(get_post_meta($post->ID, 'PPT', true)){
+        echo '<img src="'.get_post_meta($post->ID, 'PPT', true).'" alt="'.get_the_title().'" onerror="javascript:this.src=\''.get_template_directory_uri().'/image/sandwich.jpg\';"/>';
+	}else{?>
+			<?php limiwu_post_first_img();
+	}?>		
+		</a></div>
 	    <h3><a href="<?php the_permalink(); ?>" target="_blank" class="title"><?php echo get_the_title(); ?></a></h3>
 	    <p class="excerpt hidden-xs"><a href="<?php the_permalink(); ?>" target="_blank"><?php echo get_the_excerpt();?></a></p>
 		<div class="edit hidden-xs">
