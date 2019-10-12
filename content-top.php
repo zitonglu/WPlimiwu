@@ -1,5 +1,5 @@
 <?php 
-if (!get_option('limiwu_top_posts')) {
+if (get_option('limiwu_top_posts')) {
 	$top_posts = get_posts("include=".get_option('limiwu_top_posts'));
 	if($top_posts){
 		$number = count($top_posts);
@@ -17,15 +17,21 @@ if (!get_option('limiwu_top_posts')) {
 			$n ++;
 ?>
 	<div class="item media<?php echo $active;?>" id="post-<?php the_ID(); ?>">
-	  <div class="media-left">
-	    <a href="<?php the_permalink(); ?>" target="_blank" class="title" title="<?php the_title_attribute(); ?>">
-	      <?php limiwu_post_first_img();?>
-	    </a>
-	  </div>
-	  <div class="media-body">
-	    <h4 class="media-heading"><a href="<?php the_permalink(); ?>" target="_blank" class="title" title="<?php the_title_attribute(); ?>"><?php echo get_the_title(); ?></a></h4>
-	    <p><a href="<?php the_permalink(); ?>" target="_blank" class="title" title="<?php the_title_attribute(); ?>"><?php echo get_the_excerpt();?></a></p>
-	  </div>
+		<div class="title-img"><a href="<?php the_permalink(); ?>" target="_blank" title="<?php the_title_attribute(); ?>"><?php limiwu_post_first_img();?></a></div>
+	    <h3><a href="<?php the_permalink(); ?>" target="_blank" class="title"><?php echo get_the_title(); ?></a></h3>
+	    <p class="excerpt hidden-xs"><a href="<?php the_permalink(); ?>" target="_blank"><?php echo get_the_excerpt();?></a></p>
+		<div class="edit hidden-xs">
+			<img class="media-object post-ico" src="<?php echo limiwu_ico_url();?>" onerror="javascript:this.src='<?php bloginfo('template_url'); ?>/image/favicon.ico';">
+			<?php //文章作者名字
+			if(get_post_meta( $post->ID, '_limiwu_source_remarks', true )){
+				echo '<a href="'.get_the_permalink().'" target="_blank" title="'.get_the_title().'">';
+				echo get_post_meta( $post->ID, '_limiwu_source_remarks', true );
+				echo '</a>';
+			}else{
+				the_author_posts_link($post->ID);
+			}?>
+			<span class="float-right"><i class="glyphicon glyphicon-time" aria-hidden="true"></i> <?php the_time('Y-m-d') ?></span>
+		</div>
 	</div>
 <?php }//end while?>
 </div><!-- end Wrapper for slides -->
