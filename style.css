@@ -51,12 +51,15 @@ figure img{max-width:100%}
 	.home .container,
 	.blog .container{
 		width:84%;
-		margin-left:8%;
-		margin-right:8%;
+		max-width:1400px;
+		margin:0 auto;
 	}
 }
 .list{min-height:100vh;}
 .list .masonrybox{margin-bottom:14px}
+@media (max-width:768px){
+	.list .masonrybox{margin-top:-12px}
+}
 .list .masonrybox .thumbnail{
 	padding:0;
 	border:none;
@@ -542,6 +545,7 @@ figure img{max-width:100%}
 	background-color:#fd8e27;
 }
 .ppt .carousel-inner{text-align: justify}
+.ppt .media{margin-top:0}
 .ppt .media .title-img{
 	position: relative;
 	margin:10px 0;
@@ -586,11 +590,9 @@ figure img{max-width:100%}
 	border-top: 1px dashed #fff;
 }
 @media (min-width: 767px){
-	.ppt .media{margin:0 auto;width:70%}
-	.ppt .media .title-img{width: 55%}
+	.ppt .media{padding:0 15%;}
+	.ppt .media .title-img{margin:20px 20px 40px 0;width: 55%}
 	.ppt .media h3{padding-top:10px;padding-bottom:0}
-	.ppt .media .title-img{margin:20px 20px 40px 0;}
-
 }
 
 
