@@ -203,33 +203,33 @@ add_action( 'wp_enqueue_scripts', 'fanly_remove_block_library_css', 100 );
 function Bing_filter_time(){
     global $post ;
     $to = time();
-    $from = get_the_time('U') ;
+    $from = get_the_time('U+8') ;
     $diff = (int) abs($to - $from);
     if ($diff <= 3600) {
         $mins = round($diff / 60);
         if ($mins <= 1) {
             $mins = 1;
         }
-        $time = sprintf(_n('%s 分钟', '%s 分钟', $mins), $mins) . __( '前' , 'Bing' );
+        $time = sprintf(_n('%s 分钟', '%s 分钟', $mins), $mins) . __( '前' , 'limiwu' );
     }
     else if (($diff <= 86400) && ($diff > 3600)) {
         $hours = round($diff / 3600);
         if ($hours <= 1) {
             $hours = 1;
         }
-        $time = sprintf(_n('%s 小时', '%s 小时', $hours), $hours) . __( '前' , 'Bing' );
+        $time = sprintf(_n('%s 小时', '%s 小时', $hours), $hours) . __( '前' , 'limiwu' );
     }
     elseif ($diff >= 86400) {
         $days = round($diff / 86400);
         if ($days <= 1) {
             $days = 1;
-            $time = sprintf(_n('%s 天', '%s 天', $days), $days) . __( '前' , 'Bing' );
+            $time = sprintf(_n('%s 天', '%s 天', $days), $days) . __( '前' , 'limiwu' );
         }
         elseif( $days > 29){
             $time = get_the_time(get_option('date_format'));
         }
         else{
-            $time = sprintf(_n('%s 天', '%s 天', $days), $days) . __( '前' , 'Bing' );
+            $time = sprintf(_n('%s 天', '%s 天', $days), $days) . __( '前' , 'limiwu' );
         }
     }
     return $time;
