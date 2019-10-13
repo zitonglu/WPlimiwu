@@ -18,12 +18,12 @@ a:hover,
 a:focus,
 figure img{max-width:100%}
 
-.list .item .thumbnail img:hover,
-.list .item .thumbnail img:focus,
-.list .item .thumbnail img,
+.list .masonrybox .thumbnail img:hover,
+.list .masonrybox .thumbnail img:focus,
+.list .masonrybox .thumbnail img,
 .sidebar img:hover,
 .sidebar img,
-.list .item .thumbnail .caption .description:hover,
+.list .masonrybox .thumbnail .caption .description:hover,
 .ppt a:hover,
 .ppt a:focus,
 .ppt .media .title-img:hover,
@@ -56,92 +56,92 @@ figure img{max-width:100%}
 	}
 }
 .list{min-height:100vh;}
-.list .item{margin-bottom:14px}
-.list .item .thumbnail{
+.list .masonrybox{margin-bottom:14px}
+.list .masonrybox .thumbnail{
 	padding:0;
 	border:none;
 	margin-bottom:0;
 }
-.list .item .thumbnail img{
+.list .masonrybox .thumbnail img{
 	width:100%;
 	height:auto;
 	border-radius:6px 6px 0 0;
 }
-.list .item{
+.list .masonrybox{
 	border-radius:6px;
 	padding-left:8px;
 	padding-right:8px;
 }
 @media (max-width: 768px){
-	.list .item{
+	.list .masonrybox{
 		padding:0 2px 0 4px;
 	}
-	.list .item:nth-child(2n){
+	.list .masonrybox:nth-child(2n){
 		padding:0 4px 0 2px;
 	}
-	.list .item .thumbnail{
+	.list .masonrybox .thumbnail{
 		margin-bottom:6px
 	}
-	.list .item .thumbnail img{border-radius:0}
+	.list .masonrybox .thumbnail img{border-radius:0}
 }
-.list .item .thumbnail img:hover{
+.list .masonrybox .thumbnail img:hover{
 	opacity:0.6;
 	filter:alpha(opacity=60);
 }
-.list .item .thumbnail .caption h3{
+.list .masonrybox .thumbnail .caption h3{
 	margin-top:4px;
 	font-size: 16px;
 	line-height:1.4em;
 }
-.list .item .thumbnail .caption .title{
+.list .masonrybox .thumbnail .caption .title{
 	color:#111;
 	text-decoration:none;
 }
-.list .item .thumbnail .caption .title h3:hover,
-.list .item .thumbnail .caption a:hover{
+.list .masonrybox .thumbnail .caption .title h3:hover,
+.list .masonrybox .thumbnail .caption a:hover{
 	color:#ffb262;
 	transition:all 0.6s !important;
 }
-.list .item .thumbnail .caption .title:visited{
+.list .masonrybox .thumbnail .caption .title:visited{
 	color:#333;
 }
-.list .item .thumbnail .caption .description{
+.list .masonrybox .thumbnail .caption .description{
 	padding-bottom:8px;
 }
-.list .item .thumbnail .caption .description a:hover,
-.list .item .thumbnail .caption .description:hover{color:#888;}
-.list .item .thumbnail .caption i{
+.list .masonrybox .thumbnail .caption .description a:hover,
+.list .masonrybox .thumbnail .caption .description:hover{color:#888;}
+.list .masonrybox .thumbnail .caption i{
 	margin:0 1px 2px 0;
 	font-size:90%;
 	/*color: #ddd;*/
 }
-.list .item .thumbnail .caption .tags{
+.list .masonrybox .thumbnail .caption .tags{
 	padding-bottom:8px;
 	color:#888;
 }
-.list .item .thumbnail .caption .aside{text-indent:2em}
-.list .item .thumbnail .caption .edit img,
+.list .masonrybox .thumbnail .caption .aside{text-indent:2em}
+.list .masonrybox .thumbnail .caption .edit img,
 .ppt .edit img{
 	display: inline-block;
 	height: 12px;
 	width: auto;
 	margin-bottom: 4px;
 }
-.list .item .thumbnail .caption .edit{
+.list .masonrybox .thumbnail .caption .edit{
 	font-size:12px;
 	line-height:1.6em;
 	padding-top: 4px;
 	border-top: 1px dashed #ccc;
 }
-.list .item .thumbnail .caption .description,
-.list .item .thumbnail .caption .description a{
+.list .masonrybox .thumbnail .caption .description,
+.list .masonrybox .thumbnail .caption .description a{
 	color:#c6c5c5;
 	text-decoration:none;
 }
-.list .item .thumbnail .caption .edit,
-.list .item .thumbnail .caption .edit a{color:#959493}
-.list .item .thumbnail .caption .edit a:hover{color:#ec6615}
-.list .item .thumbnail .caption .edit .glyphicon{
+.list .masonrybox .thumbnail .caption .edit,
+.list .masonrybox .thumbnail .caption .edit a{color:#959493}
+.list .masonrybox .thumbnail .caption .edit a:hover{color:#ec6615}
+.list .masonrybox .thumbnail .caption .edit .glyphicon{
 	margin-right:4px;
 }
 @media (min-width: 990px){

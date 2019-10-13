@@ -44,7 +44,7 @@
         $('#masonry').infinitescroll({
                 navSelector : "#nav-below",
                 nextSelector: "#nav-below #older_posts a",
-                itemSelector: ".item",
+                itemSelector: ".masonrybox",
                 extraScrollPx: 10,//滚动条距离底部多少像素的时候开始加载，默认150
                 bufferPx     : 40,//载入信息的显示时间，时间越大，载入信息显示时间越短
                 animate      : true, //当有新数据加载进来的时候，页面是否有动画效果，默认没有

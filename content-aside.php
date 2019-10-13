@@ -1,4 +1,4 @@
-<div id="post-<?php the_ID(); ?>" class="col-lg-wu1 col-md-3 col-sm-4 col-xs-6 item">
+<div id="post-<?php the_ID(); ?>" class="col-lg-wu1 col-md-3 col-sm-4 col-xs-6 masonrybox">
 	<div class="thumbnail">
 		<a href="<?php the_permalink(); ?>" target="_blank" title="<?php the_title_attribute(); ?>">
 			<?php limiwu_post_first_img();?><!-- 获取缩略图 -->
