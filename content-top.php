@@ -18,8 +18,8 @@ if (get_option('limiwu_top_posts')) {
 ?>
 	<div class="item media<?php echo $active;?>" id="post-<?php the_ID(); ?>">
 		<div class="title-img"><a href="<?php the_permalink(); ?>" target="_blank" title="<?php the_title_attribute(); ?>">
-	<?php if(get_post_meta($post->ID, 'PPT', true)){
-        echo '<img src="'.get_post_meta($post->ID, 'PPT', true).'" alt="'.get_the_title().'" onerror="javascript:this.src=\''.get_template_directory_uri().'/image/sandwich.jpg\';"/>';
+	<?php if(get_post_meta($post->ID, '_limiwu_PPT_url', true)){
+        echo '<img src="'.get_post_meta($post->ID, '_limiwu_PPT_url', true).'" alt="'.get_the_title().'" onerror="javascript:this.src=\''.get_template_directory_uri().'/image/sandwich.jpg\';"/>';
 	}else{?>
 			<?php limiwu_post_first_img();
 	}?>		
