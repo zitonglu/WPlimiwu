@@ -17,6 +17,7 @@ a:hover{text-decoration:none !important;color:#333;}
 a:hover,
 a:focus,
 figure img{max-width:100%}
+a, a::before, a::after{transition-duration: 0.2s;transition-timing-function: ease;}
 
 .list .masonrybox .thumbnail img:hover,
 .list .masonrybox .thumbnail img:focus,
@@ -540,8 +541,10 @@ figure img{max-width:100%}
 .ppt{
 	margin-top:-20px;
 	padding:0;
-	border-bottom: 1px solid #f77727;
-	background-color:#fd8e27;
+	border-bottom: 1px solid #fd8e27;
+	background: #f90;
+    background-image: linear-gradient(90deg, #fb3 11px, transparent 0), linear-gradient(90deg, #ab4 23px, transparent 0), linear-gradient(90deg, #ffffdbd6 41px, transparent 0);
+	background-size: 41px 100%, 61px 100%, 83px 100%;
 }
 .ppt .carousel-inner{text-align: justify}
 .ppt .media{margin-top:0}
@@ -577,19 +580,19 @@ figure img{max-width:100%}
 .ppt .media p.excerpt{text-indent:2em}
 .ppt .media p a{
 	font-size:16px;
-	color:#fff
+	color:#333
 }
 .ppt .media .title-img:hover{border-radius:0}
 .ppt .carousel-indicators{bottom:0px}
 .ppt .carousel-indicators li{width:30px}
-.ppt .media .edit a,.ppt .media .edit{color:#fff}
+.ppt .media .edit a,.ppt .media .edit{color:#333}
 .ppt .media .edit{
 	margin-top: 1em;
 	padding-top: 1em;
-	border-top: 1px dashed #fff;
+	border-top: 1px dashed #333;
 }
 @media (min-width: 767px){
-	.ppt .media{padding:0 15%;}
+	.ppt .media{padding:0 15%;background: #e8dbd18f;}
 	.ppt .media .title-img{margin:20px 20px 40px 0;width: 55%}
 	.ppt .media h3{padding-top:10px;padding-bottom:0}
 }
