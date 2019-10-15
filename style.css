@@ -41,7 +41,7 @@ a, a::before, a::after{transition-duration: 0.2s;transition-timing-function: eas
 .blog,
 .category,
 .archive{
-	background-color:#f4f4f4;
+	background-color:#eee;
 }
 @media (min-width: 1200px){
 	.col-lg-wu1{
@@ -65,6 +65,7 @@ a, a::before, a::after{transition-duration: 0.2s;transition-timing-function: eas
 	padding:0;
 	border:none;
 	margin-bottom:0;
+	box-shadow: 0 0 15px rgba(0,0,0,0.1);
 }
 .list .masonrybox .thumbnail img{
 	width:100%;
