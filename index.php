@@ -24,6 +24,7 @@
 	    <li id="older_posts"><?php next_posts_link(__('下一页','limiwu')) ?></li>
 	  </ul>
 	</nav><!-- nav-below end -->
+	<div class="text-center"><?php _e('下拉自动加载中','limiwu')?>...</div>
 	<?php get_footer();
 	}else{
 		require(TEMPLATEPATH . '/index-list.php');
