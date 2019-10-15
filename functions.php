@@ -276,6 +276,23 @@ function rename_post_formats($safe_text){
     } 
 add_filter('esc_html','rename_post_formats');
 /**
+ * 去除window._wpemojiSettings
+ * WordPress版本 zhangwenbao.com/wordpress-window-wpemojisettings.html
+ * 查看Wordpress源文件的时候，会看到head头部加载了一大片window._wpemojiSettings开头的JS和CSS代码，这是用于支持emjo表情的脚本。对于大部分国内站长来说，这个是十分鸡肋的功能
+**/
+remove_action( 'admin_print_scripts', 'print_emoji_detection_script');
+remove_action( 'admin_print_styles', 'print_emoji_styles');
+remove_action( 'wp_head', 'print_emoji_detection_script', 7);
+remove_action( 'wp_print_styles', 'print_emoji_styles');
+remove_filter( 'the_content_feed', 'wp_staticize_emoji');
+remove_filter( 'comment_text_rss', 'wp_staticize_emoji');
+remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email');
+/*
+*   关闭pingback功能
+*   form：http://www.360doc.com/content/17/1105/10/57493_701026541.shtml
+*/
+add_filter('xmlrpc_enabled', '__return_false'); 
+/**
  * 七牛图片自动添加瘦身命令
  * WordPress版本 www.aeink.com/454.html
  * 网址是写死的,必须放在fun最后
