@@ -230,45 +230,47 @@ function fanly_remove_block_library_css() {
 add_action( 'wp_enqueue_scripts', 'fanly_remove_block_library_css', 100 );
 
 /**
- * WordPress 修改时间的显示格式为几天前
- * form www.wpdaxue.com/time-ago.html
+ * WordPress 修改时间的显示格式为XXX秒、分钟、小时、天前
+ * form www.chendexin.com/archives/137.html
  */
-function Bing_filter_time(){
-    global $post ;
-    $to = time();
-    $from = get_the_time('U+8') ;
-    $diff = (int) abs($to - $from);
-    if ($diff <= 3600) {
-        $mins = round($diff / 60);
-        if ($mins <= 1) {
-            $mins = 1;
+function past_date(){
+    $suffix=__('前','limiwu');
+    $endtime='2419200';
+    $day = __('天','limiwu');
+    $hour = __('小时','limiwu');
+    $minute = __('分钟','limiwu');
+    $second = __('秒','limiwu');
+    if ($_SERVER['REQUEST_TIME'])
+        $now_time = $_SERVER['REQUEST_TIME'];
+    else
+        $now_time = time();
+        $m = 60; // 一分钟
+        $h = 3600; //一小时有3600秒
+        $d = 86400; // 一天有86400秒
+        $endtime = (int)$endtime; // 结束时间
+        $post_time = get_post_time('U', true);
+        $past_time = $now_time - $post_time; // 文章发表至今经过多少秒
+        if($past_time < $m){ //小于1分钟
+            $past_date = $past_time . $second;
+        }else if ($past_time < $h){ //小于1小时
+            $past_date = $past_time / $m;
+            $past_date = floor($past_date);
+            $past_date .= $minute;
+        }else if ($past_time < $d){ //小于1天
+            $past_date = $past_time / $h;
+            $past_date = floor($past_date);
+            $past_date .= $hour;
+        }else if ($past_time < $d*10){
+            $past_date = $past_time / $d;
+            $past_date = floor($past_date);
+            $past_date .= $day;
+        }else{
+            echo get_post_time('m-d');
+            return;
         }
-        $time = sprintf(_n('%s 分钟', '%s 分钟', $mins), $mins) . __( '前' , 'limiwu' );
-    }
-    else if (($diff <= 86400) && ($diff > 3600)) {
-        $hours = round($diff / 3600);
-        if ($hours <= 1) {
-            $hours = 1;
-        }
-        $time = sprintf(_n('%s 小时', '%s 小时', $hours), $hours) . __( '前' , 'limiwu' );
-    }
-    elseif ($diff >= 86400) {
-        $days = round($diff / 86400);
-        if ($days <= 1) {
-            $days = 1;
-            $time = sprintf(_n('%s 天', '%s 天', $days), $days) . __( '前' , 'limiwu' );
-        }
-        elseif( $days > 29){
-            $time = get_the_time(get_option('date_format'));
-        }
-        else{
-            $time = sprintf(_n('%s 天', '%s 天', $days), $days) . __( '前' , 'limiwu' );
-        }
-    }
-    return $time;
+    echo $past_date . $suffix;
 }
-add_filter('the_time','Bing_filter_time');
-
+add_filter('the_time', 'past_date');
 //修改文章形成的名字
 function rename_post_formats($safe_text){
     if($safe_text == '聊天' ) return '问答';
