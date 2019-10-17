@@ -58,6 +58,33 @@ remove_filter( 'comment_text', 'wpautop',  30 );
 // 开启文章相关形式
 add_theme_support('post-formats', array('chat','aside','image', 'video', 'audio', 'link', 'gallery') );
 /**
+ * 版权申明
+ * 直接输出部分
+ *
+ * @package limiwuCom
+ * @author annanzi/910109610@qq.com
+ * @since 2019-10-17
+ */
+function limiwu_echo_copyright() {
+    global $post;
+    echo '<h4 class="Copyright">'.__('版权声明','limiwu').'</h4>';
+    if(!get_post_meta( $post->ID, '_limiwu_source_remarks', true )){
+        echo '<p class="Copyright">'.__('本文来源','limiwu').get_bloginfo('name').__('，经','limiwu').get_bloginfo('name').__('授权发布，版权归作者','limiwu');
+        the_author_posts_link();
+        _e('所有。转载或内容合作请查阅转载说明，违规转载法律必究。','limiwu');
+        echo '</p>';
+    }else{
+        echo '<p class="Copyright">'.__('本文来源于网络','limiwu');
+        if(!get_post_meta( $post->ID, '_limiwu_source_author', true )){
+            echo __('，经','limiwu');
+            the_author_posts_link();
+            echo __('编译创作','limiwu');
+        }
+        _e('，如若涉及版权问题，请联系网站管理员。','limiwu');
+        echo '</p>';
+    }
+}
+/**
  * 获取文章的缩略图
  * 如果设置了缩略图，则显示，没有找文章的第一张图片，还没有的话就用默认图片
  *

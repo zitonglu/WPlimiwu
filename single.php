@@ -18,7 +18,8 @@
 							if(get_post_meta( $post->ID, '_limiwu_source_author', true )){
 								echo get_post_meta( $post->ID, '_limiwu_source_author', true );
 							}else{
-								echo get_the_author_meta( 'display_name', $post->post_author );
+								echo get_bloginfo('name').'-'.get_the_author_meta( 'display_name', $post->post_author );
+								_e('[编译]','limiwu');
 							}
 							edit_post_link(' [edit]');
 						?>
@@ -36,14 +37,8 @@
 					echo '<article id="viewer">';//图片JQ
 					the_content();
 					echo '</article>';
-					//版权声明
-					if(!get_post_meta( $post->ID, '_limiwu_source_remarks', true )){
-						echo '<h4 class="Copyright">'.__('版权声明','limiwu').'</h4>';
-						echo '<p class="Copyright">'.__('本文来源','limiwu').get_bloginfo('name').__('，经','limiwu').get_bloginfo('name').__('授权发布，版权归作者','limiwu');
-						the_author_posts_link();
-						_e('所有。转载或内容合作请查阅转载说明，违规转载法律必究。','limiwu');
-						echo '</p>';
-					}
+					
+					limiwu_echo_copyright();//版权声明
 				}
 				
 				//文章标签
