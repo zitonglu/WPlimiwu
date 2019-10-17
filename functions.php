@@ -287,12 +287,12 @@ function past_date(){
             $past_date = $past_time / $h;
             $past_date = floor($past_date);
             $past_date .= $hour;
-        }else if ($past_time < $d*10){
+        }else if ($past_time < $d*8){
             $past_date = $past_time / $d;
             $past_date = floor($past_date);
             $past_date .= $day;
         }else{
-            echo get_post_time('m-d');
+            echo get_post_time('Y-m-d');
             return;
         }
     echo $past_date . $suffix;
