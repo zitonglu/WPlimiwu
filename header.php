@@ -31,6 +31,12 @@
 
 <?php get_template_part( 'option-seo');//SEO ?>
 
+<?php if(get_option('limiwu_index_bg'))://index背景图片?>
+    <style>
+        body{background-image:url(<?php echo get_option('limiwu_index_bg');?>)}
+        .ppt{background:none}
+    </style>
+<?php endif?>
 </head>
 
 <body <?php body_class();?>>

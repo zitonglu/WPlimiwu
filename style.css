@@ -543,8 +543,6 @@ a, a::before, a::after{transition-duration: 0.2s;transition-timing-function: eas
 .ppt{
 	margin-top:-20px;
 	padding:0;
-	border-bottom: 1px solid #ececec;
-	background: #f8f8f8;
     /*background-image: linear-gradient(90deg, #fb3 11px, transparent 0), linear-gradient(90deg, #ab4 23px, transparent 0), linear-gradient(90deg, #ffffdbd6 41px, transparent 0);
 	background-size: 41px 100%, 61px 100%, 83px 100%;*/
 }
