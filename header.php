@@ -33,7 +33,7 @@
 
 <?php if(get_option('limiwu_index_bg'))://index背景图片?>
     <style>
-        body{background-image:url(<?php echo get_option('limiwu_index_bg');?>)}
+        body.home{background-image:url(<?php echo get_option('limiwu_index_bg');?>)}
         .ppt{background:none}
     </style>
 <?php endif?>
