@@ -67,7 +67,7 @@ add_theme_support('post-formats', array('chat','aside','image', 'video', 'audio'
  */
 function limiwu_echo_copyright() {
     global $post;
-    echo '<h4 class="Copyright">'.__('版权声明','limiwu').'</h4>';
+    echo '<h4 class="Copyright" id="CopyrightTitle">'.__('版权声明','limiwu').'</h4>';
     if(!get_post_meta( $post->ID, '_limiwu_source_remarks', true )){
         echo '<p class="Copyright">'.__('本文来源','limiwu').get_bloginfo('name').__('，经','limiwu').get_bloginfo('name').__('授权发布，版权归作者','limiwu');
         the_author_posts_link();
@@ -82,6 +82,31 @@ function limiwu_echo_copyright() {
         }
         _e('，如若涉及版权问题，请联系网站管理员。','limiwu');
         echo '</p>';
+    }
+}
+/**
+ * 文章页面作者相关信息
+ * 直接输出部分
+ *
+ * @package limiwuCom
+ * @author annanzi/910109610@qq.com
+ * @since 2019-10-19
+ */
+function limiwu_echo_list_editName(){
+    global $post;
+    //文章作者名字
+    if(get_post_meta( $post->ID, '_limiwu_source_remarks', true )){
+        echo '<a href="'.get_the_permalink().'" target="_blank" title="'.get_the_title().'">';
+        echo get_post_meta( $post->ID, '_limiwu_source_remarks', true );
+        echo '</a>';
+            if(!get_post_meta( $post->ID, '_limiwu_source_author', true )){
+                echo ' <i class="glyphicon glyphicon-random" aria-hidden="true"></i>';
+                _e('编译','limiwu');
+            }
+    }else{
+        the_author_posts_link($post->ID);
+        echo ' <i class="glyphicon glyphicon-paperclip" aria-hidden="true"></i>';
+        _e('原创','limiwu');
     }
 }
 /**

@@ -23,14 +23,7 @@
 			<!-- </p> -->
 			<p class="edit hidden-xs">
 				<img class="media-object post-ico" src="<?php echo limiwu_ico_url();?>" onerror="javascript:this.src='<?php bloginfo('template_url'); ?>/image/favicon.ico';">
-				<?php //文章作者名字
-				if(get_post_meta( $post->ID, '_limiwu_source_remarks', true )){
-					echo '<a href="'.get_the_permalink().'" target="_blank" title="'.get_the_title().'">';
-					echo get_post_meta( $post->ID, '_limiwu_source_remarks', true );
-					echo '</a>';
-				}else{
-					the_author_posts_link($post->ID);
-				}?>
+				<?php limiwu_echo_list_editName();//文章作者?>
 				<span class="float-right"><i class="glyphicon glyphicon-time" aria-hidden="true"></i><?php the_time('Y-m-d') ?></span>
 			</p>
 		</div>

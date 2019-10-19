@@ -10,7 +10,7 @@
 					<?php if(get_post_meta( $post->ID, '_limiwu_source_remarks', true )):?>
 						<h4 class="media-heading"><?php echo get_post_meta( $post->ID, '_limiwu_source_remarks', true )?></h4>
 						<?php else: ?>
-						<h4 class="media-heading"><?php bloginfo('name'); ?></h4>
+						<h4 class="media-heading"><?php bloginfo('name'); ?> - <a href="#CopyrightTitle">[<?php _e('原创','limiwu');?>]</a></h4>
 					<?php endif ?>
 					<p>
 						<?php echo get_the_time('Y/m/d H:s');?>&nbsp;&nbsp;&nbsp;&nbsp;
