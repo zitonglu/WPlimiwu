@@ -33,8 +33,11 @@
 
 <?php if(get_option('limiwu_index_bg'))://index背景图片?>
     <style>
-        body.home,body.category{background-image:url(<?php echo get_option('limiwu_index_bg');?>)}
-        .ppt{background:none}
+        body.home,body.category{
+            background-image:url("<?php bloginfo('template_url'); ?>/image/shadow_light.png"),url("<?php bloginfo('template_url'); ?>/image/pixels.png"),url(<?php echo get_option('limiwu_index_bg');?>);
+            background-position:0 50px,0 50px,0 0;
+            background-repeat:repeat-x,repeat,repeat;
+        }
     </style>
 <?php endif?>
 </head>

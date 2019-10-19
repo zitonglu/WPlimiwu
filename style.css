@@ -43,6 +43,12 @@ a, a::before, a::after{transition-duration: 0.2s;transition-timing-function: eas
 .archive{
 	background-color:#eee;
 }
+body.home,
+body.category{
+	background-image:url("image/shadow_light.png"),url("image/pixels.png");
+    background-position:0 50px,0 50px;
+    background-repeat:repeat-x,repeat;
+}
 @media (min-width: 1200px){
 	.col-lg-wu1{
 		width:20%;
@@ -543,8 +549,7 @@ a, a::before, a::after{transition-duration: 0.2s;transition-timing-function: eas
 .ppt{
 	margin-top:-20px;
 	padding:0;
-    /*background-image: linear-gradient(90deg, #fb3 11px, transparent 0), linear-gradient(90deg, #ab4 23px, transparent 0), linear-gradient(90deg, #ffffdbd6 41px, transparent 0);
-	background-size: 41px 100%, 61px 100%, 83px 100%;*/
+	background:none;
 }
 .ppt .carousel-inner{text-align: justify}
 .ppt .media{margin-top:0}
