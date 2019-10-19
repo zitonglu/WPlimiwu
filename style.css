@@ -43,11 +43,13 @@ a, a::before, a::after{transition-duration: 0.2s;transition-timing-function: eas
 .archive{
 	background-color:#eee;
 }
-body.home,
-body.category{
-	background-image:url("image/shadow_light.png"),url("image/pixels.png");
-    background-position:0 50px,0 50px;
-    background-repeat:repeat-x,repeat;
+@media (min-width: 767px){
+	body.home,
+	body.category{
+		background-image:url("image/shadow_light.png"),url("image/pixels.png");
+	    background-position:0 50px,0 50px;
+	    background-repeat:repeat-x,repeat;
+	}
 }
 @media (min-width: 1200px){
 	.col-lg-wu1{
