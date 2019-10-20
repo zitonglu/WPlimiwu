@@ -58,6 +58,42 @@ remove_filter( 'comment_text', 'wpautop',  30 );
 // 开启文章相关形式
 add_theme_support('post-formats', array('chat','aside','image', 'video', 'audio', 'link', 'gallery') );
 /**
+ * CDN加速
+ * 直接输出返回CDN的URL地址
+ *
+ * @package limiwuCom
+ * @author annanzi/910109610@qq.com
+ * @since 2019-10-20
+ * @return url
+ */
+function limiwu_echo_CDN_URL($name,$type='js'){
+    $options = array(
+        'style.css' => 'limiwu_style_css_url',
+        'jquery.min.js' => 'limiwu_jquery_url',
+        'bootstrap.min.css' => 'limiwu_bootstrap_css_url',
+        'bootstrap.min.js' => 'limiwu_bootstrap_js_url',
+        'other' => 'limiwu_other_js_url'
+    );
+    if (!empty($options[$name])) {
+        $url = $options[$name];
+    }else{
+        $url = $options['other'];
+    }
+
+    if($name == 'style.css'){
+        $blog_url = get_bloginfo('template_url').'/'.$name;
+    }else{
+        $blog_url = get_bloginfo('template_url').'/'.$type.'/'.$name;
+    }
+    if (get_option($url)) {
+        $test_url = get_option($url).'/'.$name;
+        if (@fopen($test_url,'r')) {
+            $blog_url = $test_url;
+        }
+    }
+    echo $blog_url;
+}
+/**
  * 版权申明
  * 直接输出部分
  *

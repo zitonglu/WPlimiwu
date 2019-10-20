@@ -10,13 +10,12 @@
     </p>
 </footer>
 
-<!-- JQ and Bootstrap JS -->
-<script src="//cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-<script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="<?php limiwu_echo_CDN_URL('bootstrap.min.js')?>"></script>
 
 <?php if( is_single() || is_page()):?>
     <!-- 侧栏滚动 -->
-    <script src="<?php bloginfo('template_url'); ?>/js/theia-sticky-sidebar.js"></script>
+    <script src="<?php limiwu_echo_CDN_URL('theia-sticky-sidebar.js')?>"></script>
     <script type="text/javascript">
       jQuery(document).ready(function() {
         jQuery('.sidebar').theiaStickySidebar({
@@ -26,7 +25,7 @@
       });
     </script>
     <!-- 图片大图JS -->
-    <script src="<?php bloginfo('template_url'); ?>/js/viewer-jquery.min.js"></script>
+    <script src="<?php limiwu_echo_CDN_URL('viewer-jquery.min.js')?>"></script>
     <script>
         $(function() {
             $('#viewer').viewer();
@@ -34,11 +33,11 @@
     </script>
 <?php elseif(is_home() || is_category()):?>
     <!-- 瀑布流 JS -->
-    <script src="<?php bloginfo('template_url'); ?>/js/masonry.min.js"></script>
+    <script src="<?php limiwu_echo_CDN_URL('masonry.min.js')?>"></script>
     <!-- 无限下拉 JS -->
-    <script src="<?php bloginfo('template_url'); ?>/js/infinitescroll.min.js"></script>
+    <script src="<?php limiwu_echo_CDN_URL('infinitescroll.min.js')?>"></script>
     <!-- 加载图片 JS -->
-    <script src="<?php bloginfo('template_url'); ?>/js/imagesloaded.min.js"></script>
+    <script src="<?php limiwu_echo_CDN_URL('imagesloaded.min.js')?>"></script>
     <script type="text/javascript">
         // from:www.cnblogs.com/aleafo/p/3695816.html
         var $container = $('#masonry');

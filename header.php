@@ -5,11 +5,12 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <?php wp_head(); ?>
 <!-- Bootstrap -->
-<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/style.css">
+<link rel="stylesheet" href="<?php limiwu_echo_CDN_URL('bootstrap.min.css','css')?>">
+<link rel="stylesheet" href="<?php limiwu_echo_CDN_URL('style.css')?>">
 <?php if(is_single()  || is_page()):?>
-    <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/viewer.min.css">
+<link rel="stylesheet" href="<?php limiwu_echo_CDN_URL('viewer.min.css','css')?>">
 <?php endif ?>
+<script src="<?php limiwu_echo_CDN_URL('jquery.min.js')?>"></script>
 <!--[if lt IE 9]>
   <script src="//apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
   <script src="//apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js"></script>
