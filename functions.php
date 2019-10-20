@@ -87,9 +87,9 @@ function limiwu_echo_CDN_URL($name,$type='js'){
     }
     if (get_option($url)) {
         $test_url = get_option($url).'/'.$name;
-        if (@fopen($test_url,'r')) {
-            $blog_url = $test_url;
-        }
+        // if (@fopen($test_url,'r')) {
+        $blog_url = $test_url;
+        // }
     }
     echo $blog_url;
 }

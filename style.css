@@ -605,7 +605,7 @@ a, a::before, a::after{transition-duration: 0.2s;transition-timing-function: eas
 }
 @media (min-width: 767px){
 	.ppt .media{padding:0 15%}
-	.ppt .media .title-img{margin:20px 20px 40px 0;width: 55%}
+	.ppt .media .title-img{margin:10px 20px 40px 0;width: 55%}
 	.ppt .media h3{padding-top:10px;padding-bottom:0}
 }
 
