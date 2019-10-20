@@ -31,7 +31,6 @@
 				the_post();
 				update_post_caches($posts); ?>
 				<p><a href="<?php the_permalink(); ?>" rel="bookmark" target="_blank" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a><span class="news-date"><?php echo get_the_time('Y-m-d');?></span></p>
-				<p class="news-thumbnail"><a href="<?php the_permalink(); ?>" rel="bookmark" target="_blank" title="<?php the_title_attribute(); ?>"><?php limiwu_post_first_img();?></a></p>
 		<?php }//end while
 		};//end have posts
 			wp_reset_query(); 
@@ -41,9 +40,6 @@
 			setup_postdata($post);
 			echo '<p><a rel="bookmark" href="' . get_permalink() . '">' . get_the_title() . '</a>';
 			echo '<span class="news-date">'.get_the_time('Y-m-d').'</span></p>';
-			echo '<p class="news-thumbnail"><a rel="bookmark" href="' . get_permalink() . '" title="'. get_the_title() .'" target="_blank">';
-			limiwu_post_first_img();
-			echo '</a></p>';
 			}
 		}
 		?>
