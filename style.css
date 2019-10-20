@@ -204,6 +204,7 @@ a, a::before, a::after{transition-duration: 0.2s;transition-timing-function: eas
 }
 .single .navbar{margin-bottom:0}
 @media (max-width: 768px){
+	.blog .navbar,.category .navbar{margin-bottom:0}
 	.single .jumbotron{
 		padding-top:0;
 	}
@@ -554,21 +555,20 @@ a, a::before, a::after{transition-duration: 0.2s;transition-timing-function: eas
 .footer a:hover{color: #bdbdbd}
 /*====.ppt 页面底部 ====*/
 .ppt{
-	margin-top:-20px;
 	padding:0;
 	background:none;
 }
+.ppt .media{margin-top:0;padding:0}
 .ppt .carousel-inner{text-align: justify}
-.ppt .media{margin-top:0}
 .ppt .media .title-img{
 	position: relative;
-	margin:10px 0;
+	margin:20px 0 10px 0;
+	padding-top:0;
 	width: 100%;
 	height: 260px;
 	overflow: hidden;
 	box-shadow: 0px 3px 6px -3px #000;
 	border-radius:10px;
-	float: left;
 }
 .ppt .media h3:before{
 		position: relative;
@@ -582,6 +582,8 @@ a, a::before, a::after{transition-duration: 0.2s;transition-timing-function: eas
 		border: 2px solid #333;
 	}
 .ppt .media h3{
+	margin-top:0;
+	padding-top:10px;
 	padding-bottom:40px;
 	font-weight: 700;
 	font-family: "Microsoft Yahei", "微软雅黑", "宋体";
@@ -605,8 +607,8 @@ a, a::before, a::after{transition-duration: 0.2s;transition-timing-function: eas
 }
 @media (min-width: 767px){
 	.ppt .media{padding:0 15%}
-	.ppt .media .title-img{margin:10px 20px 40px 0;width: 55%}
-	.ppt .media h3{padding-top:10px;padding-bottom:0}
+	.ppt .media .title-img{margin:10px 20px 40px 0;width: 55%;float: left;}
+	.ppt .media h3{padding-bottom:0}
 }
 
 
