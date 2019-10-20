@@ -246,7 +246,12 @@ a, a::before, a::after{transition-duration: 0.2s;transition-timing-function: eas
 	color: #333;
 	text-align: justify;
 }
-.single .article ul li{font-size:16px;text-align:justify}
+.single .article ul li,
+.single .article ol li{
+	font-size:16px;
+	text-align:justify;
+	line-height:24px;
+}
 @media (min-width:768px){
 	.single .article p,.single .article ul{margin-bottom:1em}
 	h4.Copyright,.more-text{margin-top:2em}
