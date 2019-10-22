@@ -194,6 +194,7 @@ a, a::before, a::after{transition-duration: 0.2s;transition-timing-function: eas
 	background-color: #f8f8f9;
 	border-bottom: 1px solid #ececec;
 }
+.single .jumbotron h1,
 .single .jumbotron h2{
 	margin-bottom: 0.6em;
 	font-size: 40px;

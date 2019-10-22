@@ -48,4 +48,4 @@
 <body <?php body_class();?>>
 <?php wp_body_open(); ?>
 
-<?php get_template_part( 'nav', get_post_format() );//顶部导航 ?>
+<?php get_template_part('nav');//顶部导航 ?>

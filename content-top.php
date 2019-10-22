@@ -27,7 +27,7 @@ if (get_option('limiwu_top_posts')) {
 	    <h3><a href="<?php the_permalink(); ?>" target="_blank" class="title"><?php echo get_the_title(); ?></a></h3>
 	    <p class="excerpt hidden-xs"><a href="<?php the_permalink(); ?>" target="_blank"><?php echo get_the_excerpt();?></a></p>
 		<div class="edit hidden-xs">
-			<img class="media-object post-ico" src="<?php echo limiwu_ico_url();?>" onerror="javascript:this.src='<?php bloginfo('template_url'); ?>/image/favicon.ico';">
+			<img class="media-object post-ico" src="<?php echo limiwu_ico_url();?>" onerror="javascript:this.src='<?php bloginfo('template_url'); ?>image/favicon.ico';" alt="favicon.ico">
 			<?php //文章作者名字
 			if(get_post_meta( $post->ID, '_limiwu_source_remarks', true )){
 				echo '<a href="'.get_the_permalink().'" target="_blank" title="'.get_the_title().'">';

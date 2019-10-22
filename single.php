@@ -1,10 +1,10 @@
 <?php get_header();?>
-	<div class="jumbotron">
+	<header class="jumbotron">
 		<div class="container">
-			<h2><?php single_post_title(); ?></h2>
+			<h1><?php single_post_title(); ?></h1>
 			<div class="media">
 				<div class="media-left">
-					<img class="media-object post-ico" src="<?php echo limiwu_ico_url();?>" onerror="javascript:this.src='<?php bloginfo('template_url'); ?>/image/favicon.ico';">
+					<img class="media-object post-ico" src="<?php echo limiwu_ico_url();?>" onerror="javascript:this.src='<?php bloginfo('template_url'); ?>/image/favicon.ico';" alt="logo">
 				</div>
 				<div class="media-body">
 					<?php if(get_post_meta( $post->ID, '_limiwu_source_remarks', true )):?>
@@ -27,7 +27,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</header>
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-8 article">
