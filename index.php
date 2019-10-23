@@ -14,7 +14,9 @@
 							get_template_part( 'content', get_post_format() ); 
 						};
 					}
+					dynamic_sidebar(__('首页AD广告位','limiwu'));//AD广告
 				?>
+
 			</div><!-- row end -->
 		</div><!-- container end -->
 	</div><!-- list end -->
