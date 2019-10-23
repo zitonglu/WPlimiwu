@@ -59,8 +59,9 @@
 					$next_post = get_next_post();
 					if (!empty( $prev_post ) || !empty( $next_post )) {
 						echo '<hr><nav><ul class="pager">';
-						echo ' <li class="previous"><a class="btn btn-default" role="button" href="'. get_permalink($prev_post).'" title="'.get_the_title($prev_post).'"><i class="glyphicon glyphicon-hand-left"></i> '.__('前一篇','limiwu').'</a></li>';
-						echo ' <li class="next"><a class="btn btn-default" role="button" href="'. get_permalink($next_post).'" title="'.get_the_title($ext_post).'">'.__('下一篇','limiwu').' <i class="glyphicon glyphicon-hand-right"></i></a></li>';
+						echo ' <li class="previous"><a class="btn btn-default" role="button" href="'. get_permalink($next_post).'" title="'.get_the_title($next_post).'"><i class="glyphicon glyphicon-hand-left"></i> '.__('上一篇','limiwu').'</a></li>';
+						echo ' <li class="next"><a class="btn btn-default" role="button" href="'. get_permalink($prev_post).'" title="'.get_the_title($prev_post).'">'.__('下一篇','limiwu').' <i class="glyphicon glyphicon-hand-right"></i></a></li>';
+
 						echo '</ul></nav>';
 					}
 				?>
