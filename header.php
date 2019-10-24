@@ -4,9 +4,10 @@
 <meta charset="<?php bloginfo('charset'); ?>">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <?php wp_head(); ?>
-<!-- Bootstrap -->
+
 <link rel="stylesheet" href="<?php limiwu_echo_CDN_URL('bootstrap.min.css','css')?>">
 <link rel="stylesheet" href="<?php limiwu_echo_CDN_URL('style.css')?>">
+<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/load.min.css">
 <?php if(is_single()  || is_page()):?>
 <link rel="stylesheet" href="<?php limiwu_echo_CDN_URL('viewer.min.css','css')?>">
 <?php endif ?>
@@ -47,5 +48,20 @@
 
 <body <?php body_class();?>>
 <?php wp_body_open(); ?>
+
+<!-- 网站加载loading -->
+<div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+    <div class="load_title"><?php _e('网站加载中....','limiwu');?><br><span>design by limiwu.com</span></div>
+</div>
+<script type="text/javascript">         
+    // 等待所有加载
+    $(window).load(function(){
+        $('body').addClass('loaded');
+        $('#loader-wrapper .load_title').remove();
+    }); 
+</script>
 
 <?php get_template_part('nav');//顶部导航 ?>
