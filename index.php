@@ -4,6 +4,7 @@
 		get_header();
 		get_template_part( 'content', 'top'); //获取置顶文章
 ?>
+<h1 style="display:none"><?php bloginfo('name');echo "-";bloginfo('description');?></h1><!-- seo -->
 	<div class="list">
 		<div class="container">
 			<div class="row" id="masonry">
@@ -13,7 +14,9 @@
 							get_template_part( 'content', get_post_format() ); 
 						};
 					}
+					dynamic_sidebar(__('首页AD广告位','limiwu'));//AD广告
 				?>
+
 			</div><!-- row end -->
 		</div><!-- container end -->
 	</div><!-- list end -->

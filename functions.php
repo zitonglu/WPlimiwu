@@ -31,16 +31,16 @@ if( function_exists('register_sidebar') ) {
         'description'   => __('放置在列表右侧','limiwu'),
         'before_widget' => '<section class="widget %2$s">',
         'after_widget' => '</section>',
-        'before_title' => '<h3>',
-        'after_title' => '</h3>'
+        'before_title' => '<h2>',
+        'after_title' => '</h2>'
     ));
     register_sidebar(array(
         'name' => __('首页AD广告位','limiwu'),
-        'description'   => __('临时决定，暂留位','limiwu'),
-        'before_widget' => '<div id="indexAD" class="col-lg-wu1 col-md-3 col-sm-4 col-xs-6 item">',
+        'description'   => __('建议用250PX宽的，只在大屏显示','limiwu'),
+        'before_widget' => '<div class="col-lg-wu1 visible-lg-inline masonrybox">',
         'after_widget' => '</div>',
-        'before_title' => '<h3>',
-        'after_title' => '</h3>'
+        'before_title' => '<h2 style="display:none">',
+        'after_title' => '</h2>'
     ));
     register_nav_menus( array(
     'primary' => __('顶部导航', 'limiwu'),

@@ -1,4 +1,4 @@
-<div class="col-sm-4 sidebar">
+<aside class="col-sm-4 sidebar">
 	<aside class="theiaStickySidebar"><!-- 侧栏滚动 -->
 	<section class="widget widget_theme_news">
 		<h3><?php _e('相关文章','limiwu') ?></h3>
@@ -47,4 +47,4 @@
 
 	<?php dynamic_sidebar(__('文章右侧栏','limiwu'));?>
 	</aside>
-</div><!-- #sider end -->
+</aside><!-- #sider end -->

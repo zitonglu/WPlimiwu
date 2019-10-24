@@ -63,6 +63,7 @@
     </script>
 <?php endif ?>
 <?php wp_footer(); ?>
+<?php echo get_option('limiwu_bottom_javaScript');?>
 </body>
 </html>
 <!-- 网页打开时间：<?php timer_stop(1); ?>秒 -->

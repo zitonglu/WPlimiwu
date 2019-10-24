@@ -75,7 +75,7 @@ a, a::before, a::after{transition-duration: 0.2s;transition-timing-function: eas
 	margin-bottom:0;
 	box-shadow: 0 0 15px rgba(0,0,0,0.1);
 }
-.list .masonrybox .thumbnail img{
+.list .masonrybox .thumbnail .imgbox img{
 	width:100%;
 	height:auto;
 	border-radius:6px 6px 0 0;
@@ -194,6 +194,7 @@ a, a::before, a::after{transition-duration: 0.2s;transition-timing-function: eas
 	background-color: #f8f8f9;
 	border-bottom: 1px solid #ececec;
 }
+.single .jumbotron h1,
 .single .jumbotron h2{
 	margin-bottom: 0.6em;
 	font-size: 40px;
@@ -606,3 +607,5 @@ a, a::before, a::after{transition-duration: 0.2s;transition-timing-function: eas
 .img-cover{width: 100%;height: 100%;object-fit: cover}
 .carousel-control.left,.carousel-control.right{background:none}
 .imgbox{background-image:linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6));}
+figcaption{text-align:center;margin:0.5em auto 1em;font-size:14px}
+figure{margin-bottom:1em}
