@@ -8,8 +8,8 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand logoImg" href="<?php bloginfo('url'); ?>"><img alt="Brand" src="<?php bloginfo('template_url'); ?>/image/favicon.ico"></a> 
-      <a class="navbar-brand logoText" href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a>
+      <a class="navbar-brand logoImg" href="<?php echo home_url('/'); ?>"><img alt="Brand" src="<?php bloginfo('template_url'); ?>/image/favicon.ico"></a> 
+      <a class="navbar-brand logoText" href="<?php bloginfo('url'); ?>/"><?php bloginfo('name'); ?></a>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <?php 
