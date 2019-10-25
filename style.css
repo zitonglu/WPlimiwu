@@ -43,13 +43,11 @@ a, a::before, a::after{transition-duration: 0.2s;transition-timing-function: eas
 .archive{
 	background-color:#eee;
 }
-@media (min-width: 767px){
-	body.home,
-	body.category{
-		background-image:url("image/shadow_light.png"),url("image/pixels.png");
-	    background-position:0 50px,0 50px;
-	    background-repeat:repeat-x,repeat;
-	}
+.home,
+.category{
+	background-image:url("image/shadow_light.png"),url("image/pixels.png");
+    background-position:0 50px,0 50px;
+    background-repeat:repeat-x,repeat;
 }
 @media (min-width: 1200px){
 	.col-lg-wu1{
@@ -74,14 +72,14 @@ a, a::before, a::after{transition-duration: 0.2s;transition-timing-function: eas
 	border:none;
 	margin-bottom:0;
 	box-shadow: 0 0 15px rgba(0,0,0,0.1);
+	border-radius: 9px;
 }
 .list .masonrybox .thumbnail .imgbox img{
 	width:100%;
 	height:auto;
-	border-radius:6px 6px 0 0;
+	border-radius:9px 9px 0 0;
 }
 .list .masonrybox{
-	border-radius:6px;
 	padding-left:8px;
 	padding-right:8px;
 }
