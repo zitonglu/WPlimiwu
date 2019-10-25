@@ -19,7 +19,9 @@
 								echo get_post_meta( $post->ID, '_limiwu_source_author', true );
 							}else{
 								echo get_bloginfo('name').'-'.get_the_author_meta( 'display_name', $post->post_author );
-								_e('[编译]','limiwu');
+								if(get_post_meta( $post->ID, '_limiwu_source_remarks', true )){
+									_e('[编译]','limiwu');
+								}
 							}
 							edit_post_link(' [edit]');
 						?>
