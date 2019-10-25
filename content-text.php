@@ -3,10 +3,10 @@
 	<p class="description"><?php echo get_the_excerpt();?></p>
 	<p class="more">
 		<?php if(get_post_meta( $post->ID, '_limiwu_source', true )):?>
-			<img class="post-ico" src="//<?php echo get_post_meta( $post->ID, '_limiwu_source', true )?>/favicon.ico" onerror="javascript:this.src='<?php bloginfo('template_url'); ?>/image/favicon.ico';">
-			<?php if(get_post_meta( $post->ID, '_limiwu_source_remarks', true )):?>
-				<?php echo get_post_meta( $post->ID, '_limiwu_source_remarks', true )?>
-			<?php endif ?>
+			<img class="media-object post-ico" src="<?php echo limiwu_ico_url();?>" onerror="javascript:this.src='<?php bloginfo('template_url'); ?>/image/favicon.ico';" alt="favicon.ico">
+			<?php if(get_post_meta( $post->ID, '_limiwu_source_remarks', true )){
+				limiwu_echo_list_editName();//文章作者
+			 }?>
 			<span><i class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></i>
 			<i class="glyphicon glyphicon-time" aria-hidden="true"></i> <?php the_time('Y-m-d') ?></span>
 		<?php else: ?>

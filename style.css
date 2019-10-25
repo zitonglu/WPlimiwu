@@ -189,6 +189,7 @@ a, a::before, a::after{transition-duration: 0.2s;transition-timing-function: eas
 	color:#a8a8a8;
 }
 .text-list .sidebar{border-left: 1px solid #dedede;}
+.text-list .glyphicon-random{margin-right: 5px;font-size: 85%}
 /*==========single==========*/
 .single .jumbotron{
 	background-color: #f8f8f9;
