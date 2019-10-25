@@ -543,6 +543,7 @@ a, a::before, a::after{transition-duration: 0.2s;transition-timing-function: eas
 .ppt{
 	padding:0;
 	background:none;
+	margin-bottom:28px;
 }
 .ppt .media{margin-top:0;padding:0}
 .ppt .carousel-inner{text-align: justify}
