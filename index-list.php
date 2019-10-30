@@ -1,7 +1,7 @@
 <?php get_header();?>
 	<div class="text-list">
 		<div class="container">
-			<div class="row">
+			<div class="row content-text">
 				<div class="col-sm-6 col-sm-offset-1">
 					<?php if ( have_posts() ){
 							while ( have_posts() ) {

@@ -31,8 +31,8 @@ if( function_exists('register_sidebar') ) {
         'description'   => __('放置在列表右侧','limiwu'),
         'before_widget' => '<section class="widget %2$s">',
         'after_widget' => '</section>',
-        'before_title' => '<h2>',
-        'after_title' => '</h2>'
+        'before_title' => '<h3>',
+        'after_title' => '</h3>'
     ));
     register_sidebar(array(
         'name' => __('首页AD广告位','limiwu'),
