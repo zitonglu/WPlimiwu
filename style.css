@@ -301,6 +301,14 @@ a, a::before, a::after{transition-duration: 0.2s;transition-timing-function: eas
 .single .article p.Copyright{
 	color: #888;
 }
+.single .imgbuttombox{
+	margin-top:-34px;
+}
+.single .imgbuttombox a.save{
+	position:relative;
+	top:-2px;
+	right:2px;
+}	
 /*====.sidebar 侧栏格式====*/
 @media (min-width:768px){
 	.sidebar .widget{

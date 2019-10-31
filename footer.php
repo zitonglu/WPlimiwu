@@ -26,6 +26,8 @@
     </script>
     <!-- 图片大图JS -->
     <script src="<?php limiwu_echo_CDN_URL('viewer-jquery.min.js')?>"></script>
+    <!-- 本模版使用的JS -->
+    <script src="<?php limiwu_echo_CDN_URL('limiwu.js')?>"></script>
     <script>
         $(function() {
             $('#viewer').viewer();
