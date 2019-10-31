@@ -17,13 +17,6 @@ $(document).ready(function() {
 			}
 		});
 	});
-	$('.article .imgSaveBox').each(function() {
-		$(this).hover(function() {
-			$(this).find('.imgbuttombox').fadeIn();
-		}, function() {
-			$(this).find('.imgbuttombox').fadeOut();
-		});
-	});
 })
 // window.onbeforeunload = function(event){
 // 	return confirm("确定离开此页面吗？");
