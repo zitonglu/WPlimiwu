@@ -383,6 +383,28 @@ remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email');
 */
 add_filter('xmlrpc_enabled', '__return_false'); 
 /**
+ * 加入图片收藏数据库表
+ *
+ * @package limiwuCom
+ * @author annanzi/910109610@qq.com
+ * @since 2019-10-31
+ */
+function limiwu_add_imgTable(){
+    global $wpdb;
+    $table_name = $wpdb->prefix . "imgTable";
+    // $sql = "TRUNCATE TABLE `". $table_name."`;";好像无法删除数据库表中内容
+    $sql = "CREATE TABLE `" . $table_name . "`(
+          id mediumint(9) NOT NULL AUTO_INCREMENT,
+          time datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+          user Integer NOT NULL,
+          url VARCHAR(55) DEFAULT '' NOT NULL,
+          UNIQUE KEY id (id)
+          );";
+    require_once(ABSPATH . "wp-admin/includes/upgrade.php");
+    dbDelta($sql);
+}
+
+/**
  * 七牛图片自动添加瘦身命令
  * WordPress版本 www.aeink.com/454.html
  * 网址是写死的,必须放在fun最后
