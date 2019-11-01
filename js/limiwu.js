@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	var _arr = new Array();
 	$('.article IMG').each(function() {
 		$(this).wrap('<div class="imgSaveBox text-right"></div>');//包裹元素
 		var _url = $(this).attr('src');
@@ -11,11 +12,17 @@ $(document).ready(function() {
 				//点击收藏时的动作
 				$(this).find('.saveButtom').removeClass('glyphicon-heart-empty');
 				$(this).find('.saveButtom').addClass('glyphicon-heart');
+				_arr.push(_url);
 			}else{
 				$(this).find('.saveButtom').addClass('glyphicon-heart-empty');
 				$(this).find('.saveButtom').removeClass('glyphicon-heart');
+				_arr.splice($.inArray(_url,_arr),1);
 			}
 		});
+	});
+	$('#CopyrightTitle').click(function() {//测试用的，点版权声明
+		var _str = _arr.join(',');
+		alert(_str);
 	});
 })
 // window.onbeforeunload = function(event){

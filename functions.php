@@ -396,8 +396,10 @@ function limiwu_add_imgTable(){
     $sql = "CREATE TABLE `" . $table_name . "`(
         id mediumint(9) NOT NULL AUTO_INCREMENT,
         time datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-        user Integer NOT NULL,
-        url VARCHAR(55) DEFAULT '' NOT NULL,
+        user_id Integer NOT NULL,
+        post_id Integer NOT NULL,
+        customer_id Integer DEFAULT 1 NOT NULL,
+        src Text DEFAULT '' NOT NULL,
         UNIQUE KEY id (id)
     );";
     require_once(ABSPATH . "wp-admin/includes/upgrade.php");
