@@ -20,9 +20,9 @@ $(document).ready(function() {
 			}
 		});
 	});
-	$('#CopyrightTitle').click(function() {//测试用的，点版权声明
-		var _str = _arr.join(',');
-		alert(_str);
+	$('#saveButtom').mousedown(function(){
+		_str = _arr.join(',');
+		$('#src').attr("value",_str);
 	});
 })
 // window.onbeforeunload = function(event){

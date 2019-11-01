@@ -39,7 +39,7 @@
 					echo '<article id="viewer">';//图片JQ
 					the_content();
 					echo '</article>';
-					
+					get_template_part('input');
 					limiwu_echo_copyright();//版权声明
 				}
 				

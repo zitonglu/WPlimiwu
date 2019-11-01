@@ -398,7 +398,7 @@ function limiwu_add_imgTable(){
         time datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
         user_id Integer NOT NULL,
         post_id Integer NOT NULL,
-        customer_id Integer DEFAULT 1 NOT NULL,
+        customer_id Integer NOT NULL,
         src Text DEFAULT '' NOT NULL,
         UNIQUE KEY id (id)
     );";

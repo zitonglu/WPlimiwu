@@ -621,3 +621,4 @@ a, a::before, a::after{transition-duration: 0.2s;transition-timing-function: eas
 .imgbox{background-image:linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6));}
 figcaption{text-align:justify;margin:0.5em auto 1em;font-size:16px;text-indent:2em;}
 figure{margin-bottom:1em}
+select#customerID{appearance:none;-webkit-appearance: listbox;-moz-appearance:none;}
