@@ -24,6 +24,7 @@ $(document).ready(function() {
 		_str = _arr.join(',');
 		$('#src').attr("value",_str);
 	});
+	setTimeout(function(){$('#returnOK').fadeOut()},5000);
 })
 // window.onbeforeunload = function(event){
 // 	return confirm("确定离开此页面吗？");
