@@ -1,4 +1,5 @@
-<form action="" method="post">
+<?php get_template_part('input-sql');?>
+<form action="#customerID" method="post" role="form">
 <input class="hidden" type="number" id="userID" name="userID" value="<?php echo get_current_user_id(); ?>">
 <input class="hidden" type="number" id="postID" name="postID" value="<?php echo get_the_ID();?>">
 <input class="hidden" type="text" id="src" name="src" value="">
@@ -17,7 +18,7 @@
     <option value="9">9</option>
   </select>
   <span class="input-group-btn">
-    <button title="<?php _e('登录后可保存在后台','limiwu');?>" class="btn btn-default" type="button" id="saveButtom"><?php _e('收藏','limiwu');?></button>
+    <button title="<?php _e('登录后可保存在后台','limiwu');?>" class="btn btn-default" type="submit" id="saveButtom"><?php _e('收藏','limiwu');?></button>
   </span>
 </div>
 </form>
