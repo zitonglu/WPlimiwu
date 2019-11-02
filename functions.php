@@ -16,6 +16,8 @@
 
 // 主题相关设置参数
 require_once(TEMPLATEPATH . '/option-setting.php');
+// 收藏图片功能
+require_once(TEMPLATEPATH . '/option-savepic.php');
 // 开启主题的小工具
 if( function_exists('register_sidebar') ) {
     register_sidebar(array(
