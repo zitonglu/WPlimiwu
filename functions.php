@@ -424,7 +424,7 @@ function limiwu_update($src,$user,$post,$customer){
     $table_name = $wpdb->prefix . "imgTable";
     $table_name = $wpdb->escape($table_name);
 
-    $sql = $wpdb->update(
+    $update_sql = $wpdb->update(
         $table_name,
         array('src' => $src),
         array(
@@ -433,7 +433,7 @@ function limiwu_update($src,$user,$post,$customer){
             'customer_id' => $customer
         )
     );
-    return $sql;
+    return $update_sql;
 }
 /**
  * 增加数据库表
@@ -453,7 +453,7 @@ function limiwu_INSERT_INTO($src,$user,$post,$customer){
         $table_name = $wpdb->prefix . "imgTable";
         $table_name = $wpdb->escape($table_name);
 
-        $sql = $wpdb->insert(
+        $insert_into_sql = $wpdb->insert(
             $table_name,
             array(
                 'src' => $src,
@@ -463,12 +463,36 @@ function limiwu_INSERT_INTO($src,$user,$post,$customer){
             )
         );
 
-        if ($sql == 0) {
+        if ($insert_into_sql == 0) {
             echo '没有插入成功';
         }
     }
 }
+/**
+ * 查询数据库，返回src值
+ *
+ * @package limiwuCom
+ * @author annanzi/910109610@qq.com
+ * @since 2019-11-9
+ * @return dbtalbe 0 or 1
+ */
 
+function limiwu_select_dbtable($post){
+    global $wpdb;
+    $src = $wpdb->escape($src);
+    $user = $wpdb->escape($user);
+    $post = $wpdb->escape($post);
+    $customer = $wpdb->escape($customer);
+    $table_name = $wpdb->prefix . "imgTable";
+    $table_name = $wpdb->escape($table_name);
+
+    $select_sql = $wpdb->get_results("SELECT `src` FROM $table_name WHERE `post_id` = $post order by `time` limit 2");
+    print_r($select_sql);
+    foreach ($select_sql as $array) {
+        $src_array[] = $array->src;
+    }
+    //echo $src_array[0];
+}
 /**
  * 七牛图片自动添加瘦身命令
  * WordPress版本 www.aeink.com/454.html

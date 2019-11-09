@@ -21,4 +21,5 @@
 </div>
 </form>
 <br>
+<?php //limiwu_select_dbtable(get_the_ID());?>
 <?php get_template_part('input-sql');?>
