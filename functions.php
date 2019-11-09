@@ -407,6 +407,67 @@ function limiwu_add_imgTable(){
     require_once(ABSPATH . "wp-admin/includes/upgrade.php");
     dbDelta($sql);
 }
+/**
+ * 更新数据库表中的内容，有就更新，没有返回
+ *
+ * @package limiwuCom
+ * @author annanzi/910109610@qq.com
+ * @since 2019-11-9
+ * @return dbtalbe 0 or 1
+ */
+function limiwu_update($src,$user,$post,$customer){
+    global $wpdb;
+    $src = $wpdb->escape($src);
+    $user = $wpdb->escape($user);
+    $post = $wpdb->escape($post);
+    $customer = $wpdb->escape($customer);
+    $table_name = $wpdb->prefix . "imgTable";
+    $table_name = $wpdb->escape($table_name);
+
+    $sql = $wpdb->update(
+        $table_name,
+        array('src' => $src),
+        array(
+            'user_id' => $user,
+            'post_id' => $post,
+            'customer_id' => $customer
+        )
+    );
+    return $sql;
+}
+/**
+ * 增加数据库表
+ *
+ * @package limiwuCom
+ * @author annanzi/910109610@qq.com
+ * @since 2019-11-9
+ * @return dbtalbe 0 or 1
+ */
+function limiwu_INSERT_INTO($src,$user,$post,$customer){
+    global $wpdb;
+    if(limiwu_update($src,$user,$post,$customer) == 0){
+        $src = $wpdb->escape($src);
+        $user = $wpdb->escape($user);
+        $post = $wpdb->escape($post);
+        $customer = $wpdb->escape($customer);
+        $table_name = $wpdb->prefix . "imgTable";
+        $table_name = $wpdb->escape($table_name);
+
+        $sql = $wpdb->insert(
+            $table_name,
+            array(
+                'src' => $src,
+                'user_id' => $user,
+                'post_id' => $post,
+                'customer_id' => $customer
+            )
+        );
+
+        if ($sql == 0) {
+            echo '没有插入成功';
+        }
+    }
+}
 
 /**
  * 七牛图片自动添加瘦身命令

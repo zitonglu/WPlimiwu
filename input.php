@@ -3,7 +3,7 @@
 <input class="hidden" type="number" id="postID" name="postID" value="<?php echo get_the_ID();?>">
 <input class="hidden" type="text" id="src" name="src">
 <div class="input-group col-sm-4 col-sm-offset-8">
-  <span class="input-group-addon" id="sizing-addon1"><i class="glyphicon glyphicon-user"></i> <?php _e('客户','limiwu');?> NO.</span>
+  <span class="input-group-addon" id="sizing-addon1"><i class="glyphicon glyphicon-user"></i> <?php _e('客户','limiwu');?></span>
   <select class="form-control" name="customerID" id="customerID">
     <option value="1">1</option>
     <option value="2">2</option>
