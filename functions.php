@@ -488,14 +488,24 @@ function limiwu_select_dbtable($post,$user){
     $table_name = $wpdb->prefix . "imgTable";
     $table_name = $wpdb->escape($table_name);
 
-    $select_sql = $wpdb->get_results("SELECT `src`,`customer_id` FROM $table_name WHERE `post_id` = $post AND `user_id`= $user order by `time` DESC limit 1");
-    // print_r($select_sql);
-    foreach ($select_sql as $array) {
+    $sql = $wpdb->get_results("SELECT `src`,`customer_id` FROM $table_name WHERE `post_id` = $post AND `user_id`= $user order by `time` DESC limit 1");
+    foreach ($sql as $array) {
         $arr['src'] = $array->src;
         $arr['cid'] = $array->customer_id;
     }
     return $arr;
 }
+
+/**
+ * 后台增加style
+ * www.518theme.com/wpcourse/wordpress-admin-my.html
+ *
+ */
+function admin_mycss() {
+    wp_enqueue_style( "admincss", get_template_directory_uri() . "/css/admin.css" );
+}
+add_action('admin_head', 'admin_mycss');
+
 /**
  * 七牛图片自动添加瘦身命令
  * WordPress版本 www.aeink.com/454.html
