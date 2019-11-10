@@ -1,13 +1,22 @@
 $(document).ready(function() {
-	var _arr = new Array();
+	if ($('#src').val()) {
+		var _arr = $('#src').val().split(',');
+	}else{
+		var _arr = new Array();
+	}
 	$('.article IMG').each(function() {
 		$(this).wrap('<div class="imgSaveBox text-right"></div>');//包裹元素
 		var _url = $(this).attr('src');
-		var _button1 = '<span class="glyphicon glyphicon-heart-empty saveButtom"><span>';
+		var _button1 = '<span class="glyphicon saveButtom"><span>';
 		_button1 = '<a class="btn btn-default save">'+ _button1 +'</a>';
 		_button1 = '<div class="imgbuttombox">'+ _button1 +'</div>';
 		$(this).after(_button1);
-		$(this).parent().find('.save').click(function() {
+		if($.inArray(_url,_arr) == -1){
+			$(this).parent().find('.saveButtom').addClass('glyphicon-heart-empty');
+		}else{
+			$(this).parent().find('.saveButtom').addClass('glyphicon-heart');
+		}
+		$(this).parent().find('.save').click(function(){
 			if ($(this).find('.saveButtom').is('.glyphicon-heart-empty')) {
 				//点击收藏时的动作
 				$(this).find('.saveButtom').removeClass('glyphicon-heart-empty');
@@ -30,6 +39,3 @@ $(document).ready(function() {
 		$('#customerID').val(_dataReturn);
 	}
 })
-// window.onbeforeunload = function(event){
-// 	return confirm("确定离开此页面吗？");
-// } 离开界面时弹出自定义对话框
