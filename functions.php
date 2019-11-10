@@ -39,7 +39,7 @@ if( function_exists('register_sidebar') ) {
     register_sidebar(array(
         'name' => __('首页AD广告位','limiwu'),
         'description'   => __('建议用250PX宽的，只在大屏显示','limiwu'),
-        'before_widget' => '<div class="col-lg-wu1 visible-lg-inline masonrybox">',
+        'before_widget' => '<div class="col-lg-wu1 visible-lg-inline masonrybox" style="overflow:hidden">',
         'after_widget' => '</div>',
         'before_title' => '<h2 style="display:none">',
         'after_title' => '</h2>'
