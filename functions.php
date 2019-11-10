@@ -402,7 +402,8 @@ function limiwu_add_imgTable(){
         post_id Integer NOT NULL,
         customer_id Integer NOT NULL,
         src Text DEFAULT '' NOT NULL,
-        UNIQUE KEY id (id)
+        UNIQUE KEY id (id),
+        CONSTRAINT uc_PersonID UNIQUE (user_id,post_id,customer_id)
     );";
     require_once(ABSPATH . "wp-admin/includes/upgrade.php");
     dbDelta($sql);
@@ -426,7 +427,10 @@ function limiwu_update($src,$user,$post,$customer){
 
     $update_sql = $wpdb->update(
         $table_name,
-        array('src' => $src),
+        array(
+            'src' => $src,
+            'time' => date('Y-m-d h:i:s')
+        ),
         array(
             'user_id' => $user,
             'post_id' => $post,
