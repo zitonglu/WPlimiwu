@@ -25,6 +25,10 @@ $(document).ready(function() {
 		$('#src').attr("value",_str);
 	});
 	setTimeout(function(){$('#returnOK').fadeOut()},5000);
+	var _dataReturn = $('#customerID').attr('data-return');
+	if ( _dataReturn != '') {
+		$('#customerID').val(_dataReturn);
+	}
 })
 // window.onbeforeunload = function(event){
 // 	return confirm("确定离开此页面吗？");

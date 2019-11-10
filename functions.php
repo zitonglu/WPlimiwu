@@ -425,7 +425,7 @@ function limiwu_update($src,$user,$post,$customer){
     $table_name = $wpdb->prefix . "imgTable";
     $table_name = $wpdb->escape($table_name);
 
-    $update_sql = $wpdb->update(
+    $sql = $wpdb->update(
         $table_name,
         array(
             'src' => $src,
@@ -437,7 +437,7 @@ function limiwu_update($src,$user,$post,$customer){
             'customer_id' => $customer
         )
     );
-    return $update_sql;
+    return $sql;
 }
 /**
  * 增加数据库表
@@ -457,7 +457,7 @@ function limiwu_INSERT_INTO($src,$user,$post,$customer){
         $table_name = $wpdb->prefix . "imgTable";
         $table_name = $wpdb->escape($table_name);
 
-        $insert_into_sql = $wpdb->insert(
+        $sql = $wpdb->insert(
             $table_name,
             array(
                 'src' => $src,
@@ -467,35 +467,34 @@ function limiwu_INSERT_INTO($src,$user,$post,$customer){
             )
         );
 
-        if ($insert_into_sql == 0) {
+        if ($sql == 0) {
             echo '没有插入成功';
         }
     }
 }
 /**
- * 查询数据库，返回src值
+ * 查询数据库，返回用户收藏图片和客户ID的数组值
  *
  * @package limiwuCom
  * @author annanzi/910109610@qq.com
- * @since 2019-11-9
- * @return dbtalbe 0 or 1
+ * @since 2019-11-10
+ * @return array
  */
 
-function limiwu_select_dbtable($post){
+function limiwu_select_dbtable($post,$user){
     global $wpdb;
-    $src = $wpdb->escape($src);
-    $user = $wpdb->escape($user);
     $post = $wpdb->escape($post);
-    $customer = $wpdb->escape($customer);
+    $user = $wpdb->escape($user);
     $table_name = $wpdb->prefix . "imgTable";
     $table_name = $wpdb->escape($table_name);
 
-    $select_sql = $wpdb->get_results("SELECT `src` FROM $table_name WHERE `post_id` = $post order by `time` limit 2");
-    print_r($select_sql);
+    $select_sql = $wpdb->get_results("SELECT `src`,`customer_id` FROM $table_name WHERE `post_id` = $post AND `user_id`= $user order by `time` DESC limit 1");
+    // print_r($select_sql);
     foreach ($select_sql as $array) {
-        $src_array[] = $array->src;
+        $arr['src'] = $array->src;
+        $arr['cid'] = $array->customer_id;
     }
-    //echo $src_array[0];
+    return $arr;
 }
 /**
  * 七牛图片自动添加瘦身命令
