@@ -95,9 +95,9 @@ a, a::before, a::after{transition-duration: 0.2s;transition-timing-function: eas
 	}
 	.list .masonrybox .thumbnail img{border-radius:0}
 }
-.list .masonrybox .thumbnail img:hover{
+/*.list .masonrybox .thumbnail img:hover{
 	mix-blend-mode:multiply;
-}
+}*/
 .list .masonrybox .thumbnail .caption h3{
 	margin-top:4px;
 	font-size: 16px;

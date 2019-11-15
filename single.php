@@ -34,6 +34,11 @@
 		<div class="row">
 			<div class="col-sm-8 article">
 				<?php 
+				if (get_post_meta( $post->ID, __('视频','limiwu'), true )) {
+					$video_url = get_post_meta($post->ID, __('视频','limiwu'), true);
+					$video_url = str_replace('http:','',$video_url);
+					echo '<iframe src="'.$video_url.'" frameborder="0" allowfullscreen="true" width="100%" height="400px"></iframe><hr>';
+				}
 				while ( have_posts() ) {
 					the_post();
 					echo '<article id="viewer">';//图片JQ
