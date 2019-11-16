@@ -503,11 +503,14 @@ function limiwu_select_dbtable($post,$user){
  *
  */
 function admin_mycss() {
-    wp_enqueue_style( "admincss", get_template_directory_uri() . "/css/admin.css" );
+    wp_enqueue_style( "admin-stlye", get_template_directory_uri() . "/css/admin.css" );
+    wp_enqueue_style( "viewer-style", get_template_directory_uri() . "/css/viewer.min.css" );
 }
 add_action('admin_head', 'admin_mycss');
-function admin_scripts() {  
-   wp_enqueue_script( "viewer-jquery", get_template_directory_uri()."/js/viewer-jquery.min.js" , '', false, ture);
+function admin_scripts() {
+    wp_enqueue_script( "jqueryUI", get_template_directory_uri()."/js/jquery.min.js" , '', false, ture);
+    wp_enqueue_script( "viewer-jquery", get_template_directory_uri()."/js/viewer-jquery.min.js" , '', false, ture);
+    wp_enqueue_script( "viewer-jquery-id", get_template_directory_uri()."/js/viewer-jquery-id.js" , '', false, ture);
 }
 add_action( 'admin_enqueue_scripts', 'admin_scripts' );
 

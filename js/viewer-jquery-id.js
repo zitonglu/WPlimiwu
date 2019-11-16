@@ -1,0 +1,1 @@
+$(function() {$('#viewer').viewer();});
