@@ -497,14 +497,19 @@ function limiwu_select_dbtable($post,$user){
 }
 
 /**
- * 后台增加style
+ * 后台增加style和JS
  * www.518theme.com/wpcourse/wordpress-admin-my.html
+ * www.boke8.net/wordpress-wp_enqueue_script.html
  *
  */
 function admin_mycss() {
     wp_enqueue_style( "admincss", get_template_directory_uri() . "/css/admin.css" );
 }
 add_action('admin_head', 'admin_mycss');
+function admin_scripts() {  
+   wp_enqueue_script( "viewer-jquery", get_template_directory_uri()."/js/viewer-jquery.min.js" , '', false, ture);
+}
+add_action( 'admin_enqueue_scripts', 'admin_scripts' );
 
 /**
  * 七牛图片自动添加瘦身命令
