@@ -25,6 +25,9 @@
 }
 .claerTipText{
 	font-size: 18px;
-	font-weight: 700;
+	font-weight: 600;
 	color:#ec6615
+}
+.clearbox{
+	margin-bottom:10em;
 }
