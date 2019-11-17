@@ -1,0 +1,30 @@
+#viewer .img{
+	width:200px;
+	height: auto;
+	margin-right:2px;
+}
+#viewer .time{
+	font-size:85%;
+	color: #777;
+	margin-left:.5em;
+}
+#viewer ul.cidButton{
+	display:inline;
+	white-space: nowrap;
+}
+#viewer ul.cidButton li{
+	margin-right: 2px;
+	display: inline-block;
+	white-space:nowrap;
+}
+#viewer ul.cidButton li.name{
+	vertical-align: sub;
+}
+.noView{
+	display:none;
+}
+.claerTipText{
+	font-size: 18px;
+	font-weight: 700;
+	color:#ec6615
+}
