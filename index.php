@@ -1,5 +1,7 @@
 <?php 
 	$list_array = explode(',',get_option('limiwu_index_list'));
+	limiwu_homeTop_page(get_option('limiwu_home_top'));// 获取自定义首页
+	// 获取导航及文章
 	if (is_home() || (is_category() && !is_category($list_array))) {
 		get_header();
 		get_template_part( 'content', 'top'); //获取置顶文章

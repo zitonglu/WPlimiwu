@@ -209,7 +209,30 @@ function limiwu_the_slug() {
     $slug = $post_data['post_name'];
     return $slug; 
 }
-
+/**
+ * 获取自定义首页头部界面
+ *
+ * @package limiwuCom
+ * @author annanzi/910109610@qq.com
+ * @since 2019-11-24
+ */
+function limiwu_homeTop_page($home_top='',$php='php') {
+    //$home_top = get_option('limiwu_home_top');
+    if (!empty($home_top) && is_home()) {
+        $url = get_bloginfo('template_directory').'/'.$home_top.'.'.$php;
+        $home_url = '/'.preg_replace('/\//','\/',home_url('/')).'/';
+        $file_url = preg_replace($home_url,'',$url);//费劲的正则，因为反斜杠的原因
+        if (file_exists($file_url)) {
+            require_once($file_url);
+        }else{
+            echo '<div class="alert alert-danger" role="alert">';
+            _e('未找到对应的文件路径，请检查','limiwu');
+            echo $url;
+            _e('路径是否正确','limiwu');
+            echo '</div>';
+        }
+    }
+}
 /**
  * 文章编辑侧板增加文章来源、缩略图网址功能
  * * 文章来源用户展示文章出处
