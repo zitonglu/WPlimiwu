@@ -635,14 +635,27 @@ select#customerID{appearance:none;-webkit-appearance: listbox;-moz-appearance:no
 	min-height:100vh;
 	background-color:#ff9000;
 	color: #fff;
-	border-bottom: 1px solid #ff9900;
 }
-.home-top .left{
-	padding-top: 100px;
-	text-align: right;
+.home-top hr{border-top:1px dashed #000}
+.home-top .left span{font-size:75%}
+@media (min-width: 767px){
+	.home-top .left{
+		padding-top: 100px;
+		text-align: right;
+	}
+	.home-top .left h1{font-size: 40px;}
+	.home-top .left .text{
+		padding-bottom: .5em;
+		margin-left: 190px;
+		text-indent: 2em;
+		font-size:15px;
+		text-align: justify;
+		color: #3c3c3c;
+		border-bottom: 1px dashed #3c3c3c;
+	}
 }
 .home-top .right{
-	min-height:100vh;
+	height:100%;
 	background: url('image/topbg.jpg') no-repeat;
 	background-size:cover;
 }
