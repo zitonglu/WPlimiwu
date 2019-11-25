@@ -208,7 +208,7 @@ a, a::before, a::after{transition-duration: 0.2s;transition-timing-function: eas
 }
 .single .navbar{margin-bottom:0}
 @media (max-width: 768px){
-	.blog .navbar,.category .navbar{margin-bottom:0}
+	/*.blog .navbar,.category .navbar{margin-bottom:0}*/
 	.single .jumbotron{
 		padding-top:0;
 	}
@@ -626,3 +626,23 @@ figcaption{text-align:justify;margin:0.5em auto 1em;font-size:16px;text-indent:2
 figure{margin-bottom:1em}
 select#customerID{appearance:none;-webkit-appearance: listbox;-moz-appearance:none;}
 #returnOK{padding:4px 10px 4px 0}
+
+/*home-top首页相关style*/
+.home-top{
+	margin-top:0;
+	margin-bottom:0;
+	padding-top:0;
+	min-height:100vh;
+	background-color:#ff9000;
+	color: #fff;
+	border-bottom: 1px solid #ff9900;
+}
+.home-top .left{
+	padding-top: 100px;
+	text-align: right;
+}
+.home-top .right{
+	min-height:100vh;
+	background: url('image/topbg.jpg') no-repeat;
+	background-size:cover;
+}
