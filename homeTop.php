@@ -1,3 +1,37 @@
+<?php
+/**
+ * 专门的增加联系方式的数据库表函数，有注入的危险，需后期尽量维护
+ *
+ * @package limiwuCom
+ * @author annanzi/910109610@qq.com
+ * @since 2019-12-6
+ * @return false or true
+ */
+function limiwu_homeTop_INSERT_INTO($name,$tel){
+    global $wpdb;
+    $name = $wpdb->escape($name);
+    $tel = $wpdb->escape($tel);
+    $table_name = $wpdb->prefix . "telTable";
+    $table_name = $wpdb->escape($table_name);
+
+    $sql = $wpdb->insert(
+        $table_name,
+        array(
+            'name' => $name,
+            'tel' => $tel
+        )
+    );
+
+    if ($sql == 0) {
+        echo '没有插入成功';
+    }
+}
+if (empty($_POST['LIMIWUsubmit'])) {
+    $LIMIWUsubmitValue = '｡:.ﾟヽ(｡◕‿◕｡)ﾉﾟ.:｡+ﾟ提交';
+}else{
+    $LIMIWUsubmitValue = $_POST['LIMIWUsubmit'];
+}
+?>
 <div class="jumbotron home-top" id="hometop">
     <div class="page-head-social">
         <div class="social-title text-uppercase">
@@ -12,19 +46,25 @@
             </ul><!-- /.page-head-social-list -->
         </div><!-- /.page-head-social-item -->
         <div id="contentUS" class="contentUS">
-            <form method="POST" action="">
-                <input name="name" type="text" class="btn" placeholder="称呼/小区地址">
-                <input name="tel" type="number" class="btn" placeholder="电话号码">
-                <input name="submit" type="submit" class="button btn btn-warning" value="｡:.ﾟヽ(｡◕‿◕｡)ﾉﾟ.:｡+ﾟ提交">
+            <?php if($_POST['LIMIWUsubmit'] == '｡:.ﾟヽ(｡◕‿◕｡)ﾉﾟ.:｡+ﾟ提交'){
+                $_POST['LIMIWUsubmit'] = '已提交';
+                limiwu_homeTop_INSERT_INTO($_POST['LIMIWUName'],$_POST['LIMIWUTel']);//插入数据
+                echo '<p class="addOK">提交成功，亲๑乛◡乛๑，我们会尽快安排人员联系您，请耐心等待(｡￫‿￩｡)，谢谢捧场！</p>';
+            }else{
+            ?>
+            <form action="" method="post" role="form">
+                <input name="LIMIWUName" type="text" class="btn" placeholder="称呼/小区地址" required="required">
+                <input name="LIMIWUTel" type="number" class="btn" placeholder="电话号码" required="required">
+                <input name="LIMIWUsubmit" type="submit" class="button btn btn-warning" value="<?php echo $LIMIWUsubmitValue;?>">
             </form>
+            <?php }?>  
        </div><!-- 联系我们 end -->
    </div>
    <div class="container">
     <div class="col-sm-6 left">
         <h1>厘米屋家居空间设计</h1>
-        <!-- <h2> --- <span class="glyphicon glyphicon-tower"></span> --- 关于我们 ---</h2>  -->
         <p class="text">本网站提供家装效果图片收藏服务，主要服务于家装设计师、全屋定制设计师。使设计师们在与客户沟通时，可以根据客户喜好收藏精品效果图，以便视觉化的把握客户所需，从而更好的服务于客户。</p>
-        <p><a class="btn btn-warning" href="#" role="button">♪(^∇^*)了解更多</a><!--  <a class="btn btn-primary" href="#" role="button">申请加入</a> --></p>
+        <p><a class="btn btn-warning" href="#" role="button">♪(^∇^*)了解更多</a></p>
    </div>
    <div class="col-sm-6 right">
     <ul class="nav nav-tabs" role="tablist">

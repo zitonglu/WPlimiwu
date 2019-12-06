@@ -439,7 +439,7 @@ function limiwu_add_telTable(){
         id mediumint(9) NOT NULL AUTO_INCREMENT,
         time datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
         name char(50) NOT NULL,
-        tel char(11) NOT NULL,
+        tel char(30) NOT NULL,
         address char(50) DEFAULT '0',
         state char(50) DEFAULT 'Limiwu',
         UNIQUE KEY id (id)

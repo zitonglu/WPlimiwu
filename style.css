@@ -663,6 +663,10 @@ select#customerID{appearance:none;-webkit-appearance: listbox;-moz-appearance:no
 	width: 10.5em;
 	border-bottom: 1px solid #000;
 }
+.home-top .contentUS .addOK{
+	text-align: left;
+	font-size:15px;
+}
 @media (min-width: 767px){
 	.home-top{padding-top: 20vh;}
 	.home-top .left{
