@@ -28,18 +28,63 @@
    </div>
    <div class="col-sm-6 right">
     <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation" class="active"><a href="#measure" aria-controls="home" role="tab" data-toggle="tab" class="btn-warning"><span class="glyphicon glyphicon-signal"></span>预约量房</a></li>
+        <li role="presentation" class="active"><a href="#measure" aria-controls="home" role="tab" data-toggle="tab" class="btn-warning">(●´ϖ`●)</a></li>
         <li role="presentation"><a href="#aboutUs" aria-controls="profile" role="tab" data-toggle="tab" class="btn-warning"><span class="glyphicon glyphicon-comment"></span>联系我们</a></li>
         <li role="presentation"><a href="#loginIn" aria-controls="settings" role="tab" data-toggle="tab" class="btn-warning"><span class="glyphicon glyphicon-edit"></span>注册&登录</a></li>
     </ul>
 
         <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" id="measure">
-                <p>预约量房</p>
+                <!-- <p>预约量房</p> -->
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#nantong" aria-expanded="true" aria-controls="nantong">
+          全屋定制设计师：解工(南通市区/开发区/海安市)
+        </a>
+      </h4>
+    </div>
+    <div id="nantong" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+        2002年初开始从事衣柜定制工作，在当地“好莱客衣柜”从事设计。先后在科达木业、爱得家私工厂担任深化设计、拆单工作，对衣柜、橱柜、木门制作生产工艺十分了解，尤其对板式定制家具有深入研究。能根据客户需求提供合理优秀的设计方案，满足客户各种风格的需求。
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          其他地区募集中
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+        …………
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          其他地区募集中
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+        …………
+      </div>
+    </div>
+  </div>
+</div><!-- panel-group end -->
             </div>
             <div role="tabpanel" class="tab-pane" id="aboutUs">联系我们界面，创作中</div>
             <div role="tabpanel" class="tab-pane" id="loginIn">登录界面，制作中</div>
         </div>
+    <h3 style="transform: rotate(-6deg);">(ง •̀_•́)ง 要定制找我们！</h3>
     </div>
 </div><!--container end--->
 </div>
