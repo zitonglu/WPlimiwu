@@ -637,14 +637,29 @@ select#customerID{appearance:none;-webkit-appearance: listbox;-moz-appearance:no
 	color: #fff;
 }
 .home-top .left span{font-size:75%}
+.home-top .contentUS input{
+	margin-bottom: 6px;
+	width: 100%;
+	color:#090909;
+	text-align:left;
+}
+.home-top .btn-warning{color: #090909}
+.home-top .contentUS .btn-warning{text-align:center}
+.home-top .nav-tabs .glyphicon{padding-right:3px;font-size:85%}
+.home-top .nav > li > a{padding: 5px 8px;}
 @media (min-width: 767px){
-	.home-top{padding-top: 27vh;}
+	.home-top{padding-top: 22vh;}
 	.home-top .left{
-		margin-top: -220px;
+		margin-top: -165px;
 		padding-right: 120px;
 		text-align: right;
 	}
-	.home-top .left h1{font-size:3.5rem;margin-bottom:0.5em;}
+	.home-top .left h1{
+		margin-bottom:0.5em;
+		transform: rotate(-6deg);
+		font-size:4.5rem;
+		white-space: nowrap;
+	}
 	.home-top .left .text{
 		padding-bottom: .5em;
 		text-indent: 2em;
@@ -656,9 +671,22 @@ select#customerID{appearance:none;-webkit-appearance: listbox;-moz-appearance:no
 	.home-top .right{
 		margin-top:-200px;
 		padding-left: 120px;
+		float: right;
 		color:#090909;
 	}
 	.home-top .right a{color:#090909}
+	.home-top .contentUS{
+		padding-top: 220px;
+		text-align: center;
+	}
+
+	.home-top .tab-content{
+		padding-top:1em;
+	}
+	.home-top .tab-content p{
+		font-size: 1.5rem;
+		text-indent:2em;
+	}
 }
 .page-head-social{
 	height: 200px;

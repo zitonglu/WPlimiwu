@@ -7,7 +7,7 @@
 		get_template_part( 'content', 'top'); //获取置顶文章
 ?>
 <h1 style="display:none"><?php bloginfo('name');echo "-";bloginfo('description');?></h1><!-- seo -->
-	<div class="list">
+	<div class="list" id="list">
 		<div class="container">
 			<div class="row" id="masonry">
 				<?php if ( have_posts() ){
