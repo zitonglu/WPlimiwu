@@ -13,8 +13,8 @@
         </div><!-- /.page-head-social-item -->
         <div id="contentUS" class="contentUS">
             <form method="POST" action="">
-                <input name="name" type="text" class="btn" placeholder="称呼">
-                <input name="tel" type="text" class="btn" placeholder="电话号码">
+                <input name="name" type="text" class="btn" placeholder="称呼/小区地址">
+                <input name="tel" type="number" class="btn" placeholder="电话号码">
                 <input name="submit" type="submit" class="button btn btn-warning" value="｡:.ﾟヽ(｡◕‿◕｡)ﾉﾟ.:｡+ﾟ提交">
             </form>
        </div><!-- 联系我们 end -->
@@ -35,7 +35,7 @@
 
         <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" id="measure">
-                <!-- <p>预约量房</p> -->
+<!-- 第一个分页面 -->
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingOne">
@@ -79,12 +79,13 @@
       </div>
     </div>
   </div>
+  <h3 class="needme">(ง •̀_•́)ง 要定制找我们！</h3>
 </div><!-- panel-group end -->
             </div>
             <div role="tabpanel" class="tab-pane" id="aboutUs">联系我们界面，创作中</div>
             <div role="tabpanel" class="tab-pane" id="loginIn">登录界面，制作中</div>
         </div>
-    <h3 style="transform: rotate(-6deg);">(ง •̀_•́)ง 要定制找我们！</h3>
+    
     </div>
 </div><!--container end--->
 </div>

@@ -31,6 +31,9 @@ a, a::before, a::after{transition-duration: 0.2s;transition-timing-function: eas
 .ppt .media .title-img{
 	transition:all 0.6s !important;
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {-webkit-appearance: none}
+input[type="number"]{-moz-appearance: textfield}
 #infscr-loading{display:none !important;}
 /*logo*/
 .logoImg{padding-right:4px}
@@ -647,8 +650,21 @@ select#customerID{appearance:none;-webkit-appearance: listbox;-moz-appearance:no
 .home-top .contentUS .btn-warning{text-align:center}
 .home-top .nav-tabs .glyphicon{padding-right:3px;font-size:85%}
 .home-top .nav > li > a{padding: 5px 8px;}
+.home-top .needme{
+	padding-bottom:5px;
+	transform: rotate(-6deg);	
+}
+.home-top .left p.text:after,
+.home-top .needme:after{
+	position: relative;
+	padding-top:8px;
+	content: '';
+	display: inline-block;
+	width: 10.5em;
+	border-bottom: 1px solid #000;
+}
 @media (min-width: 767px){
-	.home-top{padding-top: 22vh;}
+	.home-top{padding-top: 20vh;}
 	.home-top .left{
 		margin-top: -165px;
 		padding-right: 120px;
@@ -662,6 +678,7 @@ select#customerID{appearance:none;-webkit-appearance: listbox;-moz-appearance:no
 	}
 	.home-top .left .text{
 		padding-bottom: .5em;
+		transform: rotate(-6deg);
 		text-indent: 2em;
 		font-size:1.5rem;
 		text-align: justify;

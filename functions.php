@@ -408,11 +408,12 @@ remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email');
 */
 add_filter('xmlrpc_enabled', '__return_false'); 
 /**
- * 加入图片收藏数据库表
+ * 加入图片收藏数据库表limiwu_add_imgTable();
+ * 加入信息收藏表limiwu_add_telTable();
  *
  * @package limiwuCom
  * @author annanzi/910109610@qq.com
- * @since 2019-10-31
+ * @since 2019-12-6
  */
 function limiwu_add_imgTable(){
     global $wpdb;
@@ -427,6 +428,21 @@ function limiwu_add_imgTable(){
         src Text DEFAULT '' NOT NULL,
         UNIQUE KEY id (id),
         CONSTRAINT uc_PersonID UNIQUE (user_id,post_id,customer_id)
+    );";
+    require_once(ABSPATH . "wp-admin/includes/upgrade.php");
+    dbDelta($sql);
+}
+function limiwu_add_telTable(){
+    global $wpdb;
+    $table_name = $wpdb->prefix . "telTable";
+    $sql = "CREATE TABLE `" . $table_name . "`(
+        id mediumint(9) NOT NULL AUTO_INCREMENT,
+        time datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        name char(50) NOT NULL,
+        tel char(11) NOT NULL,
+        address char(50) DEFAULT '0',
+        state char(50) DEFAULT 'Limiwu',
+        UNIQUE KEY id (id)
     );";
     require_once(ABSPATH . "wp-admin/includes/upgrade.php");
     dbDelta($sql);
