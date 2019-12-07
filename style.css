@@ -663,6 +663,13 @@ select#customerID{appearance:none;-webkit-appearance: listbox;-moz-appearance:no
 	text-align: left;
 	font-size:15px;
 }
+.home-top .tab-content{
+	padding-top:1em;
+}
+.home-top .tab-content ul{
+	padding-top:1em;
+	font-size: 16px;
+}
 @media (min-width: 767px){
 	.home-top{
 		margin-top: -70px;
@@ -701,9 +708,7 @@ select#customerID{appearance:none;-webkit-appearance: listbox;-moz-appearance:no
 		text-align: center;
 	}
 
-	.home-top .tab-content{
-		padding-top:1em;
-	}
+	
 	.home-top .tab-content p{
 		font-size: 1.5rem;
 		text-indent:2em;
@@ -757,3 +762,7 @@ select#customerID{appearance:none;-webkit-appearance: listbox;-moz-appearance:no
 	font-size:1.5rem;
 }
 .page-head-social-list li a{color: #0e0e0e}
+
+/*===== 百度地图的style ======*/
+.iw_poi_title {color:#CC5522;font-size:14px;font-weight:bold;overflow:hidden;padding-right:13px;white-space:nowrap}
+.iw_poi_content {font:12px arial,sans-serif;overflow:visible;padding-top:4px;white-space:-moz-pre-wrap;word-wrap:break-word}
