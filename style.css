@@ -629,14 +629,30 @@ select#customerID{appearance:none;-webkit-appearance: listbox;-moz-appearance:no
 
 /*home-top首页相关style*/
 .home-top{
-	margin-top:0;
-	margin-bottom:0;
-	padding-top:0;
+	margin-top: -70px;
+	margin-bottom: 20px;
+	padding-top: 20vh;
 	min-height:100vh;
 	background-color:#ff9000;
 	color: #fff;
 }
+.home-top .left{padding-bottom:100px}
 .home-top .left span{font-size:75%}
+.home-top .left h1{font-size:24px;}
+.home-top .left .text{
+	font-size:12px;
+	color: #090909;
+	text-align: justify;
+	border-bottom: 1px dashed #090909;
+	padding-bottom: .5em;
+	text-indent: 2em;
+}
+.home-top .right{color:#090909}
+.home-top .right a{color:#090909}
+.home-top .contentUS{
+	padding-top: 220px;
+	text-align: center;
+}
 .home-top .contentUS input{
 	margin-bottom: 6px;
 	width: 100%;
@@ -670,57 +686,13 @@ select#customerID{appearance:none;-webkit-appearance: listbox;-moz-appearance:no
 	padding-top:1em;
 	font-size: 16px;
 }
-@media (min-width: 767px){
-	.home-top{
-		margin-top: -70px;
-		margin-bottom: 20px;
-		padding-top: 20vh;
-	}
-	.home-top .left{
-		margin-top: -165px;
-		padding-right: 120px;
-		text-align: right;
-	}
-	.home-top .left h1{
-		margin-bottom:0.5em;
-		transform: rotate(-6deg);
-		font-size:4.5rem;
-		white-space: nowrap;
-	}
-	.home-top .left .text{
-		padding-bottom: .5em;
-		transform: rotate(-6deg);
-		text-indent: 2em;
-		font-size:1.5rem;
-		text-align: justify;
-		color: #090909;
-		border-bottom: 1px dashed #090909;
-	}
-	.home-top .right{
-		margin-top:-200px;
-		padding-left: 120px;
-		float: right;
-		color:#090909;
-	}
-	.home-top .right a{color:#090909}
-	.home-top .contentUS{
-		padding-top: 220px;
-		text-align: center;
-	}
-
-	
-	.home-top .tab-content p{
-		font-size: 1.5rem;
-		text-indent:2em;
-	}
-}
 .page-head-social{
 	height: 200px;
 	width: 200px;
 	border: 2px solid #090909;
 	border-top: none;
 	position: relative;
-	margin: 30px auto 0px;
+	margin: 30px auto 200px;
 	z-index:10;
 }
 .page-head-social:before {
@@ -762,7 +734,35 @@ select#customerID{appearance:none;-webkit-appearance: listbox;-moz-appearance:no
 	font-size:1.5rem;
 }
 .page-head-social-list li a{color: #0e0e0e}
-
+@media (min-width: 767px){
+	.home-top .left{
+		margin-top: -165px;
+		padding-right: 120px;
+		text-align: right;
+	}
+	.home-top .left h1{
+		margin-bottom:0.5em;
+		transform: rotate(-6deg);
+		font-size:4.5rem;
+		white-space: nowrap;
+	}
+	.home-top .left .text{
+		transform: rotate(-6deg);
+		font-size:1.5rem;
+	}
+	.home-top .right{
+		margin-top:-200px;
+		padding-left: 120px;
+		float: right;
+	}
+	
+	.home-top .tab-content p{
+		font-size: 1.5rem;
+		text-indent:2em;
+	}
+	.page-head-social{margin-bottom:0}
+}
 /*===== 百度地图的style ======*/
+#aboutUs{overflow: hidden}
 .iw_poi_title {color:#CC5522;font-size:14px;font-weight:bold;overflow:hidden;padding-right:13px;white-space:nowrap}
 .iw_poi_content {font:12px arial,sans-serif;overflow:visible;padding-top:4px;white-space:-moz-pre-wrap;word-wrap:break-word}

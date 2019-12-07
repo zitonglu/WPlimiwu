@@ -56,7 +56,7 @@ function limiwu_homeTop_INSERT_INTO($name,$tel){
     <div class="col-sm-6 left">
         <h1>厘米屋家居空间设计</h1>
         <p class="text">本网站提供家装效果图片收藏服务，主要服务于家装设计师、全屋定制设计师。使设计师们在与客户沟通时，可以根据客户喜好收藏精品效果图，以便视觉化的把握客户所需，从而更好的服务于客户。</p>
-        <p><a class="btn btn-warning" href="#" role="button">♪(^∇^*)了解更多</a></p>
+        <p class="text-right"><a class="btn btn-warning" href="#" role="button">♪(^∇^*)了解更多</a></p>
    </div>
    <div class="col-sm-6 right">
     <ul class="nav nav-tabs" role="tablist">
@@ -117,7 +117,7 @@ function limiwu_homeTop_INSERT_INTO($name,$tel){
             <div role="tabpanel" class="tab-pane" id="aboutUs">
                 <div style="width:360px;height:200px;border:#ccc solid 1px;" id="dituContent"></div>
                 <ul>
-                    <li>地址：江苏南通工业博览城XXX栋XXX号</li>
+                    <li>地址：江苏南通工业博览城</li>
                     <li>电话：153518XXXX0</li>
                     <li>邮箱：admin..<a>@</a>limiwu.com</li>
                 </ul>
