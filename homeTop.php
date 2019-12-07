@@ -43,8 +43,12 @@ function limiwu_homeTop_INSERT_INTO($name,$tel){
         </div><!-- /.page-head-social-item -->
         <div id="contentUS" class="contentUS">
             <?php if(isset($_POST['LIMIWUsubmit'])){
-                limiwu_homeTop_INSERT_INTO($_POST['LIMIWUName'],$_POST['LIMIWUTel']);//插入数据
-                echo '<p class="addOK">提交成功，亲๑乛◡乛๑，我们会尽快安排人员联系您，请耐心等待(｡￫‿￩｡)，谢谢捧场！</p>';
+                if (preg_match("/^1[34578]\d{9}$/", $_POST['LIMIWUTel'])) {
+                    limiwu_homeTop_INSERT_INTO($_POST['LIMIWUName'],$_POST['LIMIWUTel']);//插入数据
+                    echo '<p class="addOK">提交成功，亲๑乛◡乛๑，我们会尽快安排人员联系您，请耐心等待(｡￫‿￩｡)，谢谢捧场！</p>';
+                }else{
+                    echo '<p class="addOK">抱歉，您的电话填写不正确！</p>';
+                }
             }else{
             ?>
             <form action="" method="post" role="form">
