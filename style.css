@@ -18,6 +18,7 @@ a:hover,
 a:focus,
 figure img{max-width:100%}
 a, a::before, a::after{transition-duration: 0.2s;transition-timing-function: ease;}
+.navbar{z-index:99}
 
 .list .masonrybox .thumbnail img:hover,
 .list .masonrybox .thumbnail img:focus,
