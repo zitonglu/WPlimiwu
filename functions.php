@@ -442,7 +442,8 @@ function limiwu_add_telTable(){
         tel char(30) NOT NULL,
         address char(50) DEFAULT '0',
         state char(50) DEFAULT 'Limiwu',
-        UNIQUE KEY id (id)
+        UNIQUE KEY id (id),
+        CONSTRAINT tel_PersonID UNIQUE (tel)
     );";
     require_once(ABSPATH . "wp-admin/includes/upgrade.php");
     dbDelta($sql);

@@ -13,7 +13,6 @@ function limiwu_homeTop_INSERT_INTO($name,$tel){
     $tel = $wpdb->escape($tel);
     $table_name = $wpdb->prefix . "telTable";
     $table_name = $wpdb->escape($table_name);
-
     $sql = $wpdb->insert(
         $table_name,
         array(
@@ -21,15 +20,9 @@ function limiwu_homeTop_INSERT_INTO($name,$tel){
             'tel' => $tel
         )
     );
-
     if ($sql == 0) {
-        echo '没有插入成功';
+        echo '已提交，请勿重复刷新页面';
     }
-}
-if (empty($_POST['LIMIWUsubmit'])) {
-    $LIMIWUsubmitValue = '｡:.ﾟヽ(｡◕‿◕｡)ﾉﾟ.:｡+ﾟ提交';
-}else{
-    $LIMIWUsubmitValue = $_POST['LIMIWUsubmit'];
 }
 ?>
 <div class="jumbotron home-top" id="hometop">
@@ -46,8 +39,7 @@ if (empty($_POST['LIMIWUsubmit'])) {
             </ul><!-- /.page-head-social-list -->
         </div><!-- /.page-head-social-item -->
         <div id="contentUS" class="contentUS">
-            <?php if($_POST['LIMIWUsubmit'] == '｡:.ﾟヽ(｡◕‿◕｡)ﾉﾟ.:｡+ﾟ提交'){
-                $_POST['LIMIWUsubmit'] = '已提交';
+            <?php if(isset($_POST['LIMIWUsubmit'])){
                 limiwu_homeTop_INSERT_INTO($_POST['LIMIWUName'],$_POST['LIMIWUTel']);//插入数据
                 echo '<p class="addOK">提交成功，亲๑乛◡乛๑，我们会尽快安排人员联系您，请耐心等待(｡￫‿￩｡)，谢谢捧场！</p>';
             }else{
@@ -55,7 +47,7 @@ if (empty($_POST['LIMIWUsubmit'])) {
             <form action="" method="post" role="form">
                 <input name="LIMIWUName" type="text" class="btn" placeholder="称呼/小区地址" required="required">
                 <input name="LIMIWUTel" type="number" class="btn" placeholder="电话号码" required="required">
-                <input name="LIMIWUsubmit" type="submit" class="button btn btn-warning" value="<?php echo $LIMIWUsubmitValue;?>">
+                <input name="LIMIWUsubmit" type="submit" class="button btn btn-warning" value="｡:.ﾟヽ(｡◕‿◕｡)ﾉﾟ.:｡+ﾟ提交">
             </form>
             <?php }?>  
        </div><!-- 联系我们 end -->

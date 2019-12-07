@@ -654,7 +654,6 @@ select#customerID{appearance:none;-webkit-appearance: listbox;-moz-appearance:no
 	padding-bottom:5px;
 	transform: rotate(-6deg);	
 }
-.home-top .left p.text:after,
 .home-top .needme:after{
 	position: relative;
 	padding-top:8px;
