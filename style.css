@@ -67,9 +67,6 @@ input[type="number"]{-moz-appearance: textfield}
 }
 .list{min-height:100vh;}
 .list .masonrybox{margin-bottom:14px}
-@media (max-width:768px){
-	.list .masonrybox{margin-top:-12px}
-}
 .list .masonrybox .thumbnail{
 	padding:0;
 	border:none;
@@ -667,7 +664,11 @@ select#customerID{appearance:none;-webkit-appearance: listbox;-moz-appearance:no
 	font-size:15px;
 }
 @media (min-width: 767px){
-	.home-top{padding-top: 20vh;}
+	.home-top{
+		margin-top: -70px;
+		margin-bottom: 20px;
+		padding-top: 20vh;
+	}
 	.home-top .left{
 		margin-top: -165px;
 		padding-right: 120px;

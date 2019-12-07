@@ -32,9 +32,9 @@ function limiwu_homeTop_INSERT_INTO($name,$tel){
         </div>
         <div class="page-head-social-item ul-li">
             <ul class="page-head-social-list">
-                <li><a href="#"><span class="glyphicon glyphicon-user"></span></a></li>
-                <li><a href="#navbar"><span class="glyphicon glyphicon-th-large"></span></a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-qrcode"></span></a></li>
+                <li><a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="关于网站作者" data-placement="top" data-content="一个全屋定制设计师，一个web的技术宅 (..•˘_˘•..)"><span class="glyphicon glyphicon-user"></span></a></li>
+                <li><a href="#list"><span class="glyphicon glyphicon-th-large"></span></a></li>
+                <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-qrcode"></span></a></li>
                 <li><a href="#"><span class="glyphicon glyphicon-picture"></span></a></li>
             </ul><!-- /.page-head-social-list -->
         </div><!-- /.page-head-social-item -->
@@ -79,7 +79,7 @@ function limiwu_homeTop_INSERT_INTO($name,$tel){
     </div>
     <div id="nantong" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
       <div class="panel-body">
-        2002年初开始从事衣柜定制工作，在当地“好莱客衣柜”从事设计。先后在科达木业、爱得家私工厂担任深化设计、拆单工作，对衣柜、橱柜、木门制作生产工艺十分了解，尤其对板式定制家具有深入研究。能根据客户需求提供合理优秀的设计方案，满足客户各种风格的需求。
+        2002年初开始从事衣柜定制工作，在当地“好莱客衣柜”从事产品设计。先后在科达木业、爱得家私工厂担任深化设计、拆单工作，对衣柜、橱柜、木门制作生产工艺十分了解，尤其对板式定制家深入研究。能根据客户需求提供合理优秀的设计方案，满足客户各种家装风格的需求。
       </div>
     </div>
   </div>
@@ -93,7 +93,7 @@ function limiwu_homeTop_INSERT_INTO($name,$tel){
     </div>
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
       <div class="panel-body">
-        …………
+        如果您也是当地有名的家装、全屋定制的设计师，烦请加入我们。我们可以一起构建一个全屋定制的平台。
       </div>
     </div>
   </div>
@@ -107,7 +107,7 @@ function limiwu_homeTop_INSERT_INTO($name,$tel){
     </div>
     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
       <div class="panel-body">
-        …………
+        如果您也是当地有名的家装、全屋定制的设计师，烦请加入我们。我们可以一起构建一个全屋定制的平台。
       </div>
     </div>
   </div>
@@ -120,4 +120,23 @@ function limiwu_homeTop_INSERT_INTO($name,$tel){
     
     </div>
 </div><!--container end--->
+</div>
+
+<!-- 网站二维码相关 -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">可以用手机浏览哦！≖‿≖✧</h4>
+      </div>
+      <div class="modal-body text-center">
+        <p>通过手机浏览器或者微信扫描下面二维码可以直接浏览本网站！<br>可以输入我们的网址：<a>www.limiwu.com</a></p>
+        <img src="<?php echo bloginfo('template_url');?>/image/erweima.png" alt="二维码图">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">(￣ω￣;) 阅</button>
+      </div>
+    </div>
+  </div>
 </div>

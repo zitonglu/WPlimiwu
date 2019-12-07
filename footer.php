@@ -63,6 +63,9 @@
             $('#masonry').masonry();
         });
     </script>
+    <script type="text/javascript">
+        $(function () {$('[data-toggle="popover"]').popover()})
+    </script>
 <?php endif ?>
 <?php wp_footer(); ?>
 <?php echo get_option('limiwu_bottom_javaScript');?>
