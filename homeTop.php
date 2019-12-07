@@ -35,7 +35,7 @@ function limiwu_homeTop_INSERT_INTO($name,$tel){
                 <li><a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="关于网站作者" data-placement="top" data-content="一个全屋定制设计师，一个web的技术宅 (..•˘_˘•..)"><span class="glyphicon glyphicon-user"></span></a></li>
                 <li><a href="#list"><span class="glyphicon glyphicon-th-large"></span></a></li>
                 <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-qrcode"></span></a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-picture"></span></a></li>
+                <li><a target="_blank" href="//wpa.qq.com/msgrd?v=3&uin=910109610&site=qq&menu=yes"><span class="glyphicon glyphicon-comment"></span></a></li>
             </ul><!-- /.page-head-social-list -->
         </div><!-- /.page-head-social-item -->
         <div id="contentUS" class="contentUS">
