@@ -27,7 +27,7 @@ function limiwu_homeTop_INSERT_INTO($name,$tel){
 ?>
 <div class="jumbotron home-top" id="hometop">
     <div id="page-head-effect" class="page-head-effect">
-        <canvas id="demo-canvas"></canvas><!-- 气泡动画JS -->
+        <canvas id="demo-canvas" style="width:100% !important"></canvas><!-- 气泡动画JS -->
     </div>
     <div class="page-head-social">
         <div class="social-title text-uppercase">
