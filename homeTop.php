@@ -1,6 +1,6 @@
 <?php
 /**
- * 专门的增加联系方式的数据库表函数，有注入的危险，需后期尽量维护
+ * 专门的增加联系方式的数据库表函数
  *
  * @package limiwuCom
  * @author annanzi/910109610@qq.com
@@ -26,6 +26,9 @@ function limiwu_homeTop_INSERT_INTO($name,$tel){
 }
 ?>
 <div class="jumbotron home-top" id="hometop">
+    <div id="page-head-effect" class="page-head-effect">
+        <canvas id="demo-canvas"></canvas><!-- 气泡动画JS -->
+    </div>
     <div class="page-head-social">
         <div class="social-title text-uppercase">
             <span>厘米屋空间</span>
@@ -47,7 +50,7 @@ function limiwu_homeTop_INSERT_INTO($name,$tel){
             <form action="" method="post" role="form">
                 <input name="LIMIWUName" type="text" class="btn" placeholder="称呼/小区地址" required="required">
                 <input name="LIMIWUTel" type="number" class="btn" placeholder="电话号码" required="required">
-                <input name="LIMIWUsubmit" type="submit" class="button btn btn-warning" value="｡:.ﾟヽ(｡◕‿◕｡)ﾉﾟ.:｡+ﾟ提交">
+                <input name="LIMIWUsubmit" type="submit" class="button btn btn-warning" value="｡:.ﾟヽ(｡◕‿◕｡)ﾉﾟ.:｡+ﾟ约谈">
             </form>
             <?php }?>  
        </div><!-- 联系我们 end -->
@@ -127,8 +130,7 @@ function limiwu_homeTop_INSERT_INTO($name,$tel){
     
     </div>
 </div><!--container end--->
-</div>
-
+</div><!--hometop end--->
 <!-- 网站二维码相关 -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">

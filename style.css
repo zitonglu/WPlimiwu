@@ -734,6 +734,14 @@ select#customerID{appearance:none;-webkit-appearance: listbox;-moz-appearance:no
 	font-size:1.5rem;
 }
 .page-head-social-list li a{color: #0e0e0e}
+/*小气球上升JS*/
+.page-head-effect{
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
 @media (min-width: 767px){
 	.home-top .left{
 		margin-top: -165px;
