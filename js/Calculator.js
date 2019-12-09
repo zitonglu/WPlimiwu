@@ -13,8 +13,7 @@ var a = 0,
   is_submission = false,
   soft_sub = false,
   display = jQuery('#total');
-
-
+  operationProcess = jQuery('#operationProcess');
 
 /*
 ** tool functions
@@ -25,8 +24,12 @@ function write(x) {
   // console.log(x);
 }
 // add int to current display value
-function changeDisplayVal(i) {
+function changeDisplayVal(display,i) {
   display.text(display.text() + i);
+}
+// del int to current display value
+function delDisplayVal(display) {
+  display.text( display.text().substring(0, display.text().length - 3) );
 }
 // make * into ×
 function  visOps(x) {
@@ -80,7 +83,7 @@ function set_a(i) {
       }
     } else {
       // add int to current display value
-      changeDisplayVal(i);
+      changeDisplayVal(display,i);
     }
 
     a = display.text();
@@ -111,7 +114,7 @@ function set_b(i) {
       }
     } else {
       // add int to current display value
-      changeDisplayVal(i);
+      changeDisplayVal(display,i);
     }
     // set b to current display Value
     b = display.text();
@@ -247,6 +250,7 @@ function reset_calc() {
   is_submission = false;
   soft_sub = false;
   display.text(0);
+  operationProcess.text(' ');
 
   // reset display value
   setDisplayVal(0);
@@ -256,6 +260,7 @@ function reset_calc() {
 
 // backspacing value
 function backspace() {
+  operationProcess.text( operationProcess.text().substring(0, operationProcess.text().length - 1) );
   if ( display.text() !== '' && display.text() !== '0' ) {
     display.text( display.text().substring(0, display.text().length - 1) );
     if ( is_a === true ) {
@@ -295,7 +300,7 @@ function newResult(a,o,b,answer) {
   var result = '' +
   '<tr class="result"><td>' + a + ' ' +  visOps(o) + ' ' + b + '</td>' +
   '<td class="answer">' + answer + '</td><td class="use"><a class="calc_use" href="#">取值</a></td></tr>';
-  results.append(result).children('li').fadeIn(200);
+  results.prepend(result).children('li').fadeIn(200);
   // click use
   jQuery('.calc_use').off('click').on('click', function() {
     var i = jQuery(this).parent('.use').siblings('.answer').text();
@@ -375,6 +380,7 @@ jQuery('.calc_int, #calc_decimal').each(function() {
       reset_calc();
       set_a(value);
     }
+    changeDisplayVal(operationProcess,value);
   });
 });
 
@@ -383,6 +389,14 @@ jQuery('.calc_op').each(function() {
   jQuery(this).click(function() {
     var value = jQuery(this).val();
     set_o(value);
+    if (operationProcess.text().charAt(operationProcess.text().length-1) == ' ') {
+      delDisplayVal(operationProcess); 
+    }else{
+      if (answer !== 0) {
+        operationProcess.text(answer);
+      }
+    }
+    changeDisplayVal(operationProcess,' '+ value +' ');
   });
 });
 

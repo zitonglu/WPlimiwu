@@ -142,7 +142,7 @@ function limiwu_homeTop_INSERT_INTO($name,$tel){
   <div class="col-sm-3 Calculator-interface">
     <form name="calculator" class="display">
       <!-- <textarea class="form-control" rows="1"></textarea> -->
-      <p>(`･ω･´) <em>223 + 564 - 58 / 8</em></p>
+      <p>&nbsp;<em id="operationProcess"></em></p>
       <span id="total">0</span>
     </form>
     <div>

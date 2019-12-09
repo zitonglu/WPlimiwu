@@ -632,8 +632,8 @@ select#customerID{appearance:none;-webkit-appearance: listbox;-moz-appearance:no
 .home-top{
 	margin-top: -70px;
 	margin-bottom: 0;
-	padding-top: 188px;
-	min-height:760px;
+	padding-top: 22vh;
+	min-height:100vh;
 	background-color:#ff9000;
 	color: #fff;
 }
