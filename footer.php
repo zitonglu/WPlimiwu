@@ -40,8 +40,11 @@
     <script src="<?php limiwu_echo_CDN_URL('infinitescroll.min.js')?>"></script>
     <!-- 加载图片 JS -->
     <script src="<?php limiwu_echo_CDN_URL('imagesloaded.min.js')?>"></script>
+    <?php if(get_option('limiwu_home_top') == 'homeTop'){ ?>
     <!-- 小气球上升动画 JS -->
     <script src="<?php limiwu_echo_CDN_URL('circle-effect.js')?>"></script>
+    <script src="<?php echo bloginfo('template_url')?>/js/Calculator.js"></script>
+    <?php } ?>
     <script type="text/javascript">
         // from:www.cnblogs.com/aleafo/p/3695816.html
         var $container = $('#masonry');

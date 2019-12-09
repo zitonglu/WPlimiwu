@@ -631,9 +631,9 @@ select#customerID{appearance:none;-webkit-appearance: listbox;-moz-appearance:no
 /*home-top首页相关style*/
 .home-top{
 	margin-top: -70px;
-	margin-bottom: 20px;
-	padding-top: 20vh;
-	min-height:100vh;
+	margin-bottom: 0;
+	padding-top: 188px;
+	min-height:760px;
 	background-color:#ff9000;
 	color: #fff;
 }
@@ -775,3 +775,59 @@ select#customerID{appearance:none;-webkit-appearance: listbox;-moz-appearance:no
 #aboutUs{overflow: hidden}
 .iw_poi_title {color:#CC5522;font-size:14px;font-weight:bold;overflow:hidden;padding-right:13px;white-space:nowrap}
 .iw_poi_content {font:12px arial,sans-serif;overflow:visible;padding-top:4px;white-space:-moz-pre-wrap;word-wrap:break-word}
+/*===== Calculator计算器style ======*/
+.Calculator{
+	padding-top:60px;
+	margin-bottom:20px;
+	min-height:100vh;
+	background-color:#fff;
+	border-top:1px solid #f74f0d;
+}
+.Calculator .Calculator-interface{
+	padding: 5px;
+	border-radius: 4px;
+	background-image: linear-gradient(to bottom,#ff9000 0,#ff5000 100%);
+	border:1px solid #f74f0d;
+}
+.Calculator .Calculator-interface .display{
+	width: 98%;
+	margin: 3px auto 8px;
+	padding: 6px 12px;
+	display: block;
+	border-radius: 4px;
+	font-size: 1.2em;
+	background:#fff;
+	text-align:right;
+}
+.Calculator .Calculator-interface .display p{
+	margin:0;
+	font-size:68%;
+	color: #888;
+}
+.Calculator .Calculator-interface .col-sm-3{
+	margin:1%;
+	width:23%;
+	font-weight:700;
+}
+.Calculator .Calculator-interface #calc_zero{width:48%}
+.Calculator .Calculator-interface hr{float:left;width:100%;margin:8px auto;}
+.Calculator .Calculator-interface .denom-btm{font-size:75%}
+.Calculator .Calculator-interface .exponent{position: absolute;font-size:75%}
+.Calculator .Calculator-results h4{
+	padding-bottom: 8px;
+	border-bottom: 1px solid #cad9ea;
+}
+.Calculator .Calculator-results table{
+    border-collapse: collapse;
+    text-align: center;
+    width:100%;
+}
+.Calculator .Calculator-results table td, .Calculator .Calculator-results table th{
+    border: 1px solid #cad9ea;
+    color: #666;
+    height: 30px;
+}
+.Calculator .Calculator-results table tr:nth-child(odd){background: #fff}
+.Calculator .Calculator-results table tr:nth-child(even){background: #F5FAFA}
+.Calculator .Calculator-results #result_clear{margin-top:10px}
+.Calculator .Calculator-results .tableDiv{max-height:241px;overflow-x:hidden;}
