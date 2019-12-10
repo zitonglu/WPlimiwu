@@ -84,9 +84,11 @@ function set_a(i) {
     } else {
       // add int to current display value
       changeDisplayVal(display,i);
+      //changeDisplayVal(operationProcess,i);
     }
 
     a = display.text();
+    changeDisplayVal(operationProcess,i);
 
     write('Set "a" to ' + a);
   }
@@ -115,9 +117,11 @@ function set_b(i) {
     } else {
       // add int to current display value
       changeDisplayVal(display,i);
+      //changeDisplayVal(operationProcess,i);
     }
     // set b to current display Value
     b = display.text();
+    changeDisplayVal(operationProcess,i);
 
     write('Set "b" to ' + b);
   }
@@ -153,6 +157,15 @@ function set_o(op) {
 
   if ( is_a ) { is_a = false; }
   if ( !is_b ) { is_b = true; }
+  // 设置显示器的值
+  if (operationProcess.text().charAt(operationProcess.text().length-1) == ' ') {
+    delDisplayVal(operationProcess); 
+  }else{
+    if (answer !== 0) {
+      operationProcess.text(answer);
+    }
+  }
+  changeDisplayVal(operationProcess,' '+ op +' ');
 
   write('Set "o" to ' + o);
 }
@@ -166,6 +179,7 @@ function softsubmit_calc() {
 
   // submit answer to display
   display.text(answer);
+  operationProcess.text(answer);
 
   // reset first_b to true
   first_b = true;
@@ -293,10 +307,6 @@ function memory(i) {
 
 function newResult(a,o,b,answer) {
   var results = jQuery('#results_list');
-  // var result = '' +
-  // '<li class="result"><span class="equation">' + a + ' ' +  visOps(o) + ' ' + b + ' = </span>' +
-  // '<span class="answer">' + answer + '</span> <span class="use"><a class="calc_use" href="#">取值</a></span></li>';
-
   var result = '' +
   '<tr class="result"><td>' + a + ' ' +  visOps(o) + ' ' + b + '</td>' +
   '<td class="answer">' + answer + '</td><td class="use"><a class="calc_use" href="#">取值</a></td></tr>';
@@ -324,6 +334,7 @@ function sqrt(i) {
   newResult('','√',i,s);
   // submit answer to display
   display.text(answer);
+  operationProcess.text(answer);
   // display is now the answer
   is_submission = true;
   // reset first_b to true
@@ -339,6 +350,7 @@ function square(i) {
   newResult(i,' &#94; 2','',s);
   // submit answer to display
   display.text(answer);
+  operationProcess.text(answer);
   // display is now the answer
   is_submission = true;
   // reset first_b to true
@@ -380,7 +392,6 @@ jQuery('.calc_int, #calc_decimal').each(function() {
       reset_calc();
       set_a(value);
     }
-    changeDisplayVal(operationProcess,value);
   });
 });
 
@@ -389,14 +400,6 @@ jQuery('.calc_op').each(function() {
   jQuery(this).click(function() {
     var value = jQuery(this).val();
     set_o(value);
-    if (operationProcess.text().charAt(operationProcess.text().length-1) == ' ') {
-      delDisplayVal(operationProcess); 
-    }else{
-      if (answer !== 0) {
-        operationProcess.text(answer);
-      }
-    }
-    changeDisplayVal(operationProcess,' '+ value +' ');
   });
 });
 

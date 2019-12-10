@@ -137,8 +137,17 @@ function limiwu_homeTop_INSERT_INTO($name,$tel){
 </div><!--hometop end--->
 <div id="Calculator" class="Calculator">
   <div class="container">
-  <div class="col-sm-3"></div>
-  <div class="col-sm-3"></div>
+  <div class="col-sm-4"></div>
+  <div class="col-sm-5 Calculator-results text-right">
+    <h4 class="text-center">(｡･ω･｡) 运算清单 ↓</h4>
+    <div class="tableDiv">
+      <table>
+        <tbody id="results_list">
+        </tbody>
+      </table>
+    </div>
+    <a id="result_clear" class="btn btn-default">,,Ծ‸Ծ,, 清空</a>
+  </div>
   <div class="col-sm-3 Calculator-interface">
     <form name="calculator" class="display">
       <!-- <textarea class="form-control" rows="1"></textarea> -->
@@ -171,16 +180,6 @@ function limiwu_homeTop_INSERT_INTO($name,$tel){
       <button class="btn btn-default col-sm-3" id="calc_square" value="x2" >x<span class="exponent">2</span></button>
       <button class="btn btn-default col-sm-3 calc_op" id="calc_powerof" value="^" >y<span class="exponent">x</span></button>
     </div>
-  </div>
-  <div class="col-sm-3 Calculator-results text-right">
-    <h4 class="text-center">(｡･ω･｡) 运算清单</h4>
-    <div class="tableDiv">
-      <table>
-        <tbody id="results_list">
-        </tbody>
-      </table>
-    </div>
-    <a id="result_clear" class="btn btn-default">,,Ծ‸Ծ,, 清空</a>
   </div>
 </div><!-- container end -->
 </div><!--Calculator end--->

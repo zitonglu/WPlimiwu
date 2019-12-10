@@ -813,6 +813,12 @@ select#customerID{appearance:none;-webkit-appearance: listbox;-moz-appearance:no
 .Calculator .Calculator-interface hr{float:left;width:100%;margin:8px auto;}
 .Calculator .Calculator-interface .denom-btm{font-size:75%}
 .Calculator .Calculator-interface .exponent{position: absolute;font-size:75%}
+@media (min-width: 767px){
+	.Calculator .Calculator-results{
+		padding-left:35px;
+		padding-right:35px;
+	}
+}
 .Calculator .Calculator-results h4{
 	padding-bottom: 8px;
 	border-bottom: 1px solid #cad9ea;
