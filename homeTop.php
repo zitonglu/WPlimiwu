@@ -24,6 +24,38 @@ function limiwu_homeTop_INSERT_INTO($name,$tel){
         echo '已提交，请勿重复刷新页面';
     }
 }
+/**
+ * 板材计算：18？25柜体板总面积
+ *
+ * @package limiwuCom
+ * @author annanzi/910109610@qq.com
+ * @since 2019-12-10
+ * @return array(area,)
+ */
+function limiwu_Calculator_18($h,$w,$d,$v=0,$y=1,$x=2.5){
+  $y = $y + 2;
+  $areaY = round($h*$d*$y/1000000,2);
+  $areaYV = $areaY*$v;
+  $arr = '<tr>';
+  $arr .= '<td>1</td><td>外侧板</td><td>'.$h.'</td><td>'.$d.'</td><td>'.$y.'</td><td>'.$areaY.'</td><td>'.$v.'</td><td>'.$areaYV.'</td>';
+  $arr .= '</tr>';
+  echo $arr;
+}
+/**
+ * 提交按钮操作
+ *
+ * @package limiwuCom
+ * @author annanzi/910109610@qq.com
+ * @since 2019-12-10
+ */
+if ($_POST['LIMIWUs']) {
+  if($_POST['LIMIWUName2'] && preg_match("/^1[34578]\d{9}$/", $_POST['LIMIWUTel2'])){
+    limiwu_homeTop_INSERT_INTO($_POST['LIMIWUName2'],$_POST['LIMIWUTel2']);
+  }//插入数据
+  echo '<table><tbody>';
+  limiwu_Calculator_18(2400,2000,550);
+  echo '</tbody></table>';
+}
 ?>
 <div class="jumbotron home-top" id="hometop">
     <div id="page-head-effect" class="page-head-effect">
@@ -140,7 +172,7 @@ function limiwu_homeTop_INSERT_INTO($name,$tel){
   <div class="col-sm-5 material">
     <h4 class="text-center"> ♪（＾∀＾●）ﾉ <b>柜体快速计算</b></h4>
     <!-- <p class="text-right">单位：毫米mm</p> -->
-    <form>
+    <form action="" method="post" role="form">
       <div class="col-md-4 col-sm-6">
         <div class="form-group has-warning has-feedback">
           <label class="control-label sr-only" for="cab_height">柜体高度</label>
@@ -173,30 +205,30 @@ function limiwu_homeTop_INSERT_INTO($name,$tel){
       </div><!-- 柜体深度 -->
       <div class="col-sm-6">
         <div class="form-group has-warning has-feedback">
-          <label class="control-label sr-only" for="cab_Laminate">柜体层板数量</label>
-          <div class="input-group">
-            <span class="input-group-addon">横板数</span>
-            <input type="number" class="form-control" id="cab_Laminate" name="cab_Laminate" placeholder="0.00" required tabindex="4">
-          </div>
-          <span class="form-control-feedback">个</span>
-        </div>
-      </div><!-- 柜体层板数量 -->
-      <div class="col-sm-6">
-        <div class="form-group has-warning has-feedback">
           <label class="control-label sr-only" for="cab_Riser">柜体竖板数量</label>
           <div class="input-group">
             <span class="input-group-addon">竖板数</span>
-            <input type="number" class="form-control" id="cab_Riser" name="cab_Riser" placeholder="0.00" required tabindex="5">
+            <input type="number" class="form-control" id="cab_Riser" name="cab_Riser" placeholder="1.00" tabindex="4">
           </div>
           <span class="form-control-feedback">个</span>
         </div>
       </div><!-- 柜体竖板数量 -->
+      <div class="col-sm-6">
+        <div class="form-group has-warning has-feedback">
+          <label class="control-label sr-only" for="cab_Laminate">柜体层板数量</label>
+          <div class="input-group">
+            <span class="input-group-addon">横板数</span>
+            <input type="number" class="form-control" id="cab_Laminate" name="cab_Laminate" placeholder="2.50" tabindex="5">
+          </div>
+          <span class="form-control-feedback">个</span>
+        </div>
+      </div><!-- 柜体层板数量 -->
       <div class="col-sm-12 text-right">
         <label class="checkbox-inline">
           <input type="checkbox" name="haveBackplane" value="haveBackplane" checked> 普通背板
         </label>
         <label class="checkbox-inline">
-          <input type="checkbox" name="have18Backplane" value="have18Backplane" checked> 18背板
+          <input type="checkbox" name="have18Backplane" value="have18Backplane"> 18背板
         </label>
         <label class="checkbox-inline">
           <input type="checkbox" name="haveDoorplank" value="haveDoorplank"> 有门板
@@ -241,23 +273,23 @@ function limiwu_homeTop_INSERT_INTO($name,$tel){
       </div>
       <div class="col-sm-4">
         <div class="form-group has-warning has-feedback">
-          <label class="control-label sr-only" for="LIMIWUName">客户名称</label>
+          <label class="control-label sr-only" for="LIMIWUName2">客户名称</label>
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input type="number" class="form-control" id="LIMIWUName" name="LIMIWUName" placeholder="称呼/小区" tabindex="9">
+            <input type="number" class="form-control" id="LIMIWUName2" name="LIMIWUName2" placeholder="称呼/小区" tabindex="9">
           </div>
         </div>
       </div><!-- 客户称呼或者小区信息 -->
       <div class="col-sm-6">
         <div class="form-group has-warning has-feedback">
-          <label class="control-label sr-only" for="LIMIWUTel">电话号码</label>
+          <label class="control-label sr-only" for="LIMIWUTel2">电话号码</label>
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-            <input type="number" class="form-control" id="LIMIWUTel" name="LIMIWUTel" placeholder="电话号码" tabindex="10">
+            <input type="number" class="form-control" id="LIMIWUTel2" name="LIMIWUTel2" placeholder="电话号码" tabindex="10">
           </div>
         </div>
       </div><!-- 客户电话号码 -->
-      <input class="col-sm-2 button btn btn-primary" name="LIMIWUsubmit" type="submit" value="计算" tabindex="11">
+      <input class="col-sm-2 button btn btn-primary" name="LIMIWUs" type="submit" value="计算" tabindex="11">
       <div class="clearfix"></div>
     </form>
   </div>
