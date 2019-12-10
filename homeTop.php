@@ -25,22 +25,48 @@ function limiwu_homeTop_INSERT_INTO($name,$tel){
     }
 }
 /**
- * 板材计算：18？25柜体板总面积
+ * 板材计算
  *
  * @package limiwuCom
  * @author annanzi/910109610@qq.com
  * @since 2019-12-10
  * @return array(area,)
  */
-function limiwu_Calculator_18($h,$w,$d,$v=0,$y=1,$x=2.5){
-  $y = $y + 2;
-  $areaY = round($h*$d*$y/1000000,2);
-  $areaYV = $areaY*$v;
-  $arr = '<tr>';
-  $arr .= '<td>1</td><td>外侧板</td><td>'.$h.'</td><td>'.$d.'</td><td>'.$y.'</td><td>'.$areaY.'</td><td>'.$v.'</td><td>'.$areaYV.'</td>';
-  $arr .= '</tr>';
-  echo $arr;
+//基础公式
+function limiwu_area_m2($x,$y,$n = 2,$v = null){
+  $area = round($x*$y*$n/1000000,2);
+  if ($v == null) {
+    return $area;
+  }else{
+    $areaV = $area * $v;
+    return $areaV;
+  }
 }
+//成数组
+function limiwu_tr_array($name,$x,$y,$n = 2 ,$v = null, $t = 18){
+  $area = limiwu_area_m2($x,$y,$n);
+  $allV = limiwu_area_m2($x,$y,$n,$v);
+  $arr = array(
+    'name' => $name,  //板材名称
+    'x' => $x,        //长度
+    'y' => $y,        //宽度
+    'n' => $n,        //数量
+    'area' => $area,  //面积
+    'v' => $v,        //单价
+    'allV' => $allV,  //总价
+    't' => $t         //板材厚度
+  );
+  return $arr;
+}
+// function limiwu_Calculator_18($h,$w,$d,$v=0,$y=1,$x=2.5){
+//   $y = $y + 2;
+//   $areaY = round($h*$d*$y/1000000,2);
+//   $areaYV = $areaY*$v;
+//   $arr = '<tr>';
+//   $arr .= '<td>1</td><td>外侧板</td><td>'.$h.'</td><td>'.$d.'</td><td>'.$y.'</td><td>'.$areaY.'</td><td>'.$v.'</td><td>'.$areaYV.'</td>';
+//   $arr .= '</tr>';
+//   echo $arr;
+// }
 /**
  * 提交按钮操作
  *
@@ -52,10 +78,11 @@ if ($_POST['LIMIWUs']) {
   if($_POST['LIMIWUName2'] && preg_match("/^1[34578]\d{9}$/", $_POST['LIMIWUTel2'])){
     limiwu_homeTop_INSERT_INTO($_POST['LIMIWUName2'],$_POST['LIMIWUTel2']);
   }//插入数据
-  echo '<table><tbody>';
-  limiwu_Calculator_18(2400,2000,550);
-  echo '</tbody></table>';
 }
+  $echo = limiwu_tr_array('侧板',2400,550,2,349.33);
+  echo '<pre>';
+  print_r($echo);
+  echo '</pre>';
 ?>
 <div class="jumbotron home-top" id="hometop">
     <div id="page-head-effect" class="page-head-effect">
