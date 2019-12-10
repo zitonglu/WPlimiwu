@@ -237,7 +237,7 @@ function limiwu_homeTop_INSERT_INTO($name,$tel){
         </div>
       </div><!-- 门板单价 -->
       <div class="col-sm-12 calculationTips">
-        <p>本模块用于对柜体进行<span>展开面积</span>的初步计算，不含五金配件、测量、运输安装等费用，具体明细可由设计师电话沟通。</p>
+        <p>本模块用于对柜体进行<span>展开面积</span>的初步计算，不含五金配件、测量、运输安装等费用，具体明细由设计师详细说明。</p>
       </div>
       <div class="col-sm-4">
         <div class="form-group has-warning has-feedback">

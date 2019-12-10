@@ -779,9 +779,10 @@ select#customerID{appearance:none;-webkit-appearance: listbox;-moz-appearance:no
 .Calculator{
 	padding-top:60px;
 	margin-bottom:20px;
-	min-height:100vh;
+	min-height:500px;
 	background-color:#fff;
 	border-top:1px solid #f74f0d;
+	border-bottom:1px solid #f74f0d;
 }
 .Calculator .Calculator-interface{
 	padding: 5px;
