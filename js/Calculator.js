@@ -523,11 +523,11 @@ jQuery(document).keydown(function (e) {
   var charCode = e.which;
 
   // backspace
-  if ( charCode === 8 ) {
-    backspace();
-    animateButton(jQuery('#calc_back'));
-    return false;
-  }
+  // if ( charCode === 8 ) {
+  //   backspace();
+  //   animateButton(jQuery('#calc_back'));
+  //   return false;
+  // }
 
   // clear
   if ( charCode === 12 ) {

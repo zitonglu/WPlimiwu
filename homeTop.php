@@ -137,9 +137,132 @@ function limiwu_homeTop_INSERT_INTO($name,$tel){
 </div><!--hometop end--->
 <div id="Calculator" class="Calculator">
   <div class="container">
-  <div class="col-sm-4"></div>
-  <div class="col-sm-5 Calculator-results text-right">
-    <h4 class="text-center">(｡･ω･｡) 运算清单 ↓</h4>
+  <div class="col-sm-5 material">
+    <h4 class="text-center"> ♪（＾∀＾●）ﾉ <b>柜体快速计算</b></h4>
+    <!-- <p class="text-right">单位：毫米mm</p> -->
+    <form>
+      <div class="col-md-4 col-sm-6">
+        <div class="form-group has-warning has-feedback">
+          <label class="control-label sr-only" for="cab_height">柜体高度</label>
+          <div class="input-group">
+            <span class="input-group-addon">高</span>
+            <input type="number" class="form-control" id="cab_height" name="cab_height" placeholder="0" required tabindex="1">
+          </div>
+          <span class="form-control-feedback">mm</span>
+        </div>
+      </div><!-- 柜体高度 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="form-group has-warning has-feedback">
+          <label class="control-label sr-only" for="cab_width">柜体宽度</label>
+          <div class="input-group">
+            <span class="input-group-addon">宽</span>
+            <input type="number" class="form-control" id="cab_width" name="cab_width" placeholder="0" required tabindex="2">
+          </div>
+          <span class="form-control-feedback">mm</span>
+        </div>
+      </div><!-- 柜体宽度 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="form-group has-warning has-feedback">
+          <label class="control-label sr-only" for="cab_depth">柜体深度</label>
+          <div class="input-group">
+            <span class="input-group-addon">深</span>
+            <input type="number" class="form-control" id="cab_depth" name="cab_depth" placeholder="0" required tabindex="3">
+          </div>
+          <span class="form-control-feedback">mm</span>
+        </div>
+      </div><!-- 柜体深度 -->
+      <div class="col-sm-6">
+        <div class="form-group has-warning has-feedback">
+          <label class="control-label sr-only" for="cab_Laminate">柜体层板数量</label>
+          <div class="input-group">
+            <span class="input-group-addon">横板数</span>
+            <input type="number" class="form-control" id="cab_Laminate" name="cab_Laminate" placeholder="0.00" required tabindex="4">
+          </div>
+          <span class="form-control-feedback">个</span>
+        </div>
+      </div><!-- 柜体层板数量 -->
+      <div class="col-sm-6">
+        <div class="form-group has-warning has-feedback">
+          <label class="control-label sr-only" for="cab_Riser">柜体竖板数量</label>
+          <div class="input-group">
+            <span class="input-group-addon">竖板数</span>
+            <input type="number" class="form-control" id="cab_Riser" name="cab_Riser" placeholder="0.00" required tabindex="5">
+          </div>
+          <span class="form-control-feedback">个</span>
+        </div>
+      </div><!-- 柜体竖板数量 -->
+      <div class="col-sm-12 text-right">
+        <label class="checkbox-inline">
+          <input type="checkbox" name="haveBackplane" value="haveBackplane" checked> 普通背板
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" name="have18Backplane" value="have18Backplane" checked> 18背板
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" name="haveDoorplank" value="haveDoorplank"> 有门板
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" id="cornerCabinet" value="cornerCabinet"> 切角柜体
+        </label>
+      </div><!-- 柜体选择参数 -->
+      <hr>
+      <div class="col-md-4 col-sm-6">
+        <div class="form-group has-feedback">
+          <label class="control-label sr-only" for="sheetPrice">柜体展开面积单价</label>
+          <div class="input-group">
+            <span class="input-group-addon">柜体</span>
+            <input type="number" class="form-control" id="sheetPrice" name="sheetPrice" placeholder="0.00" tabindex="6">
+          </div>
+          <span class="form-control-feedback"><small>元/m²</small></span>
+        </div>
+      </div><!-- 柜体展开面积单价 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="form-group has-feedback">
+          <label class="control-label sr-only" for="backplane">背板单价</label>
+          <div class="input-group">
+            <span class="input-group-addon">背板</span>
+            <input type="number" class="form-control" id="backplane" name="backplane" placeholder="0.00" tabindex="7">
+          </div>
+          <span class="form-control-feedback"><small>元/m²</small></span>
+        </div>
+      </div><!-- 背板展开面积单价 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="form-group has-feedback">
+          <label class="control-label sr-only" for="doorPlank">门板单价</label>
+          <div class="input-group">
+            <span class="input-group-addon">门板</span>
+            <input type="number" class="form-control" id="doorPlank" name="doorPlank" placeholder="0.00" tabindex="8">
+          </div>
+          <span class="form-control-feedback"><small>元/m²</small></span>
+        </div>
+      </div><!-- 门板单价 -->
+      <div class="col-sm-12 calculationTips">
+        <p>本模块用于对柜体进行<span>展开面积</span>的初步计算，不含五金配件、测量、运输安装等费用，具体明细可由设计师电话沟通。</p>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group has-warning has-feedback">
+          <label class="control-label sr-only" for="LIMIWUName">客户名称</label>
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input type="number" class="form-control" id="LIMIWUName" name="LIMIWUName" placeholder="称呼/小区" tabindex="9">
+          </div>
+        </div>
+      </div><!-- 客户称呼或者小区信息 -->
+      <div class="col-sm-6">
+        <div class="form-group has-warning has-feedback">
+          <label class="control-label sr-only" for="LIMIWUTel">电话号码</label>
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+            <input type="number" class="form-control" id="LIMIWUTel" name="LIMIWUTel" placeholder="电话号码" tabindex="10">
+          </div>
+        </div>
+      </div><!-- 客户电话号码 -->
+      <input class="col-sm-2 button btn btn-primary" name="LIMIWUsubmit" type="submit" value="计算" tabindex="11">
+      <div class="clearfix"></div>
+    </form>
+  </div>
+  <div class="col-sm-4 Calculator-results text-right">
+    <h4 class="text-center">(｡･ω･｡) <b>运算清单</b> ↓</h4>
     <div class="tableDiv">
       <table>
         <tbody id="results_list">
@@ -147,10 +270,9 @@ function limiwu_homeTop_INSERT_INTO($name,$tel){
       </table>
     </div>
     <a id="result_clear" class="btn btn-default">,,Ծ‸Ծ,, 清空</a>
-  </div>
+  </div><!-- Calculator-result end -->
   <div class="col-sm-3 Calculator-interface">
     <form name="calculator" class="display">
-      <!-- <textarea class="form-control" rows="1"></textarea> -->
       <p>&nbsp;<em id="operationProcess"></em></p>
       <span id="total">0</span>
     </form>
@@ -179,8 +301,9 @@ function limiwu_homeTop_INSERT_INTO($name,$tel){
       <button class="btn btn-default col-sm-3" id="calc_sqrt" value="&radic;" >&radic;</button>
       <button class="btn btn-default col-sm-3" id="calc_square" value="x2" >x<span class="exponent">2</span></button>
       <button class="btn btn-default col-sm-3 calc_op" id="calc_powerof" value="^" >y<span class="exponent">x</span></button>
+      <div class="clearfix"></div>
     </div>
-  </div>
+  </div><!-- Calculator-interface end -->
 </div><!-- container end -->
 </div><!--Calculator end--->
 
