@@ -32,20 +32,21 @@ function limiwu_homeTop_INSERT_INTO($name,$tel){
  * @since 2019-12-10
  * @return array(area,)
  */
-//基础公式
-function limiwu_area_m2($x,$y,$n = 2,$v = null){
+//基础公式:算面积
+function limiwu_area_m2($x,$y,$n = 2){
   $area = round($x*$y*$n/1000000,2);
-  if ($v == null) {
-    return $area;
-  }else{
-    $areaV = $area * $v;
-    return $areaV;
-  }
+  return $area;
+}
+//基础公式:算总价格
+function limiwu_allV($x,$y,$n = 2,$v = 0){
+  $area = limiwu_area_m2($x,$y,$n);
+  $allV = $area * $v;
+  return $allV;
 }
 //成数组
-function limiwu_tr_array($name,$x,$y,$n = 2 ,$v = null, $t = 18){
+function limiwu_tr_array($name,$x,$y,$n = 2 ,$v = 0, $t = 18){
   $area = limiwu_area_m2($x,$y,$n);
-  $allV = limiwu_area_m2($x,$y,$n,$v);
+  $allV = limiwu_allV($x,$y,$n,$v);
   $arr = array(
     'name' => $name,  //板材名称
     'x' => $x,        //长度
@@ -58,15 +59,6 @@ function limiwu_tr_array($name,$x,$y,$n = 2 ,$v = null, $t = 18){
   );
   return $arr;
 }
-// function limiwu_Calculator_18($h,$w,$d,$v=0,$y=1,$x=2.5){
-//   $y = $y + 2;
-//   $areaY = round($h*$d*$y/1000000,2);
-//   $areaYV = $areaY*$v;
-//   $arr = '<tr>';
-//   $arr .= '<td>1</td><td>外侧板</td><td>'.$h.'</td><td>'.$d.'</td><td>'.$y.'</td><td>'.$areaY.'</td><td>'.$v.'</td><td>'.$areaYV.'</td>';
-//   $arr .= '</tr>';
-//   echo $arr;
-// }
 /**
  * 提交按钮操作
  *
@@ -77,11 +69,37 @@ function limiwu_tr_array($name,$x,$y,$n = 2 ,$v = null, $t = 18){
 if ($_POST['LIMIWUs']) {
   if($_POST['LIMIWUName2'] && preg_match("/^1[34578]\d{9}$/", $_POST['LIMIWUTel2'])){
     limiwu_homeTop_INSERT_INTO($_POST['LIMIWUName2'],$_POST['LIMIWUTel2']);
-  }//插入数据
+  }//插入客户信息到数据表
+
+  $cab_X = $_POST['cab_Width'];//柜宽尺寸
+  $cab_Y = $_POST['cab_Height'];//柜高尺寸
+  $cab_Z = $_POST['cab_Depth'];//柜深尺寸
+  $cab_L = $_POST['cab_Laminate'] ? $_POST['cab_Laminate'] : 2.5;//中横板数量
+  $cab_R = $_POST['cab_Riser'] ? $_POST['cab_Riser'] : 1;//中竖板数量
+  $cab_T = $_POST['cab_Thickness'] ? $_POST['cab_Thickness'] : 18;//板材厚度
+  $cab_BT = $_POST['backplaneV'] ? 9 : 0;//背板厚度
+  $cab_I = $_POST['cab_Indent'] && $cab_BT ? 20 : 0;//柜体层板前后内缩进尺寸mm
+  $cab_V = $_POST['sheetPrice'] ? $_POST['sheetPrice'] : 0;//柜体板价格
+  $cab_BV = $_POST['backplaneV'] ? $_POST['backplaneV'] : 0;//柜体背板价格
+  $cab_TL = $_POST['haveTopLine'] ? 60 : 0;//顶线高度
+  $cab_FL = $_POST['haveFootLine'] ? 80 : 0;//脚线高度
+  $cab_EC = $_POST['haveEndCap'] ? 2 : 0;//收口条数量
+
+  $cab_table = array();
+  //array_push($cab_table,limiwu_tr_array('外侧板',$cab_Y,$cab_Z,2,$cab_V,$cab_T));
+  //array_push($cab_table,limiwu_tr_array('中侧板',$cab_Y-2*$cab_T-$cab_TL-$cab_FL,$cab_Z,$cab_R,$cab_V,$cab_T));
+  // array_push($cab_table,limiwu_tr_array('顶底板',$cab_X-2*$cab_T,$cab_Z,2,$cab_V,$cab_T));
+  // array_push($cab_table,limiwu_tr_array('中横板',$cab_X-2*$cab_T,$cab_Z-$cab_I-$cab_BT,$cab_L,$cab_V,$cab_T));
+  //array_push($cab_table,limiwu_tr_array('背板',$cab_Y-$cab_TL-$cab_FL,$cab_X,1,$cab_BV,$cab_BT));
+  array_push($cab_table,limiwu_tr_array('背拉条',$cab_X-2*$cab_T,100,2,$cab_V,$cab_T));
+  if ($cab_TL){
+    array_push($cab_table,limiwu_tr_array('顶线',$cab_X-2*$cab_T,$cab_TL,2,$cab_V,$cab_T));
+  }
 }
-  $echo = limiwu_tr_array('侧板',2400,550,2,349.33);
+  $echo = limiwu_tr_array('侧板',2400,550,2,200);
   echo '<pre>';
-  print_r($echo);
+  //echo $cab_T;
+  print_r($cab_table);
   echo '</pre>';
 ?>
 <div class="jumbotron home-top" id="hometop">
@@ -192,8 +210,8 @@ if ($_POST['LIMIWUs']) {
         </div>
     
     </div>
-</div><!--container end--->
-</div><!--hometop end--->
+</div><!-- container end -->
+</div><!-- hometop end -->
 <div id="Calculator" class="Calculator">
   <div class="container">
   <div class="col-sm-5 material">
@@ -202,30 +220,30 @@ if ($_POST['LIMIWUs']) {
     <form action="" method="post" role="form">
       <div class="col-md-4 col-sm-6">
         <div class="form-group has-warning has-feedback">
-          <label class="control-label sr-only" for="cab_height">柜体高度</label>
+          <label class="control-label sr-only" for="cab_Height">柜体高度</label>
           <div class="input-group">
             <span class="input-group-addon">高</span>
-            <input type="number" class="form-control" id="cab_height" name="cab_height" placeholder="0" required tabindex="1">
+            <input type="number" class="form-control" id="cab_Height" name="cab_Height" required tabindex="1" <?php echo $_POST['cab_Height'] ? 'value='.$_POST['cab_Height'] : 'placeholder="0"' ?>>
           </div>
           <span class="form-control-feedback">mm</span>
         </div>
       </div><!-- 柜体高度 -->
       <div class="col-md-4 col-sm-6">
         <div class="form-group has-warning has-feedback">
-          <label class="control-label sr-only" for="cab_width">柜体宽度</label>
+          <label class="control-label sr-only" for="cab_Width">柜体宽度</label>
           <div class="input-group">
             <span class="input-group-addon">宽</span>
-            <input type="number" class="form-control" id="cab_width" name="cab_width" placeholder="0" required tabindex="2">
+            <input type="number" class="form-control" id="cab_Width" name="cab_Width" required tabindex="2" <?php echo $_POST['cab_Width'] ? 'value='.$_POST['cab_Width'] : 'placeholder="0"' ?>>
           </div>
           <span class="form-control-feedback">mm</span>
         </div>
       </div><!-- 柜体宽度 -->
       <div class="col-md-4 col-sm-6">
         <div class="form-group has-warning has-feedback">
-          <label class="control-label sr-only" for="cab_depth">柜体深度</label>
+          <label class="control-label sr-only" for="cab_Depth">柜体深度</label>
           <div class="input-group">
             <span class="input-group-addon">深</span>
-            <input type="number" class="form-control" id="cab_depth" name="cab_depth" placeholder="0" required tabindex="3">
+            <input type="number" class="form-control" id="cab_Depth" name="cab_Depth" required tabindex="3" <?php echo $_POST['cab_Depth'] ? 'value='.$_POST['cab_Depth'] : 'placeholder="0"' ?>>
           </div>
           <span class="form-control-feedback">mm</span>
         </div>
@@ -234,34 +252,31 @@ if ($_POST['LIMIWUs']) {
         <div class="form-group has-warning has-feedback">
           <label class="control-label sr-only" for="cab_Riser">柜体竖板数量</label>
           <div class="input-group">
-            <span class="input-group-addon">竖板数</span>
-            <input type="number" class="form-control" id="cab_Riser" name="cab_Riser" placeholder="1.00" tabindex="4">
+            <span class="input-group-addon">中竖板</span>
+            <input type="number" step="0.01" class="form-control" id="cab_Riser" name="cab_Riser" tabindex="4" <?php echo $_POST['cab_Riser'] ? 'value='.$_POST['cab_Riser'] : 'placeholder="1.00"' ?>>
           </div>
-          <span class="form-control-feedback">个</span>
+          <span class="form-control-feedback">块</span>
         </div>
       </div><!-- 柜体竖板数量 -->
       <div class="col-sm-6">
         <div class="form-group has-warning has-feedback">
           <label class="control-label sr-only" for="cab_Laminate">柜体层板数量</label>
           <div class="input-group">
-            <span class="input-group-addon">横板数</span>
-            <input type="number" class="form-control" id="cab_Laminate" name="cab_Laminate" placeholder="2.50" tabindex="5">
+            <span class="input-group-addon">中横板</span>
+            <input type="number" step="0.01" class="form-control" id="cab_Laminate" name="cab_Laminate" tabindex="5" <?php echo $_POST['cab_Laminate'] ? 'value='.$_POST['cab_Laminate'] : 'placeholder="2.50"' ?>>
           </div>
-          <span class="form-control-feedback">个</span>
+          <span class="form-control-feedback">块</span>
         </div>
       </div><!-- 柜体层板数量 -->
       <div class="col-sm-12 text-right">
         <label class="checkbox-inline">
-          <input type="checkbox" name="haveBackplane" value="haveBackplane" checked> 普通背板
+          <input type="checkbox" name="haveEndCap" value="haveEndCap" checked> 2根收口条
         </label>
         <label class="checkbox-inline">
-          <input type="checkbox" name="have18Backplane" value="have18Backplane"> 18背板
+          <input type="checkbox" name="haveTopLine" value="haveTopLine" checked> 6cm顶线
         </label>
         <label class="checkbox-inline">
-          <input type="checkbox" name="haveDoorplank" value="haveDoorplank"> 有门板
-        </label>
-        <label class="checkbox-inline">
-          <input type="checkbox" id="cornerCabinet" value="cornerCabinet"> 切角柜体
+          <input type="checkbox" name="haveFootLine" value="haveFootLine" checked> 8cm脚线
         </label>
       </div><!-- 柜体选择参数 -->
       <hr>
@@ -270,17 +285,17 @@ if ($_POST['LIMIWUs']) {
           <label class="control-label sr-only" for="sheetPrice">柜体展开面积单价</label>
           <div class="input-group">
             <span class="input-group-addon">柜体</span>
-            <input type="number" class="form-control" id="sheetPrice" name="sheetPrice" placeholder="0.00" tabindex="6">
+            <input type="number" class="form-control" id="sheetPrice" name="sheetPrice" tabindex="6" <?php echo $_POST['sheetPrice'] ? 'value='.$_POST['sheetPrice'] : 'placeholder="0.00"' ?>>
           </div>
           <span class="form-control-feedback"><small>元/m²</small></span>
         </div>
       </div><!-- 柜体展开面积单价 -->
       <div class="col-md-4 col-sm-6">
         <div class="form-group has-feedback">
-          <label class="control-label sr-only" for="backplane">背板单价</label>
+          <label class="control-label sr-only" for="backplaneV">背板单价</label>
           <div class="input-group">
             <span class="input-group-addon">背板</span>
-            <input type="number" class="form-control" id="backplane" name="backplane" placeholder="0.00" tabindex="7">
+            <input type="number" class="form-control" id="backplaneV" name="backplaneV" tabindex="7" <?php echo $_POST['backplaneV'] ? 'value='.$_POST['backplaneV'] : 'placeholder="0.00"' ?>>
           </div>
           <span class="form-control-feedback"><small>元/m²</small></span>
         </div>
@@ -290,20 +305,20 @@ if ($_POST['LIMIWUs']) {
           <label class="control-label sr-only" for="doorPlank">门板单价</label>
           <div class="input-group">
             <span class="input-group-addon">门板</span>
-            <input type="number" class="form-control" id="doorPlank" name="doorPlank" placeholder="0.00" tabindex="8">
+            <input type="number" class="form-control" id="doorPlank" name="doorPlank" tabindex="8" <?php echo $_POST['doorPlank'] ? 'value='.$_POST['doorPlank'] : 'placeholder="0.00"' ?>>
           </div>
           <span class="form-control-feedback"><small>元/m²</small></span>
         </div>
       </div><!-- 门板单价 -->
       <div class="col-sm-12 calculationTips">
-        <p>本模块用于对柜体进行<span>展开面积</span>的初步计算，不含五金配件、测量、运输安装等费用，具体明细由设计师详细说明。</p>
+        <p>本模块用于对标准柜体进行<span>展开面积</span>的初步计算，不含五金配件、测量、运输安装等费用，具体明细由设计师详细说明。</p>
       </div>
       <div class="col-sm-4">
         <div class="form-group has-warning has-feedback">
           <label class="control-label sr-only" for="LIMIWUName2">客户名称</label>
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input type="number" class="form-control" id="LIMIWUName2" name="LIMIWUName2" placeholder="称呼/小区" tabindex="9">
+            <input type="number" class="form-control" id="LIMIWUName2" name="LIMIWUName2" tabindex="9" <?php echo $_POST['LIMIWUName2'] ? 'value='.$_POST['LIMIWUName2'] : 'placeholder="称呼/小区"' ?>>
           </div>
         </div>
       </div><!-- 客户称呼或者小区信息 -->
@@ -312,7 +327,7 @@ if ($_POST['LIMIWUs']) {
           <label class="control-label sr-only" for="LIMIWUTel2">电话号码</label>
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-            <input type="number" class="form-control" id="LIMIWUTel2" name="LIMIWUTel2" placeholder="电话号码" tabindex="10">
+            <input type="number" class="form-control" id="LIMIWUTel2" name="LIMIWUTel2" tabindex="10" <?php echo $_POST['LIMIWUTel2'] ? 'value='.$_POST['LIMIWUTel2'] : 'placeholder="电话号码"' ?>>
           </div>
         </div>
       </div><!-- 客户电话号码 -->
@@ -329,7 +344,7 @@ if ($_POST['LIMIWUs']) {
       </table>
     </div>
     <a id="result_clear" class="btn btn-default">,,Ծ‸Ծ,, 清空</a>
-  </div><!-- Calculator-result end -->
+  </div><!-- calculator result end -->
   <div class="col-sm-3 Calculator-interface">
     <form name="calculator" class="display">
       <p>&nbsp;<em id="operationProcess"></em></p>
@@ -362,9 +377,9 @@ if ($_POST['LIMIWUs']) {
       <button class="btn btn-default col-sm-3 calc_op" id="calc_powerof" value="^" >y<span class="exponent">x</span></button>
       <div class="clearfix"></div>
     </div>
-  </div><!-- Calculator-interface end -->
+  </div><!-- calculator interface end -->
 </div><!-- container end -->
-</div><!--Calculator end--->
+</div><!-- calculator end -->
 
 <!-- 网站二维码相关 -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
