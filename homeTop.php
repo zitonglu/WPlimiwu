@@ -84,16 +84,25 @@ if ($_POST['LIMIWUs']) {
   $cab_TL = $_POST['haveTopLine'] ? 60 : 0;//顶线高度
   $cab_FL = $_POST['haveFootLine'] ? 80 : 0;//脚线高度
   $cab_EC = $_POST['haveEndCap'] ? 2 : 0;//收口条数量
+  $cab_DV = $_POST['doorPlank'] ? $_POST['doorPlank'] : 0;//门板单价
 
   $cab_table = array();
-  //array_push($cab_table,limiwu_tr_array('外侧板',$cab_Y,$cab_Z,2,$cab_V,$cab_T));
-  //array_push($cab_table,limiwu_tr_array('中侧板',$cab_Y-2*$cab_T-$cab_TL-$cab_FL,$cab_Z,$cab_R,$cab_V,$cab_T));
-  // array_push($cab_table,limiwu_tr_array('顶底板',$cab_X-2*$cab_T,$cab_Z,2,$cab_V,$cab_T));
-  // array_push($cab_table,limiwu_tr_array('中横板',$cab_X-2*$cab_T,$cab_Z-$cab_I-$cab_BT,$cab_L,$cab_V,$cab_T));
-  //array_push($cab_table,limiwu_tr_array('背板',$cab_Y-$cab_TL-$cab_FL,$cab_X,1,$cab_BV,$cab_BT));
+  array_push($cab_table,limiwu_tr_array('外侧板',$cab_Y,$cab_Z,2,$cab_V,$cab_T));
+  array_push($cab_table,limiwu_tr_array('中侧板',$cab_Y-2*$cab_T-$cab_TL-$cab_FL,$cab_Z,$cab_R,$cab_V,$cab_T));
+  array_push($cab_table,limiwu_tr_array('顶底板',$cab_X-2*$cab_T,$cab_Z,2,$cab_V,$cab_T));
+  array_push($cab_table,limiwu_tr_array('中横板',$cab_X-2*$cab_T,$cab_Z-$cab_I-$cab_BT,$cab_L,$cab_V,$cab_T));
+  array_push($cab_table,limiwu_tr_array('背板',$cab_Y-$cab_TL-$cab_FL,$cab_X,1,$cab_BV,$cab_BT));
   array_push($cab_table,limiwu_tr_array('背拉条',$cab_X-2*$cab_T,100,2,$cab_V,$cab_T));
   if ($cab_TL){
     array_push($cab_table,limiwu_tr_array('顶线',$cab_X-2*$cab_T,$cab_TL,2,$cab_V,$cab_T));
+  }
+  if ($cab_FL){
+    array_push($cab_table,limiwu_tr_array('脚线',$cab_X-2*$cab_T,$cab_FL,2,$cab_V,$cab_T));
+    array_push($cab_table,limiwu_tr_array('支撑',$cab_Z-2*$cab_T,$cab_FL,2,$cab_V,$cab_T));
+  }
+  array_push($cab_table,limiwu_tr_array('收口条',$cab_Y,60,2,$cab_V,$cab_T));
+  if ($cab_DV){
+    array_push($cab_table,limiwu_tr_array('门板',$cab_Y-$cab_TL-$cab_FL,$cab_X,1,$cab_DV,$cab_T));
   }
 }
   $echo = limiwu_tr_array('侧板',2400,550,2,200);
@@ -217,7 +226,7 @@ if ($_POST['LIMIWUs']) {
   <div class="col-sm-5 material">
     <h4 class="text-center"> ♪（＾∀＾●）ﾉ <b>柜体快速计算</b></h4>
     <!-- <p class="text-right">单位：毫米mm</p> -->
-    <form action="" method="post" role="form">
+    <form action="#Calculator" method="post" role="form">
       <div class="col-md-4 col-sm-6">
         <div class="form-group has-warning has-feedback">
           <label class="control-label sr-only" for="cab_Height">柜体高度</label>
@@ -378,6 +387,27 @@ if ($_POST['LIMIWUs']) {
       <div class="clearfix"></div>
     </div>
   </div><!-- calculator interface end -->
+<?php if($_POST['LIMIWUs']){?>
+  <div class="col-sm-12"><!-- 计算的结果 -->
+    <div class="panel-group" role="tablist" aria-multiselectable="true">
+      <div class="panel panel-info">
+        <div class="panel-heading" role="tab" id="ctbox">
+          <h4 class="panel-title">
+            <a role="button" data-toggle="collapse" data-parent="#calculatorTable" href="#calculatorTable" aria-expanded="true" aria-controls="calculatorTable">
+              全屋定制设计师：解工(南通市区/开发区/海安市)
+            </a>
+          </h4>
+        </div>
+        <div id="calculatorTable" class="panel-collapse collapse" role="tabpanel" aria-labelledby="ctbox">
+          <div class="panel-body">
+            2002年初开始从事衣柜定制工作，在当地“好莱客衣柜”从事产品设计。先后在科达木业、爱得家私工厂担任深化设计、拆单工作，对衣柜、橱柜、木门制作生产工艺十分了解，尤其对板式定制家深入研究。能根据客户需求提供合理优秀的设计方案，满足客户各种家装风格的需求。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- calculatorTable end -->
+<?php }?>
+<div class="clearfix"></div>
 </div><!-- container end -->
 </div><!-- calculator end -->
 
