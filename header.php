@@ -6,7 +6,7 @@
 <?php wp_head(); ?>
 
 <link rel="stylesheet" href="<?php limiwu_echo_CDN_URL('bootstrap.min.css','css')?>">
-<link rel="stylesheet" href="<?php limiwu_echo_CDN_URL('style.css')?>">
+<link rel="stylesheet" href="<?php bloginfo('template_url')?>/style.css ?>">
 <link rel="stylesheet" href="<?php limiwu_echo_CDN_URL('load.min.css','css')?>">
 <?php if(is_single()  || is_page()):?>
 <link rel="stylesheet" href="<?php limiwu_echo_CDN_URL('viewer.min.css','css')?>">
