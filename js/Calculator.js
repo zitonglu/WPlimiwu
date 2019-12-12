@@ -475,45 +475,46 @@ jQuery('#result_clear').click(function() {
 
 // key press for integers and operators
 jQuery(document).keypress(function (e) {
-  // the character code
-  var charCode = e.which;
-  // the key
-  var key = String.fromCharCode(charCode);
+  if($(':focus').length==0){
+    // the character code
+    var charCode = e.which;
+    // the key
+    var key = String.fromCharCode(charCode);
 
-  // key integers & decimal
-  if ( charCode >= 46 && charCode <= 58 && charCode !== 47 ) {
-    if ( !is_submission ) {
-      if ( is_a ) {
-        set_a(key);
-      } else {
+    // key integers & decimal
+    if ( charCode >= 46 && charCode <= 58 && charCode !== 47 ) {
+      if ( !is_submission ) {
+        if ( is_a ) {
+          set_a(key);
+        } else {
+          set_b(key);
+        }
+      } else if ( soft_sub ) {
         set_b(key);
+      } else {
+        reset_calc();
+        set_a(key);
       }
-    } else if ( soft_sub ) {
-      set_b(key);
-    } else {
-      reset_calc();
-      set_a(key);
     }
-  }
 
-  // key operators
-  if ( charCode >= 42 && charCode <= 45 && charCode !== 44 || charCode === 47 ) {
-    set_o(key);
-  }
-
-  // key equals
-  if ( charCode === 61 ) {
-    submit_calc();
-  }
-
-  // animate the corrosponding button
-  jQuery('button').each(function() {
-    var value = jQuery(this).val();
-    if ( value === key ) {
-      animateButton(jQuery(this));
+    // key operators
+    if ( charCode >= 42 && charCode <= 45 && charCode !== 44 || charCode === 47 ) {
+      set_o(key);
     }
-  });
 
+    // key equals
+    if ( charCode === 61 ) {
+      submit_calc();
+    }
+
+    // animate the corrosponding button
+    jQuery('button').each(function() {
+      var value = jQuery(this).val();
+      if ( value === key ) {
+        animateButton(jQuery(this));
+      }
+    });
+  }
 });
 
 // keydown for backspace and return
@@ -526,7 +527,9 @@ jQuery(document).keydown(function (e) {
   if ( charCode === 8 ) {
     backspace();
     animateButton(jQuery('#calc_back'));
-    return false;
+    if($(':focus').length==0){
+      return false;
+    }
   }
 
   // clear
@@ -540,7 +543,9 @@ jQuery(document).keydown(function (e) {
   if ( charCode === 13 ) {
     submit_calc();
     animateButton(jQuery('#calc_eval'));
-    return false;
+    if($(':focus').length==0){
+      return false;
+    }
   }
 
 });

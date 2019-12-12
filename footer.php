@@ -32,7 +32,7 @@
         <!-- 小气球上升动画 JS -->
         <script src="<?php limiwu_echo_CDN_URL('circle-effect.js')?>"></script>
         <!-- 计算器 JS -->
-        <script src="<?php echo bloginfo('template_url')?>/js/Calculator.js"></script>
+        <script src="<?php echo bloginfo('template_url')?>/js/calculator.min.js"></script>
     <?php } ?>
     <!-- 本模版使用的limiwu-index-JS -->
     <script src="<?php bloginfo('template_url')?>/js/limiwu-index.js"></script>
