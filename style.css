@@ -790,10 +790,16 @@ select#customerID{appearance:none;-webkit-appearance: listbox;-moz-appearance:no
 	background-image: linear-gradient(to bottom,#ff9000 0,#ff5000 100%);
 	border:1px solid #f74f0d;
 }
+.Calculator .Calculator-interface #total{
+	display: inline-block;
+	width: 100%;
+	overflow: hidden;
+	line-height: 1;
+}
 .Calculator .Calculator-interface .display{
 	width: 98%;
 	margin: 3px auto 8px;
-	padding: 6px 12px;
+	padding: 6px 12px 0px;
 	display: block;
 	border-radius: 4px;
 	font-size: 1.2em;

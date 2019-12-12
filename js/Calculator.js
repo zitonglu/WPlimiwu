@@ -1,6 +1,11 @@
 /*
 ** global vars
 */
+//防止页面后退https://www.cnblogs.com/sunshq/p/7976827.html
+history.pushState(null, null, document.URL);
+window.addEventListener('popstate', function () {
+  history.pushState(null, null, document.URL);
+});
 
 var a = 0,
   b = 0,
@@ -516,20 +521,6 @@ jQuery(document).keypress(function (e) {
 
 });
 
-//https://blog.csdn.net/hgx2014/article/details/53585671 退格键事件
-function limiwubanBackSpace(e){
-  var ev = e || window.event;
-  var obj = ev.target || ev.srcElement;
-  var t = obj.type || obj.getAttribute('type');
-  var vReadOnly = obj.getAttribute('readonly');
-  vReadOnly = (vReadOnly == "") ? false : vReadOnly;
-  var flag1=(ev.keyCode == 8 && (t=="password" || t=="text" || t=="textarea") && vReadOnly=="readonly")?true:false;
-  var flag2=(ev.keyCode == 8 && t != "password" && t != "text" && t != "textarea") ?true:false;
-  if(flag2){return false}
-  if(flag1){return false}
-}
-document.onkeypress=banBackSpace;
-document.onkeydown=banBackSpace; 
 // keydown for backspace and return
 jQuery(document).keydown(function (e) {
 
@@ -540,8 +531,7 @@ jQuery(document).keydown(function (e) {
   if ( charCode === 8 ) {
     backspace();
     animateButton(jQuery('#calc_back'));
-    limiwubanBackSpace(8);
-    return false;
+    //if (jQuery(this).focus()) {return false;};
   }
 
   // clear
