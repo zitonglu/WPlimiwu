@@ -1,11 +1,6 @@
 /*
 ** global vars
 */
-//防止页面后退https://www.cnblogs.com/sunshq/p/7976827.html
-history.pushState(null, null, document.URL);
-window.addEventListener('popstate', function () {
-  history.pushState(null, null, document.URL);
-});
 
 var a = 0,
   b = 0,
@@ -531,7 +526,7 @@ jQuery(document).keydown(function (e) {
   if ( charCode === 8 ) {
     backspace();
     animateButton(jQuery('#calc_back'));
-    //if (jQuery(this).focus()) {return false;};
+    return false;
   }
 
   // clear

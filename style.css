@@ -778,6 +778,7 @@ select#customerID{appearance:none;-webkit-appearance: listbox;-moz-appearance:no
 /*===== Calculator计算器style ======*/
 .Calculator{
 	padding-top:60px;
+	padding-bottom:20px;
 	margin-bottom:20px;
 	min-height:500px;
 	background-color:#fff;
@@ -790,6 +791,13 @@ select#customerID{appearance:none;-webkit-appearance: listbox;-moz-appearance:no
 	background-image: linear-gradient(to bottom,#ff9000 0,#ff5000 100%);
 	border:1px solid #f74f0d;
 }
+.Calculator .Calculator-interface .btn{
+	float: left;
+	margin:1%;
+	width:23%;
+	font-weight:700;
+}
+.Calculator .Calculator-interface #calc_zero{width:48%}
 .Calculator .Calculator-interface #total{
 	display: inline-block;
 	width: 100%;
@@ -811,22 +819,10 @@ select#customerID{appearance:none;-webkit-appearance: listbox;-moz-appearance:no
 	font-size:68%;
 	color: #888;
 }
-.Calculator .Calculator-interface .col-sm-3{
-	margin:1%;
-	width:23%;
-	font-weight:700;
-}
-.Calculator .Calculator-interface #calc_zero{width:48%}
 .Calculator .Calculator-interface hr{float:left;width:100%;margin:8px auto;}
 .Calculator .Calculator-interface .denom-btm{font-size:75%}
 .Calculator .Calculator-interface .exponent{position: absolute;font-size:75%}
-@media (min-width: 767px){
-	.Calculator .Calculator-results{
-		padding-left:35px;
-		padding-right:35px;
-	}
-	#calculatorTableBox{padding-right:0}
-}
+.Calculator .Calculator-results{padding-top:20px;padding-bottom:20px}
 .Calculator .material h4,
 .Calculator .Calculator-results h4{
 	padding-bottom: 8px;
@@ -869,7 +865,15 @@ select#customerID{appearance:none;-webkit-appearance: listbox;-moz-appearance:no
 .Calculator .material .checkbox-inline{
 	color:#8a6d3b;
 }
-.Calculator .material hr{float:left;width:100%;border-color:#cad9ea;margin: 10px auto;}
+.Calculator .material hr{width:100%;border-color:#cad9ea;margin: 10px auto;}
 .Calculator .material small{font-size:75%}
 .Calculator .calculationTips{text-indent: 2em;color:#888}
 .Calculator .calculationTips span{margin-left:0.2em;margin-right:0.2em;color:#333}
+@media (max-width: 766px){.Calculator #calculatorTableBox{padding:20px 0 0}}
+@media (min-width: 767px){
+	.Calculator .Calculator-results{
+		padding:0px 35px auto;
+	}
+	#calculatorTableBox{padding-right:0}
+	.Calculator .material hr{float:left}
+}

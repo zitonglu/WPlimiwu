@@ -334,7 +334,7 @@ if ($_POST['LIMIWUs']) {
           </div>
         </div>
       </div><!-- 客户电话号码 -->
-      <input class="col-sm-2 button btn btn-primary" name="LIMIWUs" type="submit" value="计算" tabindex="11">
+      <input class="col-sm-2 col-xs-12 button btn btn-primary" name="LIMIWUs" type="submit" value="计算" tabindex="11">
       <div class="clearfix"></div>
     </form>
   </div>
@@ -354,30 +354,30 @@ if ($_POST['LIMIWUs']) {
       <span id="total">0</span>
     </form>
     <div>
-      <button class="btn btn-danger col-sm-3" type="submit" id="calc_clear" value="C/E">C/E</button>
-      <button class="btn btn-danger col-sm-3" type="submit" id="calc_back" value="&larr;">&larr;</button>
-      <button class="btn btn-default col-sm-3" type="submit" id="calc_neg" value="-/+">-/+</button>
-      <button class="btn btn-default col-sm-3 calc_op" type="submit" value="/">&divide;</button>
-      <button class="btn btn-default col-sm-3 calc_int" value="7" >7</button>
-      <button class="btn btn-default col-sm-3 calc_int" value="8" >8</button>
-      <button class="btn btn-default col-sm-3 calc_int" value="9" >9</button>
-      <button class="btn btn-default col-sm-3 calc_op" value="*" >&times;</button>
-      <button class="btn btn-default col-sm-3 calc_int" value="4" >4</button>
-      <button class="btn btn-default col-sm-3 calc_int" value="5" >5</button>
-      <button class="btn btn-default col-sm-3 calc_int" value="6" >6</button>
-      <button class="btn btn-default col-sm-3 calc_op" value="-" >-</button>
-      <button class="btn btn-default col-sm-3 calc_int" value="1" >1</button>
-      <button class="btn btn-default col-sm-3 calc_int" value="2" >2</button>
-      <button class="btn btn-default col-sm-3 calc_int" value="3" >3</button>
-      <button class="btn btn-default col-sm-3 calc_op" value="+" >+</button>
-      <button class="btn btn-default col-sm-3 calc_int" id="calc_zero" value="0" >0</button>
-      <button class="btn btn-default col-sm-3" id="calc_decimal" value="." >.</button>
-      <button class="btn btn-warning col-sm-3" id="calc_eval" value="=" >=</button>
+      <button class="btn btn-danger" type="submit" id="calc_clear" value="C/E">C/E</button>
+      <button class="btn btn-danger" type="submit" id="calc_back" value="&larr;">&larr;</button>
+      <button class="btn btn-default" type="submit" id="calc_neg" value="-/+">-/+</button>
+      <button class="btn btn-default calc_op" type="submit" value="/">&divide;</button>
+      <button class="btn btn-default calc_int" value="7" >7</button>
+      <button class="btn btn-default calc_int" value="8" >8</button>
+      <button class="btn btn-default calc_int" value="9" >9</button>
+      <button class="btn btn-default calc_op" value="*" >&times;</button>
+      <button class="btn btn-default calc_int" value="4" >4</button>
+      <button class="btn btn-default calc_int" value="5" >5</button>
+      <button class="btn btn-default calc_int" value="6" >6</button>
+      <button class="btn btn-default calc_op" value="-" >-</button>
+      <button class="btn btn-default calc_int" value="1" >1</button>
+      <button class="btn btn-default calc_int" value="2" >2</button>
+      <button class="btn btn-default calc_int" value="3" >3</button>
+      <button class="btn btn-default calc_op" value="+" >+</button>
+      <button class="btn btn-default calc_int" id="calc_zero" value="0" >0</button>
+      <button class="btn btn-default" id="calc_decimal" value="." >.</button>
+      <button class="btn btn-warning" id="calc_eval" value="=" >=</button>
       <hr>
-      <button class="btn btn-default col-sm-3" id="calc_denom" value="1/x" >1/<span class="denom-btm">x</span></button>
-      <button class="btn btn-default col-sm-3" id="calc_sqrt" value="&radic;" >&radic;</button>
-      <button class="btn btn-default col-sm-3" id="calc_square" value="x2" >x<span class="exponent">2</span></button>
-      <button class="btn btn-default col-sm-3 calc_op" id="calc_powerof" value="^" >y<span class="exponent">x</span></button>
+      <button class="btn btn-default" id="calc_denom" value="1/x" >1/<span class="denom-btm">x</span></button>
+      <button class="btn btn-default" id="calc_sqrt" value="&radic;" >&radic;</button>
+      <button class="btn btn-default" id="calc_square" value="x2" >x<span class="exponent">2</span></button>
+      <button class="btn btn-default calc_op" id="calc_powerof" value="^" >y<span class="exponent">x</span></button>
       <div class="clearfix"></div>
     </div>
   </div><!-- calculator interface end -->
