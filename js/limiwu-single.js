@@ -38,4 +38,11 @@ $(document).ready(function() {
 	if ( _dataReturn != '') {
 		$('#customerID').val(_dataReturn);
 	}
+
+	// 侧栏滚动
+	jQuery('.sidebar').theiaStickySidebar({
+          additionalMarginTop: 30
+    });
+	// 放大图片控制
+    $('#viewer').viewer();
 })
