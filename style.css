@@ -819,24 +819,36 @@ select#customerID{appearance:none;-webkit-appearance: listbox;-moz-appearance:no
 		padding-left:35px;
 		padding-right:35px;
 	}
+	#calculatorTableBox{padding-right:0}
 }
 .Calculator .material h4,
 .Calculator .Calculator-results h4{
 	padding-bottom: 8px;
 	border-bottom: 1px solid #cad9ea;
 }
+.panel-body table,
 .Calculator .Calculator-results table{
     border-collapse: collapse;
     text-align: center;
     width:100%;
 }
+.panel-body table td,.panel-body table th,
 .Calculator .Calculator-results table td, .Calculator .Calculator-results table th{
     border: 1px solid #cad9ea;
     color: #666;
     height: 30px;
 }
+.panel-body table tr:nth-child(odd),
 .Calculator .Calculator-results table tr:nth-child(odd){background: #fff}
+.panel-body table tr:nth-child(even),
 .Calculator .Calculator-results table tr:nth-child(even){background: #F5FAFA}
+.panel-body table thead th{
+    background-color:#d9edf7;
+    border-color:#bce8f1;
+    color: #31708f;
+    font-weight:100;
+}
+.panel-body table th,.panel-body table caption{text-align:center}
 .Calculator .Calculator-results #result_clear{margin-top:10px}
 .Calculator .Calculator-results .tableDiv{max-height:241px;overflow-x:hidden;}
 .Calculator .material h4{margin-bottom:25px}

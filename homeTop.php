@@ -91,7 +91,6 @@ if ($_POST['LIMIWUs']) {
   array_push($cab_table,limiwu_tr_array('中侧板',$cab_Y-2*$cab_T-$cab_TL-$cab_FL,$cab_Z,$cab_R,$cab_V,$cab_T));
   array_push($cab_table,limiwu_tr_array('顶底板',$cab_X-2*$cab_T,$cab_Z,2,$cab_V,$cab_T));
   array_push($cab_table,limiwu_tr_array('中横板',$cab_X-2*$cab_T,$cab_Z-$cab_I-$cab_BT,$cab_L,$cab_V,$cab_T));
-  array_push($cab_table,limiwu_tr_array('背板',$cab_Y-$cab_TL-$cab_FL,$cab_X,1,$cab_BV,$cab_BT));
   array_push($cab_table,limiwu_tr_array('背拉条',$cab_X-2*$cab_T,100,2,$cab_V,$cab_T));
   if ($cab_TL){
     array_push($cab_table,limiwu_tr_array('顶线',$cab_X-2*$cab_T,$cab_TL,2,$cab_V,$cab_T));
@@ -104,12 +103,8 @@ if ($_POST['LIMIWUs']) {
   if ($cab_DV){
     array_push($cab_table,limiwu_tr_array('门板',$cab_Y-$cab_TL-$cab_FL,$cab_X,1,$cab_DV,$cab_T));
   }
+  array_push($cab_table,limiwu_tr_array('背板',$cab_Y-$cab_TL-$cab_FL,$cab_X,1,$cab_BV,$cab_BT));
 }
-  $echo = limiwu_tr_array('侧板',2400,550,2,200);
-  echo '<pre>';
-  //echo $cab_T;
-  print_r($cab_table);
-  echo '</pre>';
 ?>
 <div class="jumbotron home-top" id="hometop">
     <div id="page-head-effect" class="page-head-effect">
@@ -279,13 +274,13 @@ if ($_POST['LIMIWUs']) {
       </div><!-- 柜体层板数量 -->
       <div class="col-sm-12 text-right">
         <label class="checkbox-inline">
-          <input type="checkbox" name="haveEndCap" value="haveEndCap" checked> 2根收口条
+          <input type="checkbox" name="haveEndCap" value="haveEndCap" <?php echo !$_POST['haveEndCap'] ? 'value='.$_POST['haveEndCap'] : 'checked' ?>> 2根收口条
         </label>
         <label class="checkbox-inline">
-          <input type="checkbox" name="haveTopLine" value="haveTopLine" checked> 6cm顶线
+          <input type="checkbox" name="haveTopLine" value="haveTopLine" <?php echo !$_POST['haveTopLine'] ? 'value='.$_POST['haveTopLine'] : 'checked' ?>> 6cm顶线
         </label>
         <label class="checkbox-inline">
-          <input type="checkbox" name="haveFootLine" value="haveFootLine" checked> 8cm脚线
+          <input type="checkbox" name="haveFootLine" value="haveFootLine" <?php echo !$_POST['haveFootLine'] ? 'value='.$_POST['haveFootLine'] : 'checked' ?>> 8cm脚线
         </label>
       </div><!-- 柜体选择参数 -->
       <hr>
@@ -388,21 +383,66 @@ if ($_POST['LIMIWUs']) {
     </div>
   </div><!-- calculator interface end -->
 <?php if($_POST['LIMIWUs']){?>
-  <div class="col-sm-12"><!-- 计算的结果 -->
+  <div class="col-sm-12" id="calculatorTableBox"><!-- 计算的结果 -->
     <div class="panel-group" role="tablist" aria-multiselectable="true">
       <div class="panel panel-info">
         <div class="panel-heading" role="tab" id="ctbox">
           <h4 class="panel-title">
             <a role="button" data-toggle="collapse" data-parent="#calculatorTable" href="#calculatorTable" aria-expanded="true" aria-controls="calculatorTable">
-              全屋定制设计师：解工(南通市区/开发区/海安市)
+              厘米屋家居空间设计柜体板材用料及费用清单
             </a>
           </h4>
         </div>
-        <div id="calculatorTable" class="panel-collapse collapse" role="tabpanel" aria-labelledby="ctbox">
+        <div id="calculatorTable" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="ctbox">
           <div class="panel-body">
-            2002年初开始从事衣柜定制工作，在当地“好莱客衣柜”从事产品设计。先后在科达木业、爱得家私工厂担任深化设计、拆单工作，对衣柜、橱柜、木门制作生产工艺十分了解，尤其对板式定制家深入研究。能根据客户需求提供合理优秀的设计方案，满足客户各种家装风格的需求。
-          </div>
-        </div>
+            <table>
+              <caption><h3>厘米屋家居空间设计柜体板材用料及费用清单</h3></caption>
+              <thead>
+                <tr>
+                  <th>序号</th>
+                  <th>部件名称</th>
+                  <th>长度</th>
+                  <th>宽度</th>
+                  <th>厚度</th>
+                  <th>数量</th>
+                  <th>用量</th>
+                  <th>单价</th>
+                  <th>总金额</th>
+                  <th>备注</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php
+                  $i = 1;
+                  $table_allV = 0;
+                  foreach ($cab_table as $cab_html) {
+                    $cab_html_text = '<tr><td>'.$i.'</td>';
+                    $cab_html_text .= '<td>'.$cab_html['name'].'</td>';
+                    $cab_html_text .= '<td>'.$cab_html['x'].'</td>';
+                    $cab_html_text .= '<td>'.$cab_html['y'].'</td>';
+                    $cab_html_text .= '<td>'.$cab_html['t'].'</td>';
+                    $cab_html_text .= '<td>'.sprintf('%.2f',$cab_html['n']).'</td>';
+                    $cab_html_text .= '<td>'.$cab_html['area'].'</td>';
+                    $cab_html_text .= '<td>'.sprintf('%.2f',$cab_html['v']).'</td>';
+                    $cab_html_text .= '<td>'.sprintf('%.2f',$cab_html['allV']).'</td>';
+                    $cab_html_text .= '<td></td></tr>';
+                    echo $cab_html_text;
+                    $i++;
+                    $table_allV += $cab_html['allV'];
+                  }
+                  $cab_all_area = $cab_X*$cab_Y/1000000;
+                  $projectedArea = '柜体'.$cab_X.' mm宽，'.$cab_Y.'mm高，共计'.$cab_all_area.' 平方米，洞口(投影)面积单价约为：<b>'.floor($table_allV/$cab_all_area).'</b> 元';
+                ?>
+                <tr>
+                  <td colspan="7"><?php echo $projectedArea;?></td>
+                  <td><b>板材总价</b></td>
+                  <td><b><?echo floor($table_allV);?></b></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div><!-- panel-body end -->
+        </div><!-- calculatorTable end -->
       </div>
     </div>
   </div><!-- calculatorTable end -->
