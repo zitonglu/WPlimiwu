@@ -210,7 +210,9 @@ if ($_POST['LIMIWUs']) {
                     <li>邮箱：admin..<a>@</a>limiwu.com</li>
                 </ul>
             </div>
-            <div role="tabpanel" class="tab-pane" id="loginIn">登录界面，制作中</div>
+            <div role="tabpanel" class="tab-pane" id="loginIn">
+              <p>本网站正在逐步创建中，注册功能还未完全对外开放，有需要的朋友可以留信息约谈或者<a target="_blank" href="//wpa.qq.com/msgrd?v=3&uin=910109610&site=qq&menu=yes" style="color: #fff;"> 通过QQ联系作者 </a>，申请内测人员帐号。</p>
+            </div>
         </div>
     
     </div>

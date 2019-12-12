@@ -521,6 +521,7 @@ input[type="number"]{-moz-appearance: textfield}
 		line-height:28.8px;
 	}
 }
+#loginIn p,
 .page .content p{
 	text-indent:2em;
 }
