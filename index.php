@@ -1,12 +1,11 @@
 <?php 
-	$list_array = explode(',',get_option('limiwu_index_list'));
+	//$list_array = explode(',',get_option('limiwu_index_list'));//置顶文章
 	// 获取导航及文章
 	if (is_home() || (is_category() && !is_category($list_array))) {
 		get_header();
 		limiwu_homeTop_page(get_option('limiwu_home_top'));// 获取自定义首页
-		get_template_part( 'content', 'top'); //获取置顶文章
+	//get_template_part( 'content', 'top'); //置顶文章
 ?>
-<h1 style="display:none"><?php bloginfo('name');echo "-";bloginfo('description');?></h1><!-- seo -->
 	<div class="list" id="list">
 		<div class="container">
 			<div class="row" id="masonry">

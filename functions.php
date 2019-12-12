@@ -273,12 +273,12 @@ function limiwu_add_thumbnail($post,$boxargs){
     wp_nonce_field( 'limiwu_add_thumbnail', 'limiwu_add_thumbnail_nonce' );
     // 获取之前存储的值
     $limiwu_thumbnail_url_value = get_post_meta( $post->ID, '_limiwu_thumbnail_url', true );
-    $limiwu_PPT_url_value = get_post_meta( $post->ID, '_limiwu_PPT_url', true );
+    //$limiwu_PPT_url_value = get_post_meta( $post->ID, '_limiwu_PPT_url', true );
 ?>
     <label for="limiwu_thumbnail_url"><?php _e('缩略图网址','limiwu');?>:</label>
     <input style="width: 100%" type="url" id="limiwu_thumbnail_url" name="limiwu_thumbnail_url" value="<?php echo esc_attr($limiwu_thumbnail_url_value); ?>" placeholder="http(s)://">
-    <label for="limiwu_PPT_url"><?php _e('PPT置顶图网址','limiwu');?>:</label>
-    <input style="width: 100%" type="url" id="limiwu_PPT_url" name="limiwu_PPT_url" value="<?php echo esc_attr($limiwu_PPT_url_value); ?>" placeholder="http(s)://">
+    <!-- <label for="limiwu_PPT_url"><?php _e('PPT置顶图网址','limiwu');?>:</label>
+    <input style="width: 100%" type="url" id="limiwu_PPT_url" name="limiwu_PPT_url" value="<?php echo esc_attr($limiwu_PPT_url_value); ?>" placeholder="http(s)://"> -->
 <?php
 }
 
