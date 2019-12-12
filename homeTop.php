@@ -220,7 +220,6 @@ if ($_POST['LIMIWUs']) {
   <div class="container">
   <div class="col-sm-5 material">
     <h4 class="text-center"> ♪（＾∀＾●）ﾉ <b>柜体快速计算</b></h4>
-    <!-- <p class="text-right">单位：毫米mm</p> -->
     <form action="#Calculator" method="post" role="form">
       <div class="col-md-4 col-sm-6">
         <div class="form-group has-warning has-feedback">
