@@ -7,7 +7,7 @@
 
 <link rel="stylesheet" href="<?php limiwu_echo_CDN_URL('bootstrap.min.css','css')?>">
 <link rel="stylesheet" href="<?php bloginfo('template_url')?>/style.css">
-<link rel="stylesheet" href="<?php limiwu_echo_CDN_URL('load.min.css','css')?>">
+<!-- <link rel="stylesheet" href="<?php bloginfo('template_url')?>/css/load.min.css"> -->
 <?php if(is_single()  || is_page()):?>
 <link rel="stylesheet" href="<?php limiwu_echo_CDN_URL('viewer.min.css','css')?>">
 <?php endif ?>
@@ -49,8 +49,8 @@
 <body <?php body_class();?>>
 <?php wp_body_open(); ?>
 
-<!-- 网站加载loading -->
-<div id="loader-wrapper">
+<!-- 网站加载loading 关闭了，效果不好 -->
+<!-- <div id="loader-wrapper">
     <div id="loader"></div>
     <div class="loader-section section-left"></div>
     <div class="loader-section section-right"></div>
@@ -62,6 +62,6 @@
         $('body').addClass('loaded');
         $('#loader-wrapper .load_title').remove();
     }); 
-</script>
+</script> -->
 
 <?php get_template_part('nav');//顶部导航 ?>
