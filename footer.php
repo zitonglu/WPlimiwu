@@ -20,7 +20,6 @@
     <script src="<?php limiwu_echo_CDN_URL('viewer-jquery.min.js')?>"></script>
     <!-- 本模版使用的limiwu-single-JS -->
     <script src="<?php bloginfo('template_url')?>/js/limiwu-single.js"></script>
-    <?php echo get_option('limiwu_bottom_javaScript');?>
 <?php elseif(is_home() || is_category()):?>
     <!-- 瀑布流 JS -->
     <script src="<?php limiwu_echo_CDN_URL('masonry.min.js')?>"></script>
@@ -37,6 +36,7 @@
     <!-- 本模版使用的limiwu-index-JS -->
     <script src="<?php bloginfo('template_url')?>/js/limiwu-index.js"></script>
 <?php endif ?>
+<?php echo get_option('limiwu_bottom_javaScript');?>
 <?php wp_footer(); ?>
 </body>
 </html>
