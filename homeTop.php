@@ -203,7 +203,7 @@ if ($_POST['LIMIWUs']) {
 </div><!-- panel-group end -->
             </div>
             <div role="tabpanel" class="tab-pane" id="aboutUs">
-                <div style="width:360px;height:200px;border:#ccc solid 1px;" id="dituContent"></div>
+                <img src="https://img.limiwu.com/hometop/baidumap.jpg" alt="百度地图">
                 <ul>
                     <li>地址：江苏南通工业博览城</li>
                     <li>电话：153518XXXX0</li>
@@ -470,9 +470,3 @@ if ($_POST['LIMIWUs']) {
     </div>
   </div>
 </div>
-
-<!-- 百度地图 相关 -->
-<script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
-<script type="text/javascript">
-function initMap(){createMap();setMapEvent();addMapControl()}function createMap(){var map=new BMap.Map("dituContent");var point=new BMap.Point(120.9313,31.979132);map.centerAndZoom(point,16);window.map=map}function setMapEvent(){map.enableDragging();map.enableScrollWheelZoom();map.enableDoubleClickZoom();map.enableKeyboard()}function addMapControl(){}initMap();
-</script>

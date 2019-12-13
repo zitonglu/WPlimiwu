@@ -772,10 +772,6 @@ select#customerID{appearance:none;-webkit-appearance: listbox;-moz-appearance:no
 	}
 	.page-head-social{margin-bottom:0}
 }
-/*===== 百度地图的style ======*/
-#aboutUs{overflow: hidden}
-.iw_poi_title {color:#CC5522;font-size:14px;font-weight:bold;overflow:hidden;padding-right:13px;white-space:nowrap}
-.iw_poi_content {font:12px arial,sans-serif;overflow:visible;padding-top:4px;white-space:-moz-pre-wrap;word-wrap:break-word}
 /*===== Calculator计算器style ======*/
 .Calculator{
 	padding-top:60px;
