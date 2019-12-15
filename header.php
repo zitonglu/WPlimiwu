@@ -7,7 +7,27 @@
 
 <link rel="stylesheet" href="<?php limiwu_echo_CDN_URL('bootstrap.min.css','css')?>">
 <link rel="stylesheet" href="<?php bloginfo('template_url')?>/style.css">
-<!-- <link rel="stylesheet" href="<?php bloginfo('template_url')?>/css/load.min.css"> -->
+<?php
+// 是否加载动画的判断，动画有点影响网页的打开速度
+$if_load = false;
+if (is_home()) {
+    if (get_option('limiwu_load_home')) {
+        $if_load = true;
+    }
+}elseif(is_single() || is_page()){
+    if (get_option('limiwu_load_single')){
+        $if_load = true;
+    }
+}elseif(is_category()){
+    if (get_option('limiwu_load_index')) {
+        $if_load = true;
+    }
+}
+?>
+<?php if($if_load):?>
+<link rel="stylesheet" href="<?php bloginfo('template_url')?>/css/load.min.css">
+<?php endif ?>
+
 <?php if(is_single()  || is_page()):?>
 <link rel="stylesheet" href="<?php limiwu_echo_CDN_URL('viewer.min.css','css')?>">
 <?php endif ?>
@@ -48,9 +68,9 @@
 
 <body <?php body_class();?>>
 <?php wp_body_open(); ?>
-
+<?php if($if_load):?>
 <!-- 网站加载loading 关闭了，效果不好 -->
-<!-- <div id="loader-wrapper">
+<div id="loader-wrapper">
     <div id="loader"></div>
     <div class="loader-section section-left"></div>
     <div class="loader-section section-right"></div>
@@ -62,6 +82,7 @@
         $('body').addClass('loaded');
         $('#loader-wrapper .load_title').remove();
     }); 
-</script> -->
+</script>
+<?php endif ?>
 
 <?php get_template_part('nav');//顶部导航 ?>
