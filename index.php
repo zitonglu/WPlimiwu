@@ -1,5 +1,5 @@
 <?php 
-	//$list_array = explode(',',get_option('limiwu_index_list'));//置顶文章
+	$list_array = explode(',',get_option('limiwu_index_list'));//分类首页
 	// 获取导航及文章
 	if (is_home() || (is_category() && !is_category($list_array))) {
 		get_header();
