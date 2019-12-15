@@ -550,9 +550,9 @@ function admin_mycss() {
 }
 add_action('admin_head', 'admin_mycss');
 function admin_scripts() {
-    wp_enqueue_script( "jqueryUI", get_template_directory_uri()."/js/jquery.min.js" , '', false, ture);
-    wp_enqueue_script( "viewer-jquery", get_template_directory_uri()."/js/viewer-jquery.min.js" , '', false, ture);
-    wp_enqueue_script( "viewer-jquery-id", get_template_directory_uri()."/js/viewer-jquery-id.js" , '', false, ture);
+    wp_enqueue_script( "jqueryUI", get_template_directory_uri()."/js/jquery.min.js" , '', false, true);
+    wp_enqueue_script( "viewer-jquery", get_template_directory_uri()."/js/viewer-jquery.min.js" , '', false, true);
+    wp_enqueue_script( "viewer-jquery-id", get_template_directory_uri()."/js/viewer-jquery-id.js" , '', false, true);
 }
 add_action( 'admin_enqueue_scripts', 'admin_scripts' );
 
