@@ -874,3 +874,4 @@ select#customerID{appearance:none;-webkit-appearance: listbox;-moz-appearance:no
 	#calculatorTableBox{padding-right:0}
 	.Calculator .material hr{float:left}
 }
+.panel-body .savebox{margin-top:10px}

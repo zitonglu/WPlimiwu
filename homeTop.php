@@ -442,9 +442,21 @@ if ($_POST['LIMIWUs']) {
                 </tr>
               </tbody>
             </table>
-            <!-- 测试 -->
-            <button value="" name="tableToExcel" id="tableToExcelbutton">test</button>
-          </div><!-- panel-body end -->
+            <!-- 转换为excel表 -->
+            <p class="text-right savebox"><button type="button" name="button" id="saveasexcel" class="btn btn-default"><?php _e('导出','limiwu');?> Excel</button></p>
+            <form action="<?php bloginfo('template_url')?>/save/saveasexcel.php" method="post" id="excelfromtable" target="_blank">
+              <input name="savebutton" type="hidden" autocomplete="off"/>
+            </form>
+            <script type="text/javascript">
+              $(function(){
+                $('#saveasexcel').click(function(){
+                  var excelContent = $('#tableToExcel').html(); //获取表格内容
+                  $('input[name=savebutton]').val(excelContent);//赋值给表单
+                  $('#excelfromtable').submit();//表单提交，提交到php
+                })
+              })
+            </script>
+            </div><!-- panel-body end -->
         </div><!-- calculatorTable end -->
       </div>
     </div>
