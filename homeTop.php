@@ -275,13 +275,13 @@ if ($_POST['LIMIWUs']) {
       </div><!-- 柜体层板数量 -->
       <div class="col-sm-12 text-right">
         <label class="checkbox-inline">
-          <input type="checkbox" name="haveEndCap" value="haveEndCap" <?php echo !$_POST['haveEndCap'] ? 'value='.$_POST['haveEndCap'] : 'checked' ?>> 2根收口条
+          <input type="checkbox" name="haveEndCap" value="haveEndCap" <?php echo !$_POST['haveEndCap'] ? $_POST['haveEndCap'] : 'checked=checked' ?>> 2根收口条
         </label>
         <label class="checkbox-inline">
-          <input type="checkbox" name="haveTopLine" value="haveTopLine" <?php echo !$_POST['haveTopLine'] ? 'value='.$_POST['haveTopLine'] : 'checked' ?>> 6cm顶线
+          <input type="checkbox" name="haveTopLine" value="haveTopLine" <?php echo !$_POST['haveTopLine'] ? $_POST['haveTopLine'] : 'checked=checked' ?>> 6cm顶线
         </label>
         <label class="checkbox-inline">
-          <input type="checkbox" name="haveFootLine" value="haveFootLine" <?php echo !$_POST['haveFootLine'] ? 'value='.$_POST['haveFootLine'] : 'checked' ?>> 8cm脚线
+          <input type="checkbox" name="haveFootLine" value="haveFootLine" <?php echo !$_POST['haveFootLine'] ? $_POST['haveFootLine'] : 'checked=checked' ?>> 8cm脚线
         </label>
       </div><!-- 柜体选择参数 -->
       <hr>
@@ -396,7 +396,7 @@ if ($_POST['LIMIWUs']) {
         </div>
         <div id="calculatorTable" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="ctbox">
           <div class="panel-body">
-            <table>
+            <table id="tableToExcel">
               <caption><h3>厘米屋家居空间设计柜体板材用料及费用清单</h3></caption>
               <thead>
                 <tr>
@@ -442,6 +442,8 @@ if ($_POST['LIMIWUs']) {
                 </tr>
               </tbody>
             </table>
+            <!-- 测试 -->
+            <button value="" name="tableToExcel" id="tableToExcelbutton">test</button>
           </div><!-- panel-body end -->
         </div><!-- calculatorTable end -->
       </div>

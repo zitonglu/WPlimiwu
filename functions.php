@@ -555,7 +555,6 @@ function admin_scripts() {
     wp_enqueue_script( "viewer-jquery-id", get_template_directory_uri()."/js/viewer-jquery-id.js" , '', false, true);
 }
 add_action( 'admin_enqueue_scripts', 'admin_scripts' );
-
 /**
  * 七牛图片自动添加瘦身命令
  * WordPress版本 www.aeink.com/454.html
