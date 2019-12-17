@@ -443,6 +443,7 @@ if ($_POST['LIMIWUs']) {
               </tbody>
             </table>
             <!-- 转换为excel表，其他格式需调整：github：https://github.com/huanz/tableExport 保留 -->
+            <?php if(get_current_user_id() > 0): ?>
             <p class="text-right savebox">
               <button type="button" name="button" id="saveasexcel" class="btn btn-default"><?php _e('导出','limiwu');?> Excel</button>
             </p>
@@ -458,6 +459,7 @@ if ($_POST['LIMIWUs']) {
                 })
               })
             </script>
+            <?php endif ?>
             </div><!-- panel-body end -->
         </div><!-- calculatorTable end -->
       </div>
