@@ -442,8 +442,19 @@ if ($_POST['LIMIWUs']) {
                 </tr>
               </tbody>
             </table>
-            <!-- 转换为excel表 -->
-            <p class="text-right savebox"><button type="button" name="button" id="saveasexcel" class="btn btn-default"><?php _e('导出','limiwu');?> Excel</button></p>
+            <!-- 转换为excel表，其他格式需调整：https://www.cnblogs.com/rxbook/p/10667010.html github：https://github.com/tecnickcom/TCPDF/blob/master/tcpdf.php -->
+            <p class="text-right savebox">
+              <button type="button" name="button" id="saveasexcel" class="btn btn-default"><?php _e('导出','limiwu');?> Excel</button>
+              <span id="export">
+                <a data-type="txt" href="javascript:;" class="btn btn-default"><?php _e('导出','limiwu');?> TXT</a>
+                <a data-type="csv" href="javascript:;" class="btn btn-default"><?php _e('导出','limiwu');?> CSV</a>
+                <a data-type="xml" href="javascript:;" class="btn btn-default"><?php _e('导出','limiwu');?> XML</a>
+                <a data-type="xls" href="javascript:;" class="btn btn-default display-none"><?php _e('导出','limiwu');?> Excel</a>
+                <a data-type="doc" href="javascript:;" class="btn btn-default"><?php _e('导出','limiwu');?> Word</a>
+                <a data-type="image" href="javascript:;" class="btn btn-default"><?php _e('导出','limiwu');?> PNG</a>
+                <a data-type="pdf" href="javascript:;" class="btn btn-default"><?php _e('导出','limiwu');?> PDF</a>
+              </span>
+            </p>
             <form action="<?php bloginfo('template_url')?>/save/saveasexcel.php" method="post" id="excelfromtable" target="_blank">
               <input name="savebutton" type="hidden" autocomplete="off"/>
             </form>
@@ -455,6 +466,16 @@ if ($_POST['LIMIWUs']) {
                   $('#excelfromtable').submit();//表单提交，提交到php
                 })
               })
+            </script>
+            <script src="<?php echo bloginfo('template_url')?>/js/tableExport.min.js"></script>
+            <script>
+              var $exportLink = document.getElementById('export');
+              $exportLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (e.target.nodeName === "A") {
+                  tableExport('tableToExcel', 'test', e.target.getAttribute('data-type'));
+                }
+              }, false);
             </script>
             </div><!-- panel-body end -->
         </div><!-- calculatorTable end -->

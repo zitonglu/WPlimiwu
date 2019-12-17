@@ -35,7 +35,7 @@ a, a::before, a::after{transition-duration: 0.2s;transition-timing-function: eas
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {-webkit-appearance: none}
 input[type="number"]{-moz-appearance: textfield}
-#infscr-loading{display:none !important;}
+#infscr-loading,.display-none{display:none !important;}
 /*logo*/
 .logoImg{padding-right:4px}
 .logoImg img{width:16px}
