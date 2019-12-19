@@ -215,8 +215,7 @@ if ($_POST['LIMIWUs']) {
                 </ul>
             </div>
             <div role="tabpanel" class="tab-pane" id="tagcloud">
-             <!--  <p>本网站正在逐步创建中，注册功能还未完全对外开放，有需要的朋友可以留信息约谈或者<a target="_blank" href="//wpa.qq.com/msgrd?v=3&uin=910109610&site=qq&menu=yes" style="color: #fff;"> 通过QQ联系作者 </a>，申请内测人员帐号。</p> -->
-            <?php wp_tag_cloud('orderby=count&smallest=9&largest=14&order=DESC'); ?>
+            <?php wp_tag_cloud('smallest=9&largest=14'); ?>
             </div>
         </div>
     
