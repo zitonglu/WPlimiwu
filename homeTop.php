@@ -150,9 +150,13 @@ if ($_POST['LIMIWUs']) {
     <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active"><a href="#measure" aria-controls="home" role="tab" data-toggle="tab" class="btn-warning">(●´ϖ`●)</a></li>
         <li role="presentation"><a href="#aboutUs" aria-controls="profile" role="tab" data-toggle="tab" class="btn-warning"><span class="glyphicon glyphicon-comment"></span>联系我们</a></li>
-        <li role="presentation"><a href="#loginIn" aria-controls="settings" role="tab" data-toggle="tab" class="btn-warning"><span class="glyphicon glyphicon-edit"></span>注册&登录</a></li>
+        <li role="presentation"><a href="#tagcloud" aria-controls="tagcloud" role="tab" data-toggle="tab" class="btn-warning"><span class="glyphicon glyphicon-heart "></span>猜你喜欢</a></li>
+        <?php if(get_current_user_id() == 0): ?>
+          <li role="presentation"><a href="<?php echo wp_login_url(home_url());?>" class="btn-warning"><span class="glyphicon glyphicon-edit"></span>注册&登录</a></li>
+        <?php else: ?>
+          <li role="presentation"><a class="btn-warning">我的信息</a></li>
+        <?php endif?>
     </ul>
-
         <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" id="measure">
 <!-- 第一个分页面 -->
@@ -210,8 +214,9 @@ if ($_POST['LIMIWUs']) {
                     <li>邮箱：admin..<a>@</a>limiwu.com</li>
                 </ul>
             </div>
-            <div role="tabpanel" class="tab-pane" id="loginIn">
-              <p>本网站正在逐步创建中，注册功能还未完全对外开放，有需要的朋友可以留信息约谈或者<a target="_blank" href="//wpa.qq.com/msgrd?v=3&uin=910109610&site=qq&menu=yes" style="color: #fff;"> 通过QQ联系作者 </a>，申请内测人员帐号。</p>
+            <div role="tabpanel" class="tab-pane" id="tagcloud">
+             <!--  <p>本网站正在逐步创建中，注册功能还未完全对外开放，有需要的朋友可以留信息约谈或者<a target="_blank" href="//wpa.qq.com/msgrd?v=3&uin=910109610&site=qq&menu=yes" style="color: #fff;"> 通过QQ联系作者 </a>，申请内测人员帐号。</p> -->
+            <?php wp_tag_cloud('orderby=count&smallest=9&largest=14&order=DESC'); ?>
             </div>
         </div>
     

@@ -650,7 +650,7 @@ select#customerID{appearance:none;-webkit-appearance: listbox;-moz-appearance:no
 	text-indent: 2em;
 }
 .home-top .right{color:#090909}
-.home-top .right a{color:#090909}
+/*.home-top .right a{color:#090909}*/
 .home-top .contentUS{
 	padding-top: 220px;
 	text-align: center;

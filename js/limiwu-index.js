@@ -22,4 +22,6 @@ $(document).ready(function() {
 	});
 
 	$('[data-toggle="popover"]').popover();
+
+	$('#tagcloud .tag-cloud-link').addClass('btn btn-default');
 })
