@@ -149,7 +149,6 @@ if ($_POST['LIMIWUs']) {
    <div class="col-sm-6 right">
     <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active"><a href="#measure" aria-controls="home" role="tab" data-toggle="tab" class="btn-warning">(●´ϖ`●)</a></li>
-        <li role="presentation"><a href="#aboutUs" aria-controls="profile" role="tab" data-toggle="tab" class="btn-warning"><span class="glyphicon glyphicon-comment"></span>联系我们</a></li>
         <li role="presentation"><a href="#tagcloud" aria-controls="tagcloud" role="tab" data-toggle="tab" class="btn-warning"><span class="glyphicon glyphicon-heart "></span>猜你喜欢</a></li>
         <?php if(get_current_user_id() == 0): ?>
           <li role="presentation"><a href="<?php echo wp_login_url(home_url());?>" class="btn-warning"><span class="glyphicon glyphicon-edit"></span>注册&登录</a></li>
@@ -205,14 +204,6 @@ if ($_POST['LIMIWUs']) {
   </div>
   <h3 class="needme">(ง •̀_•́)ง 全屋定制找我们！</h3>
 </div><!-- panel-group end -->
-            </div>
-            <div role="tabpanel" class="tab-pane" id="aboutUs">
-                <img src="https://img.limiwu.com/hometop/baidumap.jpg" alt="百度地图">
-                <ul>
-                    <li>地址：江苏南通工业博览城</li>
-                    <li>电话：153518XXXX0</li>
-                    <li>邮箱：admin..<a>@</a>limiwu.com</li>
-                </ul>
             </div>
             <div role="tabpanel" class="tab-pane" id="tagcloud">
             <?php wp_tag_cloud('smallest=9&largest=14'); ?>
