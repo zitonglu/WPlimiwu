@@ -868,9 +868,7 @@ select#customerID{appearance:none;-webkit-appearance: listbox;-moz-appearance:no
 .Calculator .calculationTips span{margin-left:0.2em;margin-right:0.2em;color:#333}
 @media (max-width: 766px){.Calculator #calculatorTableBox{padding:20px 0 0}}
 @media (min-width: 767px){
-	.Calculator .Calculator-results{
-		padding:0px 35px auto;
-	}
+	.Calculator .Calculator-results{padding:0px 35px}
 	#calculatorTableBox{padding-right:0}
 	.Calculator .material hr{float:left}
 }

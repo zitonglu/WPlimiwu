@@ -154,7 +154,7 @@ if ($_POST['LIMIWUs']) {
         <?php if(get_current_user_id() == 0): ?>
           <li role="presentation"><a href="<?php echo wp_login_url(home_url());?>" class="btn-warning"><span class="glyphicon glyphicon-edit"></span>注册&登录</a></li>
         <?php else: ?>
-          <li role="presentation"><a class="btn-warning">我的信息</a></li>
+          <li role="presentation"><a href="<?php echo get_author_posts_url(get_current_user_id()); ?>" class="btn-warning"><?php the_author_meta('display_name',get_current_user_id()); ?></a></li>
         <?php endif?>
     </ul>
         <div class="tab-content">
