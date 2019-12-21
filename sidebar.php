@@ -1,5 +1,17 @@
 <aside class="col-sm-4 sidebar">
 	<aside class="theiaStickySidebar"><!-- 侧栏滚动 -->
+		<?php
+		include_once( ABSPATH . 'wp-admin/includes/plugin.php' ); 
+		if (is_plugin_active('open-social/open-social.php')) {
+			if (get_current_user_id() > 0) {
+				echo open_social_profile_html();
+			}else{
+				echo '<section class="widget">';
+				echo '<h3>'.__('用户登录','limiwu').'</h3>';
+				echo open_social_login_html();
+				echo '</section>';
+			}
+		}?>
 	<section class="widget widget_theme_news">
 		<h3><?php _e('相关文章','limiwu') ?></h3>
 		
@@ -44,7 +56,12 @@
 		}
 		?>
 	</section>
-
+		<?php
+		if (is_plugin_active('open-social/open-social.php')) {
+			echo '<section class="widget">';
+			echo open_social_share_html();
+			echo '</section>';
+		}?>
 	<?php dynamic_sidebar(__('文章右侧栏','limiwu'));?>
 	</aside>
 </aside><!-- #sider end -->
