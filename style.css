@@ -873,3 +873,18 @@ select#customerID{appearance:none;-webkit-appearance: listbox;-moz-appearance:no
 	.Calculator .material hr{float:left}
 }
 .panel-body .savebox{margin-top:10px}
+/*社交登录相关CSS*/
+.sidebar .os-profile-box,.sidebar .os-bind-box{text-align:center;}
+.sidebar .os-bind-box{padding-top:5px}
+.sidebar .os-profile-box .avatar{
+	margin-bottom: 10px;
+	border-radius: 50%;
+	border: 2px solid #ec6615;
+	padding: 5px;
+	transition:all 0.3s !important;
+}
+.sidebar .os-profile-box .avatar:hover{
+	border:0;
+	padding:0;
+	transition:all 0.3s !important;
+}

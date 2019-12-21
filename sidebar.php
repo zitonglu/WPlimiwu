@@ -5,6 +5,7 @@
 		if (is_plugin_active('open-social/open-social.php')) {
 			if (get_current_user_id() > 0) {
 				echo open_social_profile_html();
+				echo open_social_bind_html();
 			}else{
 				echo '<section class="widget">';
 				echo '<h3>'.__('用户登录','limiwu').'</h3>';
