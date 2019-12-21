@@ -62,6 +62,8 @@
 				}
 				if (get_current_user_id() > 0) {//登录后才可以回复
 					comments_template('/comments-single.php');
+				}else{
+					echo '<h4>'.__('登录后可查看评论','limiwu').'</h4>';
 				}
 					$prev_post = get_previous_post();
 					$next_post = get_next_post();
