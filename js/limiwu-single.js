@@ -45,4 +45,12 @@ $(document).ready(function() {
     });
 	// 放大图片控制
     $('#viewer').viewer();
+    // 取消社交媒体设置
+    $('.os-login-box .os-sina').removeAttr('onclick');
+    $('.os-login-box .os-qq').removeAttr('onclick');
+    $('.os-login-box .os-wechat').removeAttr('onclick');
+    $('.os-login-box .os-sina').wrap('<a tabindex="0" data-placement="bottom" role="button" data-toggle="popover" data-trigger="focus" title="登录建设中" data-content="该社交媒体在建设中"></a>');
+    $('.os-login-box .os-qq').wrap('<a tabindex="0" data-placement="bottom" role="button" data-toggle="popover" data-trigger="focus" title="登录建设中" data-content="该社交媒体在建设中"></a>');
+    $('.os-login-box .os-wechat').wrap('<a tabindex="0" data-placement="bottom" role="button" data-toggle="popover" data-trigger="focus" title="登录建设中" data-content="该社交媒体在建设中"></a>');
+    $('[data-toggle="popover"]').popover();
 })
