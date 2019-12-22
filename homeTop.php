@@ -216,7 +216,7 @@ if ($_POST['LIMIWUs']) {
 <div id="Calculator" class="Calculator">
   <div class="container">
   <div class="col-sm-5 material">
-    <h4 class="text-center"> ♪（＾∀＾●）ﾉ <b>柜体快速计算</b></h4>
+    <h4 class="text-center"><b>投影面积与展开面积对比</b></h4>
     <form action="#Calculator" method="post" role="form">
       <div class="col-md-4 col-sm-6">
         <div class="form-group has-warning has-feedback">
