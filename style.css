@@ -73,12 +73,13 @@ input[type="number"]{-moz-appearance: textfield}
 	border:none;
 	margin-bottom:0;
 	box-shadow: 0 0 15px rgba(0,0,0,0.1);
-	border-radius: 9px;
+	border-radius: 0px;
+	border: 1px solid #aaa;
 }
 .list .masonrybox .thumbnail .imgbox img{
 	width:100%;
 	height:auto;
-	border-radius:9px 9px 0 0;
+	/*border-radius:9px 9px 0 0;*/
 }
 .list .masonrybox{
 	padding-left:8px;
@@ -146,7 +147,7 @@ input[type="number"]{-moz-appearance: textfield}
 }
 .list .masonrybox .thumbnail .caption .description,
 .list .masonrybox .thumbnail .caption .description a{
-	color:#c6c5c5;
+	color:#999;
 	text-decoration:none;
 }
 .list .masonrybox .thumbnail .caption .edit,
