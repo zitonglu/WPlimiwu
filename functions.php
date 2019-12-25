@@ -556,6 +556,15 @@ function admin_scripts() {
 }
 add_action( 'admin_enqueue_scripts', 'admin_scripts' );
 /**
+ * 修改wordpress网站登录界面
+ * 隐藏H1界面，背板变更为默认的
+ *
+**/
+function limiwu_custom_loginlogo() {
+  echo '<style type="text/css">h1 a {display:none !important}body{background-image:url('.get_bloginfo('template_directory').'/image/pixels.png)}</style>';
+}
+add_action('login_head', 'limiwu_custom_loginlogo');
+/**
  * 七牛图片自动添加瘦身命令
  * WordPress版本 www.aeink.com/454.html
  * 网址是写死的,必须放在fun最后

@@ -67,7 +67,7 @@ function limiwu_tr_array($name,$x,$y,$n = 2 ,$v = 0, $t = 18){
  * @since 2019-12-10
  */
 if ($_POST['LIMIWUs']) {
-  if($_POST['LIMIWUName2'] && preg_match("/^1[34578]\d{9}$/", $_POST['LIMIWUTel2'])){
+  if($_POST['LIMIWUName2'] && preg_match("/^1[345789]\d{9}$/", $_POST['LIMIWUTel2'])){
     limiwu_homeTop_INSERT_INTO($_POST['LIMIWUName2'],$_POST['LIMIWUTel2']);
   }//插入客户信息到数据表
 
@@ -124,7 +124,7 @@ if ($_POST['LIMIWUs']) {
         </div><!-- /.page-head-social-item -->
         <div id="contentUS" class="contentUS">
             <?php if(isset($_POST['LIMIWUsubmit'])){
-                if (preg_match("/^1[34578]\d{9}$/", $_POST['LIMIWUTel'])) {
+                if (preg_match("/^1[345789]\d{9}$/", $_POST['LIMIWUTel'])) {
                     limiwu_homeTop_INSERT_INTO($_POST['LIMIWUName'],$_POST['LIMIWUTel']);//插入数据
                     echo '<p class="addOK">提交成功，亲๑乛◡乛๑，我们会尽快安排人员联系您，请耐心等待(｡￫‿￩｡)，谢谢捧场！</p>';
                 }else{
