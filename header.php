@@ -4,6 +4,7 @@
 <meta charset="<?php bloginfo('charset'); ?>">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <?php wp_head(); ?>
+<?php echo get_option('limiwu_top_javaScript');?>
 
 <link rel="stylesheet" href="<?php limiwu_echo_CDN_URL('bootstrap.min.css','css')?>">
 <link rel="stylesheet" href="<?php bloginfo('template_url')?>/style.css">
