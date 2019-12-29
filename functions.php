@@ -60,7 +60,23 @@ remove_filter( 'comment_text', 'wpautop',  30 );
 // 开启缩略图功能 add_theme_support( 'post-thumbnails' );
 
 // 开启文章相关形式
-add_theme_support('post-formats', array('chat','aside','image', 'video', 'audio', 'link', 'gallery') );
+add_theme_support('post-formats', array('chat','aside','image', 'video', 'link') );
+/**
+ * 根据文章格式调用不同的模版
+ * 设置了相关文章形式后，如果对应文件存在就调用，没有就调用默认的。
+**/
+function limiwu_load_single_style() {
+    global $post;
+    $this_post_format = get_post_format($post);
+    $have_post_format = array('video','image');
+    $path = TEMPLATEPATH . '/single-'.$this_post_format.'.php';
+    if (in_array($this_post_format, $have_post_format) && file_exists($path)){
+        return $path;
+    }else{
+        return TEMPLATEPATH . '/single.php';
+    }
+}
+add_filter('single_template', 'limiwu_load_single_style');
 /**
  * CDN加速
  * 直接输出返回CDN的URL地址
