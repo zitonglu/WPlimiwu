@@ -218,10 +218,21 @@ if ($_POST['LIMIWUs']) {
               ?>
             </div>
         </div>
-    
     </div>
 </div><!-- container end -->
 </div><!-- hometop end -->
+<div class="homeIco">
+  <div class="col-sm-9"><i class="zxlc_ico3"></i><span>家装规划</span></div>
+  <div class="col-sm-9"><i class="zxlc_ico8"></i><span>定制需求</span></div>
+  <div class="col-sm-9"><i class="zxlc_ico2"></i><span>咨询了解</span></div>
+  <div class="col-sm-9"><i class="zxlc_ico1"></i><span>上门测量</span></div>
+  <div class="col-sm-9"><i class="zxlc_ico4"></i><span>深化设计</span></div>
+  <div class="col-sm-9"><i class="zxlc_ico5"></i><span>拆单报价</span></div>
+  <div class="col-sm-9"><i class="zxlc_ico9"></i><span>确认付款</span></div>
+  <div class="col-sm-9"><i class="zxlc_ico6"></i><span>到货安装</span></div>
+  <div class="col-sm-9"><i class="zxlc_ico7"></i><span>完成交付</span></div>
+  <div class="clearfix"></div>
+</div><!-- homeIco end -->
 <div id="Calculator" class="Calculator">
   <div class="container">
   <div class="col-sm-5 material">

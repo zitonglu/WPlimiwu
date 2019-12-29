@@ -76,6 +76,11 @@ input[type="number"]{-moz-appearance: textfield}
 	border-radius: 0px;
 	border: 1px solid #aaa;
 }
+.list .masonrybox .thumbnail:hover{border-color:#f74f0d}
+.list .masonrybox .thumbnail:hover .imgbox img{
+	transform: scale(0.94);
+	border-radius:10px;
+}
 .list .masonrybox .thumbnail .imgbox img{
 	width:100%;
 	height:auto;
@@ -779,8 +784,6 @@ select#customerID{appearance:none;-webkit-appearance: listbox;-moz-appearance:no
 	margin-bottom:20px;
 	min-height:500px;
 	background-color:#fff;
-	border-top:1px solid #f74f0d;
-	border-bottom:1px solid #f74f0d;
 }
 .Calculator .Calculator-interface{
 	padding: 5px;
@@ -889,3 +892,50 @@ select#customerID{appearance:none;-webkit-appearance: listbox;-moz-appearance:no
 	transition:all 0.3s !important;
 }
 #menu-link{margin-top:1em}
+/*首页相图标*/
+.homeIco{
+	padding:20px 5%;
+	text-align:center;
+	color: #888;
+	background-image: linear-gradient(#ff9000 20%,rgba(255,0,0,0),#DAEDFF 80%);
+}
+.homeIco .col-sm-9{
+	margin:1%;
+	float:left;
+	width:31.33%;
+	min-height:120px;
+	border: 1px solid #888;
+	background-color:#f8f8f8;
+	box-shadow: 0 0 15px rgba(178, 25, 221, 0.51);
+	border-radius: 5%;
+}
+.homeIco .col-sm-9 a{color:#888}
+@media (min-width:991px){.homeIco .col-sm-9{width:9%}}
+.homeIco i{
+	display: block;
+	margin: 26px auto 15px;
+	height: 37px;
+	width: 36px;
+	background: url(image/ico_km_zxlc.png) no-repeat;
+}
+.homeIco i.zxlc_ico1{width:44px;background-position: -1px -1px}
+.homeIco i.zxlc_ico2{background-position: -47px -1px}
+.homeIco i.zxlc_ico3{width:34px;background-position: -85px -1px}
+.homeIco i.zxlc_ico4{background-position: -121px -1px}
+.homeIco i.zxlc_ico5{background-position: -159px -1px}
+.homeIco i.zxlc_ico6{width:38px;background-position: -197px -1px}
+.homeIco i.zxlc_ico7{background-position: -237px -1px}
+.homeIco i.zxlc_ico8{background-position: -275px -1px}
+.homeIco i.zxlc_ico9{width:34px;background-position: -313px -1px}
+.homeIco .col-sm-9:hover{border-color:#f74f0d;background-color:#ff9000}
+.homeIco .col-sm-9:hover span,
+.homeIco .col-sm-9:hover a{color:#fff}
+.homeIco .col-sm-9:hover i.zxlc_ico1{background-position:-1px -39px}
+.homeIco .col-sm-9:hover i.zxlc_ico2{background-position:-47px -39px}
+.homeIco .col-sm-9:hover i.zxlc_ico3{background-position:-85px -39px}
+.homeIco .col-sm-9:hover i.zxlc_ico4{background-position:-121px -39px}
+.homeIco .col-sm-9:hover i.zxlc_ico5{background-position:-159px -39px}
+.homeIco .col-sm-9:hover i.zxlc_ico6{background-position:-197px -39px}
+.homeIco .col-sm-9:hover i.zxlc_ico7{background-position:-237px -39px}
+.homeIco .col-sm-9:hover i.zxlc_ico8{background-position:-275px -39px}
+.homeIco .col-sm-9:hover i.zxlc_ico9{background-position:-313px -39px}
