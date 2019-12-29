@@ -57,8 +57,8 @@ require_once( dirname(__FILE__) . '/option-walker.php' );//重新生产bootstrap
 
 //移除评论文本自动P标签
 remove_filter( 'comment_text', 'wpautop',  30 );
-// 开启缩略图功能 add_theme_support( 'post-thumbnails' );
-
+// 开启缩略图功能
+add_theme_support('post-thumbnails');
 // 开启文章相关形式
 add_theme_support('post-formats', array('chat','aside','image', 'video', 'link') );
 /**
@@ -175,9 +175,13 @@ function limiwu_echo_list_editName(){
  */
 function limiwu_post_first_img() {
 	global $post;
-	if(get_post_meta( $post->ID, '_limiwu_thumbnail_url', true )){
+	if(get_post_meta( $post->ID, '_limiwu_thumbnail_url', true )){// 直接输入的图片网址
         echo '<img src="'.get_post_meta($post->ID, '_limiwu_thumbnail_url', true).'" alt="'.get_the_title().'" onerror="javascript:this.src=\''.get_template_directory_uri().'/image/sandwich.jpg\';"/>';
-    }else{// 获取缩略图
+    }elseif(has_post_thumbnail()){// 获取特色图片
+        echo '<img src="';
+            the_post_thumbnail_url('full');
+        echo '" alt="'.get_the_title().'" onerror="javascript:this.src=\''.get_template_directory_uri().'/image/sandwich.jpg\';"/>';
+    }else{// 获取文章第一图片
         $first_img = '';
 		ob_start();
 		ob_end_clean();
