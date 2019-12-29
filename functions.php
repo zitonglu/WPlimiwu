@@ -68,7 +68,7 @@ add_theme_support('post-formats', array('chat','aside','image', 'video', 'link')
 function limiwu_load_single_style() {
     global $post;
     $this_post_format = get_post_format($post);
-    $have_post_format = array('video','image');
+    $have_post_format = array('image');
     $path = TEMPLATEPATH . '/single-'.$this_post_format.'.php';
     if (in_array($this_post_format, $have_post_format) && file_exists($path)){
         return $path;
