@@ -25,6 +25,6 @@ $(document).ready(function() {
 
 	$('#tagcloud .tag-cloud-link').addClass('btn btn-default');
 	// 友情链接
-	$('#menu-link .breadcrumb li a').attr("target","_blank");
-	$('#menu-link .breadcrumb li a').attr("rel","nofollow");
+	$('#menu-link li a').attr("target","_blank");
+	$('#menu-link li a').attr("rel","nofollow");
 })

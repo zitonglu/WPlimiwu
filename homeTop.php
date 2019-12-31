@@ -206,16 +206,7 @@ if ($_POST['LIMIWUs']) {
 </div><!-- panel-group end -->
             </div>
             <div role="tabpanel" class="tab-pane" id="tagcloud">
-              <?php wp_tag_cloud('smallest=9&largest=14');
-                if (has_nav_menu('link')){
-                wp_nav_menu(array(
-                  'container_id'  => 'menu-link',
-                  'container_class' => 'menu-link',
-                  'theme_location' => 'link',
-                  'container' => 'div',
-                  'items_wrap'  => '<ol class="%2$s breadcrumb"><li class="active">友情链接：</li>%3$s</ol>'));
-                }
-              ?>
+              <?php wp_tag_cloud('smallest=9&largest=14');?>
             </div>
         </div>
     </div>

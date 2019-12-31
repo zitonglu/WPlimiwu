@@ -8,6 +8,14 @@
         <?php _e('商业授权版','limiwu' );?> 
         <a href="<?php bloginfo('url'); ?>/sitemap.xml" target="_blank">SiteMap</a>
     </p>
+    <?php if(is_single() || is_page()){}else{
+        if (has_nav_menu('link')){
+        wp_nav_menu(array(
+          'container' => '',
+          'theme_location' => 'link',
+          'items_wrap'  => '<ul id="menu-link" class="%2$s list-inline"><li>'.__('友情链接：','limiwu').'</li>%3$s</ul>'));
+        }
+    }?>
 </footer>
 
 <!-- Bootstrap JS -->

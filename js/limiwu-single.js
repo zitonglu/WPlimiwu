@@ -49,4 +49,7 @@ $(document).ready(function() {
     $('.os-login-box .os-wechat').removeAttr('onclick');
     $('.os-login-box .os-wechat').wrap('<a tabindex="0" data-placement="bottom" role="button" data-toggle="popover" data-trigger="focus" title="登录建设中" data-content="该社交媒体在建设中,微信搜一搜：厘米屋家居空间设计"></a>');
     $('[data-toggle="popover"]').popover();
+    	// 友情链接
+	$('#menu-link li a').attr("target","_blank");
+	$('#menu-link li a').attr("rel","nofollow");
 })
