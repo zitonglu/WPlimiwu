@@ -213,7 +213,7 @@ if ($_POST['LIMIWUs']) {
 </div><!-- container end -->
 </div><!-- hometop end -->
 <div class="homeIco">
-  <div class="col-sm-9"><a href="<?php bloginfo('template_url')?>/index-list.php" target="_blank"><i class="zxlc_ico3"></i><span>家装规划</span></a></div>
+  <div class="col-sm-9"><a href="http://localhost/wordpress/%e4%b8%80%e4%b8%aa%e6%b5%8b%e8%af%95%e7%9a%84%e9%a1%b5%e9%9d%a2/" target="_blank"><i class="zxlc_ico3"></i><span>家装规划</span></a></div>
   <div class="col-sm-9"><i class="zxlc_ico8"></i><span>定制需求</span></div>
   <div class="col-sm-9"><i class="zxlc_ico2"></i><span>咨询了解</span></div>
   <div class="col-sm-9"><i class="zxlc_ico1"></i><span>上门测量</span></div>
