@@ -21,14 +21,14 @@
 <!-- Bootstrap JS -->
 <script src="<?php limiwu_echo_CDN_URL('bootstrap.min.js')?>"></script>
 
-<?php if( is_single() || is_page()):?>
+<?php if( is_single()):?>
     <!-- 侧栏滚动 -->
     <script src="<?php limiwu_echo_CDN_URL('theia-sticky-sidebar.js')?>"></script>
     <!-- 图片大图JS -->
     <script src="<?php limiwu_echo_CDN_URL('viewer-jquery.min.js')?>"></script>
     <!-- 本模版使用的limiwu-single-JS -->
     <script src="<?php bloginfo('template_url')?>/js/limiwu-single.js"></script>
-<?php elseif(is_home() || is_category()):?>
+<?php elseif(is_home() || is_category() || is_page()):?>
     <!-- 瀑布流 JS -->
     <script src="<?php limiwu_echo_CDN_URL('masonry.min.js')?>"></script>
     <!-- 无限下拉 JS -->

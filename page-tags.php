@@ -2,6 +2,7 @@
 /*
 Template Name: 测试单独页面
 */
+
 get_header();?>
 
 <div class="list" id="list">
@@ -12,11 +13,11 @@ $html = '<form action="" method="get" role="form">';
 if ($_GET['page_id']){
 	$html .= '<input class="display-none" name="page_id" value="'.$_GET['page_id'].'">';
 }
-$html .= '<ul class="list-inline">';
+$html .= '<ul class="list-inline tags-list">';
 foreach ( $tags as $tag ) {
 	if (empty($_GET['allTags'])) {
 		$tag_value = $tag->term_id;
-		//$tag_class = 'btn-default';
+		$tag_class = 'btn-default';
 	}else{
 		$tag_value_array = explode('-',$_GET['allTags']);
 		if (in_array($tag->term_id, $tag_value_array)) {
@@ -48,18 +49,17 @@ echo $html;
 		<div class="row" id="masonry">
 		<?php //属性相关内容
 		$tag_value_Arr = explode('-',$_GET['allTags']);
-		print_r($tag_value_Arr);
 		$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+		$limit = (get_query_var('posts_per_page')) ? get_query_var('posts_per_page') : get_option('posts_per_page');
 		$args = array(
+			'limit' => $limit,
 		    'posts_per_page' => 20,// 控制只显示10篇文章，如果将10改成-1将显示所有文章
 		    'tag__in' => $tag_value_array,
 		    'paged' => $paged
 		);
 			query_posts($args);
 			while ( have_posts() ) : the_post();
-				echo '<li><a href="'.$post->guid.'">';
-			    the_title();
-			    echo '</a></li>';
+				require('content.php');
 			endwhile;
 			wp_reset_query();
 		?>
