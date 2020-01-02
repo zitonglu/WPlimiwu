@@ -44,22 +44,25 @@ foreach ( $tags as $tag ) {
 $html .= '</ul></form>';
 echo $html;
 ?>
-		<hr><div class="row" id="masonry">
-<?php
-$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-$args = array(
-    'posts_per_page' => -1,// 控制只显示10篇文章，如果将10改成-1将显示所有文章
-    'tag__in' => array(2,3,5),
-    'paged' => $paged
-);
-	query_posts($args);
-	while ( have_posts() ) : the_post();
-		echo '<li><a href="'.$post->guid.'">';
-	    the_title();
-	    echo '</a></li>';
-	endwhile;
-	wp_reset_query();
-?>
+		<hr>
+		<div class="row" id="masonry">
+		<?php //属性相关内容
+		$tag_value_Arr = explode('-',$_GET['allTags']);
+		print_r($tag_value_Arr);
+		$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+		$args = array(
+		    'posts_per_page' => 20,// 控制只显示10篇文章，如果将10改成-1将显示所有文章
+		    'tag__in' => $tag_value_array,
+		    'paged' => $paged
+		);
+			query_posts($args);
+			while ( have_posts() ) : the_post();
+				echo '<li><a href="'.$post->guid.'">';
+			    the_title();
+			    echo '</a></li>';
+			endwhile;
+			wp_reset_query();
+		?>
 		</div><!-- row end -->
 	</div><!-- container end -->
 </div><!-- list end -->
