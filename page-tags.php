@@ -1,6 +1,6 @@
 <?php 
 /*
-Template Name: 测试单独页面
+Template Name: 标签聚合页面
 */
 
 get_header();?>
@@ -66,12 +66,4 @@ echo $html;
 		</div><!-- row end -->
 	</div><!-- container end -->
 </div><!-- list end -->
-
-<nav id="nav-below">
-  <ul class="pager">
-    <li><?php previous_posts_link(__('上一页','limiwu')) ?></li>
-    <li id="older_posts"><?php next_posts_link(__('下一页','limiwu')) ?></li>
-  </ul>
-</nav><!-- nav-below end -->
-<div class="text-center"><?php _e('下拉自动加载中','limiwu')?>...</div>
 <?php get_footer();?>
