@@ -8,7 +8,10 @@ get_header();?>
 	<div class="container">
 <?php
 $tags = get_tags();
-$html = '<form method="get" role="form">';
+$html = '<form action="" method="get" role="form">';
+if ($_GET['page_id']){
+	$html .= '<input class="display-none" name="page_id" value="'.$_GET['page_id'].'">';
+}
 $html .= '<ul class="list-inline">';
 foreach ( $tags as $tag ) {
 	if (empty($_GET['allTags'])) {
