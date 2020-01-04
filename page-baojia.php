@@ -161,7 +161,7 @@ table,th,td{border:1px solid #546e7a;text-align:center}
 				</table>
 				<p> </p>
 				<table id="tablelist">
-          <tbody data-name="东南房柜体">
+          <thead>
   					<tr>
   						<th># 1</th>
   						<th class="data-name">东南房柜体</th>
@@ -180,8 +180,10 @@ table,th,td{border:1px solid #546e7a;text-align:center}
   						<th>金额</th>
   						<th>备注</th>
   					</tr>
+            </thead>
+            <tbody data-name="东南房柜体">
   					<tr>
-  						<td>1</td>
+  						<td data-name="xuhao">1</td>
   						<td>左侧板</td>
   						<td>2400</td>
   						<td>600</td>
@@ -192,26 +194,28 @@ table,th,td{border:1px solid #546e7a;text-align:center}
   						<td></td>
   					</tr>
           </tbody>
-          <tbody data-name="西南房柜体">
+            <thead>
+              <tr>
+                <th># 1</th>
+                <th class="data-name">西南发南房柜体</th>
+                <th colspan=4>2400 * 1200 * 600</th>
+                <th>1套</th>
+                <th colspan=2>E0实木颗粒板</th>
+              </tr>
+              <tr class="tablebg">
+                <th>序号</th>
+                <th>部件名称</th>
+                <th>长</th>
+                <th>宽</th>
+                <th>厚</th>
+                <th>单价</th>
+                <th>用量</th>
+                <th>金额</th>
+                <th>备注</th>
+              </tr>
+            </thead>
+            <tbody data-name="西南房柜体">
             <tr>
-              <th># 1</th>
-              <th class="data-name">西南发南房柜体</th>
-              <th colspan=4>2400 * 1200 * 600</th>
-              <th>1套</th>
-              <th colspan=2>E0实木颗粒板</th>
-            </tr>
-            <tr class="tablebg">
-              <th>序号</th>
-              <th>部件名称</th>
-              <th>长</th>
-              <th>宽</th>
-              <th>厚</th>
-              <th>单价</th>
-              <th>用量</th>
-              <th>金额</th>
-              <th>备注</th>
-            </tr>
-            <tr id="23">
               <td>1</td>
               <td>左侧板</td>
               <td>2400</td>
@@ -291,9 +295,10 @@ table,th,td{border:1px solid #546e7a;text-align:center}
           <button class="btn btn-default" type="submit" name="addOne">增加单项</button>
         </div>
     	</form>
-    	<h5>操作按钮</h5>
+    	<h5>操作按钮<span id="selectProject"></span></h5>
     	<div>
-    		<button id="addtr" class="btn btn-default" type="submit" title="插入一行" disabled="disabled">插入一行</button>
+    		<button id="addtr" class="btn btn-default" type="submit" disabled="disabled">插入一行</button>
+        <button id="deltr" class="btn btn-default" type="submit" disabled="disabled">删除一行</button>
     	</div>
 	</div><!-- right end -->
 	<!-- body end -->
