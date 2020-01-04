@@ -47,7 +47,10 @@ input[type="number"]{-moz-appearance: textfield}
 .add_button button{margin-bottom:5px}
 .right>.form-control{color:#3c763d;border-color:#3c763d;}
 .form-control-feedback{color:#555}
-.print-A4{margin:0 auto 10px;padding:0px 2vw;max-width:794px;min-height:1123px;border:1px solid #f8f8f8;}
+.print-A4{margin:0 auto 10px;padding:0px 2vw;max-width:794px;min-height:1123px;border:1px solid #546e7a;}
+table{width:100%;line-height: 2em}
+table,th,td{border:1px solid #546e7a;text-align:center}
+.tablebg{background-color:#607d8b}
 
 </style>
 </head>
@@ -119,6 +122,75 @@ input[type="number"]{-moz-appearance: textfield}
 			<div class="text-left">
 				<p>专案名：XXX小区设计方案 <span>订单号：XXX6️213</span> <span>下单时间：2019年12月12日</span> <span>安装时间：2020年1月18日</span><br>
 				客户信息：张女士 - 1524874588 - 紫金花园冲们去古董里</p>
+				<table class="text-center">
+					<thead>
+						<tr class="tablebg">
+							<th>序号</th>
+							<th>项目名称</th>
+							<th>尺寸</th>
+							<th>单价</th>
+							<th>用量</th>
+							<th>总价</th>
+							<th>材料/备注</th>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>东南房衣柜</td>
+							<td>2400 * 1200 * 600</td>
+							<td>760.00</td>
+							<td>1</td>
+							<td>2188.8</td>
+							<td>EO实木颗粒板</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>西南房衣柜</td>
+							<td>2400 * 1200 * 600</td>
+							<td>760.00</td>
+							<td>1</td>
+							<td>2188.8</td>
+							<td>EO实木颗粒板</td>
+						</tr>
+						<tr>
+							<td colspan=4></td>
+							<td>合计</td>
+							<td>52400</td>
+							<td></td>
+						</tr>
+					</thead>
+				</table>
+				<p> </p>
+				<table id="tablelist">
+					<tr>
+						<th># 1</th>
+						<th>东南房柜体</th>
+						<th colspan=4>2400 * 1200 * 600</th>
+						<th>1套</th>
+						<th colspan=2>E0实木颗粒板</th>
+					</tr>
+					<tr class="tablebg">
+						<th>序号</th>
+						<th>部件名称</th>
+						<th>长</th>
+						<th>宽</th>
+						<th>厚</th>
+						<th>单价</th>
+						<th>用量</th>
+						<th>金额</th>
+						<th>备注</th>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td>左侧板</td>
+						<td>2400</td>
+						<td>600</td>
+						<td>18</td>
+						<td>200</td>
+						<td>1</td>
+						<td>288</td>
+						<td></td>
+					</tr>
+				</table>
 			</div>
 		</div>
 	</div>
@@ -186,6 +258,10 @@ input[type="number"]{-moz-appearance: textfield}
           <button class="btn btn-default" type="submit" name="addOne">增加单项</button>
         </div>
     	</form>
+    	<h5>操作按钮</h5>
+    	<div>
+    		<button id="addtr" class="btn btn-default" type="submit" title="插入一行">插入一行</button>
+    	</div>
 	</div><!-- right end -->
 	<!-- body end -->
 	<footer class="col-sm-12 footer">
@@ -215,7 +291,17 @@ input[type="number"]{-moz-appearance: textfield}
 		$("button[name='addOne']").click(function(){
 			$("form[name='rightBox']").submit();
 		});
+		$('table').mousemove(function() {
+			$('#addtr').attr('onclick', 'addtr()');
+			//alert($(this).attr('id'));
+		});
 	})
+
+
+	function addtr($thistable){
+		var $newRow = '<tr><td>新行第一列</td><td>新行第二列</td><td>新行第三列</td><td>新行第四列</td><td>新行第五列</td></tr>';
+		$thistable.$("tr:last").after($newRow);
+	}
 </script>
 </body>
 </html>
