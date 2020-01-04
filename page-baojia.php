@@ -14,9 +14,11 @@ Template Name: 报价页面
 <meta name="keywords" content="全屋定制设计,报价,拆单,深化" />
 <?php wp_head(); ?>
 <?php echo get_option('limiwu_top_javaScript');//百度统计?>
-<link rel="stylesheet" href="<?php limiwu_echo_CDN_URL('bootstrap.min.css','css')?>">
+<link rel="stylesheet" type="text/css" href="<?php limiwu_echo_CDN_URL('bootstrap.min.css','css')?>">
+<link rel="stylesheet" type="text/css" href="<?php echo bloginfo('template_url')?>/datepickerJS/bootstrap-datepicker3.min.css">
 <style>
 body{background-color:#455a64;color:#f8f8f8}
+.datepicker{color:#333}
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {-webkit-appearance: none}
 input[type="number"]{-moz-appearance: textfield}
@@ -36,6 +38,9 @@ input[type="number"]{-moz-appearance: textfield}
 .footer a:hover{color: #bdbdbd}
 /*====.left 页面左部 ====*/
 .left,.table-box,.right{min-height:100vh}
+.left>.form-control,
+.left .input-group,
+.left .form-group,
 .right>.form-control,
 .right .input-group,
 .right .form-group,
@@ -48,10 +53,69 @@ input[type="number"]{-moz-appearance: textfield}
 <body>
 	<?php get_template_part('nav');//顶部导航 ?>
 	<!-- body begin -->
-	<div class="col-sm-2 left"></div>
+	<div class="col-sm-2 left">
+		<input type="text" class="form-control" id="project_name" name="project_name" placeholder="专案名称">
+		<h5>基本信息</h5>
+		<!-- 客户姓名 -->
+		<div class="form-group">
+          <label class="control-label sr-only" for="customer_name">客户姓名</label>
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input type="text" class="form-control" id="customer_name" name="customer_name" placeholder="先生/女士">
+          </div>
+        </div>
+        <!-- 联系方式 -->
+		<div class="form-group">
+          <label class="control-label sr-only" for="customer_tel">客户联系方式</label>
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+            <input type="number" class="form-control" id="customer_tel" name="customer_tel" placeholder="联系方式">
+          </div>
+        </div>
+        <!-- 地址 -->
+		<div class="form-group">
+          <label class="control-label sr-only" for="customer_address">项目地址</label>
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
+            <input type="text" class="form-control" id="customer_address" name="customer_address" placeholder="项目地址">
+          </div>
+        </div>
+        <h5>项目节点</h5>
+        <!-- 订单编号 -->
+		<div class="form-group">
+          <label class="control-label sr-only" for="customer_number">订单编号</label>
+          <div class="input-group">
+            <span class="input-group-addon">单号</span>
+            <input type="text" class="form-control" id="customer_number" name="customer_number">
+          </div>
+        </div>
+        <!-- 下单时间 -->
+		<div class="form-group">
+          <label class="control-label sr-only" for="customer_orderTime">下单时间</label>
+          <div class="input-group date datepicker">
+            <span class="input-group-addon">下单</span>
+            <input type="text" class="form-control" id="customer_orderTime" name="customer_orderTime">
+          </div>
+        </div>
+        <!-- 安装时间 -->
+		<div class="form-group">
+          <label class="control-label sr-only" for="customer_installTime">预约安装时间</label>
+          <div class="input-group date datepicker">
+            <span class="input-group-addon">安装</span>
+            <input type="text" class="form-control" id="customer_installTime" name="customer_installTime">
+          </div>
+        </div>
+        <h5>新建/存储</h5>
+        <div class="add_button text-right">
+          <button class="btn btn-default" type="submit" name="newProject">新建</button>
+          <button class="btn btn-default" type="submit" name="inProject">草稿</button>
+          <button class="btn btn-default" type="submit" name="saveProject">保存</button>
+      	</div>
+	</div>
 	<div class="col-sm-8 table-box"></div>
 	<div class="col-sm-2 right">
-        <input type="text" class="form-control has-success" id="cab_name" name="cab_name" required tabindex="1" placeholder="项目(柜体/门扇)名称">
+		<form name="rightBox" method="post" action="">
+        <input type="text" class="form-control" id="cab_name" name="cab_name" required tabindex="1" placeholder="项目(柜体/门扇)名称">
         <h5>柜体/门扇/板材尺寸</h5>
         <!-- 柜体高度 -->
 		<div class="form-group has-feedback">
@@ -81,6 +145,14 @@ input[type="number"]{-moz-appearance: textfield}
           <span class="form-control-feedback">mm</span>
         </div>
         <h5>价格</h5>
+        <!-- 材料 -->
+        <div class="form-group">
+          <label class="control-label sr-only" for="material">材料名称</label>
+          <div class="input-group"> 
+            <span class="input-group-addon">材料</span>
+            <input type="text" class="form-control" id="material" name="material" placeholder="E0实木颗粒板">
+          </div>
+        </div>
         <!-- 面积单价 -->
         <div class="form-group has-feedback">
           <label class="control-label sr-only" for="sheetPrice">面积单价</label>
@@ -91,7 +163,7 @@ input[type="number"]{-moz-appearance: textfield}
           <span class="form-control-feedback"><small>元/m²</small></span>
         </div>
         <!-- 数量 -->
-        <div class="form-group has-feedback">
+        <div class="form-group">
           <label class="control-label sr-only" for="LM_number">数量</label>
           <div class="input-group"> 
             <span class="input-group-addon">数量</span>
@@ -99,14 +171,13 @@ input[type="number"]{-moz-appearance: textfield}
           </div>
         </div>
         <h5>计算方式</h5>
-        <div class="add_button text-center">
-          <button class="btn btn-default" type="submit">增加单项</button>
-          <button class="btn btn-default" type="submit">增加单项</button>
-          <button class="btn btn-default" type="submit">增加单项</button>
-          <button class="btn btn-default" type="submit">增加单项</button>
-          <button class="btn btn-default" type="submit">增加单项</button>
+        <div class="add_button">
+          <button class="btn btn-default" type="submit" name="projectedArea">投影面积</button>
+          <button class="btn btn-default" type="submit" name="expandedArea">展开面积</button>
+          <button class="btn btn-default" type="submit" name="addOne">增加单项</button>
         </div>
-	</div>
+    	</form>
+	</div><!-- right end -->
 	<!-- body end -->
 	<footer class="col-sm-12 footer">
 	    <p>
@@ -122,8 +193,21 @@ input[type="number"]{-moz-appearance: textfield}
 <script src="<?php limiwu_echo_CDN_URL('jquery.min.js')?>"></script>
 <!-- Bootstrap JS -->
 <script src="<?php limiwu_echo_CDN_URL('bootstrap.min.js')?>"></script>
+<!-- datepickerJS -->
+<script type="text/javascript" src="<?php echo bloginfo('template_url')?>/datepickerJS/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript" src="<?php echo bloginfo('template_url')?>/datepickerJS/bootstrap-datepicker.zh-CN.min.js" charset="UTF-8"></script>
 <?php echo get_option('limiwu_bottom_javaScript');?>
 <?php wp_footer(); ?>
+<script>
+	$(function(){
+		$('.datepicker').datepicker({
+			language: 'zh-CN'
+		});
+		$("button[name='addOne']").click(function(){
+			$("form[name='rightBox']").submit();
+		});
+	})
+</script>
 </body>
 </html>
 <!-- 网页打开时间：<?php timer_stop(1); ?>秒 -->
