@@ -161,35 +161,68 @@ table,th,td{border:1px solid #546e7a;text-align:center}
 				</table>
 				<p> </p>
 				<table id="tablelist">
-					<tr>
-						<th># 1</th>
-						<th>东南房柜体</th>
-						<th colspan=4>2400 * 1200 * 600</th>
-						<th>1套</th>
-						<th colspan=2>E0实木颗粒板</th>
-					</tr>
-					<tr class="tablebg">
-						<th>序号</th>
-						<th>部件名称</th>
-						<th>长</th>
-						<th>宽</th>
-						<th>厚</th>
-						<th>单价</th>
-						<th>用量</th>
-						<th>金额</th>
-						<th>备注</th>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>左侧板</td>
-						<td>2400</td>
-						<td>600</td>
-						<td>18</td>
-						<td>200</td>
-						<td>1</td>
-						<td>288</td>
-						<td></td>
-					</tr>
+          <tbody data-name="东南房柜体">
+  					<tr>
+  						<th># 1</th>
+  						<th class="data-name">东南房柜体</th>
+  						<th colspan=4>2400 * 1200 * 600</th>
+  						<th>1套</th>
+  						<th colspan=2>E0实木颗粒板</th>
+  					</tr>
+  					<tr class="tablebg">
+  						<th>序号</th>
+  						<th>部件名称</th>
+  						<th>长</th>
+  						<th>宽</th>
+  						<th>厚</th>
+  						<th>单价</th>
+  						<th>用量</th>
+  						<th>金额</th>
+  						<th>备注</th>
+  					</tr>
+  					<tr>
+  						<td>1</td>
+  						<td>左侧板</td>
+  						<td>2400</td>
+  						<td>600</td>
+  						<td>18</td>
+  						<td>200</td>
+  						<td>1</td>
+  						<td>288</td>
+  						<td></td>
+  					</tr>
+          </tbody>
+          <tbody data-name="西南房柜体">
+            <tr>
+              <th># 1</th>
+              <th class="data-name">西南发南房柜体</th>
+              <th colspan=4>2400 * 1200 * 600</th>
+              <th>1套</th>
+              <th colspan=2>E0实木颗粒板</th>
+            </tr>
+            <tr class="tablebg">
+              <th>序号</th>
+              <th>部件名称</th>
+              <th>长</th>
+              <th>宽</th>
+              <th>厚</th>
+              <th>单价</th>
+              <th>用量</th>
+              <th>金额</th>
+              <th>备注</th>
+            </tr>
+            <tr id="23">
+              <td>1</td>
+              <td>左侧板</td>
+              <td>2400</td>
+              <td>600</td>
+              <td>18</td>
+              <td>200</td>
+              <td>1</td>
+              <td>288</td>
+              <td></td>
+            </tr>
+          </tbody>
 				</table>
 			</div>
 		</div>
@@ -260,7 +293,7 @@ table,th,td{border:1px solid #546e7a;text-align:center}
     	</form>
     	<h5>操作按钮</h5>
     	<div>
-    		<button id="addtr" class="btn btn-default" type="submit" title="插入一行">插入一行</button>
+    		<button id="addtr" class="btn btn-default" type="submit" title="插入一行" disabled="disabled">插入一行</button>
     	</div>
 	</div><!-- right end -->
 	<!-- body end -->
@@ -281,28 +314,9 @@ table,th,td{border:1px solid #546e7a;text-align:center}
 <!-- datepickerJS -->
 <script type="text/javascript" src="<?php echo bloginfo('template_url')?>/datepickerJS/bootstrap-datepicker.min.js"></script>
 <script type="text/javascript" src="<?php echo bloginfo('template_url')?>/datepickerJS/bootstrap-datepicker.zh-CN.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="<?php echo bloginfo('template_url')?>/js/limiwu-page-baojia.js" charset="UTF-8"></script>
 <?php echo get_option('limiwu_bottom_javaScript');?>
 <?php wp_footer(); ?>
-<script>
-	$(function(){
-		$('.datepicker').datepicker({
-			language: 'zh-CN'
-		});
-		$("button[name='addOne']").click(function(){
-			$("form[name='rightBox']").submit();
-		});
-		$('table').mousemove(function() {
-			$('#addtr').attr('onclick', 'addtr()');
-			//alert($(this).attr('id'));
-		});
-	})
-
-
-	function addtr($thistable){
-		var $newRow = '<tr><td>新行第一列</td><td>新行第二列</td><td>新行第三列</td><td>新行第四列</td><td>新行第五列</td></tr>';
-		$thistable.$("tr:last").after($newRow);
-	}
-</script>
 </body>
 </html>
 <!-- 网页打开时间：<?php timer_stop(1); ?>秒 -->
