@@ -47,6 +47,7 @@ input[type="number"]{-moz-appearance: textfield}
 .add_button button{margin-bottom:5px}
 .right>.form-control{color:#3c763d;border-color:#3c763d;}
 .form-control-feedback{color:#555}
+.print-A4{margin:0 auto 10px;padding:0px 2vw;max-width:794px;min-height:1123px;border:1px solid #f8f8f8;}
 
 </style>
 </head>
@@ -112,7 +113,15 @@ input[type="number"]{-moz-appearance: textfield}
           <button class="btn btn-default" type="submit" name="saveProject">保存</button>
       	</div>
 	</div>
-	<div class="col-sm-8 table-box"></div>
+	<div class="col-sm-8 table-box text-center" contenteditable=true>
+		<div class="print-A4">
+			<h2>厘米屋空间家具设计报价清单</h2>
+			<div class="text-left">
+				<p>专案名：XXX小区设计方案 <span>订单号：XXX6️213</span> <span>下单时间：2019年12月12日</span> <span>安装时间：2020年1月18日</span><br>
+				客户信息：张女士 - 1524874588 - 紫金花园冲们去古董里</p>
+			</div>
+		</div>
+	</div>
 	<div class="col-sm-2 right">
 		<form name="rightBox" method="post" action="">
         <input type="text" class="form-control" id="cab_name" name="cab_name" required tabindex="1" placeholder="项目(柜体/门扇)名称">
