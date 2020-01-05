@@ -3,6 +3,11 @@ $(function(){
 		language: 'zh-CN'
 	});
 
+	$("a[name='saveProject']").click(function() {//更新专案属性
+		$about = '专案名：' + $('#project_name').val();
+		$("p[name='about']").html($about);
+	});
+
 	$("button#newObject").click(function(){//模拟提交
 		$("form[name='rightBox']").submit();
 	});
