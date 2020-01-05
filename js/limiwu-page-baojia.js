@@ -44,6 +44,33 @@ $(function(){
 		for (var i = 0; i < $orderNumber.length; i++) {
 			$($orderNumber[i]).text(i+1);
 		}
+		//数量汇总
+		$total = $tbody.find("td[name='cabN']");
+		$totals = 0;
+		for (var i = $total.length - 1; i >= 0; i--) {
+			$n = $($total[i]).text();
+			if($n){
+				if(!isNaN($n)){
+					$n = Number($n);
+					$totals += $n;
+				}
+			}
+		}
+		$tbody.find("td[name='totals']").text($totals);
+		//金额汇总
+		$prices = $tbody.find("td[name='cabP']");
+		$totalprice = 0;
+		for (var i = $prices.length - 1; i >= 0; i--) {
+			$n = $($prices[i]).text();
+			if($n){
+				if (!isNaN($n)) {
+					$n = Number($n);
+					$totalprice += $n;
+				}
+			}
+		}
+		$tbody.find("td[name='totalprice']").text($totalprice);
+		//console.log();
 	});
 });
 
@@ -54,9 +81,16 @@ function addtr($thisTr){
 	$length = $($tr).length;
 	$orderNumber = $length + 1;
 
-	$newRow = '<tr><td name="orderNumber">';
-	$newRow += $orderNumber;
-	$newRow += '</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>';
+	$newRow = '<tr><td name="orderNumber">'+$orderNumber+'</td>';//序号
+	$newRow += '<td></td>';//项目名称
+	$newRow += '<td name="cabX"></td>';//长度
+	$newRow += '<td name="cabY"></td>';//宽度
+	$newRow += '<td name="cabD"></td>';//厚度
+	$newRow += '<td name="cabA"></td>';//用量
+	$newRow += '<td name="cabU"></td>';//单价
+	$newRow += '<td name="cabN"></td>';//数量
+	$newRow += '<td name="cabP"></td>';//金额
+	$newRow += '<td></td></tr>';//备注
 	if ($length == 0) {
 		$($arr[0]).prepend($newRow);
 	}else{

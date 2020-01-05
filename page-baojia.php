@@ -162,50 +162,10 @@ table,th,td{border:1px solid #546e7a;text-align:center}
 				<p> </p>
 		<table><!-- 柜体清单部分 -->
           	<thead class="cabhead">
-  					<tr>
-  						<th># 1</th>
-  						<th class="data-name">东南房柜体</th>
-  						<th colspan=4>2400 * 1200 * 600</th>
-  						<th>1套</th>
-  						<th colspan=2>E0实木颗粒板</th>
-  					</tr>
-  					<tr class="tablebg">
-  						<th>序号</th>
-  						<th>部件名称</th>
-  						<th>长</th>
-  						<th>宽</th>
-  						<th>厚</th>
-  						<th>单价</th>
-  						<th>用量</th>
-  						<th>金额</th>
-  						<th>备注</th>
-  					</tr>
-            </thead>
-            <tbody data-name="东南房柜体" class="cab">
-  					<tr>
-  						<td name="orderNumber">1</td>
-  						<td>左侧板</td>
-  						<td>2400</td>
-  						<td>600</td>
-  						<td>18</td>
-  						<td>200</td>
-  						<td>1</td>
-  						<td>288</td>
-  						<td></td>
-  					</tr>
-  					<tr>
-						<td colspan=5></td>
-						<td>小计</td>
-						<td>52</td>
-						<td>52400</td>
-						<td></td>
-					</tr>
-          </tbody>
-            <thead class="cabhead">
               <tr>
                 <th># 1</th>
-                <th class="data-name">西南发南房柜体</th>
-                <th colspan=4>2400 * 1200 * 600</th>
+                <th class="data-name">东南房柜体</th>
+                <th colspan=5>2400 * 1200 * 600</th>
                 <th>1套</th>
                 <th colspan=2>E0实木颗粒板</th>
               </tr>
@@ -215,8 +175,51 @@ table,th,td{border:1px solid #546e7a;text-align:center}
                 <th>长</th>
                 <th>宽</th>
                 <th>厚</th>
-                <th>单价</th>
                 <th>用量</th>
+                <th>单价</th>
+                <th>数量</th>
+                <th>金额</th>
+                <th>备注</th>
+              </tr>
+            </thead>
+            <tbody data-name="东南房柜体" class="cab">
+            <tr>
+              <td name="orderNumber">1</td>
+              <td>左侧板</td>
+              <td name="cabX">2400</td>
+              <td name="cabY">600</td>
+              <td name="cabD">18</td>
+              <td name="cabA">1.44</td>
+              <td name="cabU">200</td>
+              <td name="cabN">1</td>
+              <td name="cabP">288</td>
+              <td></td>
+            </tr>
+            <tr>
+				<td colspan=5></td>
+				<td colspan=2>小计</td>
+				<td>52</td>
+				<td>52400</td>
+				<td></td>
+			</tr>
+          </tbody>
+            <thead class="cabhead">
+              <tr>
+                <th># 1</th>
+                <th class="data-name">西南发南房柜体</th>
+                <th colspan=5>2400 * 1200 * 600</th>
+                <th>1套</th>
+                <th colspan=2>E0实木颗粒板</th>
+              </tr>
+              <tr class="tablebg">
+                <th>序号</th>
+                <th>部件名称</th>
+                <th>长</th>
+                <th>宽</th>
+                <th>厚</th>
+                <th>用量</th>
+                <th>单价</th>
+                <th>数量</th>
                 <th>金额</th>
                 <th>备注</th>
               </tr>
@@ -225,19 +228,20 @@ table,th,td{border:1px solid #546e7a;text-align:center}
             <tr>
               <td name="orderNumber">1</td>
               <td>左侧板</td>
-              <td>2400</td>
-              <td>600</td>
-              <td>18</td>
-              <td>200</td>
-              <td>1</td>
-              <td>288</td>
+              <td name="cabX">2400</td>
+              <td name="cabY">600</td>
+              <td name="cabD">18</td>
+              <td name="cabA">1.44</td>
+              <td name="cabU">200</td>
+              <td name="cabN">1</td>
+              <td name="cabP">288</td>
               <td></td>
             </tr>
             <tr>
 				<td colspan=5></td>
-				<td>小计</td>
-				<td>52</td>
-				<td>52400</td>
+				<td colspan=2>小计</td>
+				<td name="totals"></td>
+				<td name="totalprice"></td>
 				<td></td>
 			</tr>
           </tbody>
@@ -334,7 +338,7 @@ table,th,td{border:1px solid #546e7a;text-align:center}
 <!-- datepickerJS -->
 <script type="text/javascript" src="<?php echo bloginfo('template_url')?>/datepickerJS/bootstrap-datepicker.min.js"></script>
 <script type="text/javascript" src="<?php echo bloginfo('template_url')?>/datepickerJS/bootstrap-datepicker.zh-CN.min.js" charset="UTF-8"></script>
-<script type="text/javascript" src="<?php echo bloginfo('template_url')?>/js/limiwu-page-baojia.js" charset="UTF-8"></script>
+<script type="text/javascript" src="<?php echo bloginfo('template_url')?>/js/limiwu-page-baojia.js?v=1.0" charset="UTF-8"></script>
 <?php echo get_option('limiwu_bottom_javaScript');?>
 <?php wp_footer(); ?>
 </body>
