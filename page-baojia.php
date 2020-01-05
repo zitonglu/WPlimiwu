@@ -160,8 +160,8 @@ table,th,td{border:1px solid #546e7a;text-align:center}
 					</thead>
 				</table>
 				<p> </p>
-				<table id="tablelist">
-          <thead>
+		<table><!-- 柜体清单部分 -->
+          	<thead class="cabhead">
   					<tr>
   						<th># 1</th>
   						<th class="data-name">东南房柜体</th>
@@ -181,7 +181,7 @@ table,th,td{border:1px solid #546e7a;text-align:center}
   						<th>备注</th>
   					</tr>
             </thead>
-            <tbody data-name="东南房柜体">
+            <tbody data-name="东南房柜体" class="cab">
   					<tr>
   						<td data-name="xuhao">1</td>
   						<td>左侧板</td>
@@ -194,7 +194,7 @@ table,th,td{border:1px solid #546e7a;text-align:center}
   						<td></td>
   					</tr>
           </tbody>
-            <thead>
+            <thead class="cabhead">
               <tr>
                 <th># 1</th>
                 <th class="data-name">西南发南房柜体</th>
@@ -214,7 +214,7 @@ table,th,td{border:1px solid #546e7a;text-align:center}
                 <th>备注</th>
               </tr>
             </thead>
-            <tbody data-name="西南房柜体">
+            <tbody data-name="西南房柜体" class="cab">
             <tr>
               <td>1</td>
               <td>左侧板</td>
@@ -296,9 +296,10 @@ table,th,td{border:1px solid #546e7a;text-align:center}
         </div>
     	</form>
     	<h5>操作按钮<span id="selectProject"></span></h5>
-    	<div>
-    		<button id="addtr" class="btn btn-default" type="submit" disabled="disabled">插入一行</button>
-        <button id="deltr" class="btn btn-default" type="submit" disabled="disabled">删除一行</button>
+    	<div class="add_button">
+    	<button id="delcab" class="btn btn-danger" type="submit" disabled="disabled">删除整柜</button><br>
+    	<button id="addtr" class="btn btn-default" type="submit" disabled="disabled">插入行</button>
+        <button id="deltr" class="btn btn-default" type="submit" disabled="disabled">删除行</button>
     	</div>
 	</div><!-- right end -->
 	<!-- body end -->
