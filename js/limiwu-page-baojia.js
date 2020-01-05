@@ -6,6 +6,11 @@ $(function(){
 	$("button[name='addOne']").click(function(){//模拟提交
 		$("form[name='rightBox']").submit();
 	});
+
+	$('input#sheetPrice').on("input propertychange",function(){//单价提交实施监控
+		var result = $(this).val();
+        $('input#sheetPrice').attr("value",result);
+	});
 	//选中柜体thead.cabhead TR产生的变化
 	$('thead.cabhead').on("click","tr",function() {
 		$thead = $(this).parent();
@@ -33,7 +38,7 @@ $(function(){
 		$('#selectProject').text('：'+$dataName);
 		//开启增加行的按钮
 		$('#addtr').removeAttr('disabled');
-		$('#addtr').attr('onclick','addtr(\''+$thisTr+'\')');
+		$('#addtr').attr('onclick','addtr(\''+$thisTr+'\',\'after\')');
 		//开启删除行的按钮
 		$('#deltr').removeAttr('disabled');
 		$('#deltr').attr('onclick','deltr(\''+$thisTr+'\')');
@@ -70,7 +75,7 @@ $(function(){
 			}
 		}
 		$tbody.find("td[name='totalprice']").text($totalprice);
-		//金额计算，加减乘除相应
+		//金额计算，计算出行面积和金额
 		$cabX = Number($(this).children("td[name='cabX']").text());
 		$cabY = Number($(this).children("td[name='cabY']").text());
 		$cabN = Number($(this).children("td[name='cabN']").text());
@@ -84,28 +89,35 @@ $(function(){
 });
 
 //增加一行
-function addtr($thisTr){
+function addtr($thisTr,$where='before'){
 	$arr = $thisTr.split(" ");
-	$tr = $arr[0] + " tr";
+	$tr = $arr[0] + " tr:last";
 	$length = $($tr).length;
-	$orderNumber = $length + 1;
+	// $orderNumber = $length + 1;
 
-	$newRow = '<tr><td name="orderNumber">'+$orderNumber+'</td>';//序号
-	$newRow += '<td></td>';//项目名称
+	//判断是否存在单价
+	$yuan = $('input#sheetPrice').val();
+	if(!$yuan){$yuan = 0};
+
+	$newRow = '<tr><td name="orderNumber"></td>';//序号
+	$newRow += '<td>封板</td>';//项目名称
 	$newRow += '<td name="cabX"></td>';//长度
 	$newRow += '<td name="cabY"></td>';//宽度
 	$newRow += '<td name="cabD">18</td>';//厚度
-	$newRow += '<td name="cabA"></td>';//用量
-	$newRow += '<td name="cabU"></td>';//单价
+	$newRow += '<td name="cabA">0</td>';//用量
+	$newRow += '<td name="cabU">'+$yuan+'</td>';//单价
 	$newRow += '<td name="cabN">1</td>';//数量
-	$newRow += '<td name="cabP"></td>';//金额
+	$newRow += '<td name="cabP">0</td>';//金额
 	$newRow += '<td></td></tr>';//备注
 	if ($length == 0) {
 		$($arr[0]).prepend($newRow);
 	}else{
-		$($thisTr).after($newRow);
+		if ($where == 'before') {
+			$($thisTr).before($newRow);
+		}else{
+			$($thisTr).after($newRow);
+		}
 	}
-
 }
 //删除当前行
 function deltr($thisTr){

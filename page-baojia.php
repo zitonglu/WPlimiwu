@@ -198,8 +198,8 @@ table,th,td{border:1px solid #546e7a;text-align:center}
             <tr>
 				<td colspan=5></td>
 				<td colspan=2>小计</td>
-				<td>52</td>
-				<td>52400</td>
+				<td name="totals"></td>
+				<td name="totalprice"></td>
 				<td></td>
 			</tr>
           </tbody>
