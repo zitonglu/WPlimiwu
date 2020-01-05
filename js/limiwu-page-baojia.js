@@ -70,7 +70,16 @@ $(function(){
 			}
 		}
 		$tbody.find("td[name='totalprice']").text($totalprice);
-		//console.log();
+		//金额计算，加减乘除相应
+		$cabX = Number($(this).children("td[name='cabX']").text());
+		$cabY = Number($(this).children("td[name='cabY']").text());
+		$cabN = Number($(this).children("td[name='cabN']").text());
+		$cabA = decimal($cabX * $cabY * $cabN / 1000000,2);
+		$(this).children("td[name='cabA']").text($cabA);
+		$cabU = Number($(this).children("td[name='cabU']").text());
+		$cabP = decimal($cabA * $cabU,2);
+		$(this).children("td[name='cabP']").text($cabP);
+		//console.log($cabP);
 	});
 });
 
@@ -85,10 +94,10 @@ function addtr($thisTr){
 	$newRow += '<td></td>';//项目名称
 	$newRow += '<td name="cabX"></td>';//长度
 	$newRow += '<td name="cabY"></td>';//宽度
-	$newRow += '<td name="cabD"></td>';//厚度
+	$newRow += '<td name="cabD">18</td>';//厚度
 	$newRow += '<td name="cabA"></td>';//用量
 	$newRow += '<td name="cabU"></td>';//单价
-	$newRow += '<td name="cabN"></td>';//数量
+	$newRow += '<td name="cabN">1</td>';//数量
 	$newRow += '<td name="cabP"></td>';//金额
 	$newRow += '<td></td></tr>';//备注
 	if ($length == 0) {
@@ -110,4 +119,9 @@ function delcab($dataName){
 		$($thisTobdy).remove();
 		$($thisThead).remove();
 	}
+}
+//四舍五入精确到分
+function decimal(num,v){
+	var vv = Math.pow(10,v);
+	return Math.round(num*vv)/vv;
 }
