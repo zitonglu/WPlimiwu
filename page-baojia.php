@@ -44,7 +44,7 @@ input[type="number"]{-moz-appearance: textfield}
 .right>.form-control,
 .right .input-group,
 .right .form-group,
-.add_button button{margin-bottom:5px}
+.add_button .btn{margin-bottom:5px}
 .right>.form-control{color:#3c763d;border-color:#3c763d;}
 .form-control-feedback{color:#555}
 .print-A4{margin:0 auto 10px;padding:0px 2vw;max-width:794px;min-height:1123px;border:1px solid #546e7a;}
@@ -54,26 +54,42 @@ table,th,td{border:1px solid #546e7a;text-align:center}
 
 </style>
 </head>
+<?php
+function limiwu_setValue($post){
+  if ($post) {echo ' value = "'.$post.'"';}
+}
+function limiwu_closeButton(){
+  if($_POST['newProject']){echo ' disabled="disabled"';}
+}
+if ($_POST['newProject']) {
+  $about = '专案名：'.$_POST['project_name'];
+  $about .= ' 订单号：'.$_POST['customer_number'];
+  $about .= ' 下单时间：'.$_POST['customer_orderTime'];
+  $about .= ' 安装时间：'.$_POST['customer_number'];
+  $about .= '<br>客户信息：'.$_POST['customer_name'].' - '.$_POST['customer_tel'].' - '.$_POST['customer_address'];
+}
+?>
 <body>
 	<?php get_template_part('nav');//顶部导航 ?>
 	<!-- body begin -->
 	<div class="col-sm-2 left">
-		<input type="text" class="form-control" id="project_name" name="project_name" placeholder="专案名称">
+    <form name="leftBox" method="post" action="">
+		<input type="text" class="form-control" id="project_name" name="project_name" placeholder="专案名称" required tabindex="1"<?php limiwu_setValue($_POST['project_name']);?>>
 		<h5>基本信息</h5>
 		<!-- 客户姓名 -->
 		<div class="form-group">
           <label class="control-label sr-only" for="customer_name">客户姓名</label>
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input type="text" class="form-control" id="customer_name" name="customer_name" placeholder="先生/女士">
+            <input type="text" class="form-control" id="customer_name" name="customer_name" placeholder="先生/女士" tabindex="2"<?php limiwu_setValue($_POST['customer_name']);?>>
           </div>
         </div>
         <!-- 联系方式 -->
 		<div class="form-group">
-          <label class="control-label sr-only" for="customer_tel">客户联系方式</label>
+           <label class="control-label sr-only" for="customer_tel">客户联系方式</label>
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
-            <input type="number" class="form-control" id="customer_tel" name="customer_tel" placeholder="联系方式">
+            <input type="number" class="form-control" id="customer_tel" name="customer_tel" placeholder="联系方式" required tabindex="3"<?php limiwu_setValue($_POST['customer_tel']);?>>
           </div>
         </div>
         <!-- 地址 -->
@@ -81,7 +97,7 @@ table,th,td{border:1px solid #546e7a;text-align:center}
           <label class="control-label sr-only" for="customer_address">项目地址</label>
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
-            <input type="text" class="form-control" id="customer_address" name="customer_address" placeholder="项目地址">
+            <input type="text" class="form-control" id="customer_address" name="customer_address" placeholder="项目地址" required tabindex="4"<?php limiwu_setValue($_POST['customer_address']);?>>
           </div>
         </div>
         <h5>项目节点</h5>
@@ -90,7 +106,7 @@ table,th,td{border:1px solid #546e7a;text-align:center}
           <label class="control-label sr-only" for="customer_number">订单编号</label>
           <div class="input-group">
             <span class="input-group-addon">单号</span>
-            <input type="text" class="form-control" id="customer_number" name="customer_number">
+            <input type="text" class="form-control" id="customer_number" name="customer_number" tabindex="5"<?php limiwu_setValue($_POST['customer_number']);?>>
           </div>
         </div>
         <!-- 下单时间 -->
@@ -98,7 +114,7 @@ table,th,td{border:1px solid #546e7a;text-align:center}
           <label class="control-label sr-only" for="customer_orderTime">下单时间</label>
           <div class="input-group date datepicker">
             <span class="input-group-addon">下单</span>
-            <input type="text" class="form-control" id="customer_orderTime" name="customer_orderTime">
+            <input type="text" class="form-control" id="customer_orderTime" name="customer_orderTime" tabindex="6"<?php limiwu_setValue($_POST['customer_orderTime']);?>>
           </div>
         </div>
         <!-- 安装时间 -->
@@ -106,22 +122,21 @@ table,th,td{border:1px solid #546e7a;text-align:center}
           <label class="control-label sr-only" for="customer_installTime">预约安装时间</label>
           <div class="input-group date datepicker">
             <span class="input-group-addon">安装</span>
-            <input type="text" class="form-control" id="customer_installTime" name="customer_installTime">
+            <input type="text" class="form-control" id="customer_installTime" name="customer_installTime" tabindex="7"<?php limiwu_setValue($_POST['customer_installTime']);?>>
           </div>
         </div>
         <h5>新建/存储</h5>
         <div class="add_button text-right">
-          <button class="btn btn-default" type="submit" name="newProject">新建</button>
-          <button class="btn btn-default" type="submit" name="inProject">草稿</button>
-          <button class="btn btn-default" type="submit" name="saveProject">保存</button>
+          <button class="btn btn-default" type="submit" name="newProject" value="newProject"<?php limiwu_closeButton();?>>新建</button>
+          <a class="btn btn-default" name="saveProject">更新</a>
       	</div>
+      </form>
 	</div>
 	<div class="col-sm-8 table-box text-center" contenteditable=true>
 		<div class="print-A4">
 			<h2>厘米屋家居空间设计报价清单</h2>
 			<div class="text-left">
-				<p>专案名：XXX小区设计方案 <span>订单号：XXX6️213</span> <span>下单时间：2019年12月12日</span> <span>安装时间：2020年1月18日</span><br>
-				客户信息：张女士 - 1524874588 - 紫金花园冲们去古董里</p>
+				<p name="about"><?php echo $about;?></p>
 				<table class="text-center">
 					<thead>
 						<tr class="tablebg">
@@ -251,14 +266,14 @@ table,th,td{border:1px solid #546e7a;text-align:center}
 	</div>
 	<div class="col-sm-2 right">
 		<form name="rightBox" method="post" action="">
-        <input type="text" class="form-control" id="cab_name" name="cab_name" required tabindex="1" placeholder="项目(柜体/门扇)名称">
+        <input type="text" class="form-control" id="cab_name" name="cab_name" placeholder="项目(柜体/门扇)名称">
         <h5>柜体/门扇/板材尺寸</h5>
         <!-- 柜体高度 -->
 		<div class="form-group has-feedback">
           <label class="control-label sr-only" for="cab_Height">柜体高度</label>
           <div class="input-group">
             <span class="input-group-addon">高(长)</span>
-            <input type="number" class="form-control" id="cab_Height" name="cab_Height" required="" tabindex="1" placeholder="0">
+            <input type="number" class="form-control" id="cab_Height" name="cab_Height"  placeholder="0">
           </div>
           <span class="form-control-feedback">mm</span>
         </div>
@@ -267,7 +282,7 @@ table,th,td{border:1px solid #546e7a;text-align:center}
           <label class="control-label sr-only" for="cab_Width">柜体宽度</label>
           <div class="input-group">
             <span class="input-group-addon">宽(宽)</span>
-            <input type="number" class="form-control" id="cab_Width" name="cab_Width" required="" tabindex="2" placeholder="0">
+            <input type="number" class="form-control" id="cab_Width" name="cab_Width" placeholder="0">
           </div>
           <span class="form-control-feedback">mm</span>
         </div>
@@ -276,7 +291,7 @@ table,th,td{border:1px solid #546e7a;text-align:center}
           <label class="control-label sr-only" for="cab_Depth">柜体深度</label>
           <div class="input-group">
             <span class="input-group-addon">深(厚)</span>
-            <input type="number" class="form-control" id="cab_Depth" name="cab_Depth" tabindex="3" placeholder="0">
+            <input type="number" class="form-control" id="cab_Depth" name="cab_Depth" placeholder="0">
           </div>
           <span class="form-control-feedback">mm</span>
         </div>
@@ -310,11 +325,11 @@ table,th,td{border:1px solid #546e7a;text-align:center}
         <div class="add_button">
           <button class="btn btn-default" type="submit" name="projectedArea">投影面积</button>
           <button class="btn btn-default" type="submit" name="expandedArea">展开面积</button>
-          <button class="btn btn-default" type="submit" name="addOne">增加单项</button>
         </div>
     	</form>
     	<h5>操作按钮<span id="selectProject"></span></h5>
     	<div class="add_button">
+      <button id="newObject" class="btn btn-default" type="submit">新建</button>
     	<button id="delcab" class="btn btn-danger" type="submit" disabled="disabled">删除整柜</button><br>
     	<button id="addtr" class="btn btn-default" type="submit" disabled="disabled">插入行</button>
         <button id="deltr" class="btn btn-default" type="submit" disabled="disabled">删除行</button>

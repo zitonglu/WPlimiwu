@@ -3,7 +3,7 @@ $(function(){
 		language: 'zh-CN'
 	});
 
-	$("button[name='addOne']").click(function(){//模拟提交
+	$("button#newObject").click(function(){//模拟提交
 		$("form[name='rightBox']").submit();
 	});
 
