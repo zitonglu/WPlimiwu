@@ -118,7 +118,7 @@ table,th,td{border:1px solid #546e7a;text-align:center}
 	</div>
 	<div class="col-sm-8 table-box text-center" contenteditable=true>
 		<div class="print-A4">
-			<h2>厘米屋空间家具设计报价清单</h2>
+			<h2>厘米屋家居空间设计报价清单</h2>
 			<div class="text-left">
 				<p>专案名：XXX小区设计方案 <span>订单号：XXX6️213</span> <span>下单时间：2019年12月12日</span> <span>安装时间：2020年1月18日</span><br>
 				客户信息：张女士 - 1524874588 - 紫金花园冲们去古董里</p>
@@ -183,7 +183,7 @@ table,th,td{border:1px solid #546e7a;text-align:center}
             </thead>
             <tbody data-name="东南房柜体" class="cab">
   					<tr>
-  						<td data-name="xuhao">1</td>
+  						<td name="orderNumber">1</td>
   						<td>左侧板</td>
   						<td>2400</td>
   						<td>600</td>
@@ -193,6 +193,13 @@ table,th,td{border:1px solid #546e7a;text-align:center}
   						<td>288</td>
   						<td></td>
   					</tr>
+  					<tr>
+						<td colspan=5></td>
+						<td>小计</td>
+						<td>52</td>
+						<td>52400</td>
+						<td></td>
+					</tr>
           </tbody>
             <thead class="cabhead">
               <tr>
@@ -216,7 +223,7 @@ table,th,td{border:1px solid #546e7a;text-align:center}
             </thead>
             <tbody data-name="西南房柜体" class="cab">
             <tr>
-              <td>1</td>
+              <td name="orderNumber">1</td>
               <td>左侧板</td>
               <td>2400</td>
               <td>600</td>
@@ -226,6 +233,13 @@ table,th,td{border:1px solid #546e7a;text-align:center}
               <td>288</td>
               <td></td>
             </tr>
+            <tr>
+				<td colspan=5></td>
+				<td>小计</td>
+				<td>52</td>
+				<td>52400</td>
+				<td></td>
+			</tr>
           </tbody>
 				</table>
 			</div>

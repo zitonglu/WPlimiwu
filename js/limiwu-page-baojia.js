@@ -39,7 +39,11 @@ $(function(){
 		$('#deltr').attr('onclick','deltr(\''+$thisTr+'\')');
 		//关闭删除整个柜体按钮
 		$('#delcab').attr('disabled','disabled');
-		//console.log($thisTr);
+		//重新排序
+		$orderNumber = $tbody.find("td[name='orderNumber']");
+		for (var i = 0; i < $orderNumber.length; i++) {
+			$($orderNumber[i]).text(i+1);
+		}
 	});
 });
 
@@ -50,15 +54,15 @@ function addtr($thisTr){
 	$length = $($tr).length;
 	$orderNumber = $length + 1;
 
-	$newRow = '<tr><td data-name="xuhao">';
+	$newRow = '<tr><td name="orderNumber">';
 	$newRow += $orderNumber;
 	$newRow += '</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>';
-	console.log($length);
 	if ($length == 0) {
-		$($arr[0]).append($newRow);
+		$($arr[0]).prepend($newRow);
 	}else{
 		$($thisTr).after($newRow);
 	}
+
 }
 //删除当前行
 function deltr($thisTr){
