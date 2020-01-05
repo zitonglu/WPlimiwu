@@ -45,8 +45,20 @@ $(function(){
 
 //增加一行
 function addtr($thisTr){
-	var $newRow = '<tr><td data-name="xuhao">0</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>';
-	$($thisTr).after($newRow);
+	$arr = $thisTr.split(" ");
+	$tr = $arr[0] + " tr";
+	$length = $($tr).length;
+	$orderNumber = $length + 1;
+
+	$newRow = '<tr><td data-name="xuhao">';
+	$newRow += $orderNumber;
+	$newRow += '</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>';
+	console.log($length);
+	if ($length == 0) {
+		$($arr[0]).append($newRow);
+	}else{
+		$($thisTr).after($newRow);
+	}
 }
 //删除当前行
 function deltr($thisTr){
