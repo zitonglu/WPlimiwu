@@ -5,6 +5,12 @@ $(function(){
 
 	$("a[name='saveProject']").click(function() {//更新专案属性
 		$about = '专案名：' + $('#project_name').val();
+		$about += ' 订单号：' + $('#customer_number').val();
+		$about += ' 下单时间：' + $('#customer_orderTime').val();
+		$about += ' 安装时间：' + $('#customer_installTime').val();
+		$about += '<br>客户信息：' + $('#customer_name').val();
+		$about += ' - ' + $('#customer_tel').val();
+		$about += ' - ' + $('#customer_address').val();
 		$("p[name='about']").html($about);
 	});
 
