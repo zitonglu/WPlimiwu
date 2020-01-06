@@ -58,9 +58,6 @@ table,th,td{border:1px solid #546e7a;text-align:center}
 function limiwu_setValue($post){
   if ($post) {echo ' value = "'.$post.'"';}
 }
-function limiwu_closeButton(){
-  if($_POST['newProject']){echo ' disabled="disabled"';}
-}
 if ($_POST['newProject']) {
   $about = '专案名：'.$_POST['project_name'];
   $about .= ' 订单号：'.$_POST['customer_number'];
@@ -127,7 +124,7 @@ if ($_POST['newProject']) {
         </div>
         <h5>新建/存储</h5>
         <div class="add_button text-right">
-          <button class="btn btn-default" type="submit" name="newProject" value="newProject"<?php limiwu_closeButton();?>>新建</button>
+          <button class="btn btn-default" type="submit" name="newProject" value="newProject" disabled="disabled">新建</button>
           <a class="btn btn-default" name="saveProject">更新</a>
       	</div>
       </form>

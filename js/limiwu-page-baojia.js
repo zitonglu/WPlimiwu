@@ -4,14 +4,18 @@ $(function(){
 	});
 
 	$("a[name='saveProject']").click(function() {//更新专案属性
-		$about = '专案名：' + $('#project_name').val();
-		$about += ' 订单号：' + $('#customer_number').val();
-		$about += ' 下单时间：' + $('#customer_orderTime').val();
-		$about += ' 安装时间：' + $('#customer_installTime').val();
-		$about += '<br>客户信息：' + $('#customer_name').val();
-		$about += ' - ' + $('#customer_tel').val();
-		$about += ' - ' + $('#customer_address').val();
-		$("p[name='about']").html($about);
+		var $telNumber = /^1[345789]\d{9}$/;
+        if ($telNumber.test($result)) {
+			$about = '专案名：' + $('#project_name').val();
+			$about += ' 订单号：' + $('#customer_number').val();
+			$about += ' 下单时间：' + $('#customer_orderTime').val();
+			$about += ' 安装时间：' + $('#customer_installTime').val();
+			$about += '<br>客户信息：' + $('#customer_name').val();
+			$about += ' - ' + $('#customer_tel').val();
+			$about += ' - ' + $('#customer_address').val();
+			$("p[name='about']").html($about);
+			$('button[name=saveProject]').attr('disabled','disabled');
+		}
 	});
 
 	$("button#newObject").click(function(){//模拟提交
@@ -19,8 +23,17 @@ $(function(){
 	});
 
 	$('input#sheetPrice').on("input propertychange",function(){//单价提交实施监控
-		var result = $(this).val();
-        $('input#sheetPrice').attr("value",result);
+		var $result = $(this).val();
+        $('input#sheetPrice').attr("value",$result);
+	});
+
+	$('input#customer_tel').on("input propertychange",function(){//电话号码监控
+		var $result = $(this).val();
+        $('input#customer_tel').attr("value",$result);
+        var $telNumber = /^1[345789]\d{9}$/;
+        if ($telNumber.test($result)) {
+        	$('button[name=newProject]').removeAttr('disabled');
+        }
 	});
 	//选中柜体thead.cabhead TR产生的变化
 	$('thead.cabhead').on("click","tr",function() {
