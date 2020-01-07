@@ -28,11 +28,13 @@ $(function(){
 	//盒模型运算方法
 	$("select[name='cabModel']").change(function(){
 		$cabDesign = $(this).val();
-		$('body').append($("<script>").attr({
-		    type:"text/javascript",
-		    src:$('input[name="themeUrl"]').val()+"/cabmodel/"+$cabDesign+".js"
-		}));//调用对应的计算方式
-		cabDesign();
+		if ($cabDesign) {
+			$('body').append($("<script>").attr({
+			    type:"text/javascript",
+			    src:$('input[name="themeUrl"]').val()+"/cabmodel/"+$cabDesign+".js"
+			}));//调用对应的计算方式
+			cabDesign();
+		}
 	});
 
 	//更新专案按钮操作

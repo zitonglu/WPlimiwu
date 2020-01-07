@@ -329,6 +329,7 @@ if ($_POST['newProject']) {
 			</p>
       <input style="display:none" name="themeUrl" value="<?php echo bloginfo('template_url')?>">
       <select class="form-control" name="cabModel">
+        <option value="">请选择标准</option>
         <option value="limiwu18+9">厘米屋标准18+9</option>
         <option value="limiwu18+5">厘米屋标准18+5</option>
       </select>
