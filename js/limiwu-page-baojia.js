@@ -25,6 +25,16 @@ $(function(){
 		//console.log($('input[name="calculationMethod"][checked="checked"]').val());
 	});
 
+	//盒模型运算方法
+	$("select[name='cabModel']").change(function(){
+		$cabDesign = $(this).val();
+		$('body').append($("<script>").attr({
+		    type:"text/javascript",
+		    src:$('input[name="themeUrl"]').val()+"/cabmodel/"+$cabDesign+".js"
+		}));//调用对应的计算方式
+		cabDesign();
+	});
+
 	//更新专案按钮操作
 	$("a[name='saveProject']").click(function() {
 		var $result = $('input#customer_tel').val();

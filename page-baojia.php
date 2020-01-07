@@ -327,10 +327,15 @@ if ($_POST['newProject']) {
 				  <input type="radio" name="calculationMethod" value="expandedArea" checked="checked"> 展开面积
 				</label>
 			</p>
+      <input style="display:none" name="themeUrl" value="<?php echo bloginfo('template_url')?>">
+      <select class="form-control" name="cabModel">
+        <option value="limiwu18+9">厘米屋标准18+9</option>
+        <option value="limiwu18+5">厘米屋标准18+5</option>
+      </select>
         </div>
     	<h5>操作按钮<span id="selectProject"></span></h5>
     	<div class="add_button">
-	      	<button id="newObject" class="btn btn-default" type="submit">新建</button>
+	      <button id="newcab" class="btn btn-default" type="submit">新建</button>
 	    	<button id="delcab" class="btn btn-danger" type="submit" disabled="disabled">删除整柜</button><br>
 	    	<button id="addtr" class="btn btn-default" type="submit" disabled="disabled">插入行</button>
 	        <button id="deltr" class="btn btn-default" type="submit" disabled="disabled">删除行</button>
