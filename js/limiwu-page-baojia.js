@@ -3,6 +3,7 @@ $(function(){
 	$('.datepicker').datepicker({
 		language: 'zh-CN'
 	});
+
 	//实时监控input输入值
 	$('input').on("input propertychange",function() {
 		var $result = $(this).val();
@@ -15,6 +16,15 @@ $(function(){
         	}
 		}
 	});
+
+	//监听单选按钮动态变化:投影面积or展开面积
+	$("input[type='radio']").on("click",function(){
+		$(this).attr('checked','checked');
+		$(this).parent().prevAll().find('input').removeAttr('checked');
+		$(this).parent().nextAll().find('input').removeAttr('checked');
+		//console.log($('input[name="calculationMethod"][checked="checked"]').val());
+	});
+
 	//更新专案按钮操作
 	$("a[name='saveProject']").click(function() {
 		var $result = $('input#customer_tel').val();
@@ -30,10 +40,6 @@ $(function(){
 			$("p[name='about']").html($about);
 			$('button[name=saveProject]').attr('disabled','disabled');
 		}
-	});
-	//模拟提交,功能待定
-	$("button#newObject").click(function(){
-		$("form[name='rightBox']").submit();
 	});
 
 	//选中柜体thead.cabhead TR产生的变化
@@ -53,6 +59,7 @@ $(function(){
 		$('#delcab').removeAttr('disabled');
 		$('#delcab').attr('onclick','delcab(\''+$dataName+'\')');
 	});
+
 	//选中柜体tbody.cab TR产生的效果
 	$('tbody.cab').on("click","tr",function() {
 		$tbody = $(this).parent();

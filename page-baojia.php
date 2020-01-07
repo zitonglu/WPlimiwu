@@ -262,7 +262,6 @@ if ($_POST['newProject']) {
 		</div>
 	</div>
 	<div class="col-sm-2 right">
-		<form name="rightBox" method="post" action="">
         <input type="text" class="form-control" id="cab_name" name="cab_name" placeholder="项目(柜体/门扇)名称">
         <h5>柜体/门扇/板材尺寸</h5>
         <!-- 柜体高度 -->
@@ -320,16 +319,21 @@ if ($_POST['newProject']) {
         </div>
         <h5>计算方式</h5>
         <div class="add_button">
-          <button class="btn btn-default" type="submit" name="projectedArea">投影面积</button>
-          <button class="btn btn-default" type="submit" name="expandedArea">展开面积</button>
+        	<p>
+	        	<label class="radio-inline">
+				  <input type="radio" name="calculationMethod" value="projectedArea"> 投影面积
+				</label>
+				<label class="radio-inline">
+				  <input type="radio" name="calculationMethod" value="expandedArea" checked="checked"> 展开面积
+				</label>
+			</p>
         </div>
-    	</form>
     	<h5>操作按钮<span id="selectProject"></span></h5>
     	<div class="add_button">
-      <button id="newObject" class="btn btn-default" type="submit">新建</button>
-    	<button id="delcab" class="btn btn-danger" type="submit" disabled="disabled">删除整柜</button><br>
-    	<button id="addtr" class="btn btn-default" type="submit" disabled="disabled">插入行</button>
-        <button id="deltr" class="btn btn-default" type="submit" disabled="disabled">删除行</button>
+	      	<button id="newObject" class="btn btn-default" type="submit">新建</button>
+	    	<button id="delcab" class="btn btn-danger" type="submit" disabled="disabled">删除整柜</button><br>
+	    	<button id="addtr" class="btn btn-default" type="submit" disabled="disabled">插入行</button>
+	        <button id="deltr" class="btn btn-default" type="submit" disabled="disabled">删除行</button>
     	</div>
 	</div><!-- right end -->
 	<!-- body end -->
