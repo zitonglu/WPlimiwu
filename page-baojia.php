@@ -69,7 +69,7 @@ if ($_POST['newProject']) {
 <body>
 	<?php get_template_part('nav');//顶部导航 ?>
 	<!-- body begin -->
-	<div class="col-sm-2 left">
+	<div class="col-sm-2 left" id="left">
     <form name="leftBox" method="post" action="">
 		<input type="text" class="form-control" id="project_name" name="project_name" placeholder="专案名称" required tabindex="1"<?php limiwu_setValue($_POST['project_name']);?>>
 		<h5>基本信息</h5>
@@ -78,7 +78,7 @@ if ($_POST['newProject']) {
           <label class="control-label sr-only" for="customer_name">客户姓名</label>
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input type="text" class="form-control" id="customer_name" name="customer_name" placeholder="先生/女士" tabindex="2"<?php limiwu_setValue($_POST['customer_name']);?>>
+            <input type="text" class="form-control" id="customer_name" name="customer_name" placeholder="先生/女士" required tabindex="2"<?php limiwu_setValue($_POST['customer_name']);?>>
           </div>
         </div>
         <!-- 联系方式 -->
@@ -350,7 +350,7 @@ if ($_POST['newProject']) {
 <!-- datepickerJS -->
 <script type="text/javascript" src="<?php echo bloginfo('template_url')?>/datepickerJS/bootstrap-datepicker.min.js"></script>
 <script type="text/javascript" src="<?php echo bloginfo('template_url')?>/datepickerJS/bootstrap-datepicker.zh-CN.min.js" charset="UTF-8"></script>
-<script type="text/javascript" src="<?php echo bloginfo('template_url')?>/js/limiwu-page-baojia.js?v=1.1" charset="UTF-8"></script>
+<script type="text/javascript" src="<?php echo bloginfo('template_url')?>/js/limiwu-page-baojia.js" charset="UTF-8"></script>
 <?php echo get_option('limiwu_bottom_javaScript');?>
 <?php wp_footer(); ?>
 </body>

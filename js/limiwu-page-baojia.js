@@ -1,9 +1,23 @@
 $(function(){
-	$('.datepicker').datepicker({//日期JS控制
+	//日期JS控制
+	$('.datepicker').datepicker({
 		language: 'zh-CN'
 	});
-
-	$("a[name='saveProject']").click(function() {//更新专案属性
+	//实时监控input输入值
+	$('input').on("input propertychange",function() {
+		var $result = $(this).val();
+		$(this).attr("value",$result);
+		$tel = $(this).attr('name');
+		if ($tel == 'customer_tel') {//监控电话是否正确
+			$telNumber = /^1[345789]\d{9}$/;
+			if ($telNumber.test($result)) {
+        		$('button[name=newProject]').removeAttr('disabled');
+        	}
+		}
+	});
+	//更新专案按钮操作
+	$("a[name='saveProject']").click(function() {
+		var $result = $('input#customer_tel').val();
 		var $telNumber = /^1[345789]\d{9}$/;
         if ($telNumber.test($result)) {
 			$about = '专案名：' + $('#project_name').val();
@@ -17,24 +31,11 @@ $(function(){
 			$('button[name=saveProject]').attr('disabled','disabled');
 		}
 	});
-
-	$("button#newObject").click(function(){//模拟提交
+	//模拟提交,功能待定
+	$("button#newObject").click(function(){
 		$("form[name='rightBox']").submit();
 	});
 
-	$('input#sheetPrice').on("input propertychange",function(){//单价提交实施监控
-		var $result = $(this).val();
-        $('input#sheetPrice').attr("value",$result);
-	});
-
-	$('input#customer_tel').on("input propertychange",function(){//电话号码监控
-		var $result = $(this).val();
-        $('input#customer_tel').attr("value",$result);
-        var $telNumber = /^1[345789]\d{9}$/;
-        if ($telNumber.test($result)) {
-        	$('button[name=newProject]').removeAttr('disabled');
-        }
-	});
 	//选中柜体thead.cabhead TR产生的变化
 	$('thead.cabhead').on("click","tr",function() {
 		$thead = $(this).parent();
