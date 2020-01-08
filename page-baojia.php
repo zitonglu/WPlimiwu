@@ -207,6 +207,18 @@ if ($_POST['newProject']) {
               <td></td>
             </tr>
             <tr>
+              <td name="orderNumber">1</td>
+              <td>右侧板</td>
+              <td name="cabX">2400</td>
+              <td name="cabY">600</td>
+              <td name="cabD">18</td>
+              <td name="cabA">1.44</td>
+              <td name="cabU">200</td>
+              <td name="cabN">1</td>
+              <td name="cabP">288</td>
+              <td></td>
+            </tr>
+            <tr>
 				<td colspan=5></td>
 				<td colspan=2>小计</td>
 				<td name="totals"></td>
