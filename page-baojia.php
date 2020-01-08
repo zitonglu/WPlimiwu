@@ -45,7 +45,6 @@ input[type="number"]{-moz-appearance: textfield}
 .right .input-group,
 .right .form-group,
 .add_button .btn{margin-bottom:5px}
-.right>.form-control{color:#3c763d;border-color:#3c763d;}
 .form-control-feedback{color:#555}
 .print-A4{margin:0 auto 10px;padding:0px 2vw;max-width:794px;min-height:1123px;border:1px solid #546e7a;}
 table{width:100%;line-height: 2em}
@@ -134,7 +133,7 @@ if ($_POST['newProject']) {
 			<h2>厘米屋家居空间设计报价清单</h2>
 			<div class="text-left">
 				<p name="about"><?php echo $about;?></p>
-				<table class="text-center">
+				<table class="text-center" id="summaryList">
 					<thead>
 						<tr class="tablebg">
 							<th>序号</th>
@@ -291,7 +290,7 @@ if ($_POST['newProject']) {
           </div>
           <span class="form-control-feedback">mm</span>
         </div>
-        <h5>价格</h5>
+        <h5>材料及价格</h5>
         <!-- 材料 -->
         <div class="form-group">
           <label class="control-label sr-only" for="material">材料名称</label>
@@ -336,8 +335,8 @@ if ($_POST['newProject']) {
         </div>
     	<h5>操作按钮<span id="selectProject"></span></h5>
     	<div class="add_button">
-	      <button id="newcab" class="btn btn-default" type="submit">新建</button>
-	    	<button id="delcab" class="btn btn-danger" type="submit" disabled="disabled">删除整柜</button><br>
+	      <button id="newcab" class="btn btn-default" type="submit">增加柜</button>
+	    	<button id="delcab" class="btn btn-danger" type="submit" disabled="disabled">删除柜</button><br>
 	    	<button id="addtr" class="btn btn-default" type="submit" disabled="disabled">插入行</button>
 	        <button id="deltr" class="btn btn-default" type="submit" disabled="disabled">删除行</button>
     	</div>

@@ -33,7 +33,6 @@ $(function(){
 			    type:"text/javascript",
 			    src:$('input[name="themeUrl"]').val()+"/cabmodel/"+$cabDesign+".js"
 			}));//调用对应的计算方式
-			cabDesign();
 		}
 	});
 
@@ -129,6 +128,28 @@ $(function(){
 		$cabP = decimal($cabA * $cabU,2);
 		$(this).children("td[name='cabP']").text($cabP);
 		//console.log($cabP);
+	});
+
+	//新建柜体
+	$('#newcab').click(function() {
+		$cabName = $('input[name="cab_name"]').val();
+		if ($cabName == '') { return alert('请填写柜体名称');};
+		$cabHeight = $('input[name="cab_Height"]').val();
+		$cabWidth = $('input[name="cab_Width"]').val();
+		$cabDepth = $('input[name="cab_Depth"]').val();
+		if ($cabHeight == '' || $cabWidth == '' || $cabDepth == '') { 
+			return alert('请填写柜体尺寸数据');
+		};
+		$cabMaterial = $('input[name="material"]').val();
+		$cabSheetPrice = $('input[name="sheetPrice"]').val();
+		$cabNumber = $('input[name="LM_number"]').val();
+		if ($cabMaterial == '' || $cabSheetPrice == '' || $cabNumber == '') { 
+			return alert('请填写材料及价格数据');
+		};
+		$cabModel = $('select[name="cabModel"]').val();
+		if ($cabModel == '') { return alert('请选择计算方式');};
+		//console.log('输出检查完成');
+		cabDesign();
 	});
 });
 
