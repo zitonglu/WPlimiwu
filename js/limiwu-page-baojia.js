@@ -4,6 +4,33 @@ $(function(){
 		language: 'zh-CN'
 	});
 
+	//新建柜体
+	$('#newcab').on('click',function() {
+		$cabName = $('input[name="cab_name"]').val();
+		if ($cabName == '') { return alert('请填写柜体名称');};
+		// $cabHeight = $('input[name="cab_Height"]').val();
+		// $cabWidth = $('input[name="cab_Width"]').val();
+		// $cabDepth = $('input[name="cab_Depth"]').val();
+		// if ($cabHeight == '' || $cabWidth == '' || $cabDepth == '') { 
+		// 	return alert('请填写柜体尺寸数据');
+		// };
+		// $cabMaterial = $('input[name="material"]').val();
+		// $cabSheetPrice = $('input[name="sheetPrice"]').val();
+		// $cabNumber = $('input[name="LM_number"]').val();
+		// if ($cabMaterial == '' || $cabSheetPrice == '' || $cabNumber == '') { 
+		// 	return alert('请填写材料及价格数据');
+		// };
+		$cabModel = $('select[name="cabModel"]').val();
+		if ($cabModel) {
+		//console.log('输出检查完成');
+			cabDesign();
+		}else{
+			newTableBox($cabName);
+		}
+	});
+	//下面为测试增加的
+	newTableBox();
+
 	//实时监控input输入值
 	$('input').on("input propertychange",function() {
 		var $result = $(this).val();
@@ -46,7 +73,7 @@ $(function(){
 	});
 
 	//选中柜体thead.cabhead TR产生的变化
-	$('thead.cabhead').on("click","tr",function() {
+	$('table#tableList').on("click","thead.cabhead tr",function() {
 		$thead = $(this).parent();
 		$tbody = $thead.next();
 		$dataName = $tbody.data('name');
@@ -64,7 +91,7 @@ $(function(){
 	});
 
 	//选中柜体tbody.cab TR产生的效果
-	$('tbody.cab').on("click","tr",function() {
+	$('table#tableList').on("click","tbody.cab tr",function() {
 		$tbody = $(this).parent();
 		$dataName = $tbody.data('name');
 		$tableNumber = $(this).index();
@@ -121,31 +148,6 @@ $(function(){
 		$(this).children("td[name='cabP']").text($cabP);
 		//console.log($cabP);
 	});
-
-	//新建柜体
-	$('#newcab').click(function() {
-		$cabName = $('input[name="cab_name"]').val();
-		if ($cabName == '') { return alert('请填写柜体名称');};
-		$cabHeight = $('input[name="cab_Height"]').val();
-		$cabWidth = $('input[name="cab_Width"]').val();
-		$cabDepth = $('input[name="cab_Depth"]').val();
-		if ($cabHeight == '' || $cabWidth == '' || $cabDepth == '') { 
-			return alert('请填写柜体尺寸数据');
-		};
-		$cabMaterial = $('input[name="material"]').val();
-		$cabSheetPrice = $('input[name="sheetPrice"]').val();
-		$cabNumber = $('input[name="LM_number"]').val();
-		if ($cabMaterial == '' || $cabSheetPrice == '' || $cabNumber == '') { 
-			return alert('请填写材料及价格数据');
-		};
-		$cabModel = $('select[name="cabModel"]').val();
-		if ($cabModel) {
-		//console.log('输出检查完成');
-			cabDesign();
-		}else{
-			//值为空为投影面积计算
-		}
-	});
 });
 
 //增加一行
@@ -196,4 +198,28 @@ function delcab($dataName){
 function decimal(num,v){
 	var vv = Math.pow(10,v);
 	return Math.round(num*vv)/vv;
+}
+//表格外框
+function newTableBox($name='东南衣柜') {
+	$('table#tableList').append('<thead data-name="'+$name+'" class="cabhead"></thead>');
+
+	var $thead = 'thead[data-name="'+$name+'"]';
+	var $tbody = 'tbody[data-name="'+$name+'"]';
+	var $cabNo = $('th[data-name="cabNo"]').length + 1;
+
+	$($thead).append('<tr></tr>');
+	$($thead +' tr').append('<th data-name="cabNo"># '+$cabNo+'</th>');
+	$($thead +' tr').append('<th data-name="cabName">'+$name+'</th>');
+	$($thead +' tr').append('<th data-name="cabSize" colspan=5></th>');
+	$($thead +' tr').append('<th data-name="cabNumber"></th>');
+	$($thead +' tr').append('<th data-name="cabData" colspan=2></th>');
+
+	$($thead).append('<tr class="tablebg"><th>序号</th><th>部件名称</th><th>长</th><th>宽</th><th>厚</th><th>用量</th><th>单价</th><th>数量</th><th>金额</th><th>备注</th></tr>');
+
+	$('table#tableList').append('<tbody data-name="'+$name+'" class="cab">');
+	$($tbody).append('<tr><td colspan=5></td><td colspan=2>小计</td><td name="totals"></td><td name="totalprice"></td><td></td></tr>');
+}
+//按投影面积计算
+function projected($name,$x,$y,$v,$n,$E0='') {
+	if ($E0 == '') {$E0 = 'E0实木颗粒板'}
 }

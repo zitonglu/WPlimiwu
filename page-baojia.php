@@ -171,14 +171,14 @@ if ($_POST['newProject']) {
 					</thead>
 				</table>
 				<p> </p>
-		<table><!-- 柜体清单部分 -->
-          	<thead class="cabhead">
+		<table id="tableList"><!-- 柜体清单部分 -->
+            <thead data-name="西南房衣柜" class="cabhead">
               <tr>
-                <th># 1</th>
-                <th class="data-name">东南房柜体</th>
-                <th colspan=5>2400 * 1200 * 600</th>
-                <th>1套</th>
-                <th colspan=2>E0实木颗粒板</th>
+                <th data-name="cabNo"># 1</th>
+                <th data-name="cabName">西南房衣柜</th>
+                <th data-name="cabSize" colspan=5>2400 * 1200 * 600</th>
+                <th data-name="cabNumber">1套</th>
+                <th data-name="cabData" colspan=2>E0实木颗粒板</th>
               </tr>
               <tr class="tablebg">
                 <th>序号</th>
@@ -193,49 +193,7 @@ if ($_POST['newProject']) {
                 <th>备注</th>
               </tr>
             </thead>
-            <tbody data-name="东南房柜体" class="cab">
-            <tr>
-              <td name="orderNumber">1</td>
-              <td>左侧板</td>
-              <td name="cabX">2400</td>
-              <td name="cabY">600</td>
-              <td name="cabD">18</td>
-              <td name="cabA">1.44</td>
-              <td name="cabU">200</td>
-              <td name="cabN">1</td>
-              <td name="cabP">288</td>
-              <td></td>
-            </tr>
-            <tr>
-				<td colspan=5></td>
-				<td colspan=2>小计</td>
-				<td name="totals"></td>
-				<td name="totalprice"></td>
-				<td></td>
-			</tr>
-          </tbody>
-            <thead class="cabhead">
-              <tr>
-                <th># 1</th>
-                <th class="data-name">西南发南房柜体</th>
-                <th colspan=5>2400 * 1200 * 600</th>
-                <th>1套</th>
-                <th colspan=2>E0实木颗粒板</th>
-              </tr>
-              <tr class="tablebg">
-                <th>序号</th>
-                <th>部件名称</th>
-                <th>长</th>
-                <th>宽</th>
-                <th>厚</th>
-                <th>用量</th>
-                <th>单价</th>
-                <th>数量</th>
-                <th>金额</th>
-                <th>备注</th>
-              </tr>
-            </thead>
-            <tbody data-name="西南房柜体" class="cab">
+            <tbody data-name="西南房衣柜" class="cab">
             <tr>
               <td name="orderNumber">1</td>
               <td>左侧板</td>
