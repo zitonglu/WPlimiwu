@@ -17,14 +17,6 @@ $(function(){
 		}
 	});
 
-	//监听单选按钮动态变化:投影面积or展开面积
-	$("input[type='radio']").on("click",function(){
-		$(this).attr('checked','checked');
-		$(this).parent().prevAll().find('input').removeAttr('checked');
-		$(this).parent().nextAll().find('input').removeAttr('checked');
-		//console.log($('input[name="calculationMethod"][checked="checked"]').val());
-	});
-
 	//盒模型运算方法
 	$("select[name='cabModel']").change(function(){
 		$cabDesign = $(this).val();
@@ -147,9 +139,12 @@ $(function(){
 			return alert('请填写材料及价格数据');
 		};
 		$cabModel = $('select[name="cabModel"]').val();
-		if ($cabModel == '') { return alert('请选择计算方式');};
+		if ($cabModel) {
 		//console.log('输出检查完成');
-		cabDesign();
+			cabDesign();
+		}else{
+			//值为空为投影面积计算
+		}
 	});
 });
 

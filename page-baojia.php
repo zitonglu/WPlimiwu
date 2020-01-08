@@ -123,8 +123,8 @@ if ($_POST['newProject']) {
         </div>
         <h5>新建/存储</h5>
         <div class="add_button text-right">
-          <button class="btn btn-default" type="submit" name="newProject" value="newProject" disabled="disabled">新建</button>
-          <a class="btn btn-default" name="saveProject">更新</a>
+          <button class="btn btn-default" type="submit" name="newProject" value="newProject" disabled="disabled" tabindex="8">新建</button>
+          <a class="btn btn-default" name="saveProject" tabindex="9">更新</a>
       	</div>
       </form>
 	</div>
@@ -261,14 +261,14 @@ if ($_POST['newProject']) {
 		</div>
 	</div>
 	<div class="col-sm-2 right">
-        <input type="text" class="form-control" id="cab_name" name="cab_name" placeholder="项目(柜体/门扇)名称">
+        <input type="text" class="form-control" id="cab_name" name="cab_name" placeholder="项目(柜体/门扇)名称" tabindex="10">
         <h5>柜体/门扇/板材尺寸</h5>
         <!-- 柜体高度 -->
 		<div class="form-group has-feedback">
           <label class="control-label sr-only" for="cab_Height">柜体高度</label>
           <div class="input-group">
             <span class="input-group-addon">高(长)</span>
-            <input type="number" class="form-control" id="cab_Height" name="cab_Height"  placeholder="0">
+            <input type="number" class="form-control" id="cab_Height" name="cab_Height"  placeholder="0" tabindex="11">
           </div>
           <span class="form-control-feedback">mm</span>
         </div>
@@ -277,7 +277,7 @@ if ($_POST['newProject']) {
           <label class="control-label sr-only" for="cab_Width">柜体宽度</label>
           <div class="input-group">
             <span class="input-group-addon">宽(宽)</span>
-            <input type="number" class="form-control" id="cab_Width" name="cab_Width" placeholder="0">
+            <input type="number" class="form-control" id="cab_Width" name="cab_Width" placeholder="0" tabindex="12">
           </div>
           <span class="form-control-feedback">mm</span>
         </div>
@@ -286,7 +286,7 @@ if ($_POST['newProject']) {
           <label class="control-label sr-only" for="cab_Depth">柜体深度</label>
           <div class="input-group">
             <span class="input-group-addon">深(厚)</span>
-            <input type="number" class="form-control" id="cab_Depth" name="cab_Depth" placeholder="0">
+            <input type="number" class="form-control" id="cab_Depth" name="cab_Depth" placeholder="0" tabindex="13">
           </div>
           <span class="form-control-feedback">mm</span>
         </div>
@@ -296,7 +296,7 @@ if ($_POST['newProject']) {
           <label class="control-label sr-only" for="material">材料名称</label>
           <div class="input-group"> 
             <span class="input-group-addon">材料</span>
-            <input type="text" class="form-control" id="material" name="material" placeholder="E0实木颗粒板">
+            <input type="text" class="form-control" id="material" name="material" placeholder="E0实木颗粒板" tabindex="14">
           </div>
         </div>
         <!-- 面积单价 -->
@@ -304,7 +304,7 @@ if ($_POST['newProject']) {
           <label class="control-label sr-only" for="sheetPrice">面积单价</label>
           <div class="input-group"> 
             <span class="input-group-addon">单价</span>
-            <input type="number" class="form-control" id="sheetPrice" name="sheetPrice" tabindex="6" placeholder="0.00">
+            <input type="number" class="form-control" id="sheetPrice" name="sheetPrice" placeholder="0.00" tabindex="15">
           </div> 
           <span class="form-control-feedback"><small>元/m²</small></span>
         </div>
@@ -313,32 +313,24 @@ if ($_POST['newProject']) {
           <label class="control-label sr-only" for="LM_number">数量</label>
           <div class="input-group"> 
             <span class="input-group-addon">数量</span>
-            <input type="number" class="form-control" id="LM_number" name="LM_number" tabindex="6" placeholder="1.00">
+            <input type="number" class="form-control" id="LM_number" name="LM_number" value="1.00" tabindex="16">
           </div>
         </div>
         <h5>计算方式</h5>
         <div class="add_button">
-        	<p>
-	        	<label class="radio-inline">
-				  <input type="radio" name="calculationMethod" value="projectedArea"> 投影面积
-				</label>
-				<label class="radio-inline">
-				  <input type="radio" name="calculationMethod" value="expandedArea" checked="checked"> 展开面积
-				</label>
-			</p>
-      <input style="display:none" name="themeUrl" value="<?php echo bloginfo('template_url')?>">
-      <select class="form-control" name="cabModel">
-        <option value="">请选择标准</option>
-        <option value="limiwu18+9">厘米屋标准18+9</option>
-        <option value="limiwu18+5">厘米屋标准18+5</option>
-      </select>
+	      <input style="display:none" name="themeUrl" value="<?php echo bloginfo('template_url')?>">
+	      <select class="form-control" name="cabModel" tabindex="17">
+	        <option value="">按投影面积</option>
+	        <option value="limiwu18+9">厘米屋展开面积18+9</option>
+	        <option value="limiwu18+5">厘米屋展开面积18+5</option>
+	      </select>
         </div>
     	<h5>操作按钮<span id="selectProject"></span></h5>
     	<div class="add_button">
-	      <button id="newcab" class="btn btn-default" type="submit">增加柜</button>
-	    	<button id="delcab" class="btn btn-danger" type="submit" disabled="disabled">删除柜</button><br>
-	    	<button id="addtr" class="btn btn-default" type="submit" disabled="disabled">插入行</button>
-	        <button id="deltr" class="btn btn-default" type="submit" disabled="disabled">删除行</button>
+	      <button id="newcab" class="btn btn-default" type="submit" tabindex="18">增加柜</button>
+	    	<button id="delcab" class="btn btn-danger" type="submit" disabled="disabled" tabindex="19">删除柜</button><br>
+	    	<button id="addtr" class="btn btn-default" type="submit" disabled="disabled" tabindex="20">插入行</button>
+	        <button id="deltr" class="btn btn-default" type="submit" disabled="disabled" tabindex="21">删除行</button>
     	</div>
 	</div><!-- right end -->
 	<!-- body end -->
