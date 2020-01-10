@@ -150,6 +150,15 @@ $(function(){
 		for (var i = 0; i < $orderNumber.length; i++) {
 			$($orderNumber[i]).text(i+1);
 		}
+		//单套汇总
+		$cabV = $(this).find("td[name='cabV']").text();
+		$cabN = $(this).find("td[name='cabN']").text();
+		$(this).find("td[name='cabP']").text($cabN * $cabV);
+		$cabData = $(this).data('name');
+
+		$cabValue = $('#tableList tbody[data-name="'+$cabData+'"]').find('td[name="totalprice"]').text();
+		$(this).find("td[name='cabV']").text($cabValue);
+
 		//金额汇总
 		$prices = $tbody.find("td[name='cabP']");
 		$totalprice = 0;
@@ -237,6 +246,21 @@ function projected($name,$x,$y,$d,$s='',$n,$v) {
 	$return += '</tr>';
 	return $return;
 }
+//增加头部内容
+function addHeadTable($name,$x,$y,$d,$s,$n,$v) {
+	$value = decimal(decimal($x * $y * $n / 1000000,2) * $v,2);
+	
+	$summaryList = '<tr data-name="'+$name+'">';
+	$summaryList += '<td name="orderNumber"></td>';
+	$summaryList += '<td>'+$name+'</td>';
+	$summaryList += '<td>'+$x+' * '+$y+' * '+$d+'</td>';
+	$summaryList += '<td name="cabV">'+$value+'</td>';
+	$summaryList += '<td name="cabN">'+decimal($n,0)+'</td>';
+	$summaryList += '<td name="cabP">'+ decimal($n * $value,2) +'</td>';
+	$summaryList += '<td>'+$s+'</td></tr>';
+
+	$('#summaryList tbody tr:last').before($summaryList);
+}
 //增加表格及相关内容
 function newTableBox($name,$x,$y,$d,$s,$n,$v=0) {
 	$('table#tableList').append('<thead data-name="'+$name+'" class="cabhead"></thead>');
@@ -261,6 +285,8 @@ function newTableBox($name,$x,$y,$d,$s,$n,$v=0) {
 		cabDesign();
 	}else{
 		$($tbody).append(projected($name,$x,$y,$d,$s,$n,$v));//增加内容
+
+		addHeadTable($name,$x,$y,$d,$s,$n,$v);//增加头部内容
 	}
 	$($tbody).append('<tr><td colspan=5></td><td colspan=2>小计</td><td name="totals"></td><td name="totalprice"></td><td></td></tr>');
 }

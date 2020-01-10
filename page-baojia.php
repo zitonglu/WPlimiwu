@@ -140,7 +140,7 @@ if ($_POST['newProject']) {
 							<th>项目名称</th>
 							<th>尺寸</th>
 							<th>单价</th>
-							<th>用量</th>
+							<th>套数</th>
 							<th>总价</th>
 							<th>材料/备注</th>
 						</tr>
@@ -150,8 +150,8 @@ if ($_POST['newProject']) {
 							<td name="orderNumber">1</td>
 							<td>东南房衣柜</td>
 							<td>2400 * 1200 * 600</td>
-							<td>760.00</td>
-							<td>1</td>
+							<td name="cabV">760.00</td>
+							<td name="cabN">1</td>
 							<td name="cabP">2188.8</td>
 							<td>EO实木颗粒板</td>
 						</tr>
@@ -159,8 +159,8 @@ if ($_POST['newProject']) {
 							<td name="orderNumber">2</td>
 							<td>西南房衣柜</td>
 							<td>2400 * 1200 * 600</td>
-							<td>760.00</td>
-							<td>1</td>
+							<td name="cabV">760.00</td>
+							<td name="cabN">1</td>
 							<td name="cabP">2188.8</td>
 							<td>EO实木颗粒板</td>
 						</tr>
