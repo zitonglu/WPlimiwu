@@ -146,7 +146,7 @@ if ($_POST['newProject']) {
 						</tr>
           </thead>
           <tbody>
-						<tr>
+						<tr data-name="东南房衣柜">
 							<td name="orderNumber">1</td>
 							<td>东南房衣柜</td>
 							<td>2400 * 1200 * 600</td>
@@ -155,7 +155,7 @@ if ($_POST['newProject']) {
 							<td name="cabP">2188.8</td>
 							<td>EO实木颗粒板</td>
 						</tr>
-						<tr>
+						<tr data-name="西南房衣柜">
 							<td name="orderNumber">2</td>
 							<td>西南房衣柜</td>
 							<td>2400 * 1200 * 600</td>

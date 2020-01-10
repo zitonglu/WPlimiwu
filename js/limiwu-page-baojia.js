@@ -163,6 +163,11 @@ $(function(){
 			}
 		}
 		$tbody.find("td[name='totalprice']").text($totalprice);
+		//开启删除行的按钮
+		$('#deltr').removeAttr('disabled');
+		$dataName = $(this).data('name');
+		$thisTr = "table#summaryList tbody tr[data-name=\\'" + $dataName + "\\']";
+		$('#deltr').attr('onclick','deltr(\''+$thisTr+'\')');
 	});
 });
 
