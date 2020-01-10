@@ -20,26 +20,19 @@ $(function(){
 		if ($cabMaterial == '' || $cabSheetPrice == '' || $cabNumber == '') { 
 			return alert('请填写材料及价格数据');
 		};
-		$cabModel = $('select[name="cabModel"]').val();
-		if ($cabModel) {
-		//console.log('输出检查完成');
-			cabDesign();
-		}else{
-			newTableBox($cabName,$cabHeight,$cabWidth,$cabDepth,$cabMaterial,$cabNumber);
-		}
+
+		newTableBox($cabName,$cabHeight,$cabWidth,$cabDepth,$cabMaterial,$cabNumber,$cabSheetPrice);
 	});
-	//下面为测试增加的
-	//newTableBox();
 
 	//实时监控input输入值
 	$('input').on("input propertychange",function() {
 		var $result = $(this).val();
 		$(this).attr("value",$result);
-		$tel = $(this).attr('name');
-		if ($tel == 'customer_tel') {//监控电话是否正确
+		$name = $(this).attr('name');
+		if ($name == 'customer_tel') {//监控电话是否正确
 			$telNumber = /^1[345789]\d{9}$/;
 			if ($telNumber.test($result)) {
-        		$('button[name=newProject]').removeAttr('disabled');
+        		$('button[name="newProject"]').removeAttr('disabled');
         	}
 		}
 	});
@@ -148,6 +141,29 @@ $(function(){
 		$(this).children("td[name='cabP']").text($cabP);
 		//console.log($cabP);
 	});
+
+	//选中柜体table#summaryList tbody tr产生的变化
+	$('table#summaryList tbody').on('click', 'tr', function() {
+		$tbody = $(this).parent();
+		//重新排序
+		$orderNumber = $tbody.find("td[name='orderNumber']");
+		for (var i = 0; i < $orderNumber.length; i++) {
+			$($orderNumber[i]).text(i+1);
+		}
+		//金额汇总
+		$prices = $tbody.find("td[name='cabP']");
+		$totalprice = 0;
+		for (var i = $prices.length - 1; i >= 0; i--) {
+			$n = $($prices[i]).text();
+			if($n){
+				if (!isNaN($n)) {
+					$n = Number($n);
+					$totalprice += $n;
+				}
+			}
+		}
+		$tbody.find("td[name='totalprice']").text($totalprice);
+	});
 });
 
 //增加一行
@@ -164,7 +180,7 @@ function addtr($thisTr,$where='before'){
 	$newRow += '<td>封板</td>';//项目名称
 	$newRow += '<td name="cabX"></td>';//长度
 	$newRow += '<td name="cabY"></td>';//宽度
-	$newRow += '<td name="cabD">18</td>';//厚度
+	$newRow += '<td name="cabD"></td>';//厚度
 	$newRow += '<td name="cabA">0</td>';//用量
 	$newRow += '<td name="cabU">'+$yuan+'</td>';//单价
 	$newRow += '<td name="cabN">1</td>';//数量
@@ -198,27 +214,48 @@ function decimal(num,v){
 	var vv = Math.pow(10,v);
 	return Math.round(num*vv)/vv;
 }
-//表格外框
-function newTableBox($name,$x,$y,$d,$s,$n) {
+//按投影面积计算
+function projected($name,$x,$y,$d,$s='',$n,$v) {
+	if ($s == '') {$s = 'E0实木颗粒板'}
+	$area = decimal($x * $y * $n / 1000000,2);
+	$value = decimal($area * $v,2);
+	$return = '<tr><td name="orderNumber">1</td>';
+	$return += '<td>'+$name+'</td>';//项目名称
+	$return += '<td name="cabX">'+$x+'</td>';//长度
+	$return += '<td name="cabY">'+$y+'</td>';//宽度
+	$return += '<td name="cabD">'+$d+'</td>';//厚度
+	$return += '<td name="cabA">'+$area+'</td>';//用量
+	$return += '<td name="cabU">'+$v+'</td>';//单价
+	$return += '<td name="cabN">'+decimal($n,0)+'</td>';//数量
+	$return += '<td name="cabP">'+$value+'</td>';//金额
+	$return += '<td>'+$s+'</td></tr>';//备注
+	$return += '</tr>';
+	return $return;
+}
+//增加表格及相关内容
+function newTableBox($name,$x,$y,$d,$s,$n,$v=0) {
 	$('table#tableList').append('<thead data-name="'+$name+'" class="cabhead"></thead>');
 
-	var $thead = 'thead[data-name="'+$name+'"]';
-	var $tbody = 'tbody[data-name="'+$name+'"]';
+	var $thead = 'thead[data-name="'+$name+'"]:last';
+	var $tbody = 'tbody[data-name="'+$name+'"]:last';
 	var $cabNo = $('th[data-name="cabNo"]').length + 1;
 
 	$($thead).append('<tr></tr>');
 	$($thead +' tr').append('<th data-name="cabNo"># '+$cabNo+'</th>');
 	$($thead +' tr').append('<th data-name="cabName">'+$name+'</th>');
 	$($thead +' tr').append('<th data-name="cabSize" colspan=5>'+$x+' * '+$y+' * '+$d+'</th>');
-	$($thead +' tr').append('<th data-name="cabNumber">'+$n+'套</th>');
+	$($thead +' tr').append('<th data-name="cabNumber">'+decimal($n,0)+'套</th>');
 	$($thead +' tr').append('<th data-name="cabData" colspan=2>'+$s+'</th>');
 
 	$($thead).append('<tr class="tablebg"><th>序号</th><th>部件名称</th><th>长</th><th>宽</th><th>厚</th><th>用量</th><th>单价</th><th>数量</th><th>金额</th><th>备注</th></tr>');
-
 	$('table#tableList').append('<tbody data-name="'+$name+'" class="cab">');
+
+	$cabModel = $('select[name="cabModel"]').val();
+	if($cabModel){
+		//相关内容
+		cabDesign();
+	}else{
+		$($tbody).append(projected($name,$x,$y,$d,$s,$n,$v));//增加内容
+	}
 	$($tbody).append('<tr><td colspan=5></td><td colspan=2>小计</td><td name="totals"></td><td name="totalprice"></td><td></td></tr>');
-}
-//按投影面积计算
-function projected($name,$x,$y,$v,$n,$E0='') {
-	if ($E0 == '') {$E0 = 'E0实木颗粒板'}
 }

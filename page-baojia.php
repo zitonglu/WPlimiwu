@@ -144,31 +144,33 @@ if ($_POST['newProject']) {
 							<th>总价</th>
 							<th>材料/备注</th>
 						</tr>
+          </thead>
+          <tbody>
 						<tr>
-							<td>1</td>
+							<td name="orderNumber">1</td>
 							<td>东南房衣柜</td>
 							<td>2400 * 1200 * 600</td>
 							<td>760.00</td>
 							<td>1</td>
-							<td>2188.8</td>
+							<td name="cabP">2188.8</td>
 							<td>EO实木颗粒板</td>
 						</tr>
 						<tr>
-							<td>2</td>
+							<td name="orderNumber">2</td>
 							<td>西南房衣柜</td>
 							<td>2400 * 1200 * 600</td>
 							<td>760.00</td>
 							<td>1</td>
-							<td>2188.8</td>
+							<td name="cabP">2188.8</td>
 							<td>EO实木颗粒板</td>
 						</tr>
 						<tr>
 							<td colspan=4></td>
 							<td>合计</td>
-							<td>52400</td>
+							<td name="totalprice">52400</td>
 							<td></td>
 						</tr>
-					</thead>
+					</tbody>
 				</table>
 				<p> </p>
 		<table id="tableList"><!-- 柜体清单部分 -->
@@ -321,7 +323,7 @@ if ($_POST['newProject']) {
 <!-- datepickerJS -->
 <script type="text/javascript" src="<?php echo bloginfo('template_url')?>/datepickerJS/bootstrap-datepicker.min.js"></script>
 <script type="text/javascript" src="<?php echo bloginfo('template_url')?>/datepickerJS/bootstrap-datepicker.zh-CN.min.js" charset="UTF-8"></script>
-<script type="text/javascript" src="<?php echo bloginfo('template_url')?>/js/limiwu-page-baojia.js" charset="UTF-8"></script>
+<script type="text/javascript" src="<?php echo bloginfo('template_url')?>/js/limiwu-page-baojia.js?v=1.0" charset="UTF-8"></script>
 <?php echo get_option('limiwu_bottom_javaScript');?>
 <?php wp_footer(); ?>
 </body>
