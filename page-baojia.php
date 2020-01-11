@@ -130,7 +130,7 @@ if ($_POST['newProject']) {
 	</div>
 	<div class="col-sm-8 table-box text-center" contenteditable=true>
 		<div class="print-A4">
-			<h2>厘米屋家居空间设计报价清单</h2>
+			<h2 id="titleID">厘米屋家居空间设计报价清单</h2>
 			<div class="text-left">
 				<p name="about"><?php echo $about;?></p>
 				<table class="text-center" id="summaryList">
@@ -323,7 +323,7 @@ if ($_POST['newProject']) {
 <!-- datepickerJS -->
 <script type="text/javascript" src="<?php echo bloginfo('template_url')?>/datepickerJS/bootstrap-datepicker.min.js"></script>
 <script type="text/javascript" src="<?php echo bloginfo('template_url')?>/datepickerJS/bootstrap-datepicker.zh-CN.min.js" charset="UTF-8"></script>
-<script type="text/javascript" src="<?php echo bloginfo('template_url')?>/js/limiwu-page-baojia.js?v=1.0" charset="UTF-8"></script>
+<script type="text/javascript" src="<?php echo bloginfo('template_url')?>/js/limiwu-page-baojia.js?v=1.1" charset="UTF-8"></script>
 <?php echo get_option('limiwu_bottom_javaScript');?>
 <?php wp_footer(); ?>
 </body>

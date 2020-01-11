@@ -129,7 +129,7 @@ $(function(){
 				}
 			}
 		}
-		$tbody.find("td[name='totalprice']").text($totalprice);
+		$tbody.find("td[name='totalprice']").text(decimal($totalprice,2));
 		//金额计算，计算出行面积和金额
 		$cabX = Number($(this).children("td[name='cabX']").text());
 		$cabY = Number($(this).children("td[name='cabY']").text());
@@ -171,7 +171,7 @@ $(function(){
 				}
 			}
 		}
-		$tbody.find("td[name='totalprice']").text($totalprice);
+		$tbody.find("td[name='totalprice']").text(decimal($totalprice,2));
 		//开启删除行的按钮
 		$('#deltr').removeAttr('disabled');
 		$dataName = $(this).data('name');
@@ -213,6 +213,19 @@ function addtr($thisTr,$where='before'){
 //删除当前行
 function deltr($thisTr){
 	$($thisTr).remove();
+}
+//数组相关操作
+function getObjectKeys(object){
+    var keys = [];
+    for (var property in object)
+      keys.push(property);
+    return keys;
+} 
+function getObjectValues(object){
+    var values = [];
+    for (var property in object)
+      values.push(object[property]);
+    return values;
 }
 //删除整个柜体
 function delcab($dataName){
@@ -281,8 +294,8 @@ function newTableBox($name,$x,$y,$d,$s,$n,$v=0) {
 
 	$cabModel = $('select[name="cabModel"]').val();
 	if($cabModel){
-		//相关内容
-		cabDesign();
+		//增加新的格式对应的框架
+		cabDesign($name,$x,$y,$d,$s,$n,$v,$tbody);
 	}else{
 		$($tbody).append(projected($name,$x,$y,$d,$s,$n,$v));//增加内容
 
