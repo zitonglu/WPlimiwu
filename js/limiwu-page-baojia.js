@@ -300,6 +300,7 @@ function newTableBox($name,$x,$y,$d,$s,$n,$v=0) {
 		$($tbody).append(projected($name,$x,$y,$d,$s,$n,$v));//增加内容
 
 		addHeadTable($name,$x,$y,$d,$s,$n,$v);//增加头部内容
+		$totals = $('tbody[data-name="'+$name+'"] tr td[name="cabP"]').text();
+		$($tbody).append('<tr><td colspan=5></td><td colspan=2>小计</td><td name="totals">'+decimal($n,0)+'</td><td name="totalprice">'+$totals+'</td><td></td></tr>');
 	}
-	$($tbody).append('<tr><td colspan=5></td><td colspan=2>小计</td><td name="totals"></td><td name="totalprice"></td><td></td></tr>');
 }
