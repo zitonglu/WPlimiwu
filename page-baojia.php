@@ -285,7 +285,23 @@ if ($_POST['newProject']) {
           <label class="control-label sr-only" for="LM_number">数量</label>
           <div class="input-group"> 
             <span class="input-group-addon">数量</span>
-            <input type="number" class="form-control" id="LM_number" name="LM_number" value="1.00" tabindex="16">
+            <input type="number" class="form-control" id="LM_number" name="LM_number" placeholder="0.00" tabindex="16">
+          </div>
+        </div>
+        <!-- 竖板 -->
+        <div class="form-group" id="cabRiserBox">
+          <label class="control-label sr-only" for="cabRiser">竖板</label>
+          <div class="input-group"> 
+            <span class="input-group-addon">竖板</span>
+            <input type="number" class="form-control" id="cabRiser" name="cabRiser" placeholder="0.00" tabindex="22">
+          </div>
+        </div>
+        <!-- 层板 -->
+        <div class="form-group" id="cabLaminateBox">
+          <label class="control-label sr-only" for="cabRiser">层板</label>
+          <div class="input-group"> 
+            <span class="input-group-addon">层板</span>
+            <input type="number" class="form-control" id="cabLaminate" name="cabLaminate" placeholder="0.00" tabindex="23">
           </div>
         </div>
         <h5>计算方式</h5>
@@ -297,7 +313,7 @@ if ($_POST['newProject']) {
 	        <option value="limiwu18+5">厘米屋展开面积18+5</option>
 	      </select>
         </div>
-    	<h5>操作按钮<span id="selectProject"></span></h5>
+    	<h5 id="selectH5">操作按钮<span id="selectProject"></span></h5>
     	<div class="add_button">
 	      <button id="newcab" class="btn btn-default" type="submit" tabindex="18">增加柜</button>
 	    	<button id="delcab" class="btn btn-danger" type="submit" disabled="disabled" tabindex="19">删除柜</button><br>

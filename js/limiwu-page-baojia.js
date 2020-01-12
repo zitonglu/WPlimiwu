@@ -4,6 +4,10 @@ $(function(){
 		language: 'zh-CN'
 	});
 
+	//隐藏竖板和层板
+	$('#cabRiserBox').hide();
+	$('#cabLaminateBox').hide();
+
 	//新建柜体
 	$('#newcab').on('click',function() {
 		$cabName = $('input[name="cab_name"]').val();
@@ -45,6 +49,11 @@ $(function(){
 			    type:"text/javascript",
 			    src:$('input[name="themeUrl"]').val()+"/cabmodel/"+$cabDesign+".js"
 			}));//调用对应的计算方式
+			$('#cabRiserBox').show();
+			$('#cabLaminateBox').show();
+		}else{
+			$('#cabRiserBox').hide();
+			$('#cabLaminateBox').hide();
 		}
 	});
 
