@@ -17,7 +17,6 @@ function cabDesign($name,$x,$y,$z,$s,$n,$v,$tbody){
 	$return += '<td name="cabN">2</td>';//数量
 	$return += '<td name="cabP">'+decimal($area*$v,2)+'</td>';//金额
 	$return += '<td>'+$s+'18</td></tr>';//备注
-	$return += '</tr>';
 	//中侧板
 	$cabRiserN = $('#cabRiser').val();
 	if($cabRiserN){
@@ -33,7 +32,6 @@ function cabDesign($name,$x,$y,$z,$s,$n,$v,$tbody){
 		$return += '<td name="cabN">'+$cabRiserN+'</td>';//数量
 		$return += '<td name="cabP">'+decimal($area*$v,2)+'</td>';//金额
 		$return += '<td>'+$s+'18</td></tr>';//备注
-		$return += '</tr>';
 	}
 	//顶底板
 	$dy = $y-($d*2);//顶底板减双侧厚度
@@ -48,7 +46,6 @@ function cabDesign($name,$x,$y,$z,$s,$n,$v,$tbody){
 	$return += '<td name="cabN">2</td>';//数量
 	$return += '<td name="cabP">'+decimal($area*$v,2)+'</td>';//金额
 	$return += '<td>'+$s+'18</td></tr>';//备注
-	$return += '</tr>';
 	//层板
 	$cabLaminateN = $('#cabLaminate').val();
 	if($cabRiserN){
@@ -65,7 +62,6 @@ function cabDesign($name,$x,$y,$z,$s,$n,$v,$tbody){
 		$return += '<td name="cabN">'+$cabLaminateN+'</td>';//数量
 		$return += '<td name="cabP">'+decimal($area*$v,2)+'</td>';//金额
 		$return += '<td>'+$s+'18</td></tr>';//备注
-		$return += '</tr>';
 	}
 
 	$($tbody).append($return) ;
