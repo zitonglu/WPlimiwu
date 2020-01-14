@@ -298,7 +298,7 @@ if ($_POST['newProject']) {
         </div>
         <!-- 层板 -->
         <div class="form-group" id="cabLaminateBox">
-          <label class="control-label sr-only" for="cabRiser">层板</label>
+          <label class="control-label sr-only" for="cabLaminate">层板</label>
           <div class="input-group"> 
             <span class="input-group-addon">层板</span>
             <input type="number" class="form-control" id="cabLaminate" name="cabLaminate" placeholder="0.00" tabindex="18">
