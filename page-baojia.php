@@ -293,7 +293,7 @@ if ($_POST['newProject']) {
           <label class="control-label sr-only" for="cabRiser">竖板</label>
           <div class="input-group"> 
             <span class="input-group-addon">竖板</span>
-            <input type="number" class="form-control" id="cabRiser" name="cabRiser" placeholder="0.00" tabindex="22">
+            <input type="number" class="form-control" id="cabRiser" name="cabRiser" placeholder="0.00" tabindex="17">
           </div>
         </div>
         <!-- 层板 -->
@@ -301,13 +301,13 @@ if ($_POST['newProject']) {
           <label class="control-label sr-only" for="cabRiser">层板</label>
           <div class="input-group"> 
             <span class="input-group-addon">层板</span>
-            <input type="number" class="form-control" id="cabLaminate" name="cabLaminate" placeholder="0.00" tabindex="23">
+            <input type="number" class="form-control" id="cabLaminate" name="cabLaminate" placeholder="0.00" tabindex="18">
           </div>
         </div>
         <h5>计算方式</h5>
         <div class="add_button">
 	      <input style="display:none" name="themeUrl" value="<?php echo bloginfo('template_url')?>">
-	      <select class="form-control" name="cabModel" tabindex="17">
+	      <select class="form-control" name="cabModel" tabindex="50">
 	        <option value="">按投影面积</option>
 	        <option value="limiwu18+9">厘米屋展开面积18+9</option>
 	        <option value="limiwu18+5">厘米屋展开面积18+5</option>
@@ -315,10 +315,10 @@ if ($_POST['newProject']) {
         </div>
     	<h5 id="selectH5">操作按钮<span id="selectProject"></span></h5>
     	<div class="add_button">
-	      <button id="newcab" class="btn btn-default" type="submit" tabindex="18">增加柜</button>
-	    	<button id="delcab" class="btn btn-danger" type="submit" disabled="disabled" tabindex="19">删除柜</button><br>
-	    	<button id="addtr" class="btn btn-default" type="submit" disabled="disabled" tabindex="20">插入行</button>
-	        <button id="deltr" class="btn btn-default" type="submit" disabled="disabled" tabindex="21">删除行</button>
+	      <button id="newcab" class="btn btn-default" type="submit" tabindex="51">增加柜</button>
+	    	<button id="delcab" class="btn btn-danger" type="submit" disabled="disabled" tabindex="52">删除柜</button><br>
+	    	<button id="addtr" class="btn btn-default" type="submit" disabled="disabled" tabindex="53">插入行</button>
+	        <button id="deltr" class="btn btn-default" type="submit" disabled="disabled" tabindex="54">删除行</button>
     	</div>
 	</div><!-- right end -->
 	<!-- body end -->
@@ -339,7 +339,7 @@ if ($_POST['newProject']) {
 <!-- datepickerJS -->
 <script type="text/javascript" src="<?php echo bloginfo('template_url')?>/datepickerJS/bootstrap-datepicker.min.js"></script>
 <script type="text/javascript" src="<?php echo bloginfo('template_url')?>/datepickerJS/bootstrap-datepicker.zh-CN.min.js" charset="UTF-8"></script>
-<script type="text/javascript" src="<?php echo bloginfo('template_url')?>/js/limiwu-page-baojia.js?v=1.1" charset="UTF-8"></script>
+<script type="text/javascript" src="<?php echo bloginfo('template_url')?>/js/limiwu-page-baojia.js?v=1.2" charset="UTF-8"></script>
 <?php echo get_option('limiwu_bottom_javaScript');?>
 <?php wp_footer(); ?>
 </body>
