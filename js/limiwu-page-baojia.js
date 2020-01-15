@@ -298,7 +298,7 @@ function newTableBox($name,$x,$y,$d,$s,$n,$v=0) {
 	$($thead +' tr').append('<th data-name="cabNumber">'+decimal($n,0)+'套</th>');
 	$($thead +' tr').append('<th data-name="cabData" colspan=2>'+$s+'</th>');
 
-	$($thead).append('<tr class="tablebg"><th>序号</th><th>部件名称</th><th>长</th><th>宽</th><th>厚</th><th>用量</th><th>单价</th><th>数量</th><th>金额</th><th>备注</th></tr>');
+	$($thead).append('<tr class="tablebg"><th>序号</th><th>部件名称</th><th>长</th><th>宽</th><th>厚</th><th>用量<small>(m²)</small></th><th>单价</th><th>数量</th><th>金额</th><th>备注</th></tr>');
 	$('table#tableList').append('<tbody data-name="'+$name+'" class="cab">');
 
 	$cabModel = $('select[name="cabModel"]').val();
