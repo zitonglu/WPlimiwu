@@ -143,12 +143,16 @@ $(function(){
 		$cabX = Number($(this).children("td[name='cabX']").text());
 		$cabY = Number($(this).children("td[name='cabY']").text());
 		$cabN = Number($(this).children("td[name='cabN']").text());
-		$cabA = decimal($cabX * $cabY * $cabN / 1000000,2);
-		$(this).children("td[name='cabA']").text($cabA);
+		if ($cabN == 0 || $cabX == 0 || $cabY == 0) {
+			$cabA = Number($(this).children("td[name='cabA']").text());
+		}else{
+			$cabA = decimal($cabX * $cabY * $cabN / 1000000,2);
+			$(this).children("td[name='cabA']").text($cabA);
+		}
 		$cabU = Number($(this).children("td[name='cabU']").text());
 		$cabP = decimal($cabA * $cabU,2);
 		$(this).children("td[name='cabP']").text($cabP);
-		//console.log($cabP);
+		//console.log($cabN+','+$cabX+','+$cabY);
 	});
 
 	//选中柜体table#summaryList tbody tr产生的变化

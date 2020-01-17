@@ -14,7 +14,7 @@ function cabDesign($name,$x,$y,$z,$s,$n,$v,$tbody){
 	$return += '<td name="cabD">'+$d+'</td>';//厚度
 	$return += '<td name="cabA">'+$area+'</td>';//用量
 	$return += '<td name="cabU">'+$v+'</td>';//单价
-	$return += '<td name="cabN">2</td>';//数量
+	$return += '<td name="cabN">'+$n*2+'</td>';//数量
 	$return += '<td name="cabP">'+decimal($area*$v,2)+'</td>';//金额
 	$return += '<td>'+$s+'18</td></tr>';//备注
 	//中侧板
@@ -29,7 +29,7 @@ function cabDesign($name,$x,$y,$z,$s,$n,$v,$tbody){
 		$return += '<td name="cabD">'+$d+'</td>';//厚度
 		$return += '<td name="cabA">'+$area+'</td>';//用量
 		$return += '<td name="cabU">'+$v+'</td>';//单价
-		$return += '<td name="cabN">'+$cabRiserN+'</td>';//数量
+		$return += '<td name="cabN">'+$cabRiserN*$n+'</td>';//数量
 		$return += '<td name="cabP">'+decimal($area*$v,2)+'</td>';//金额
 		$return += '<td>'+$s+'18</td></tr>';//备注
 	}
@@ -43,7 +43,7 @@ function cabDesign($name,$x,$y,$z,$s,$n,$v,$tbody){
 	$return += '<td name="cabD">'+$d+'</td>';//厚度
 	$return += '<td name="cabA">'+$area+'</td>';//用量
 	$return += '<td name="cabU">'+$v+'</td>';//单价
-	$return += '<td name="cabN">2</td>';//数量
+	$return += '<td name="cabN">'+$n*2+'</td>';//数量
 	$return += '<td name="cabP">'+decimal($area*$v,2)+'</td>';//金额
 	$return += '<td>'+$s+'18</td></tr>';//备注
 	//层板
@@ -59,7 +59,7 @@ function cabDesign($name,$x,$y,$z,$s,$n,$v,$tbody){
 		$return += '<td name="cabD">'+$d+'</td>';//厚度
 		$return += '<td name="cabA">'+$area+'</td>';//用量
 		$return += '<td name="cabU">'+$v+'</td>';//单价
-		$return += '<td name="cabN">'+$cabLaminateN+'</td>';//数量
+		$return += '<td name="cabN">'+$cabLaminateN*$n+'</td>';//数量
 		$return += '<td name="cabP">'+decimal($area*$v,2)+'</td>';//金额
 		$return += '<td>'+$s+'18</td></tr>';//备注
 	}
@@ -75,7 +75,7 @@ function cabDesign($name,$x,$y,$z,$s,$n,$v,$tbody){
 	$return += '<td name="cabD">'+$bjd+'</td>';//厚度
 	$return += '<td name="cabA">'+$area+'</td>';//用量
 	$return += '<td name="cabU">'+$bj_v+'</td>';//单价
-	$return += '<td name="cabN">1</td>';//数量
+	$return += '<td name="cabN">'+$n+'</td>';//数量
 	$return += '<td name="cabP">'+decimal($area*$bj_v,2)+'</td>';//金额
 	$return += '<td>'+$s+'9</td></tr>';//备注
 	//顶线和顶线加固条
@@ -85,14 +85,15 @@ function cabDesign($name,$x,$y,$z,$s,$n,$v,$tbody){
 	$return += '<td>顶线</td>';//项目名称
 	$return += '<td>'+$dy+'</td>';//长度
 	$return += '<td>60</td>';//宽度
-	$return += '<td>'+$d+'</td>';//厚度
-	$return += '<td>'+$area+'</td>';//用量
-	$return += '<td>'+$xt_v+'</td>';//单价
-	$return += '<td name="cabN">2</td>';//数量
+	$return += '<td name="cabD">'+$d+'</td>';//厚度
+	$return += '<td name="cabA">'+$area+'</td>';//用量
+	$return += '<td name="cabU">'+$xt_v+'</td>';//单价
+	$return += '<td name="cabN">'+$n*2+'</td>';//数量
 	$return += '<td name="cabP">'+decimal($area*$xt_v,2)+'</td>';//金额
-	$return += '<td></td></tr>';//备注
+	$return += '<td>'+$s+'18</td></tr>';//备注
 	//脚线和支撑
 	//$xt_v = decimal($v * 0.15,0);
+	$zc = 0;
 	if ($dy>=400) {$zc = 1}
 	if ($dy>=1200) {$zc = 2}
 	if ($dy>=1800) {$zc = 3}
@@ -100,19 +101,30 @@ function cabDesign($name,$x,$y,$z,$s,$n,$v,$tbody){
 	if ($dy>=2800) {$zc = 5}
 	if ($dy>=3600) {$zc = 6}
 	$zcc = ($z-($d*2)-21)*$zc/1000;
-	console.log($zcc);
 	$areaj = decimal($zcc + $area,2);
 	$area = decimal($dy / 1000 * 2,2);
 	$return += '<tr><td name="orderNumber">7</td>';
 	$return += '<td>脚线和支撑</td>';//项目名称
 	$return += '<td>'+$dy+'</td>';//长度
 	$return += '<td>80</td>';//宽度
-	$return += '<td>'+$d+'</td>';//厚度
-	$return += '<td>'+$areaj+'</td>';//用量
-	$return += '<td>'+$xt_v+'</td>';//单价
-	$return += '<td>2</td>';//数量
+	$return += '<td name="cabD">'+$d+'</td>';//厚度
+	$return += '<td name="cabA">'+$areaj+'</td>';//用量
+	$return += '<td name="cabU">'+$xt_v+'</td>';//单价
+	$return += '<td name="cabN">'+$n*2+'</td>';//数量
 	$return += '<td name="cabP">'+decimal($areaj*$xt_v,2)+'</td>';//金额
-	$return += '<td></td></tr>';//备注
+	$return += '<td>'+$s+'18</td></tr>';//备注
+	//收口条
+	$area = decimal($y*2,2);
+	$return += '<tr><td name="orderNumber">8</td>';
+	$return += '<td>收口条</td>';//项目名称
+	$return += '<td>'+$y+'</td>';//长度
+	$return += '<td>60</td>';//宽度
+	$return += '<td name="cabD">'+$d+'</td>';//厚度
+	$return += '<td name="cabA">'+$area+'</td>';//用量
+	$return += '<td name="cabU">'+$xt_v+'</td>';//单价
+	$return += '<td name="cabN">'+$n*2+'</td>';//数量
+	$return += '<td name="cabP">'+decimal($area*$xt_v,2)+'</td>';//金额
+	$return += '<td>'+$s+'18</td></tr>';//备注
 
 	$($tbody).append($return) ;
 }
