@@ -163,14 +163,17 @@ $(function(){
 		for (var i = 0; i < $orderNumber.length; i++) {
 			$($orderNumber[i]).text(i+1);
 		}
-		//单套汇总不需要
-		// $cabV = $(this).find("td[name='cabV']").text();
-		// $cabN = $(this).find("td[name='cabN']").text();
-		// $(this).find("td[name='cabP']").text($cabN * $cabV);
-		// $cabData = $(this).data('name');
-
-		// $cabValue = $('#tableList tbody[data-name="'+$cabData+'"]').find('td[name="totalprice"]').text();
-		// $(this).find("td[name='cabV']").text($cabValue);
+		//随拆单表格变化2️⃣变化汇总值和单价值
+		$trValue = $(this).data('name');
+		$thisTbody = $('tbody.cab[data-name="'+$trValue+'"]');
+		$totalprice = $thisTbody.find('td[name="totalprice"]').text();
+		if ($totalprice) {
+			$(this).find("td[name='cabP']").text($totalprice);
+		}
+		$cabAllV = $(this).find("td[name='cabP']").text();
+		$cabN = $(this).find("td[name='cabN']").text();
+		$cabV = decimal($cabAllV/$cabN,2)
+		$(this).find("td[name='cabV']").text($cabV);
 
 		//金额汇总
 		$prices = $tbody.find("td[name='cabP']");
