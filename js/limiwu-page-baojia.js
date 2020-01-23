@@ -15,7 +15,7 @@ $(function(){
 		$cabNames = $('th[data-name="cabName"]');
 		for (var i = $cabNames.length - 1; i >= 0; i--) {
 			$cabNameText = $($cabNames[i]).text();
-			if ($cabNameText == $cabName) {return alert('柜体名称重复')};//删除原来的
+			if ($cabNameText == $cabName) {delcab($cabName)};
 		}
 		$cabHeight = $('input[name="cab_Height"]').val();
 		$cabWidth = $('input[name="cab_Width"]').val();
@@ -252,9 +252,11 @@ function getObjectValues(object){
 function delcab($dataName){
 	$thisTobdy = "tbody[data-name=\'" + $dataName + "\']";
 	$thisThead = $($thisTobdy).prev();
-	if(confirm("删除后无法恢复此柜体数据，您确定要删除吗？")){
+	$thisTr = $('tr[data-name="'+ $dataName +'"]');
+	if(confirm("更新/删除后无法恢复此柜体数据，您确定要更新/删除吗？")){
 		$($thisTobdy).remove();
 		$($thisThead).remove();
+		$thisTr.remove();
 	}
 }
 //四舍五入精确到分
