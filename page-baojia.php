@@ -61,7 +61,7 @@ if ($_POST['newProject']) {
   $about = '专案名：'.$_POST['project_name'];
   $about .= ' 订单号：'.$_POST['customer_number'];
   $about .= ' 下单时间：'.$_POST['customer_orderTime'];
-  $about .= ' 安装时间：'.$_POST['customer_number'];
+  $about .= ' 安装时间：'.$_POST['customer_installTime'];
   $about .= '<br>客户信息：'.$_POST['customer_name'].' - '.$_POST['customer_tel'].' - '.$_POST['customer_address'];
 }
 ?>
