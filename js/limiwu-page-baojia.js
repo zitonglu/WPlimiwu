@@ -11,7 +11,12 @@ $(function(){
 	//新建柜体
 	$('#newcab').on('click',function() {
 		$cabName = $('input[name="cab_name"]').val();
-		if ($cabName == '') { return alert('请填写柜体名称');};
+		if ($cabName == '') {return alert('请填写柜体名称')};
+		$cabNames = $('th[data-name="cabName"]');
+		for (var i = $cabNames.length - 1; i >= 0; i--) {
+			$cabNameText = $($cabNames[i]).text();
+			if ($cabNameText == $cabName) {return alert('柜体名称重复')};//删除原来的
+		}
 		$cabHeight = $('input[name="cab_Height"]').val();
 		$cabWidth = $('input[name="cab_Width"]').val();
 		$cabDepth = $('input[name="cab_Depth"]').val();
@@ -120,12 +125,12 @@ $(function(){
 			$n = $($total[i]).text();
 			if($n){
 				if(!isNaN($n)){
-					$n = Number($n);
+					$n = decimal(Number($n),2);
 					$totals += $n;
 				}
 			}
 		}
-		$tbody.find("td[name='totals']").text($totals);
+		$tbody.find("td[name='totals']").text(decimal($totals,2));
 		//金额汇总
 		$prices = $tbody.find("td[name='cabP']");
 		$totalprice = 0;
@@ -168,7 +173,7 @@ $(function(){
 		$thisTbody = $('tbody.cab[data-name="'+$trValue+'"]');
 		$totalprice = $thisTbody.find('td[name="totalprice"]').text();
 		if ($totalprice) {
-			$(this).find("td[name='cabP']").text($totalprice);
+			$(this).find("td[name='cabP']").text(decimal($totalprice,2));
 		}
 		$cabAllV = $(this).find("td[name='cabP']").text();
 		$cabN = $(this).find("td[name='cabN']").text();

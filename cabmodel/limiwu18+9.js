@@ -151,7 +151,7 @@ function cabDesign($name,$x,$y,$z,$s,$n,$v,$tbody){
 		}
 	}
 
-	$($tbody).append('<tr><td colspan=5></td><td colspan=2>小计</td><td name="totals">'+$totals+'</td><td name="totalprice">'+decimal($totalprice,2)+'</td><td></td></tr>');
+	$($tbody).append('<tr><td colspan=5></td><td colspan=2>小计</td><td name="totals">'+decimal($totals,2)+'</td><td name="totalprice">'+decimal($totalprice,2)+'</td><td></td></tr>');
 	//增加table表单
 	addHeadTableForCab($name,$x,$y,$z,$s,$n,decimal($totalprice,2));
 }
