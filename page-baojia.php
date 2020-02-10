@@ -15,43 +15,8 @@ Template Name: 报价页面
 <?php wp_head(); ?>
 <?php echo get_option('limiwu_top_javaScript');//百度统计?>
 <link rel="stylesheet" type="text/css" href="<?php limiwu_echo_CDN_URL('bootstrap.min.css','css')?>">
-<link rel="stylesheet" type="text/css" href="<?php echo bloginfo('template_url')?>/datepickerJS/bootstrap-datepicker3.min.css">
-<style>
-body{background-color:#455a64;color:#f8f8f8}
-.datepicker{color:#333}
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {-webkit-appearance: none}
-input[type="number"]{-moz-appearance: textfield}
-
-/*==== logo ====*/
-.logoImg{padding-right:4px}
-.logoImg img{width:16px}
-/*====.footer 页面底部 ====*/
-.footer{
-	padding: 8px;
-	text-align: center;
-	background: #212121;
-	color: #bdbdbd;
-	border-top: 1px solid #757575;
-}
-.footer a{color:#777}
-.footer a:hover{color: #bdbdbd}
-/*====.left 页面左部 ====*/
-.left,.table-box,.right{min-height:100vh}
-.left>.form-control,
-.left .input-group,
-.left .form-group,
-.right>.form-control,
-.right .input-group,
-.right .form-group,
-.add_button .btn{margin-bottom:5px}
-.form-control-feedback{color:#555}
-.print-A4{margin:0 auto 10px;padding:0px 2vw;max-width:794px;min-height:1123px;border:1px solid #546e7a;}
-table{width:100%;line-height: 2em}
-table,th,td{border:1px solid #546e7a;text-align:center}
-.tablebg{background-color:#607d8b}
-
-</style>
+<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url')?>/css/baojia.css">
+<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url')?>/datepickerJS/bootstrap-datepicker3.min.css">
 </head>
 <?php
 function limiwu_setValue($post){
@@ -65,7 +30,7 @@ if ($_POST['newProject']) {
   $about .= '<br>客户信息：'.$_POST['customer_name'].' - '.$_POST['customer_tel'].' - '.$_POST['customer_address'];
 }
 ?>
-<body>
+<body id="baojia">
 	<?php get_template_part('nav');//顶部导航 ?>
 	<!-- body begin -->
 	<div class="col-sm-2 left" id="left">
@@ -150,34 +115,25 @@ if ($_POST['newProject']) {
 							<td name="orderNumber">1</td>
 							<td>东南房衣柜</td>
 							<td>2400 * 1200 * 600</td>
-							<td name="cabV">760.00</td>
+							<td name="cabV">2880</td>
 							<td name="cabN">1</td>
-							<td name="cabP">2188.8</td>
-							<td>EO实木颗粒板</td>
-						</tr>
-						<tr data-name="西南房衣柜">
-							<td name="orderNumber">2</td>
-							<td>西南房衣柜</td>
-							<td>2400 * 1200 * 600</td>
-							<td name="cabV">760.00</td>
-							<td name="cabN">1</td>
-							<td name="cabP">2188.8</td>
+							<td name="cabP">2880</td>
 							<td>EO实木颗粒板</td>
 						</tr>
 						<tr>
 							<td colspan=4></td>
 							<td>合计</td>
-							<td name="totalprice">52400</td>
+							<td name="totalprice">2880</td>
 							<td></td>
 						</tr>
 					</tbody>
 				</table>
 				<p> </p>
 		<table id="tableList"><!-- 柜体清单部分 -->
-            <thead data-name="西南房衣柜" class="cabhead">
+            <thead data-name="东南房衣柜" class="cabhead">
               <tr>
                 <th data-name="cabNo"># 1</th>
-                <th data-name="cabName">西南房衣柜</th>
+                <th data-name="cabName">东南房衣柜</th>
                 <th data-name="cabSize" colspan=5>2400 * 1200 * 600</th>
                 <th data-name="cabNumber">1套</th>
                 <th data-name="cabData" colspan=2>E0实木颗粒板</th>
@@ -195,36 +151,24 @@ if ($_POST['newProject']) {
                 <th>备注</th>
               </tr>
             </thead>
-            <tbody data-name="西南房衣柜" class="cab">
+            <tbody data-name="东南房衣柜" class="cab">
             <tr>
               <td name="orderNumber">1</td>
-              <td>左侧板</td>
+              <td>东南房衣柜</td>
               <td name="cabX">2400</td>
-              <td name="cabY">600</td>
-              <td name="cabD">18</td>
-              <td name="cabA">1.44</td>
-              <td name="cabU">200</td>
+              <td name="cabY">1200</td>
+              <td name="cabD">600</td>
+              <td name="cabA">2.88</td>
+              <td name="cabU">1000</td>
               <td name="cabN">1</td>
-              <td name="cabP">288</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td name="orderNumber">1</td>
-              <td>右侧板</td>
-              <td name="cabX">2400</td>
-              <td name="cabY">600</td>
-              <td name="cabD">18</td>
-              <td name="cabA">1.44</td>
-              <td name="cabU">200</td>
-              <td name="cabN">1</td>
-              <td name="cabP">288</td>
-              <td></td>
+              <td name="cabP">2880</td>
+              <td>EO实木颗粒板</td>
             </tr>
             <tr>
 				<td colspan=5></td>
 				<td colspan=2>小计</td>
-				<td name="totals"></td>
-				<td name="totalprice"></td>
+				<td name="totals">1</td>
+				<td name="totalprice">2880</td>
 				<td></td>
 			</tr>
           </tbody>
@@ -309,8 +253,8 @@ if ($_POST['newProject']) {
 	      <input style="display:none" name="themeUrl" value="<?php echo bloginfo('template_url')?>">
 	      <select class="form-control" name="cabModel" tabindex="50">
 	        <option value="">按投影面积</option>
-	        <option value="limiwu18+9">厘米屋展开面积18+9</option>
-	        <option value="limiwu18+5">厘米屋展开面积18+5</option>
+	        <option value="limiwu18jia9">厘米屋展开面积18+9</option>
+	        <option value="limiwu18jia5">厘米屋展开面积18+5</option>
 	      </select>
         </div>
     	<h5 id="selectH5">操作按钮<span id="selectProject"></span></h5>
@@ -337,9 +281,9 @@ if ($_POST['newProject']) {
 <!-- Bootstrap JS -->
 <script src="<?php limiwu_echo_CDN_URL('bootstrap.min.js')?>"></script>
 <!-- datepickerJS -->
-<script type="text/javascript" src="<?php echo bloginfo('template_url')?>/datepickerJS/bootstrap-datepicker.min.js"></script>
-<script type="text/javascript" src="<?php echo bloginfo('template_url')?>/datepickerJS/bootstrap-datepicker.zh-CN.min.js" charset="UTF-8"></script>
-<script type="text/javascript" src="<?php echo bloginfo('template_url')?>/js/limiwu-page-baojia.js?v=1.6" charset="UTF-8"></script>
+<script type="text/javascript" src="<?php bloginfo('template_url')?>/datepickerJS/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript" src="<?php bloginfo('template_url')?>/datepickerJS/bootstrap-datepicker.zh-CN.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="<?php bloginfo('template_url')?>/js/limiwu-page-baojia.js?v=1.6" charset="UTF-8"></script>
 <?php echo get_option('limiwu_bottom_javaScript');?>
 <?php wp_footer(); ?>
 </body>
