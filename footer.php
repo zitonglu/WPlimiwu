@@ -1,6 +1,6 @@
 <footer class="footer">
     <p>
-        Copyright © 2019-2020 <a href="<?php bloginfo('url'); ?>/wp-admin" target="_blank"><?php bloginfo('name'); ?></a> <span class="glyphicon glyphicon-pencil"></span> 
+        Copyright © 2019-2020 <a href="<?php echo admin_url(); ?>/wp-admin" target="_blank"><?php bloginfo('name'); ?></a> <span class="glyphicon glyphicon-pencil"></span> 
         <a href="//beian.miit.gov.cn/" rel="nofollow" target="_blank">
 <?php echo get_option( 'limiwu_get_ICP' );?></a> <!--网站备案号-->
         <span class="glyphicon glyphicon-tree-deciduous"></span> <a href="<?php bloginfo('rdf_url'); ?>" target="_blank">RSS</a> 
