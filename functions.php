@@ -256,6 +256,29 @@ function limiwu_homeTop_page($home_top='',$php='php') {
     }
 }
 /**
+ * 让主题增加识别webp格式图片
+ * 
+ * @package limiwuCom
+ * @author //blog.csdn.net/sunboy_2050/article/details/103722422
+ * @since 2020-4-4
+ */
+//添加可以上传
+function limiwu_add_webp( $array ) {
+    $array['webp'] = 'image/webp';
+    return $array;
+}
+add_filter('mime_types','limiwu_add_webp',10,1);
+//添加媒体识别
+function limiwu_add_image_webp($result, $path) {
+    $info = @getimagesize($path);
+    if($info['mime'] == 'image/webp') {
+        $result = true;
+    }
+    return $result;
+}
+add_filter('file_is_displayable_image','limiwu_add_image_webp',10,2);
+
+/**
  * 文章编辑侧板增加文章来源、缩略图网址功能
  * * 文章来源用户展示文章出处
  * * 缩略图功能用于手动输入文章缩略图、置顶PPT图的网址 
