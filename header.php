@@ -52,7 +52,7 @@ if (is_home()) {
 		wp_title( '|', true, 'right' ); 
 }?></title>
 
-<?php get_template_part( 'option-seo');//SEO ?>
+<?php get_template_part('option-seo');//SEO ?>
 
 <?php if(get_option('limiwu_index_bg'))://index背景图片?>
 <style>

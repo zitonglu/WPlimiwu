@@ -1,7 +1,8 @@
 <?php
 /**
  * 给主题增加了小工具（widget）侧栏
- * 
+ * 参考文章：//blog.csdn.net/hanshileiai/article/details/38444903
+ * 参考文章：//zhidao.baidu.com/question/1510965831139235700.html
  *
  * @package limiwuCom
  * @author //blog.csdn.net/hanshileiai/article/details/38444903
