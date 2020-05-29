@@ -1,8 +1,10 @@
 <div id="post-<?php the_ID(); ?>" class="col-lg-wu1 col-md-3 col-sm-4 col-xs-6 masonrybox">
 	<div class="thumbnail">
+		<?php if(has_post_thumbnail()):?>
 		<a href="<?php the_permalink(); ?>" target="_blank" title="<?php the_title_attribute(); ?>">
-			<div class="imgbox"><?php limiwu_post_first_img();?><!-- 获取缩略图 --></div>
+			<div class="imgbox"><?php the_post_thumbnail('thumbnail');?></div>
 		</a>
+		<?php endif?>
 		<div class="caption">
 			<a href="<?php the_permalink(); ?>" target="_blank" class="title" title="<?php the_title_attribute(); ?>"><h3><?php echo get_the_title(); ?></h3></a>
 			<p class="edit hidden-xs">

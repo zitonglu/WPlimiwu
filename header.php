@@ -32,6 +32,9 @@ if (is_home()) {
 <?php if(is_single()  || is_page()):?>
 <link rel="stylesheet" href="<?php limiwu_echo_CDN_URL('viewer.min.css','css')?>">
 <?php endif ?>
+<?php if(is_page()):?>
+<link rel="stylesheet" href="<?php limiwu_echo_CDN_URL('diary.css','css')?>">
+<?php endif ?>
 <script src="<?php limiwu_echo_CDN_URL('jquery.min.js')?>"></script>
 <!--[if lt IE 9]>
   <script src="//apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>

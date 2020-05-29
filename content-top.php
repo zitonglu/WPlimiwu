@@ -20,8 +20,6 @@ if (get_option('limiwu_top_posts')) {
 		<div class="title-img"><a href="<?php the_permalink(); ?>" target="_blank" title="<?php the_title_attribute(); ?>">
 	<?php if(get_post_meta($post->ID, '_limiwu_PPT_url', true)){
         echo '<img src="'.get_post_meta($post->ID, '_limiwu_PPT_url', true).'" alt="'.get_the_title().'" onerror="javascript:this.src=\''.get_template_directory_uri().'/image/sandwich.jpg\';"/>';
-	}else{?>
-			<?php limiwu_post_first_img();
 	}?>		
 		</a></div>
 	    <h3><a href="<?php the_permalink(); ?>" target="_blank" class="title"><?php echo get_the_title(); ?></a></h3>
