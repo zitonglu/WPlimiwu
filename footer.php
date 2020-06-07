@@ -5,8 +5,12 @@
 <?php echo get_option( 'limiwu_get_ICP' );?></a> <!--网站备案号-->
         <span class="glyphicon glyphicon-tree-deciduous"></span> <a href="<?php bloginfo('rdf_url'); ?>" target="_blank">RSS</a> 
         Powered By <a href="//cn.wordpress.org" rel="nofollow" target="_blank">WordPress</a>. Theme by <a href="//www.limiwu.com" target="_blank">limiwu.com</a>
-        <?php _e('商业授权版','limiwu' );?> 
-        <a href="<?php bloginfo('url'); ?>/sitemap.xml" target="_blank">SiteMap</a>
+        <?php 
+            _e('商业授权版','feedkim');
+            if (defined('XMLSF_VERSION')){
+                echo ' <a href="'.site_url().'/sitemap.xml" target="_blank" title="xml">SiteMap</a>';
+            }
+        ?>
     </p>
     <?php if(is_single() || is_page()){}else{
         if (has_nav_menu('link')){
