@@ -414,11 +414,6 @@ remove_action( 'wp_print_styles', 'print_emoji_styles');
 remove_filter( 'the_content_feed', 'wp_staticize_emoji');
 remove_filter( 'comment_text_rss', 'wp_staticize_emoji');
 remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email');
-/*
-*   关闭pingback功能
-*   form：http://www.360doc.com/content/17/1105/10/57493_701026541.shtml
-*/
-add_filter('xmlrpc_enabled', '__return_false'); 
 /**
  * 加入图片收藏数据库表limiwu_add_imgTable();
  * 加入信息收藏表limiwu_add_telTable();
