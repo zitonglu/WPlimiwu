@@ -1,11 +1,11 @@
 @charset "UTF-8";
 /*
 Theme Name: 厘米屋家居空间设计
-Theme URI: http://limiwu.com/
-Author: 安南子
-Author URI: http://annanzi.com/
+Theme URI: https://limiwu.com/
+Author: 紫铜炉
+Author URI: https://limiwu.com/
 Description: 厘米屋家居空间设计，主要从事定制家居设计
-Version: 1.0
+Version: 2.0
 License: 
 License URI: 
 Text Domain: 
@@ -103,9 +103,6 @@ input[type="number"]{-moz-appearance: textfield}
 	}
 	.list .masonrybox .thumbnail img{border-radius:0}
 }
-/*.list .masonrybox .thumbnail img:hover{
-	mix-blend-mode:multiply;
-}*/
 .list .masonrybox .thumbnail .caption h3{
 	margin-top:4px;
 	font-size: 16px;
@@ -131,7 +128,6 @@ input[type="number"]{-moz-appearance: textfield}
 .list .masonrybox .thumbnail .caption i{
 	margin:0 1px 2px 0;
 	font-size:90%;
-	/*color: #ddd;*/
 }
 .list .masonrybox .thumbnail .caption .tags{
 	padding-bottom:8px;
